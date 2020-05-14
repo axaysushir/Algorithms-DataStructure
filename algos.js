@@ -1,12 +1,16 @@
-var long = function(s) {
-    let res = 0
-    let tmp = []
-    for (const char of s) {
-        const index = tmp.indexOf(char)
-        if (index > -1) {
-            tmp = tmp.slice(index + 1)
-        }
-        tmp.push(char)
-        if (tmp.length > res) res = tmp.length
+var roman = function(s) {
+    const array = s.split('')
+    let total = 0;
+    let current, currentV, nxt, nxtV;
+
+    for (let i=0; i < array.length; i++) {
+        current = array[i]
+        currentV = conversion[current]
+        nxt = array[i+1]
+        nxtV = conversion[nxt]
+
+        if (currentV < nxtV) total -= currentV
+        else total += currentV
     }
+    return total
 }

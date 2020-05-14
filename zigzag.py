@@ -42,7 +42,7 @@ def divide(dividend, divisor):
     # update dividend and divisor positive
     divisor = abs(divisor)
     dividend = abs(dividend)
-    # initialixe quotient = 0
+    # initialize quotient = 0
     quotient = 0
     while (dividend >= divisor):
         dividend -= divisor # 10 - 7 = 3 increase quotient by 1 and repeat
@@ -56,4 +56,5 @@ class slolution(object):
     def isPalindrome(self, x):
         return str(x) == str(x)[::-1]
 
-
+def devide(dividend, divisor):
+    sign = -1 if ((dividend <0) ^ ())

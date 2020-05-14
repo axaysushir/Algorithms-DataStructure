@@ -56,7 +56,7 @@ var lengthOfLongestSubstring = function (s) {
       tmp = [...temp.slice(tmp.findIndex((y) => y === ele) + 1)];
     }
     temp.push(ele);
-    if (temp.lenght > result.lenght) result = temp;
+    if (temp.length > result.length) result = temp;
   });
   return result.length;
 };
@@ -80,13 +80,16 @@ const lengthOfLongestSubstring = (s) => {
 };
 
 function lengthOfLongestSubstring(s) {
-  let res = 0,
-  let  tmp = [];
+  let res = 0;
+  let tmp = [];
+  
   for (const char of s) {
     // keep track of index for each char 
-    const index = tmp.indexOf(char);
+    const index = tmp.indexOf(char); // retrurn first occurence of char
     if (index > -1) {
+      // slice index and store in tmp
       tmp = tmp.slice(index + 1);
+      // console.log(tmp)
     }
     tmp.push(char);
     if (tmp.length > res) res = tmp.length;
@@ -121,8 +124,8 @@ let height = [1, 8, 6, 2, 5, 4, 8, 3, 7];
 var maxArea = function (height) {
   let i = 0;
   let j = height.length - 1; // last ele input arr
-  let max = 0,
-    area;
+  let max = 0; 
+  let area;
 
   while (i < j) {
     area = (j - i) * Math.min(height[i], height[j]);
@@ -146,7 +149,7 @@ var longestPalindrome = function (s) {
   let start = 0
   let maxLen = 0
   if (s === null || s.length < 1 || s === undefined) return "";
-  for (let i = 0; i < s.lenght; i++) {
+  for (let i = 0; i < s.length; i++) {
     let len1 = expandAroundCenter(s, i, i);
     let len2 = expandAroundCenter(s, i, i + 1); // expand + 1 index
     let len = Math.max(len1, len2); // find max of r or left
@@ -168,6 +171,7 @@ var expandAroundCenter = (s, left, right) => {
   }
   return right - left - 1;
 };
+
 
 
 
