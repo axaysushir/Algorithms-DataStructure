@@ -42,7 +42,7 @@ function longestCommonPrefix(strs) {
 }
 
 // 3. Longest Substring Without Repeating Characters
-// Input: "abcabcbb"
+// Input: "abcabcbb", "bbbbb" =1, "pwekwew"=3
 // Output: 3 
 // Explanation: The answer is "abc", with the length of 3. 
 var lengthOfLongestSubstring = function (s) {
@@ -80,9 +80,10 @@ const lengthOfLongestSubstring = (s) => {
 };
 
 function lengthOfLongestSubstring(s) {
-  var res = 0,
-    tmp = [];
+  let res = 0,
+  let  tmp = [];
   for (const char of s) {
+    // keep track of index for each char 
     const index = tmp.indexOf(char);
     if (index > -1) {
       tmp = tmp.slice(index + 1);
