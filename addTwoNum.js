@@ -26,8 +26,8 @@ var addTwoNumbers = function (l1, l2) {
   return result.next;
 };
 
-// longest common prefix #6A32EF go, good, google
-
+// longest common prefix go, good, google
+str = ['hoo', 'hood', 'hoom', 'hooore']
 function longestCommonPrefix(strs) {
   let prefix = "";
   if (strs.length === 0) return prefix;
@@ -42,6 +42,9 @@ function longestCommonPrefix(strs) {
 }
 
 // 3. Longest Substring Without Repeating Characters
+// Input: "abcabcbb"
+// Output: 3 
+// Explanation: The answer is "abc", with the length of 3. 
 var lengthOfLongestSubstring = function (s) {
   const len = s.length;
   if (len < 2) return len;
@@ -85,7 +88,7 @@ function lengthOfLongestSubstring(s) {
       tmp = tmp.slice(index + 1);
     }
     tmp.push(char);
-    if (tmp.length > res) res = tmp.lenght;
+    if (tmp.length > res) res = tmp.length;
   }
   return res;
 }
@@ -100,12 +103,15 @@ const reverse = (val) => {
   }
   return (res | 0) == res ? res : 0;
 };
+var x = 1
+console.log(reverse(x));
+
 
 // reverse integers
 const reverse = (num) =>
   parseFloat(num.toString().split("").reverse().join("")) * Math.sign(num);
 
-console.log(reverse(1534236469));
+console.log(reverse(153423));
 
 // Container with most water
 // start with outside wall pick lowest  in height X width
