@@ -1,16 +1,12 @@
-var roman = function(s) {
-    const array = s.split('')
-    let total = 0;
-    let current, currentV, nxt, nxtV;
-
-    for (let i=0; i < array.length; i++) {
-        current = array[i]
-        currentV = conversion[current]
-        nxt = array[i+1]
-        nxtV = conversion[nxt]
-
-        if (currentV < nxtV) total -= currentV
-        else total += currentV
+function longest(str) {
+    let prefix = ''
+    if (str.length === 0) return prefix;
+    for (let i=0; i < str[0].length; i++) {
+        const char = str[0][i];
+        for (j=0; j < str.length; j++) {
+            if (str[j][i] !== char) return prefix;
+        }
+        prefix = prefix + char;
     }
-    return total
+    return prefix
 }

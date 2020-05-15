@@ -56,5 +56,3 @@ class slolution(object):
     def isPalindrome(self, x):
         return str(x) == str(x)[::-1]
 
-def devide(dividend, divisor):
-    sign = -1 if ((dividend <0) ^ ())
