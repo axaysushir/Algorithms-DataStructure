@@ -21,7 +21,7 @@ var subarray = function (nums, k) {
 console.log(subarray(nums, k));
 
 // CALCULATE WITHPUT SPACE O(n2) consider every sub array possible
-// WE CONSIDER DIFFERENT END POINTS. CHOOSE PERTICULAR START POINT WHILW ITER THR. END POINTS
+// WE CONSIDER DIFFERENT END POINTS. CHOOSE PERTICULAR START POINT WHILE ITER THR. END POINTS
 // 1 FIND THE SUM FOR EACH SUBARRAY FROM START TO END
 // 2 ADD THAT ELEMENTS TO MAKE SUM & WHEN SUM IS = K THEN UPDATE COUNT++
 // 3 REPEAT PROCESS FOR NEXT SUBARRAY WHILE RESET SUM VALUE = 0
@@ -58,4 +58,7 @@ var subarray = function (nums, k) {
 let nums = [1, 1, 1];
 let k = 2;
 console.log(subarray(nums, k));
+console.table(subarray(nums, k))
+
+
 

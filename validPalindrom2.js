@@ -1,22 +1,24 @@
 // Facebook interview
 // Valid Palindrome II
 // Fraction to recurring decimal
+// TIME coplexity: o(n) we can check string only once SPACE complexity: O(1) co
+
 const checkPalindorme = function(s, start, end) {
-    while ( start < end) {
+    while (start < end) {
       if (s[start] != s[end]) return false
       start++;
-    end--;
+      end--;
     }
     return true
   }
   
   const validPalindrome = function(s) {
     let start = 0;
-    let end = s.length -1;
+    let end = s.length - 1;
   
     while (start < end) {
       if (s[start] != s[end]) {
-        // CHECK IF START, END -1 || START +1, END IS PALINDORME
+        // CHECK IF START, END -1 || START + 1, END IS PALINDORME
         return checkPalindorme(s, start, end - 1) || checkPalindorme(s, start + 1, end)
       }
       start++
