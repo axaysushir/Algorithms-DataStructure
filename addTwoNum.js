@@ -107,7 +107,7 @@ const reverse = (val) => {
   }
   return (res | 0) == res ? res : 0;
 };
-var x = 1
+var x = 123
 console.log(reverse(x));
 
 
