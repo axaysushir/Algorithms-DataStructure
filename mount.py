@@ -18,11 +18,13 @@ class Solution(object):
             i += 1
         if i == 0 or i == N-1: # if first or last char in arr then return false
             return False
-        while i + 1 < N and A[i] > A[i +1]:
+        while i + 1 < N and A[i] > A[i +1]: # if reach to peak point & pick is bigger then next element i++
             i += 1
         
         return i == N-1
-
+# driver code
+x = Solution().validMountainArray(A)
+print(x)
 # Given a string, find the length of the longest substring without repeating characters.
 # Input: "abcabcbb"
 # Output: 3 
