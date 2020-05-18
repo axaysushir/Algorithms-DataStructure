@@ -105,9 +105,9 @@ const reverse = (val) => {
     res = res * Base + (val % Base);
     val = (val / Base) | 0;
   }
-  return (res | 0) == res ? res : 0;
+  return (res | 0) == res ? res : 0; // (A | B) Returns a zero in each bit position for which the corresponding bits of both operands are zeros
 };
-var x = 123
+var x = 123456
 console.log(reverse(x));
 
 
