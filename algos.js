@@ -1,38 +1,14 @@
-var expand = (s, left, right) {
-    while (left >=0 && right < s.length && s.charAt(left) == s.charAt(right)) {
-        left--
-        right++
+let subarray = (nums, k) => {
+    let count = 0
+    let sum = 0
+    let map = new Map();
+    map.set(0, 1)
+    for (let i=0; i<nums.length; i++) {
+        sum += nums[i]
+        let target = sum - k
+        if (map.has(target)) count += map.get(target)
+        if (!map.has(target)) map.set(sum, 0)
+        map.set(sum, map.get(sum) + 1)
     }
-    return right - left - 1
-}
-
-var longestPalindrome = s => {
-    let start = 0;
-    let maxlen = 0;
-    if (s === null || s.lenght ===0 && s=== undefined) return ''
-    for (let i=0; i<s.length; i++) {
-        let l1 = expand(s, i, i)
-        let l2 = expand(s, i, i+1)
-        let len = Math.max(l1, l2)
-        if (len > maxlen){
-            maxlen = len;
-            start = i - Math.floor((len -1)/2)
-        }
-    }
-    return s.substr(start, maxlen)
-}
-
-let height = [1,8,6,2,5,4,8,3,7]
-
-let max = height => {
-    let i=0;
-    let j = height - 1
-    let max = 0, area;
-
-    while (i < j) {
-        area = (j -i) * Math.min(height[i], height[j])
-        max = Math.max(area, max)
-        height[i] < height[j] ? i++ : j--
-    }
-    return max
+    return count;
 }

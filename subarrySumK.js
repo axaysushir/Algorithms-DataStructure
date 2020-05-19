@@ -1,7 +1,7 @@
 // subarray sum equals K
 // Given an array of integers and an integer k, you need to find the total number of continuous subarrays whose sum equals to k.
 // Input:nums = [1,1,1], k = 2   Output: 2
-// The simplest method is to consider every possible subarray of the given numsnumsnums array, find the sum of the elements of each of those subarrays and check for the equality of the sum obtained with the given kkk. Whenver the sum equals kkk, we can increment the countcountcount used to store the required result.
+// The simplest method is to consider every possible subarray of the given nums array, find the sum of the elements of each of those subarrays and check for the equality of the sum obtained with the given kkk. Whenver the sum equals kkk, we can increment the countcountcount used to store the required result.
 // brute force solution Time complexity: O(n3), consider all subarray take O(n2) tiem and check sum takes O(n) time
 // Space complexity  = O(1)
 let nums = [1, 1, 1];
