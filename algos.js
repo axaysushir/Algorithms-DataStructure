@@ -1,11 +1,17 @@
-let search = function(nums, target) {
-  let index = 0;
-  for (let i=0; i< nums.length; i++) {
-    if (nums[i] == target) return i
-    else if (target > nums[i]) {
-      index = i+1
-      if (target < nums[i+1]) return index
+var generateParenthesis = function(n) {
+  const res = []
+  backtrack('', n, n)
+  return res;
+
+  function backtrack(parens, left, right){
+    if (left === 0 && right === 0) {
+      res.push(parens)
+      return 
     }
+    if (left > 0) backtrack(parens + '(', left - 1, right)
+    if (right > left) backtrack(parens + ')', left, right- 1)
   }
-  return index;
 }
+
+x = generateParenthesis(3)
+console.log(x)
