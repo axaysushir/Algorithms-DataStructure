@@ -15,3 +15,7 @@ var generateParenthesis = function(n) {
 
 x = generateParenthesis(3)
 console.log(x)
+
+// leetcode 150, 56, 165
+
+

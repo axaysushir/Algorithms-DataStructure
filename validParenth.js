@@ -15,3 +15,6 @@ let isValid = function (s) {
 
 let s = "()[{]}";
 console.log(isValid(s));
+
+
+
