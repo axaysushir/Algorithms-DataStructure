@@ -27,7 +27,7 @@ var addTwoNumbers = function (l1, l2) {
 };
 
 // longest common prefix go, good, google
-str = ['hoo', 'hood', 'hoom', 'hooore']
+str = ["hoo", "hood", "hoom", "hooore"];
 function longestCommonPrefix(strs) {
   let prefix = "";
   if (strs.length === 0) return prefix;
@@ -43,8 +43,8 @@ function longestCommonPrefix(strs) {
 
 // 3. Longest Substring Without Repeating Characters
 // Input: "abcabcbb", "bbbbb" =1, "pwekwew"=3
-// Output: 3 
-// Explanation: The answer is "abc", with the length of 3. 
+// Output: 3
+// Explanation: The answer is "abc", with the length of 3.
 var lengthOfLongestSubstring = function (s) {
   const len = s.length;
   if (len < 2) return len;
@@ -82,9 +82,9 @@ const lengthOfLongestSubstring = (s) => {
 function lengthOfLongestSubstring(s) {
   let res = 0;
   let tmp = [];
-  
+
   for (const char of s) {
-    // keep track of index for each char 
+    // keep track of index for each char
     const index = tmp.indexOf(char); // retrurn first occurence of char
     if (index > -1) {
       // slice index and store in tmp
@@ -107,9 +107,8 @@ const reverse = (val) => {
   }
   return (res | 0) == res ? res : 0; // (A | B) Returns a zero in each bit position for which the corresponding bits of both operands are zeros
 };
-var x = 123456
+var x = 123456;
 console.log(reverse(x));
-
 
 // reverse integers
 const reverse = (num) =>
@@ -124,7 +123,7 @@ let height = [1, 8, 6, 2, 5, 4, 8, 3, 7];
 var maxArea = function (height) {
   let i = 0;
   let j = height.length - 1; // last ele input arr
-  let max = 0; 
+  let max = 0;
   let area;
 
   while (i < j) {
@@ -146,8 +145,8 @@ console.log(maxArea(height));
 // sol 2: Brute force :pick all ele and check palindorme O(n^3) space O(1)
 //  sol3: Dyncamic programming O(n^2) time & space
 var longestPalindrome = function (s) {
-  let start = 0
-  let maxLen = 0
+  let start = 0;
+  let maxLen = 0;
   if (s === null || s.length < 1 || s === undefined) return "";
   for (let i = 0; i < s.length; i++) {
     let len1 = expandAroundCenter(s, i, i);
@@ -172,25 +171,31 @@ var expandAroundCenter = (s, left, right) => {
   return right - left - 1;
 };
 
-
-
-
 // string camelcase to snake case
-function camelToSnakeCase( string) {
-  return string.split(/(?=[A-Z])/).map(x => x.toLowerCase()).join('_')
+function camelToSnakeCase(string) {
+  return string
+    .split(/(?=[A-Z])/)
+    .map((x) => x.toLowerCase())
+    .join("_");
 }
 
-var x =camelToSnakeCase('HelloWorldSnale')
-console.log(x)
+var x = camelToSnakeCase("HelloWorldSnale");
+console.log(x);
 
 function camelToSnakeCase(string) {
- return string.split(/(?=[A-Z])/).join('_').toLowerCase()
+  return string
+    .split(/(?=[A-Z])/)
+    .join("_")
+    .toLowerCase();
 }
-var Y = camelToSnakeCase('HelloWorld')
-console.log(Y)
+var Y = camelToSnakeCase("HelloWorld");
+console.log(Y);
 
-snakeToCamel = str => str.replace(/([-_]\w)/g, g => g[1].toUpperCase())
-console.log(snakeToCamel('Snake_Case'))
+snakeToCamel = (str) => str.replace(/([-_]\w)/g, (g) => g[1].toUpperCase());
+console.log(snakeToCamel("Snake_Case"));
 
-const snakeToCamel = str => str.replace(/([-_][a-z])/g, g => g.toUpperCase().replace('-', '').replace('_', ''))
-console.log(snakeToCamel('snake_case'))
+const snakeToCamel = (str) =>
+  str.replace(/([-_][a-z])/g, (g) =>
+    g.toUpperCase().replace("-", "").replace("_", "")
+  );
+console.log(snakeToCamel("snake_case"));
