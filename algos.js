@@ -18,23 +18,18 @@ console.log(x);
 
 // leetcode 150, 56, 165
 
-let remove = function (head, n) {
-  let listnode;
-  let dummy = new listnode(0);
-  dummy.next = head;
-  let length = 0;
-  first = head;
-
-  while (first != null) {
-    length++;
-    first = first.next;
+let searchIndex = function (nums, target) {
+  let index = 0;
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] == target) return i;
+    else if (target > nums[i]) {
+      index = i + 1;
+      if (target < nums[i + 1]) return index;
+    }
   }
-  length -= n;
-  first = dummy;
-  while (length > 0) {
-    length--;
-    first = first.next;
-  }
-  first.next = first.next.next;
-  return dummy.next;
+  return index;
 };
+let nums = [1, 12, 3, 4, 5, 9, 6];
+let target = 6;
+x = searchIndex(nums, target);
+console.log(x);

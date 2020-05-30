@@ -1,4 +1,5 @@
 //  remove nth last node from linked list
+// Given linked list: 1->2->3->4->5, and n = 2.
 
 var removeNthFromEnd = function (head, n) {
   let listNode;
