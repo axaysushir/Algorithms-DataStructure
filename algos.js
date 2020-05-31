@@ -18,18 +18,26 @@ console.log(x);
 
 // leetcode 150, 56, 165
 
-let searchIndex = function (nums, target) {
-  let index = 0;
-  for (let i = 0; i < nums.length; i++) {
-    if (nums[i] == target) return i;
-    else if (target > nums[i]) {
-      index = i + 1;
-      if (target < nums[i + 1]) return index;
-    }
+// devide without multiply devide
+var devide = function (dividend, divisor) {
+  let i = 0;
+  if (dividend === -2147483648 && divisor === -1) {
+    return 2147483647;
   }
-  return index;
+  let div = Math.abs(dividend);
+  let divy = Math.abs(divisor);
+
+  while (div >= divy) {
+    div = div - divy;
+    i++;
+  }
+  let nagative = 0 - i;
+  if (dividend > 0 && divisor > 0) return i;
+  if ((dividend < 0 && divisor > 0) || (dividend > 0 && divisor < 0))
+    return nagative;
+  else return i;
 };
-let nums = [1, 12, 3, 4, 5, 9, 6];
-let target = 6;
-x = searchIndex(nums, target);
-console.log(x);
+
+let dividend = 7;
+let divisor = -3;
+console.log(devide(dividend, divisor));
