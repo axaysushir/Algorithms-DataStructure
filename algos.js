@@ -41,3 +41,9 @@ var devide = function (dividend, divisor) {
 let dividend = 7;
 let divisor = -3;
 console.log(devide(dividend, divisor));
+
+const arr = [3, 3, 2, 1, 3, 2, 1];
+arr.sort();
+console.log(arr);
+
+
