@@ -39,11 +39,25 @@ var devide = function (dividend, divisor) {
 };
 
 let dividend = 7;
-let divisor = -3;
+let divisor = 12;
 console.log(devide(dividend, divisor));
 
 const arr = [3, 3, 2, 1, 3, 2, 1];
 arr.sort();
 console.log(arr);
 
+
+var strStr = function(haystack, needle) {
+  if ((!haystack && !needle) || (haystack && !needle)) return 0
+  for (let i=0; i< haystack.length; i++) {
+    if (haystack[i] === needle[0] && haystack.slice(i, i + needle.length) === needle){
+      return i
+    }
+  } 
+  return -1
+};
+
+let haystack = 'hello'
+let needle= 'll'
+console.log(strStr(haystack, needle));
 

@@ -8,7 +8,7 @@ class Solution:
                 while tmp.next and tmp.val == tmp.next.val:
                     tmp.next = tmp.next.next
                 if tmp == head:
-                    head: tmp.next
+                    head = tmp.next
                 else:
                     prev.next = tmp.next
                     tmp = tmp.next
@@ -21,3 +21,11 @@ class Solution:
 
 
         
+# strStr
+class Solution:
+    def strStr(self, haystack: str, needle: str):
+        if len(needle) == 0:
+            return 0
+        if needle in haystack:
+            return haystack.index(needle)
+        return -1

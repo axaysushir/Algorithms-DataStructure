@@ -27,7 +27,7 @@ const checkPalindorme = function(s, start, end) {
     return true
   }
   
-  let s= 'eddfeg'
+  let s= 'eddew'
   console.log(validPalindrome(s));
   
   
