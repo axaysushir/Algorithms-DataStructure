@@ -13,12 +13,14 @@ def singleNumber(nums):
                 return nums[i]
     return -1
 
+
 nums = [4, 3, 2, 4, 1, 3, 2]
 print(singleNumber(nums))
 
-#  If array has many duplicates, we can also store index in hash table, 
-# using a hash table where value is a pair. Now we only need to traverse keys in 
-# hash table (not complete array) to find first non repeating. 
+#  If array has many duplicates, we can also store index in hash table,
+# using a hash table where value is a pair. Now we only need to traverse keys in
+# hash table (not complete array) to find first non repeating.
+
 
 def singleNumber(nums):
     n = len(nums)
@@ -27,10 +29,11 @@ def singleNumber(nums):
         if nums[i] not in map:
             map[nums[i]] = 0
         map[nums[i]] += 1
-    # Traverse through map only 
+    # Traverse through map only
     for x in map:
         if (map[x] == 1):
             return x
 
-nums = [4, 3, 2, 4, 1, 3, 2,5]
+
+nums = [4, 3, 2, 4, 1, 3, 2, 5]
 print(singleNumber(nums))
