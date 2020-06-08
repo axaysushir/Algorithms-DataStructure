@@ -1,3 +1,9 @@
+function TreeNode(val, left, right) {
+  this.val = val === undefined ? 0 : val;
+  this.left = left === undefined ? null : left;
+  this.right = right === undefined ? null : right;
+}
+
 var invertTree = function (root) {
   if (root === null) return null;
   const left = invertTree(root.left);
@@ -22,20 +28,20 @@ var invertTree = function (root) {
 
 // BFS
 function invertTree(root) {
-    const queue = [root]
-    while (queue.length) {
-        let n = queue.shift()
-        if (n != null) {
-            [n.left, n.right] = [n.right, n.left]
-            queue.push(n.left, n.right)
-        }
+  const queue = [root];
+  while (queue.length) {
+    let n = queue.shift();
+    if (n != null) {
+      [n.left, n.right] = [n.right, n.left];
+      queue.push(n.left, n.right);
     }
-    return root;
+  }
+  return root;
 }
 
 // recursi0n
-var invertTree = function(root) {
-    if (root === null) return root;
-    [root.left, root.right] = [invertTree(root.right), invertTree(root.left)]
-    return root;
-}
+var invertTree = function (root) {
+  if (root === null) return root;
+  [root.left, root.right] = [invertTree(root.right), invertTree(root.left)];
+  return root;
+};
