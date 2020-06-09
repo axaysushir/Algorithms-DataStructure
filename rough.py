@@ -18,9 +18,6 @@ class Solution:
 
         return head
 
-
-
-        
 # strStr
 class Solution:
     def strStr(self, haystack: str, needle: str):
@@ -31,13 +28,17 @@ class Solution:
         return -1
 
 # Datastructure to store a bunary search tree node
+
+
 class Node:
-  def __init__(self, value):
-    self.left = None
-    self.right = None
-    self.value = value
+    def __init__(self, value):
+        self.left = None
+        self.right = None
+        self.value = value
 
 # Recursive function to insert a key into binary search tree
+
+
 def insert(root, key):
     # if root is none create a node and return it
     if root is None:
@@ -45,12 +46,14 @@ def insert(root, key):
     # If given key is less then the root node recue for left subtree
     if key < root.value:
         root.left = insert(root.left, key)
-    # if given key is more then root 
+    # if given key is more then root
     else:
         root.right = insert(root.right, key)
     return root
 
 # Recursive function to find floot an ceil using wrapper
+
+
 def findCeilingFloor(root, k, floor=None, ceil=None):
     if root is None:
         return floor, ceil
@@ -64,13 +67,37 @@ def findCeilingFloor(root, k, floor=None, ceil=None):
         return findCeilingFloor(root.left, floor, root, k)
     # If given key is more then the root node recur for right sub tree
     else:
-        # update the seal to the current node before visitng right sub tree   
+        # update the seal to the current node before visitng right sub tree
         return findCeilingFloor(root.right, ceil, root, k)
 
+
 if __name__ == '__main__':
-    keys= [2,4,6,8,9,10,12]
+    keys = [2, 4, 6, 8, 9, 10, 12]
     root = None
     for key in keys:
         root = insert(root, key)
 
 print(findCeilingFloor(root, 5))
+
+# staircase problem
+
+
+class Solution:
+    def climbStairs(self, n: int):
+        if n == 1:
+            return 1
+        elif n == 2:
+            return 2
+        else:
+            dp = {}
+            dp[1] = 1
+            dp[2] = 2
+            i = 3
+            while i <= (n):
+                dp[i] = dp[i-1] + dp[i-2]
+                i += 1
+        return(dp[n])
+
+
+x = Solution().climbStairs(3)
+print(x)
