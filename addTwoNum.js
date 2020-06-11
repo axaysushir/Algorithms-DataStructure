@@ -27,7 +27,7 @@ var addTwoNumbers = function (l1, l2) {
 };
 
 // longest common prefix go, good, google
-str = ["hoo", "hood", "hoom", "hooore"];
+let strs = ["hoo", "hood", "hoom", "hooore"];
 function longestCommonPrefix(strs) {
   let prefix = "";
   if (strs.length === 0) return prefix;

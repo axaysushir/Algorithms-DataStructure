@@ -81,7 +81,6 @@ print(findCeilingFloor(root, 5))
 
 # staircase problem
 
-
 class Solution:
     def climbStairs(self, n: int):
         if n == 1:
@@ -101,3 +100,34 @@ class Solution:
 
 x = Solution().climbStairs(3)
 print(x)
+
+# edit distance
+def minDistance(self, s1, s2):
+    @lru_cache(None)
+    def dp(i,j):
+        if i < 0 or j < 0:
+            return max(i,j) + 1
+        return dp(i-1, j-1) if s1[i] == s2[j] else min(dp(i-1,j), dp(i-1, j-1), dp(i, j-1)) + 1
+    return dp(len(s1) -1, len(s2) -1)
+
+class Solution(object):
+    def minDistance(self, word1, word2):
+        cache = {}
+        def recur(m,n):
+            if (m,n) in cache:
+                return cache[(m,n)]
+            else:
+                if m == 0:
+                    result = n
+                elif n == 0:
+                    result = m
+                elif word1[m - 1] == word2[n - 1]:
+                    result = recur(m-1, n-1)
+                else:
+                    insert = 1 + recur(m, n-1)
+                    delete = 1 + recur(m-1, n)
+                    replace = 1 + recur(m-1, n-1)
+                    result = min(insert, delete, replace)
+                cache[(m,n)] = result
+                return result
+        return recur(len(word1), len(word2))
