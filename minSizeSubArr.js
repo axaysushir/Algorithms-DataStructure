@@ -47,6 +47,6 @@ var minSubArrayLen = function (s, nums) {
   return res;
 };
 
-s = 11
-nums = [2,3,5,2,4,3]
+s = 11;
+nums = [2, 3, 5, 2, 4, 3];
 console.log(minSubArrayLen(s, nums));
