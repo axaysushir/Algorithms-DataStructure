@@ -3,6 +3,8 @@
 # A = 1 -> 2 -> 3 -> 4
 # B = 6 -> 3 -> 4
 # return 3 This should return 3 (you may assume that any nodes with the same value are the same node).
+# Time complexity O(m + n)  Traverse list A and store the address / reference to each node in a hash set. Then check every node bi in list B: if bi appears in the hash set, then bi is the intersection node.
+# space complexity: O(n)
 class Solution():
     def getIntersectionNode(self, headA, headB):
         dictA = {}
@@ -19,6 +21,21 @@ class Solution():
         # No checked no found intersection
         return None
 
+# two pointer Time complexity O(m+n) space O(1)
+class Solution():
+    def getIntersectionNode(self, headA, headB):
+        pa = headA
+        pb = headB
+        while pa != pb:
+            if pa is None:
+                pa = headB
+            else:
+                pa = pa.next
+            if pb is None:
+                pb = headA
+            else:
+                pb = pb.next
+        return pa
 
 class Node(object):
     def __init__(self, val):
