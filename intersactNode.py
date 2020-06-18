@@ -22,6 +22,8 @@ class Solution():
         return None
 
 # two pointer Time complexity O(m+n) space O(1)
+
+
 class Solution():
     def getIntersectionNode(self, headA, headB):
         pa = headA
@@ -36,6 +38,7 @@ class Solution():
             else:
                 pb = pb.next
         return pa
+
 
 class Node(object):
     def __init__(self, val):
