@@ -1,5 +1,10 @@
-// Remove Consecutive Nodes that Sum to 0 asked by uber
-// Given a linked list of integers, remove all consecutive nodes that sum up to 0.
+// Remove Consecutive heads that Sum to 0 asked by uber
+// Given a linked list of integers, remove all consecutive heads that sum up to 0.
+function ListNode(val, next) {
+    this.val = (val == undefined ? 0 : val)
+    this.next = (next == undefined ? null : next)
+}
+
 var removeZeroSumSublists = function(head) {
     if (!head) return null
     let p = head;
@@ -13,11 +18,23 @@ var removeZeroSumSublists = function(head) {
     return head
 }
 
+head = ListNode(10)
+head.next = ListNode(5)
+head.next.next = ListNode(-3)
+head.next.next.next = ListNode(-3)
+head.next.next.next.next = ListNode(1)
+head.next.next.next.next.next = ListNode(4)
+head.next.next.next.next.next.next = ListNode(-4)
+head = removeZeroSumSublists(head)
+
+console.log(head)
+
+// hash map O(n)
 var removeZeroSumSublists = function(head) {
     let sum = 0, dummy = {val:0, next: head}, map = {0: [dummy]}
     while (head) {
         sum += head.val
-        if (sum in map) map[sum].forEach(node => node.next = head.next)
+        if (sum in map) map[sum].forEach(head => head.next = head.next)
         map[sum] ? map[sum].push(head) : map[sum] = [head]
         head = head.next
     }
@@ -43,9 +60,9 @@ console.log(removeZeroSumSublists([1,2,3,-3,1]))
 //             pre = hashMap[runningSum]
 //             sum2 = runningSum + pre.next.val
 //             while sum2 != runningSum:
-//                 node = hashMap[sum2]
+//                 head = hashMap[sum2]
 //                 del hashMap[sum2]
-//                 sum2 += node.next.val
+//                 sum2 += head.next.val
 //             pre.next = cur.next
 //         cur = cur.next
 //     return head
