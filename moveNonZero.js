@@ -17,10 +17,12 @@ var moveZeros = function(nums) {
 // 2nd
 const moveZeros = nums => {
     for (let i = nums.length; 0 <= i; i--){
-        nums[i] == 0 && nums.splice(i, 1) && nums.push(0)
+        nums[i] == 0 && nums.splice(i, 1) && nums.push(0) // add to end of the array
     }
     return nums
 }
+nums = [0,1,0,3,0,12]
+console.log(moveZeros(nums));
 
 // swaping
 
@@ -36,9 +38,10 @@ const moveZeroes = nums => {
             nonZeroes++;
         }
     }
+    return nums
 };
 
-nums = [0,1,0,3,12]
+nums = [0,1,0,3,0,12]
 console.log(moveZeroes(nums));
 
 
@@ -57,3 +60,5 @@ var moveZeros = function(nums) {
     }
     return nums
 }
+nums = [0,1,0,3,12]
+console.log(moveZeros(nums));

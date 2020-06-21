@@ -12,6 +12,14 @@ var reverseList = function (head) {
   return prevNode;
 };
 
+const revList = function (head) {
+  if (head === null || head.next === null) return head;
+  let prevnode = revList(head.next)
+  head.next.next = head
+  head.next = null;
+  return prevnode;
+}
+
 // revursive
 const reverseList = (head) => reverse(head, null);
 const reverse = (node, next) => {
