@@ -141,4 +141,25 @@ let values = [2, 4, 6, 8, 10, 12, 14];
 console.log(solution(values, 5));
 
 
+// 
+let x = 25
+let y = 5
+let multiply = function(x,y) {
+  if (y==0 || x == 0) return 0
+  if (y > 0) return (x + multiply(x, y-1))
+  if (y < 0) return -multiply(x, -y)
 }
+
+let divider = function(dividend, devisor) {
+  let sign 
+  if (dividend < 0 || devisor <0) sign = -1
+  else 1
+  let quot = 0
+  while (dividend >= devisor) {
+    dividend -= devisor
+    quot ++
+  }
+  return sign * quot;
+}
+
+console.log(divider(25,5));
