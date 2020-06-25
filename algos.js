@@ -38,7 +38,7 @@ var devide = function (dividend, divisor) {
   else return i;
 };
 
-let dividend = 7;
+let dividend = 6;
 let divisor = 12;
 console.log(devide(dividend, divisor));
 
@@ -143,23 +143,51 @@ console.log(solution(values, 5));
 
 // 
 let x = 25
-let y = 5
+let y = -5
 let multiply = function(x,y) {
   if (y==0 || x == 0) return 0
   if (y > 0) return (x + multiply(x, y-1))
   if (y < 0) return -multiply(x, -y)
 }
 
-let divider = function(dividend, devisor) {
-  let sign 
-  if (dividend < 0 || devisor <0) sign = -1
-  else 1
+console.log(multiply(x,y));
+
+let devide = function(divi, dy) {
   let quot = 0
-  while (dividend >= devisor) {
-    dividend -= devisor
-    quot ++
+  let d = Math.abs(divi)
+  let y = Math.abs(dy)
+  while(d >= y) {
+    d = d - y
+    quot++
   }
-  return sign * quot;
+  return quot
 }
 
-console.log(divider(25,5));
+console.log(devide(25,4));
+
+
+let nums = [1,2,3,4,1,4]
+
+let duplicate = nums.filter((item ,index) => nums.indexOf(item) === index);
+const unique = [...new Set(nums)]
+console.log(duplicate)
+
+let move = nums => {
+  let (i = nums.length; 0 <= i; i--) {
+    nums[i] == 0 && nums.splice(i, 1) && nums.push(0)
+  }
+  return nums
+} 
+
+let twosum = (nums, target) => {
+  let sum = []
+  for (let i=0; i< nums.length; i++) {
+    for (let j = i+1; j < nums.legth; j++) {
+      if (nums[i] + nums[j] === target) {
+        sum.push(i)
+        sum.push(j)
+      }
+    }
+  }
+  return sum
+}

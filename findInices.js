@@ -16,7 +16,7 @@ var searchRange = function (nums, target) {
 };
 
 let nums = [5, 7, 7, 8, 8, 10];
-let target = 81;
+let target = 8;
 console.log(searchRange(nums, target));
 
 // Binary search

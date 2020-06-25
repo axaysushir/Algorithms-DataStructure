@@ -14,6 +14,8 @@ var moveZeros = function(nums) {
     return nums
 }
 
+
+
 // 2nd
 const moveZeros = nums => {
     for (let i = nums.length; 0 <= i; i--){
@@ -61,4 +63,5 @@ var moveZeros = function(nums) {
     return nums
 }
 nums = [0,1,0,3,12]
-console.log(moveZeros(nums));
+console.log(rem(nums));
+

@@ -28,12 +28,12 @@ def singleNumber(nums):
     for i in range(n):
         if nums[i] not in map:
             map[nums[i]] = 0
-        map[nums[i]] += 1
+            map[nums[i]] += 1
     # Traverse through map only
     for x in map:
         if (map[x] == 1):
             return x
 
 
-nums = [4, 3, 2, 4, 1, 3, 2, 5]
+nums = [4, 3, 2, 4, 1, 5]
 print(singleNumber(nums))
