@@ -40,6 +40,7 @@ const isAlienSorted = (words, order) => {
     return true
 }
 
+// solution 2:
 const isSorted = (words, order) => {
     for (let i=0; i< words.length - 1; i++) {
         // check adjacent words
