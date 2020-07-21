@@ -51,8 +51,8 @@ class MedianFinder:
         return self.a[self.h]
 
 # Your MedianFinder object will be instantiated and called as such:
-num = [2, 1, 4, 7, 2, 0, 5]
-obj = MedianFinder()
-obj.addNum(num)
-param_2 = obj.findMedian()
-print(param_2)
+# num = [2, 1, 4, 7, 2, 0, 5]
+# obj = MedianFinder()
+# obj.addNum(num)
+# param_2 = obj.findMedian()
+# print(param_2)
