@@ -101,3 +101,8 @@ class Solution:
 x = Solution().climbStairs(3)
 print(x)
 
+
+# reverse word in string at place
+class Solution:
+    def reverseWords(self, s):
+        return ' '.join(s.split()[::-1])

@@ -193,3 +193,15 @@ let twosum = (nums, target) => {
 }
 
 // meeting rooms
+str = "The cat in the hat"
+
+function reverse(str) {
+  return str.split('').reverse().join('')
+}
+console.log(reverse(str)); //tah eht ni tac ehT
+// reverse str by order
+var reverseWords = function(s) {
+  return s.trim().split(' ').reverse().join(' ').replace(/ +/g, ' ')
+}
+let ReverseWords = s => s.split(/\s+/g).filter(c => c !== '').reverse().join('')
+console.log(reverseWords(str)); //hat the in cat The
