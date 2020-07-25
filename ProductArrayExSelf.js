@@ -39,6 +39,7 @@ var productExceptSelf = function(nums) {
 let a = productExceptSelf([1, 2, 3, 4, 5])
 console.log(a);
 
+// solution 2
 var product = function(nums) {
     let res = []
     nums.reduce((leftP, curr, i) => {
