@@ -1,4 +1,4 @@
-// # BY MICROSOFT
+// # BY MICROSOFT Leetcode 1344
 // # Given a time in the format of hour and minute, calculate the angle of the hour and minute hand on a clock.
 // # def calcAngle(h, m):
 // #   # Fill this in.
