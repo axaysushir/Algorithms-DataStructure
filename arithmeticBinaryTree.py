@@ -51,8 +51,9 @@ def evaluate(root: Node) -> int:
 tree = Node(TIMES)
 tree.left = Node(PLUS)
 tree.left.left = Node(3)
-tree.left.right = Node(6)
+tree.left.right = Node(2)
 tree.right = Node(PLUS)
 tree.right.left = Node(4)
 tree.right.right = Node(5)
 print(evaluate(tree))
+# return 45
