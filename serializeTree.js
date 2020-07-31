@@ -1,5 +1,5 @@
 // Hi, here's your problem today. This problem was recently asked by Apple:
-
+// leetoce 293 Hard
 // You are given the root of a binary tree. You need to implement 2 functions:
 
 // 1. serialize(root) which serializes the tree into a string representation
@@ -12,6 +12,7 @@ function TreeNode(val) {
     this.val = val;
     this.left = this.right = null;
 }
+
 var serialize = function(root) {
     let data = []
 
@@ -72,7 +73,7 @@ let deserialize = (data = []) => {
 }
 
 
-
+// solution 3
 /**
  * Encodes a tree to a single string.
  *
