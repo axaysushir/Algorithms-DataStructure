@@ -41,3 +41,46 @@ s.push(9)
 s.pop()
 s.pop()
 print(s.popMax())
+
+
+# Design a simple stack that supports push, pop, top, and retrieving the minimum element in constant time.
+class MinStack:
+    def __init__(self):
+        # List to store values
+        self.stack = []
+        # variabe to hold min value
+        self.minVal = float('inf')
+        # List to store min Value
+        self.minStack = [self.minVal]
+
+    def push(self, x:int):
+        self.stack.append(x)
+        # if x is less than OR EQUAL minVal insert x into minStack
+        # OR EQUAL condition is to support repitition of minVal in array
+        if x <= self.minVal:
+            self.minVal = x
+            self.minStack.append(self.minVal)
+
+    def pop(self):
+         # if popped value is minVAl then set minVal to new minimum
+         if self.stack.pop() == self.minVal:
+             self.minStack.pop()
+             self.minVal = self.minStack[-1]
+
+    def top(self):
+        return self.stack[-1]
+
+    def getMin(self):
+        return self.minVal
+
+x = MinStack()
+x.push(-2)
+x.push(0)
+x.push(-3)
+print(x.getMin())
+# -3
+x.pop()
+print(x.top())
+# 0
+print(x.getMin())
+#  -2
