@@ -30,7 +30,7 @@ var minMax = (arr) => {
         if (max < arr[i]) max = arr[i]
         else if (min > arr[i]) min = arr[i]
     }
-    return console.log(min, max)
+    return console.log([min, max])
 }
 /*
 # of comparisons in worst case: 1 + 2(n-2) = 2n -1
@@ -84,5 +84,5 @@ var MinMax = a => {
 # of comparisons when n is even: 1 + 3 * ((n-2)/2) = 1.5n-2.
 # of comparisons when n is odd: 1 + 3 * ((n-3)/2) + 2 = 1.5n
 */
-arr = [3, 5, 1, 2, 4, 8]
-MinMax(arr)
+arr = [3, 5, 1, 2, 4, 8, 2, 12, 13, 19, 14, 6]
+minMax(arr)
