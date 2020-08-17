@@ -1,4 +1,4 @@
-''' Aksed by AirBnB
+''' Asked by AirBnB
 Given a sorted list of positive numbers, find the smallest positive number that cannot be a sum of any subset in the list.
 
 Example:
