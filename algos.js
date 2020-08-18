@@ -206,4 +206,3 @@ var reverseWords = function(s) {
 let ReverseWords = s => s.split(/\s+/g).filter(c => c !== '').reverse().join('')
 console.log(reverseWords(str)); //hat the in cat The
 
-
