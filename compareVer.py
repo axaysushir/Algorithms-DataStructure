@@ -1,3 +1,12 @@
+# Asked by Amazon
+# Version numbers are strings that are used to identify unique states of software products. 
+# A version number is in the format a.b.c.d. and so on where a, b, etc. are numeric strings separated by dots. 
+# These generally represent a hierarchy from major to minor changes. Given two version numbers version1 and 
+# version2, conclude which is the latest version number. Your code should do the following: 
+# If version1 > version2 return 1. 
+# If version1 < version2 return -1.
+# Otherwise return 0. 
+
 # Compare two version numbers version1 and version2. LEETCODE 165
 # If version1 > version2 return 1; if version1 < version2 return -1;otherwise return 0.
 # Input: version1 = "0.1", version2 = "1.1"
