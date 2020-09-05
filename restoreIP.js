@@ -30,7 +30,7 @@ var restoreIpAddress = function (s) {
         generateIp(str, startIndex + i);
         stack.pop();
       }
-      // Emd the loop in case of 0 because a fragment can be 0 but not any number following 0, like 012
+      // End the loop in case of 0 because a fragment can be 0 but not any number following 0, like 012
       if (fragment == 0) return;
     }
   }
@@ -38,5 +38,5 @@ var restoreIpAddress = function (s) {
   return result;
 };
 
-let s = "25525511135";
+let s = "12212211135";
 console.log(restoreIpAddress(s));
