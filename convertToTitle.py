@@ -49,4 +49,4 @@ class Solution:
             title += chr(offset + bit)
         return title
 
-print(convertToTitle( 704))
+print(convertToTitle(27))

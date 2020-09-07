@@ -115,7 +115,7 @@ class ticTacToe(object):
         return 0
 
 
-board = TicTacToe(3)
+board = ticTacToe(3)
 board.move(0, 0, 1)
 board.move(0, 2, 2)
 board.move(2, 2, 1)

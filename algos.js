@@ -206,4 +206,40 @@ var reverseWords = function(s) {
 let ReverseWords = s => s.split(/\s+/g).filter(c => c !== '').reverse().join('')
 console.log(reverseWords(str)); //hat the in cat The
 
+/*
+const google = 'google'
+const fb = null // truthy & falsy value
 
+if (google) {
+  console.log('execute block 1')
+}
+// exe block 1
+if (fb) {
+  console.log('execute block 2');
+}
+// put fb is evaluated & null considered as not fals but falsy value
+// ins some case we need true or false value to falsy
+// how to convert falsy value to actual false or true
+//let say in prod in authentication we need true or false value not falsy
+if (!fb) {
+  console.log('execute block 2');
+}
+// ex b1 b2 bcz it it consider as true or fasle boolena by js not falsy
+// if we want exact true or false value we user ! but it reverse the logic
+if (!!fb) {
+  console.log('execute block 2');
+}
+// so it is best practice to error free code & still get same result
+// when we wnt to convert some thing to null , 0
+//  ! make it to true but we are 100% sure & second ! amek it false & give good performance in real app
+const age = 0;
+
+// bad
+const hasAge = new Boolean(age); //create new obj
+
+// good
+const hasAge = Boolean(age);
+//casting as boolean
+// best
+const hasAge = !!age;
+*/
