@@ -3,7 +3,6 @@
 # bottom right corner mat[n - 1][m - 1] with the most amount of change. You can 
 # only move either left or down.
 
-Here's some starter code:
 def max_change(mat):
   # Fill this in.
 
