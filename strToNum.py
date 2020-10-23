@@ -35,3 +35,7 @@ class Solution:
             elif sign == -1 and res >= 2 ** 31:
                 return -2 ** 31
         return sign * res
+
+
+print(Solution().myAtoi('-105') + 1)
+# -104
