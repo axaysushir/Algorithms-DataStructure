@@ -34,3 +34,10 @@ def findCommon(ar1, ar2, ar3):
 
 
 print(findCommon([1, 2, 3, 4], [2, 4, 6, 8], [3, 4, 5]))
+
+'''
+git add .
+git commit -m "git"
+git push
+
+'''
