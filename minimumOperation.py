@@ -42,7 +42,10 @@ def min_operations(x, y):
             n.level = t.level + 1
             q.put(n)
 
-print(min_operations(6, 20))
+if __name__ == '__main__': 
+    x = 6
+    y = 20
+    print(min_operations(x, y)) 
 # (((6 - 1) * 2) * 2) = 20 : 3 operations needed only
 # print 3
 
