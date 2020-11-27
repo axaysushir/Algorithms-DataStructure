@@ -46,3 +46,36 @@ var romanToInt = function(s) {
 
 let s = 'IV'
 console.log(romanToInt(s));
+
+
+// Integer to Roman
+
+const romanMap = new Map([
+    [1000, "M"],
+    [900, "CM"],
+    [500, "D"],
+    [400, "CD"],
+    [100, "C"],
+    [90, "XC"],
+    [50, "L"],
+    [40, "XL"],
+    [10, "X"],
+    [9, "IX"],
+    [5, "V"],
+    [4, "IV"],
+    [1, "I"],
+]);
+
+var integerToRoman = num => {
+    let romanBuild = []
+    romanMap.forEach((val, key) => {
+        var roman = Math.floor(num/key)
+        if (roman >= 1){
+            romanBuild.push(val.repeat(roman))
+            num -= roman * key
+        }
+    })
+    return romanBuild.join('')
+}
+
+console.log(integerToRoman(1000));
