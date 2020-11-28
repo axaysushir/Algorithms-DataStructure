@@ -173,7 +173,7 @@ const unique = [...new Set(nums)]
 console.log(duplicate)
 
 let move = nums => {
-  let (i = nums.length; 0 <= i; i--) {
+  for (let i = nums.length; 0 <= i; i--) {
     nums[i] == 0 && nums.splice(i, 1) && nums.push(0)
   }
   return nums
