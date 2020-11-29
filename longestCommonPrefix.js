@@ -16,5 +16,5 @@ var longestCommonPrefix = str => {
 
 console.log(longestCommonPrefix(['helloworld', 'hellokitty', 'hell']))
 // hell
-console.log(longestCommonPrefix((['daily', 'interview', 'pro'])))
+console.log(longestCommonPrefix((['daily', 'interview', 'pro'333])))
 // ''
