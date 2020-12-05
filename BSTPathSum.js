@@ -16,7 +16,7 @@
  * now so we can continue checking the rest of the tree we just return the max value of our left or right child
  * 
 */
-function TreeNode(val, left, right) {
+function Node(val, left, right) {
   this.val = val === undefined ? 0 : val;
   this.left = left === undefined ? null : left;
   this.right = right === undefined ? null : right;
@@ -36,3 +36,9 @@ var maxPathSum = (root) => {
         return node.val + Math.max(left, right)
     }
 }
+
+n6 = Node(6)
+n4 = Node(4)
+n3 = Node(3, None, n4)
+n2 = Node(2, None, n6)
+n1 = Node(1, n2, n3)
