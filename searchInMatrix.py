@@ -20,3 +20,4 @@ print(searchMatrix(mat, 4))
 
 print(searchMatrix(mat, 10))
 # True
+print(searchMatrix(mat, 6))
