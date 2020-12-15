@@ -53,10 +53,10 @@ class LRUCache:
         else:
             node = doubleLinkNode(key=key, val=value)
             self.cache[key] = node
-            self.move_to_tail(node)
+            self.movetotail(node)
             
-            if len(self.cache) > self.capacity:
-                self.pop_least_used()
+            if len(self.cache) > self.space:
+                self.pop()
 
 cache = LRUCache(2)
 

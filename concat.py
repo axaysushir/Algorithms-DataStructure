@@ -1,4 +1,4 @@
-# concatinate words ['cat', 'cats', 'dog', 'catsdog']
+ # concatinate words ['cat', 'cats', 'dog', 'catsdog']
 
 class Solution(object):
     def findConcatenatedWords(self, words):
