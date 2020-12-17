@@ -19,7 +19,8 @@ class Solution(object):
         cache[word] = False
         return False 
 
-input = ['cat', 'cats', 'dog', 'catsdog']
+# input = ['cat', 'cats', 'dog', 'catsdog']
+input = ['rat', 'cat', 'cats', 'dog', 'catsdog', 'dogcat', 'dogcatrat']
 print(Solution().findConcatenatedWords(input))
 
 
