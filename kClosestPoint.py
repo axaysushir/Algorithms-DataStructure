@@ -47,4 +47,6 @@ def kClosest(points, K):
         op.append(i[1])
     return op
 
-print(kClosest(points, 1))
+# print(kClosest(points, 1))
+
+print(kClosest([[1, 1], [3, 3], [2, 2], [4, 4], [-1, -1]], 3))
