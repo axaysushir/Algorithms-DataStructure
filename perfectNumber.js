@@ -29,3 +29,11 @@ var checkNum = num => {
 }
 
 console.log(checkNum(8128));
+
+def checkPerfectNumber(self, num: int) -> bool:
+        if num<=1: return False
+        sum=1
+        for i in range(2,math.ceil(math.sqrt(num))):
+            if num%i==0:
+                sum=sum+i+num//i
+        return sum==num
