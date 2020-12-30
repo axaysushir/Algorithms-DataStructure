@@ -30,7 +30,7 @@ var checkNum = num => {
 
 console.log(checkNum(8128));
 
-// Python soluition
+// Python solution for perfect number asked by facebook
 // def checkPerfectNumber(num):
 //     if num<=1: return False
 //     sum=1
