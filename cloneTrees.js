@@ -10,3 +10,5 @@ var getTargetCopy = (original, cloned, target) => {
     if (original.val === target.val) return cloned
     else return getTargetCopy(orignal.left, cloned.left, target) || getTargetCopy(original.right, cloned.right,target)
 }
+
+// console.log()
