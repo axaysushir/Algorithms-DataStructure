@@ -46,3 +46,13 @@ print(graph_copy)
 # (3, ([4]))
 # (5, ([3]))
 # (1, ([5]))
+
+
+class Node:
+  def __init__(self, val) -> None:
+      self.val = val
+      self.right = None
+      self.left = None
+
+class Solution:
+  
