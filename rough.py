@@ -173,3 +173,31 @@ postfix = "(3 + 2) * (4 + 5)"
 r = constructTree(postfix) 
 print("Infix expression is")
 inorder(r) 
+
+
+
+class Node:
+    def __init__(self, child, word) -> None:
+        self.child = child
+        self.word = word
+
+class Solution:
+    def __init__(self) -> None:
+        self.tri = None
+    
+    def build(self, words):
+        self.tri = Node({}, False)
+        for word in words:
+            current = self.tri
+            for char in word:
+                if not char in current.child:
+                    current.child[char] = Node({}, false)
+                current = current.childern[char]
+            current.word = True
+    
+    def autocomplete(self, prefix):
+        current = self.tri
+        for char in prefix:
+            if not char in current.child:
+                return []
+                
