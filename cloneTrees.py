@@ -26,26 +26,26 @@ class Solution:
         return self.ans 
 
 
-# class solution:
-#     def getTraget(ori, clo, target):
-#         stcko, stckc = [], []
-#         o, c = ori, clo
+class solution:
+    def getTraget(self, ori, clo, target):
+        stcko, stckc = [], []
+        o, c = ori, clo
 
-#         while stcko or c:
-#             while c:
-#                 stcko.append(c)
-#                 stckc.append(c)
+        while stcko or c:
+            while c:
+                stcko.append(c)
+                stckc.append(c)
 
-#                 c = c.left
-#                 o = o.left
-#             c = stckc.pop()
-#             o = stcko.pop()
+                c = c.left
+                o = o.left
+            c = stckc.pop()
+            o = stcko.pop()
 
-#             if c is target:
-#                 return c
+            if c is target:
+                return c
             
-#             o = o.right
-#             c = c.right
+            o = o.right
+            c = c.right
 
 #  1
 # / \
@@ -67,5 +67,5 @@ b.right.right = Node(5)
 print(Solution().findNode(a, b, a.right.left))
 # 4
 
-# print(solution().getTraget(a, b, a.right.left))
+print(solution().getTraget(a, b, a.right.left))
 
