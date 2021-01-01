@@ -191,8 +191,8 @@ class Solution:
             current = self.tri
             for char in word:
                 if not char in current.child:
-                    current.child[char] = Node({}, false)
-                current = current.childern[char]
+                    current.child[char] = Node({}, False)
+                current = current.child[char]
             current.word = True
     
     def autocomplete(self, prefix):
@@ -200,4 +200,17 @@ class Solution:
         for char in prefix:
             if not char in current.child:
                 return []
-                
+            current = current.child[char]
+        return self.findnodefromNode(current, prefix)
+
+    def findnodefromNode(self, node, prefix):
+        words = []
+        if node.word:
+            words += [prefix]
+        for char in node.child:
+            words += self.findnodefromNode(node.child[char], prefix + char)
+        return words
+
+s = Solution()
+s.build(['dog', 'dark', 'cat', 'door', 'dodge', 'car'])
+print(s.autocomplete('c'))
