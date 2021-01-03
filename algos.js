@@ -243,3 +243,22 @@ const hasAge = Boolean(age);
 // best
 const hasAge = !!age;
 */
+
+var reverseList = head => {
+  let prevnode = null
+  while (head !== null) {
+    let nextnode = head.next
+    head.next = prevnode;
+    prevnode = head
+    head = nextnode
+  }
+  return prevnode
+}
+
+const rev = head => {
+  if (head === null || head.next === null) return head
+  let prev = rev(head.next)
+  head.next.next = head
+  head.next = null
+  return prev
+}

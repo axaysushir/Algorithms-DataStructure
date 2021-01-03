@@ -214,4 +214,3 @@ class Solution:
 s = Solution()
 s.build(['dog', 'dark', 'cat', 'door', 'dodge', 'car'])
 print(s.autocomplete('c'))
-
