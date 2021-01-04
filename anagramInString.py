@@ -48,9 +48,22 @@ def find_anagrams(s, p):
 print(find_anagrams('cbaebabacd', 'abc'))
 # [3, 7]
 
+
 # Given a 32-bit integer, swap the 1st and 2nd bit, 3rd and 4th bit, up til the 31st and 32nd bit.
 def swapBits(x):
     return (x & 0b10101010101010101010101010101010) >> 1 | (x & 0b01010101010101010101010101010101) << 1
 
 print(f"0b{swapBits(0b10101010101010101010101010101010):032b}")
 # 0b01010101010101010101010101010101
+
+# 
+def findana(s, p):
+    l = len(p)
+    res = []
+
+    c = Counter(p)
+    for i in range(len(s) - l+1):
+        tmp = s[i: i+l]
+        if c == Counter(tmp):
+            res.append(i)
+        return res
