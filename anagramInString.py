@@ -56,14 +56,3 @@ def swapBits(x):
 print(f"0b{swapBits(0b10101010101010101010101010101010):032b}")
 # 0b01010101010101010101010101010101
 
-# 
-def findana(s, p):
-    l = len(p)
-    res = []
-
-    c = Counter(p)
-    for i in range(len(s) - l+1):
-        tmp = s[i: i+l]
-        if c == Counter(tmp):
-            res.append(i)
-        return res
