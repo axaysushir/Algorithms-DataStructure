@@ -19,3 +19,5 @@ var angleClock = function(hour, minutes) {
 }
 
 console.log(angleClock(3, 30));
+console.log(angleClock(2, 30))
+console.log(angleClock(1, 22))
