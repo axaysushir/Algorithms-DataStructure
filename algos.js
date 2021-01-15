@@ -263,3 +263,25 @@ const rev = head => {
   return prev
 }
 
+
+// Path sum of BST
+function Node(val, left, right) {
+  this.val = val === undefined ? 0 : val;
+  this.left = left === undefined ? null : left;
+  this.right = right === undefined ? null : right;
+}
+
+ var maxPathSum = root => {
+   let max = -Infinity;
+   note(root)
+   return max
+
+   function note(node) {
+    if (node === null) return 0
+    let left = Math.max(note(node.left), 0)
+    let right = Math.max(note(node.right), 0)
+    let currmax = right + node.val + left
+    if (currmax > max) max = currmax
+    return node.val + Math.max(left, right)
+   }
+ }
