@@ -214,3 +214,28 @@ class Solution:
 s = Solution()
 s.build(['dog', 'dark', 'cat', 'door', 'dodge', 'car'])
 print(s.autocomplete('c'))
+
+
+class Node:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.right = right 
+        self.left = left
+
+
+class Solution():
+    def maxPathSum(self, root):
+        self.max = float('-inf')
+
+        def visited(node):
+            if node is not None:
+                return 0
+            
+            left = visited(node.left)
+            right = visited(node.right)
+            currmax = max(node.val + max(left, right), node.val)
+            self.max = max(self.max, currmax, left + right + node.val)
+            return currmax
+
+        visited(root)
+        return self.max
