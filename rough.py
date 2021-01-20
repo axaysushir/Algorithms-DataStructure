@@ -228,7 +228,7 @@ class Solution():
         self.max = float('-inf')
 
         def visited(node):
-            if node is not None:
+            if node is None:
                 return 0
             
             left = visited(node.left)
@@ -245,3 +245,5 @@ n4 = Node(4)
 n3 = Node(3, None, n4)
 n2 = Node(2, None, n6)
 n1 = Node(1, n2, n3)
+
+print(Solution().maxPathSum(n1))
