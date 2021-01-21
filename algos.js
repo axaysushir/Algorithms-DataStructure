@@ -321,10 +321,22 @@ inorder = [9,3,15,20,7]
 console.log(buildTree(pre, inorder));
 
 // sol - 2
-var tree = (preo, ino) {
+var tree = (preo, ino) => {
   if (!preo.legnth) return null
   const idx = ino.indexOf(preo[0])
   const left = tree(preo.slice(1, idx + 1), ino.slice(0, idx))
   const right = tree(preo.slice(idx +1), ino.slice(idx+1))
   return {val: preo[0], left, right}
 }
+function TreeNode(val, left, right) {
+  this.val = (val===undefined ? 0 : val)
+  this.left = (left===undefined ? null : left)
+  this.right = (right===undefined ? null : right)
+}
+
+preo = [3,9,20,15,7]
+inorder = [9,3,15,20,7]
+
+console.log(tree(preo, inorder));
+
+

@@ -247,3 +247,30 @@ n2 = Node(2, None, n6)
 n1 = Node(1, n2, n3)
 
 print(Solution().maxPathSum(n1))
+
+class Node:
+    def __init__(self, value, left = None, right = None):
+        self.value = Value
+        self.right = right
+        self.left = left
+        
+    def __repr__(self):
+        return f"(value: {self.value} left: {self.left} right: {self.right})"
+
+    def isidentical(r1, r2):
+        if r1 is None and r2 is None:
+            return True
+        if r1 is None or r2 is None:
+            return False
+        
+        return (r1.value == r2.value and isidentical(r1.left, r2.left) and isidentical(r1.right, r2.right))
+
+    def findtree(s, t):
+        if s is None:
+            return True
+        if t is None:
+            return False
+        if isidentical(t,s):
+            return True
+        
+        return findtree(t.left, s) or findtree(t.right, s)
