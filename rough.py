@@ -250,7 +250,7 @@ print(Solution().maxPathSum(n1))
 
 class Node:
     def __init__(self, value, left = None, right = None):
-        self.value = Value
+        self.value = value
         self.right = right
         self.left = left
         
@@ -282,3 +282,28 @@ t = Node(1, t2, t3)
 
 s = Node(4, Node(3), Node(2))
 print(findtree(s, t))
+
+
+def rotate(nums, k):
+    k %= len(nums)
+
+    for i in range(k):
+        prev = nums[-1]
+        for j in range(len(nums)):
+            nums[j], prev = prev, nums[j]
+        
+    return nums 
+
+print(rotate([1,2,3,4,5], 3))
+
+def rotates(nums, k):
+    n = len(nums)
+    a = [0] * n
+    for i in range(n):
+        a[(i+k) % n] = nums[i]
+    
+    nums[:] = a
+    return nums
+
+print(rotates([1,2,3,4,5], 3))
+

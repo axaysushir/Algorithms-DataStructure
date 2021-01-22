@@ -16,7 +16,7 @@ print(Solution().rotate([1,2,3,4,5], 2))
 
 # using extra array
 # We use an extra array in which we place every element of the array at 
-# its correct position i.e. the number at index iii in the original array 
+# its correct position i.e. the number at index i in the original array 
 # is placed at the index (i+k)% length of array(i + k) \% \text{ length of 
 # array}(i+k)% length of array. Then, we copy the new array to the original one.
 
