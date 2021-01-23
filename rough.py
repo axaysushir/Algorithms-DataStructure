@@ -307,3 +307,21 @@ def rotates(nums, k):
 
 print(rotates([1,2,3,4,5], 3))
 
+
+def bits(n):
+    return '{0:08b}'.format(n)
+
+def reversebit(n):
+    rev = 0
+
+    while(n > 0):
+        rev = rev << 1
+        if (n & 1 == 1):
+            rev = rev ^ 1
+        n = n >> 1
+    
+    return rev
+
+print(bits(1234))
+print(reversebit(1234))
+print(bits(reversebit(1234)))
