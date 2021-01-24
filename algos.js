@@ -340,3 +340,14 @@ inorder = [9,3,15,20,7]
 console.log(tree(preo, inorder));
 
 
+// clone tree
+function Node(val) {
+  this.val = val
+  this.left = this.right = null
+}
+
+var getcopy = (original, cloned,target) => {
+  if (!original || !cloned) return 
+  if (original.val === target.val) return cloned
+  else return getcopy(original.left, cloned.left, target)
+}
