@@ -12,7 +12,7 @@ class Node:
 
 def bst_numbers_sum(root, num=0):
     # subtract node value from the sum when recurring down and chck to see
-    # if the aum is 0 when your run out of tree
+    # if the sum is 0 when your run out of tree
     if root is None:
         return num
     else:

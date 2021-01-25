@@ -364,3 +364,29 @@ if __name__ == '__main__':
     root.right.right = Node(2)
 
 print(find(root))
+
+class Node:
+    def __init__(self, val, left=None, right=None):
+        self.val = val
+        self.right = right
+        self.left = left
+    
+    def __repr__(self):
+        return f"({self.val}, {self.left}, {self.right})"
+
+def bstSum(root, num= 0):
+    if root is None:
+        return num
+    else:
+        ans = 0
+
+    subSum = num - root.val
+
+    if (subSum == 0 and root.left == None and root.right == None):
+        return True
+    if root.left is not None:
+        ans = ans or bstSum(root.left, subSum)
+    if root.right is not None:
+        ans = ans or bstSum(root.right, subSum)
+
+    return ans
