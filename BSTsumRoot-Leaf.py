@@ -10,7 +10,7 @@ class Node:
     return f"({self.value}, {self.left}, {self.right})"
 
 
-def bst_numbers_sum(root, num=0):
+def bst_numbers_sum(root, num):
     # subtract node value from the sum when recurring down and chck to see
     # if the sum is 0 when your run out of tree
     if root is None:

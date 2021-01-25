@@ -380,13 +380,20 @@ def bstSum(root, num= 0):
     else:
         ans = 0
 
-    subSum = num - root.val
+        subSum = num - root.val
 
-    if (subSum == 0 and root.left == None and root.right == None):
-        return True
-    if root.left is not None:
-        ans = ans or bstSum(root.left, subSum)
-    if root.right is not None:
-        ans = ans or bstSum(root.right, subSum)
+        if (subSum == 0 and root.left == None and root.right == None):
+            return True
+        if root.left is not None:
+            ans = ans or bstSum(root.left, subSum)
+        if root.right is not None:
+            ans = ans or bstSum(root.right, subSum)
 
-    return ans
+        return ans
+
+n5 = Node(5)
+n4 = Node(4)
+n3 = Node(3)
+n2 = Node(2, n4, n5)
+n1 = Node(1, n2, n3)
+print(bstSum(n1))
