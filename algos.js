@@ -351,3 +351,17 @@ var getcopy = (original, cloned,target) => {
   if (original.val === target.val) return cloned
   else return getcopy(original.left, cloned.left, target)
 }
+
+// check palindorme string
+var palindrome = str => {
+  let left = 0
+  let right = str.legnth - 1
+
+  while (right > 1){
+    if (str[left++] !== str[right--]){
+      return console.log('is not palindrome', str)
+    }
+  }
+  return str
+}
+ console.log(palindrome('abbcbd'));

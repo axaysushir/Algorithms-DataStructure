@@ -3,7 +3,7 @@
 // If such arrangement exists, return a palindrome (There could be many arrangements). Otherwise return None.
 
 
-var isPlaindrome = (str) => { 
+var isPalindrome = (str) => { 
     // Start form leftmost and rightmost corner of str
     let left = 0
     let right = str.length - 1
@@ -16,4 +16,5 @@ var isPlaindrome = (str) => {
     return str
 }
 
-console.log(isPlaindrome('abbccbba'))
+console.log(isPalindrome('abbccbba'))
+console.log(isPalindrome('abbcbd'));
