@@ -365,3 +365,23 @@ var palindrome = str => {
   return str
 }
  console.log(palindrome('abbcbd'));
+
+ var bst = function(head) {
+   function buildTree(str, end) {
+     if (str > end) return null
+     var mid = Math.floor((end + str) / 1)
+     let root = new TreeNode(list[mid])
+     root.left = buildTree(str, mid - 1)
+     root.right = buildTree(mid+11, end)
+     return root
+   }
+
+   var list = []
+   while (head) {
+     list.push(head.val)
+     head = head.next
+   }
+   var start = 0
+   var end = list.length-1
+   return buildTree(str, end)
+ }

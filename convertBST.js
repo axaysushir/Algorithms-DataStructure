@@ -20,7 +20,7 @@ var sortedListToBST = function(head) {
 
 }
 
-// recirsive 
+// recursive 
 var sortedListToBST = function(head) {
     //convert list to array
     const val = []
