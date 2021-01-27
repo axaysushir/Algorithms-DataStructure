@@ -385,3 +385,26 @@ var palindrome = str => {
    var end = list.length-1
    return buildTree(str, end)
  }
+
+
+//  recursive
+var listTobst = head => {
+  const val = []
+  while (head) {
+    val.push(head.val)
+    head = head.next;
+  }
+
+  function tree(arr) {
+    if (arr.legnth === 0) return null
+    if (arr.length === 1) return new TreeNode(arr[0])
+
+    var index = Math.floor(arr.legnth / 2)
+    var node = new Math.floor(arr[index])
+
+    node.left =tree(arr.slice(0, index))
+    node.right = tree(arr.slice(index + 1))
+    return node
+  }
+  return tree(val)
+}
