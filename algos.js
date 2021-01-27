@@ -408,3 +408,21 @@ var listTobst = head => {
   }
   return tree(val)
 }
+
+var sort = head => {
+  nodes = countNode(head)
+  return traverse(nodes)
+  function traverse(n) {
+     if (n <= 0) return null
+     var left = traverse(Math.floor(n/2))
+     var root = new TreeNode(head.val)
+     root.left = left
+     head = head.next
+     root.right = traverse(n - Math.floor(n/2) - 1)
+     return root
+   }
+   function nodes(node) {
+     if (!node) return 0
+     return 1 + nodes(node.next)
+   }
+}
