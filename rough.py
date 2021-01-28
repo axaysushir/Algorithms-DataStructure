@@ -421,3 +421,15 @@ class Solution(object):
 
 input = ['rat', 'cat', 'cats', 'dog', 'catsdog', 'dogcat', 'dogcatrat']
 print(Solution().findword(input))
+
+def baseto(n, b):
+    if n == 0:
+        return [0]
+    digits = []
+
+    while n:
+        digits.append(int(n % b))
+        n //= b
+    return digits[::-1]
+
+print(baseto(122356689121114444477746641131313131314644444484121213516848454792, 2))
