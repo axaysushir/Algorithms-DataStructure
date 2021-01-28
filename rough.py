@@ -397,3 +397,27 @@ n3 = Node(3)
 n2 = Node(2, n4, n5)
 n1 = Node(1, n2, n3)
 print(bstSum(n1))
+
+
+class Solution(object):
+    def findword(self, words):
+        worddict = set(words)
+        cache = {}
+        return [word for word in words if self.canform(word, worddict, cache)]
+
+    def canform(self, word, worddict, cache):
+        if word in cache:
+            return cache[word]
+        for i in range(1, len(word)):
+            pref = word[:i]
+            suf = word[i:]
+            if pref in worddict:
+                if suf in worddict or self.canform(suf, worddict, cache):
+                    cache[word] = True
+                    return True
+        
+        cache[word] = False
+        return False
+
+input = ['rat', 'cat', 'cats', 'dog', 'catsdog', 'dogcat', 'dogcatrat']
+print(Solution().findword(input))
