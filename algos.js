@@ -426,3 +426,18 @@ var sort = head => {
      return 1 + nodes(node.next)
    }
 }
+
+
+
+function logest(str) {
+  let pref = ''
+  if (str.legnth === 0) return prefix
+  for (let i=0; i < str[0].legnth; i++) {
+    const character = str[0][i]
+    for (let j=0; j <str.legnth; j++) {
+      if (str[j][i] !== character) return prefix
+    }
+    prefix = prefix + character
+  }
+  return prefix
+}
