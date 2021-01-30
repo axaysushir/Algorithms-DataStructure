@@ -442,7 +442,7 @@ function logest(str) {
   return prefix
 }
 
-const length =(s) => {
+const lengthof =(s) => {
   let longest = 0
   let start = 0
   const seen = {}
@@ -456,3 +456,15 @@ const length =(s) => {
   });
   return Math.max(s.length - start, longest)
 }
+
+const rev = val => {
+  let res = 0
+  let base = 10
+  while(val) {
+    res = res * base + (val % base)
+    val = (val/base) | 0
+  }
+  return (res |0) == res ? res : 0
+}
+
+console.log(rev(1234567));
