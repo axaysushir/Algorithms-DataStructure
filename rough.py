@@ -433,3 +433,43 @@ def baseto(n, b):
     return digits[::-1]
 
 print(baseto(122356689121114444477746641131313131314644444484121213516848454792, 2))
+
+from collections import defaultdict
+class Graph:
+    def __init__(self, vertices):
+        self.v = vertices
+        self.graph = defaultdict(list)
+
+    
+    def addEdge(self, v, w):
+        self.graph[v].append(w)
+        self.graph[w].append(v)
+    
+    def iscycleutil(self,v,visited, parent):
+        visited[v] = True
+        for i in self.graph[v]:
+            if visited[i] == False:
+                if (self.iscycleutil(i, visited, v)):
+                    return True
+                elif parent != i:
+                    return True
+        return False
+    
+    def iscycle(self):
+        visited = [False] * (self.v)
+        for i in range(self.v):
+            if visited[i] == False:
+                if (self.iscycleutil(i, visited, -1)) == True:
+                    return False
+        return False
+
+g = Graph(-1)
+g.addEdge(0, 1)
+g.addEdge(1, 2)
+# g.addEdge(0, 2)
+g.addEdge(2, 0)
+g.addEdge(0, 3)
+# g.addEdge(3, 4)
+
+print(g.iscycle())
+

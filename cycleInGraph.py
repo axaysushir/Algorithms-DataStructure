@@ -9,7 +9,7 @@ class Graph:
         self.v = vertices
         self.graph = defaultdict(list)  # default dictionary to store graph
 
-    # fucntion to add an edge to graph
+    # function to add an edge to graph
     def addEdge(self, v, w):
         self.graph[v].append(w)  # add w to v list
         self.graph[w].append(v)  # add v to w list
