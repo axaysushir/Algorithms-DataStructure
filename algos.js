@@ -468,3 +468,17 @@ const rev = val => {
 }
 
 console.log(rev(1234567));
+
+var convert = n => {
+  var alphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  var m, res = []
+
+  while (n > 0) {
+    m = (n-1) % 26
+    n = (n-1-m) / 26
+    res.unshift(alphabets[m])
+  }
+  return res.join("")
+}
+
+console.log(convert(513236464665606111444455631123245698981131465656554566666))
