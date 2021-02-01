@@ -473,3 +473,36 @@ g.addEdge(0, 3)
 
 print(g.iscycle())
 
+#  design Tictac toe
+class Tictac(object):
+    def __init__(self, n):
+        self.grid = [[''] * n for i in range(n)]
+    
+    def move(self, col, row, player):
+        if player == 1:
+            mark = 'X'
+        else:
+            mark = 'O'
+
+        self.grid[row][col] = mark
+
+        n = len(self.grid)
+
+        sumofRow = sum([self.grid[row][c] == mark for c in range(n)])
+        sumofCol = sum ([self.grid[r][col] == mark for r in range(n)])
+        sumofleftDiag = sum([self.grid[i][i] == mark for i in range(n)])
+        sumofrightDiag = sum([self.grid[i][n-1-i] == mark for i in range(n)])
+
+        if sumofCol == n or sumofRow == n or sumofrightDiag == n or sumofleftDiag == n:
+            return player
+        else:
+            return 0
+
+board = Tictac(3)
+board.move(0, 0, 1)
+board.move(0, 2, 2)
+board.move(2, 2, 1)
+board.move(1, 1, 2)
+board.move(2, 0, 1)
+board.move(1, 0, 2)
+print(board.move(2, 1, 1))
