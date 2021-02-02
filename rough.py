@@ -543,3 +543,42 @@ board.move(1, 1, 2)
 board.move(2, 0, 1)
 board.move(1, 0, 2)
 print(board.move(2, 1, 1))
+
+# rotate linkedlist
+
+class Node:
+    def __init__(self,value, next=None):
+        self.value = value
+        self.next = next
+
+class Solution:
+    def rotateRight(self, head: Node, k):
+        if not head  or k == 0:
+            return head
+        
+        tail = head
+        count = 1
+        while tail.next:
+            tail = tail.next
+            count += 1
+        
+        # new k 
+        k = k % count
+        if k == 0:
+            return head
+        
+        tail.next = head
+        breakAT = 1
+        pointer = head
+
+        while breakAT != count -k:
+            pointer = pointer.next
+            breakAT += 1
+        
+        head = pointer.next
+        pointer.next = None
+        return head
+
+ll = [Node(1, Node(2, Node(3, Node(4))))]
+
+print(Solution().rotateRight(ll,3))
