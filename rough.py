@@ -552,7 +552,7 @@ class Node:
         self.next = next
 
 class Solution:
-    def rotateRight(self, head: Node, k):
+    def rotateRight(self, head, k):
         if not head  or k == 0:
             return head
         
