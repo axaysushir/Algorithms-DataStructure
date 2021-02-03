@@ -482,3 +482,43 @@ var convert = n => {
 }
 
 console.log(convert(513236464665606111444455631123245698981131465656554566666))
+
+
+function Node(val) {
+  this.val = val
+  this.left = this.right = null
+}
+
+var serialize = function(root) {
+  var data = []
+  function dfs(node) {
+    if (!node) {
+      data.push('#')
+      return 
+    }
+    data.push(node.val)
+    dfs(node.left)
+    dfs(node.right)
+  }
+  dfs(root)
+  return data.join(',')
+}
+
+var deser =  data => {
+  data = data.split(',')
+  let idx = 0
+  
+  function dfs() {
+    const val = data[idx]
+    idx++
+    if (val === '#') return null
+    const node = new Node(+val)
+    node.left = dfs()
+    node.right = dfs()
+    return node
+  }
+  return dfs()
+}
+
+data = [1,2,3,null,null,4,5]
+console.log(deser(serialize(root)));

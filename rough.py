@@ -553,7 +553,7 @@ class Node:
 
 class Solution:
     def rotateRight(self, head, k):
-        if not head  or k == 0:
+        if not head or not head.next or k == 0:
             return head
         
         tail = head

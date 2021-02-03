@@ -5,7 +5,8 @@
 // 1. serialize(root) which serializes the tree into a string representation
 // 2. deserialize(s) which deserializes the string back to the original tree that it represents
 
-// For this problem, often you will be asked to design your own serialization format. However, for simplicity, let's use the pre-order traversal of the tree. Here's your starting point:
+// For this problem, often you will be asked to design your own serialization format. However, for simplicity, 
+// let's use the pre-order traversal of the tree. Here's your starting point:
 
 // pre oder traversing 
 function TreeNode(val) {
