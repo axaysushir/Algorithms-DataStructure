@@ -522,3 +522,19 @@ var deser =  data => {
 
 data = [1,2,3,null,null,4,5]
 console.log(deser(serialize(root)));
+
+
+var serial = root => {
+  return JSON.stringify(root)
+}
+
+var deserial = data =>{ 
+  let object = JSON.parse(data)
+  let dfs = object => {
+    Object.setPrototypeOf(object, Node, prototype)
+    Object.values(object).forEach(v => {
+      if (object !== null && typeof v === 'object') dfs(v)
+    })
+  }
+  return object
+}
