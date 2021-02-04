@@ -548,10 +548,10 @@ function TreeNode(val, left, right){
   this.right = (right === undefined ? null : right)
 }
 
-var tree = (preorder, inorder) => {
+var tree = function (inorder, preorder) {
   const map = new Map()
-  var preidx = 0
-  for (let i=0; i< inorder.legnth; i++) {
+  let preidx = 0
+  for (let i=0; i< inorder.length; i++) {
     map.set(inorder[i], i)
   }
 
@@ -567,6 +567,7 @@ var tree = (preorder, inorder) => {
   }
   return calldfs(0, inorder.length - 1)
 }
+
 preorder = [3,9,20,15,7]
 inorder = [9,3,15,20,7]
 
