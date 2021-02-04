@@ -538,3 +538,36 @@ var deserial = data =>{
   }
   return object
 }
+
+
+// preorder and inorder traversal
+
+function TreeNode(val, left, right){
+  this.val = (val === undefined ? 0 : val)
+  this.left = (left === undefined ? null : left)
+  this.right = (right === undefined ? null : right)
+}
+
+var tree = (preorder, inorder) => {
+  const map = new Map()
+  var preidx = 0
+  for (let i=0; i< inorder.legnth; i++) {
+    map.set(inorder[i], i)
+  }
+
+  function calldfs(start, end) {
+    if (end < start) return null
+    const node = new TreeNode(preorder[preidx])
+    const idx = map.get(preorder[preidx])
+    preidx++
+
+    node.left = calldfs(start, idx - 1)
+    node.right = calldfs(idx + 1, end)
+    return node
+  }
+  return calldfs(0, inorder.length - 1)
+}
+preorder = [3,9,20,15,7]
+inorder = [9,3,15,20,7]
+
+console.log(tree(preorder, inorder));
