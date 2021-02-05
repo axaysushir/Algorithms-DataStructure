@@ -572,3 +572,14 @@ preorder = [3,9,20,15,7]
 inorder = [9,3,15,20,7]
 
 console.log(tree(preorder, inorder));
+
+// sol 2
+var buildTree = (preorder, inorder) => {
+  if (!preorder.length) return null
+  const index = preorder.indexOf(preorder[0])
+  const left = buildTree(preorder.slice(1,index + 1), inorder.slice(0, index))
+  const right = buildTree(preorder.slice(index + 1), inorder.slice(index + 1))
+  return {val: preorder[0], left,right}
+}
+
+console.log(buildTree(preorder, inorder));
