@@ -621,4 +621,40 @@ if __name__ == '__main__':
     root.right.left = Node(5)
     root.right.right = Node(2)
 
-print(findlargest(root))
+    print(findlargest(root))
+
+
+class subtreeinfo:
+    def __init__(self, min, max, size, isbst):
+        self.min = min
+        self.max = max
+        self.size = size
+        self.isbst = isbst
+
+def findlargebst(root):
+    if root is None:
+        return subtreeinfo(float('-inf'), float('-inf'))
+    
+    left = findlargebst(root.left)
+    right = findlargebst(root.right)
+
+    if left.isbst and right.isbst and (left.max < root.data < right.min):
+        info = subtreeinfo(min(root.data, min(left.min, right.min)),
+                            max(root.data, max(left.max, right.max)),
+                            left.size + 1 + right.size, True)
+    
+    else:
+        info = subtreeinfo(0,0, max(left.size, right.size), False)
+    
+    return info
+
+if __name__ == '__main__':
+    root = Node(10)
+    root.left = Node(15)
+    root.right = Node(8)
+    root.left.left = Node(12)
+    root.left.right = Node(20)
+    root.right.left = Node(5)
+    root.right.right = Node(2)
+
+    print(findlargebst(root).size)
