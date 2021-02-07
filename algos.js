@@ -583,3 +583,16 @@ var buildTree = (preorder, inorder) => {
 }
 
 console.log(buildTree(preorder, inorder));
+
+
+// clone treee
+function TreeNode(val) {
+  this.val = val;
+  this.left = this.right = null;
+}
+
+var getcloned = (original, cloned, target) => {
+  if (!original || !cloned) return 
+  if (original.val == target.val) return cloned
+  else return getcloned(original.left, cloned.left, target)
+}
