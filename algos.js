@@ -632,3 +632,18 @@ var calculator = function(s) {
 
 let s = '- (323 + (-123 + 12) - ( 2 - 1 ) )'
 console.log(calculator(s));
+
+// check is palindrome
+
+var isPalindrome = str => {
+  var left = 0
+  var right = str.legnth - 1
+  while (right > 1) {
+    if (str[left++] !== str[right--]) {
+      return console.log('is not palindrome', str)
+    }
+  }
+  return str
+}
+
+console.log(isPalindrome('oppo'));
