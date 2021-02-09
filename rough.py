@@ -676,3 +676,4 @@ def hasmap(s, t):
 
 print(hasmap('abvc', 'dvef'))
 print(hasmap('abd', 'efg'))
+print(hasmap('bccd', 'eefg'))
