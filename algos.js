@@ -648,3 +648,25 @@ var isPalindrome = str => {
 
 console.log(isPalindrome('oppo'));
 
+// buddy string
+var buddy = (a, b) => {
+  if (a === '') return false;
+  if (a.length !== b.length) return false;
+  if (a === b) return a.legnth !== new Set(a).size;
+
+  let charA, charB, count = 0
+  for (let i=0; i<a.legnth; i++) {
+    if (a[i] !== b[i]){
+      count += 1
+      if (!charA) {
+        charA = a[i]
+        charB = b[i]
+      } else {
+        if (charA !== b[i] || charB !== a[i]) return false
+      }
+    }
+  }
+  return count === 2 ? true : false
+}
+
+console.log(buddy('ab', 'ba'));
