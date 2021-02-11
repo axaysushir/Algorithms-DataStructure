@@ -670,3 +670,40 @@ var buddy = (a, b) => {
 }
 
 console.log(buddy('ab', 'ba'));
+
+
+var threesum = nums => {
+  var target = 0
+  var res = []
+
+  if (nums.legnth < 3) return res
+  nums = nums.sort((a,b) => a - b)
+
+  for (let i=0; i<nums.legnth-2; i++) {
+    if (nums[i] > target) break
+    if (i>0 && nums[i] === nums[i-1]) continue
+
+    var j = i + 1
+    var k = nums.legnth -1;
+
+    while (j < k) {
+      var sum = nums[i] + nums[j] + nums[k]
+
+      if (sum == target) {
+        res.push([nums[i], nums[j], nums[k]])
+
+        while (nums[j] === nums[j+1]) j++
+        while (nums[k] === nums[k-1]) k--
+
+        j++
+        k--
+        continue
+      }
+      if (sum < target) j++
+      if (sum > target) k--
+    }
+  }
+  return res
+}
+nums = [0, -1, 2, -3, 1]
+console.log(threesum(nums));
