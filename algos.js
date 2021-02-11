@@ -676,34 +676,31 @@ var threesum = nums => {
   var target = 0
   var res = []
 
-  if (nums.legnth < 3) return res
-  nums = nums.sort((a,b) => a - b)
+  if (nums.length < 3) return res
 
-  for (let i=0; i<nums.legnth-2; i++) {
+  nums = nums.sort((a,b) => a -b)
+  for (let i=0; i< nums.length - 2; i++) {
     if (nums[i] > target) break
+
     if (i>0 && nums[i] === nums[i-1]) continue
 
-    var j = i + 1
-    var k = nums.legnth -1;
-
+    var j = i+ 1
+    var k = nums.length - 1
     while (j < k) {
       var sum = nums[i] + nums[j] + nums[k]
-
-      if (sum == target) {
+      if (sum === target) {
         res.push([nums[i], nums[j], nums[k]])
-
         while (nums[j] === nums[j+1]) j++
         while (nums[k] === nums[k-1]) k--
-
         j++
         k--
-        continue
+        continue;
       }
-      if (sum < target) j++
-      if (sum > target) k--
+      if (sum > target) j++
+      if (sum < target) k--
     }
   }
   return res
 }
-nums = [0, -1, 2, -3, 1]
+nums = [0, -1, 2, -1]
 console.log(threesum(nums));
