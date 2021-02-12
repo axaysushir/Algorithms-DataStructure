@@ -702,3 +702,4 @@ def findCommon(A):
     return res
 
 print(findCommon(['google', 'facebook', 'youtube']))
+print(findCommon(['git', 'facebk', 'youtube', 'abcdefgr']))
