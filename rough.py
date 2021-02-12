@@ -677,3 +677,28 @@ def hasmap(s, t):
 print(hasmap('abvc', 'dvef'))
 print(hasmap('abd', 'efg'))
 print(hasmap('bccd', 'eefg'))
+
+# find duplicates
+from collections import Counter
+
+def findduplicates(ch1, ch2):
+    for i in ch1:
+        if i in ch2:
+            ch1[i] = min(ch1[i], ch2[i])
+        else:
+            ch1[i] = 0
+        return ch1
+
+def findCommon(A):
+    out = Counter(A[0])
+    res = []
+    for i in range(len(A) + 1 -2 ):
+        duplicates = findduplicates(Counter(A[i]), Counter(A[i+1]))
+        out = findduplicates(out, duplicates)
+    
+    for i in out :
+        if out[i] > 0:
+            res += [i] * out[i]
+    return res
+
+print(findCommon(['google', 'facebook', 'youtube']))
