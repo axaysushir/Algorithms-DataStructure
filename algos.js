@@ -704,3 +704,17 @@ var threesum = nums => {
 }
 nums = [0, -1, 2, -1]
 console.log(threesum(nums));
+
+var matrix = (nums,r,c) => {
+  const total = nums.length * nums[0].length;
+  if (r * c > total) return nums
+  const flatten = nums.flat()
+  const res = []
+  for (let i=0; i<r; i++) {
+    const newArr = flatten.splice(0, c)
+    res.push(newArr)
+  }
+  return res
+}
+
+console.log(matrix([[1, 2], [3, 4], [5,6]],2,6));
