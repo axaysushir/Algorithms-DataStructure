@@ -733,3 +733,4 @@ var removeDup = s => {
 }
 
 console.log(removeDup('cabba'));
+console.log(removeDup('abbfggreee'));
