@@ -719,3 +719,17 @@ var matrix = (nums,r,c) => {
 
 console.log(matrix([[1, 2], [3, 4], [5,6]],2,6));
 console.log(matrix([[1,2,3], [4,5,6], [7,8,9]], 5, 9))
+
+var removeDup = s => {
+  let res = []
+  for (const char of s) {
+    if (res[res.length - 1] === char) {
+      res.pop()
+      continue
+    }
+    res.push(char)
+  }
+  return res.join('')
+}
+
+console.log(removeDup('cabba'));
