@@ -735,6 +735,7 @@ var removeDup = s => {
 console.log(removeDup('cabba'));
 console.log(removeDup('abbfggreee'));
 
+// add two lists togather
 var addnum = (l1, l2) => {
   var res = new ListNode(0)
   var currentNode = res
