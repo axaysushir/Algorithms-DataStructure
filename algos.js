@@ -734,3 +734,25 @@ var removeDup = s => {
 
 console.log(removeDup('cabba'));
 console.log(removeDup('abbfggreee'));
+
+var addnum = (l1, l2) => {
+  var res = new ListNode(0)
+  var currentNode = res
+  var carry = 0
+
+  while (l1 != null || l2 != null) {
+    let v1, v2 = 0
+    if (l1 != null) v1 = l1.val
+    if (l2 != null) v2 = l2.val
+
+    var sum = v1 + v2 + carry
+    carry = Math.floor(sum / 10)
+    sum = sum % 10
+    currentNode.next = new ListNode(sum)
+    currentNode = currentNode.next
+    if (l1 != null) v1 = l1.next
+    if (l2 != null) v2 = l2.next    
+  }
+  if (carry > 0) currentNode.next = new ListNode(carry)
+  return res.next
+}
