@@ -712,3 +712,4 @@ def addDigitToSingleNum(num):
     return num % 9
 
 print(addDigitToSingleNum(123))
+print(addDigitToSingleNum(123589))
