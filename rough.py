@@ -703,3 +703,12 @@ def findCommon(A):
 
 print(findCommon(['google', 'facebook', 'youtube']))
 print(findCommon(['git', 'facebk', 'youtube', 'abcdefgr']))
+
+def addDigitToSingleNum(num):
+    if num == 0:
+        return 0
+    if num % 9 == 0:
+        return 9
+    return num % 9
+
+print(addDigitToSingleNum(123))
