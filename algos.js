@@ -773,3 +773,10 @@ var serch = (nums, tar) => {
 
 x = serch([1,2,3], 6)
 console.log(x)
+
+var search = (nums, target) => {
+  return (
+    nums.indexOf(target) &&
+    nums.concat(traget).sort((a, b) => a - b).indexOf(target)
+  )
+}
