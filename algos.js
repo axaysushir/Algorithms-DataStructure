@@ -759,4 +759,17 @@ var addnum = (l1, l2) => {
 }
 
 
-console.log("Hello World. Faltu Vishal, Divya, Matu")
+var serch = (nums, tar) => {
+  var ind = 0
+  for (let i=0; i<nums.length; i++) {
+      if (nums[i] == tar) return i
+      else if (tar > nums[i]) {
+          ind = i+1
+          if (tar < nums[i+1]) return ind
+      }
+  }
+  return ind
+}
+
+x = serch([1,2,3], 6)
+console.log(x)
