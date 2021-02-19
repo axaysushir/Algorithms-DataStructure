@@ -780,3 +780,33 @@ var search = (nums, target) => {
     nums.concat(traget).sort((a, b) => a - b).indexOf(target)
   )
 }
+
+var del = head => {
+  var node = new ListNode(-1)
+  var ans = node
+  var pre = head, cur = head
+  while(cur) {
+    while (cur.next && cur.val == cur.next.val) cur = cur.next
+    if (pre == cur) (ans.next = cur), (ans = ans.next);
+    pre = cut = cur.next
+  }
+  ans.next = null
+  return node.next
+}
+
+var duplicate = head => {
+  if (!head) return null
+  var pre = new ListNode(0)
+  pre.next = head;
+  var node = pre
+
+  while (node.next && node.next.next) {
+    if (node.next.val = node.next.next.val) {
+      var val = node.next.val
+      while(node.next && node.next.val == val) {
+        node.next = node.next.next
+      }
+    } else node = node.next
+  }
+  return pre.next
+}
