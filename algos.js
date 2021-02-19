@@ -781,6 +781,7 @@ var search = (nums, target) => {
   )
 }
 
+//delete duplicate nodes
 var del = head => {
   var node = new ListNode(-1)
   var ans = node
