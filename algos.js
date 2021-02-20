@@ -811,3 +811,14 @@ var duplicate = head => {
   }
   return pre.next
 }
+
+var count = n => {
+  var res = 0
+  while (n !== 0) {
+    n = (n & (n << 1))
+    res++
+  }
+  return res
+}
+
+console.log(count(123))
