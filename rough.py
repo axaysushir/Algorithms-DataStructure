@@ -713,3 +713,12 @@ def addDigitToSingleNum(num):
 
 print(addDigitToSingleNum(123))
 print(addDigitToSingleNum(123589))
+
+def longest_one(n):
+    count = 0
+    while (n != 0):
+        n = (n & (n << 1))
+        count+= 1
+    return count
+
+print(longest_one(336))
