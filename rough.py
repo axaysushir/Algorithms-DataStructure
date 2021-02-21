@@ -722,3 +722,18 @@ def longest_one(n):
     return count
 
 print(longest_one(336))
+
+# Sort colors
+def sortcolor(nums) :
+    index = -1
+
+    for i, val in enumerate(nums):
+        if val == 0:
+            nums.pop(i)
+            nums.insert(index+1, val)
+        elif val == 1:
+            nums.pop(i)
+            nums.insert(index+1, val)
+
+nums = [2,0,2,1,1,0]
+print(sortcolor(nums))
