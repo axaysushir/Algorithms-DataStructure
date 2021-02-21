@@ -737,3 +737,13 @@ def sortcolor(nums) :
 
 nums = [2,0,2,1,1,0]
 print(sortcolor(nums))
+
+def Sortcolors(nums):
+    for i, val in enumerate(nums):
+        if val == 0:
+            nums.pop(i)
+            nums.insert(0, val)
+    for i, val in reversed(list(enumerate(nums))):
+        if val == 2:
+            nums.pop(i)
+            nums.append(val)
