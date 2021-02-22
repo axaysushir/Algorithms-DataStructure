@@ -747,3 +747,6 @@ def Sortcolors(nums):
         if val == 2:
             nums.pop(i)
             nums.append(val)
+
+nums = [2,0,2,1,1,0]
+print(Solution().sortColors(nums))
