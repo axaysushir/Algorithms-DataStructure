@@ -822,3 +822,31 @@ var count = n => {
 }
 
 console.log(count(123))
+
+var str = (a,b) => {
+  if (a.length === 0 && b.length === 0) return true
+  var n = a.length
+  var tmp = a.split('')
+  for (let i=0; i<=n; i++) {
+    tmp.push(tmp[0])
+    tmp.shift()
+    if (tmp.join('') == b) return true
+  }
+  return false
+}
+
+console.log(str('abc', 'cab'));
+
+var shift = (a, b) => {
+  if (a.length !== b.length) return false
+  if (!a && !b) return true
+
+  for (let i=0; i< a.length; i++) {
+    if (a.charAt(i) === b.charAt(0)) {
+      if (a.slice(i) + a.slice(0, i) === b) return true
+    }
+  }
+  return false
+}
+
+console.log(shift('abcde', 'bcdea'))
