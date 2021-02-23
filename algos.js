@@ -850,3 +850,4 @@ var shift = (a, b) => {
 }
 
 console.log(shift('abcde', 'bcdea'))
+console.log(str('abc', 'cadb'));
