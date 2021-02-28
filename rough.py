@@ -750,3 +750,45 @@ def Sortcolors(nums):
 
 nums = [2,0,2,1,1,0]
 print(Solution().sortColors(nums))
+
+# Arithemtic binary tree
+
+class Node:
+    def __init__(self, key, left= None, right= None):
+        self.key = key
+        self.right = right
+        self.left = left
+
+Plus = "+"
+Minus = "-"
+Times = "*"
+Divide = "/"
+
+operators = {'+', '-', '*', '/'}
+
+def isOperator(c: chr):
+    return c in operators
+
+def calculate(a: int, operator: chr, b: int) -> int:
+    if operator == '+' : return a + b
+    elif operator == '-' : return a - b
+    elif operator == '/' : return a / b
+    else: return a * b
+
+def evalute(root: Node) -> int:
+    if not root:
+        return None
+    
+    if not isOperator(root.key):
+        return root.key
+    else:
+        return calculate(evalute(root.left), root.key, evalute(root.right))
+
+tree = Node(Times)
+tree.left = Node(Plus)
+tree.left.left = Node(3)
+tree.left.right = Node(2)
+tree.right = Node(Plus)
+tree.right.right = Node(4)
+tree.right.right = Node(5)
+print(evalute(tree))
