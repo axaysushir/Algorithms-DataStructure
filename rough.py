@@ -759,23 +759,23 @@ class Node:
         self.right = right
         self.left = left
 
-Plus = "+"
-Minus = "-"
-Times = "*"
-Divide = "/"
+PLUS = "+"
+MINUS = "-"
+TIMES = "*"
+DIVIDE = "/"
 
 operators = {'+', '-', '*', '/'}
 
 def isOperator(c: chr):
     return c in operators
 
-def calculate(a: int, operator: chr, b: int) -> int:
+def calculate(a: int, operator: chr, b: int):
     if operator == '+' : return a + b
     elif operator == '-' : return a - b
     elif operator == '/' : return a / b
     else: return a * b
 
-def evalute(root: Node) -> int:
+def evalute(root: Node):
     if not root:
         return None
     
@@ -784,11 +784,11 @@ def evalute(root: Node) -> int:
     else:
         return calculate(evalute(root.left), root.key, evalute(root.right))
 
-tree = Node(Times)
-tree.left = Node(Plus)
+tree = Node(TIMES)
+tree.left = Node(PLUS)
 tree.left.left = Node(3)
 tree.left.right = Node(2)
-tree.right = Node(Plus)
+tree.right = Node(PLUS)
 tree.right.right = Node(4)
 tree.right.right = Node(5)
 print(evalute(tree))
