@@ -808,3 +808,4 @@ def findnum(nums, target):
     return (first, last)
 
 print(findnum([1,2,1,3,5,7], 2))
+print(find_num([1, 2, 3, 4], 5))
