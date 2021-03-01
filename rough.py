@@ -792,3 +792,19 @@ tree.right = Node(PLUS)
 tree.right.right = Node(4)
 tree.right.right = Node(5)
 print(evalute(tree))
+
+
+# search range
+def findnum(nums, target):
+    first = -1
+    last = -1
+    for i in range(0, len(nums)):
+        if target != nums[i]:
+            continue
+        if first == -1:
+            first = i
+        last = i
+    
+    return (first, last)
+
+print(findnum([1,2,1,3,5,7], 2))
