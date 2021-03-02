@@ -851,3 +851,20 @@ var shift = (a, b) => {
 
 console.log(shift('abcde', 'bcdea'))
 console.log(str('abc', 'cadb'));
+
+
+// Dijkatra's Algorithm
+var arr = [3,3,2,1,3,2,1], mid = 2, i=0, j=0, n= arr.length-1
+
+while (j <= n) {
+  if (arr[j] < mid) {
+    [arr[i], arr[j]] = [arr[j], arr[i]]
+    i++
+    j++
+  } else if (arr[j] > mid)  {
+    [arr[n], arr[j]] = [arr[j], arr[n]]
+    n--
+  } else j++
+}
+
+console.log(arr)
