@@ -853,8 +853,8 @@ console.log(shift('abcde', 'bcdea'))
 console.log(str('abc', 'cadb'));
 
 
-// Dijkatra's Algorithm
-var arr = [3,3,2,1,3,2,1], mid = 2, i=0, j=0, n= arr.length-1
+// Dijkstra's Algorithm
+var arr = [3,3,2,1,3,2,1,2,1,3,3,2,2,1,1], mid = 2, i=0, j=0, n= arr.length-1
 
 while (j <= n) {
   if (arr[j] < mid) {
@@ -867,4 +867,18 @@ while (j <= n) {
   } else j++
 }
 
+console.log(arr)
+
+const count = arr.reduce((acc, curr) => {
+  acc[curr]++
+  return acc
+}, {1:0, 2:0, 3:0})
+
+arr.forEach((_, j) => {
+  if (j < count[1])
+  arr[j] = 1
+  else if (j < count[1]+count[2])
+  arr[j] = 2
+  else arr[j] = 3
+})
 console.log(arr)
