@@ -808,4 +808,41 @@ def findnum(nums, target):
     return (first, last)
 
 print(findnum([1,2,1,3,5,7], 2))
-print(find_num([1, 2, 3, 4], 5))
+print(findnum([1, 2, 3, 4], 5))
+
+class Node:
+    def __init__(self,val, left=None, right=None):
+        self.val = val
+        self.right = right
+        self.left = left
+    
+    def __repr__(self):
+        return f"({self.val}, {self.left}, {self.right})"
+
+def bst_sum(root, num):
+    if root is None:
+        return num
+    else:
+        ans = 0
+
+        subsum = num - root.val
+
+        if (subsum == 0 and root.left == None and root.right == None):
+            return True
+        
+        if root.left is not None:
+            ans = ans or bst_sum(root.left, subsum)
+        if root.right is not None:
+            ans = ans or bst_sum(root.right, subsum)
+        
+        return ans
+
+
+root = Node(10)
+root.left = Node(8)
+root.right = Node(2)
+root.left.right = Node(5)
+root.left.left = Node(3)
+root.right.left = Node(2)
+
+print(bst_sum(root, 21))
