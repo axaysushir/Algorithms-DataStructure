@@ -47,3 +47,12 @@ n1 = Node(1, n2, n3)
 print(bst_numbers_sum(n1, 125))
 # 262
 # Explanation: 124 + 125 + 13 = 262
+
+root = Node(10)
+root.left = Node(8)
+root.right = Node(2)
+root.left.right = Node(5)
+root.left.left = Node(3)
+root.right.left = Node(2)
+
+print(bst_numbers_sum(root, 21))
