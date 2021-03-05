@@ -846,3 +846,36 @@ root.left.left = Node(3)
 root.right.left = Node(2)
 
 print(bst_sum(root, 21))
+
+
+# Find deepest node in bst
+class Node(object):
+    def __init__(self,val):
+        self.val = val
+        self.left = None
+        self.right = None
+        self.visited = False
+
+def find(root, level, maxLevel, res):
+    if (root != None):
+        level += 1
+        find(root, level, maxLevel, res)
+
+        # Update level
+        if level > maxLevel[0]:
+            res[0] = root.val
+            maxLevel[0] = level
+            find(root.right, level, maxLevel, res)
+
+def deepest(root):
+    res = [-1]
+    maxLevel = [-1]
+    find(root, 0, maxLevel, res)
+    return res[0]
+
+root = Node('a')
+root.left = Node('b')
+root.left.left = Node('d')
+root.right = Node('c')
+
+print(deepest(root))
