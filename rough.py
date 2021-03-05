@@ -879,3 +879,37 @@ root.left.left = Node('d')
 root.right = Node('c')
 
 print(deepest(root))
+
+# second sol
+class newNode(object):
+    def __init__(self,val):
+        self.val = val
+        self.left = None
+        self.right = None
+
+# find height
+def height(root):
+    if not root:
+        return 0
+    leftHeight = height(root.left)
+    rightHeight = height(root.right)
+    return max(leftHeight, rightHeight) + 1
+
+def deepnode(root, level):
+    if not root:
+        return 
+    if level == 1:
+        print(root.val)
+    elif level > 1:
+        deepnode(root.left, level - 1)
+        deepnode(root.right, level -1)
+
+root = newNode('a')
+root.left = newNode('b')
+root.left.left = newNode('d')
+root.right = newNode('c')
+root.right.right = newNode('e')
+root.right.right.left = newNode('f')
+level = height(root)
+
+print(deepnode(root,level))
