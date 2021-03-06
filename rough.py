@@ -928,3 +928,4 @@ def pow(x, y):
             return temp * temp / x
 
 print(pow(567889, 125985849484943))
+print(pow(2345, 12456))
