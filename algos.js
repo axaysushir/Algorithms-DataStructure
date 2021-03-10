@@ -882,3 +882,27 @@ arr.forEach((_, j) => {
   else arr[j] = 3
 })
 console.log(arr)
+
+
+// remove nth node from linked list
+var removeNode = (head, n) => {
+  var listNode;
+  var dummy = new listNode(0)
+  dummy.next = head;
+  var length = 0;
+  first = head;
+
+  while (first !== null) {
+    lenght ++
+    first = first.next
+  }
+  length--
+  first = dummy;
+  while (length > 0) {
+    length--
+    first = first.next
+  }
+  first.next  = first.next.next;
+  return dummy.next
+}
+
