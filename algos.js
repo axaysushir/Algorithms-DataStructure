@@ -926,3 +926,11 @@ const rever = head => {
   head.next = null
   return prevNode
 }
+
+const rev = head => reverse(head, null);
+const reverse = (head, next) => {
+  if (!node) return next
+  var temp = node.next
+  node.next = next
+  return reverse(temp, node)
+}
