@@ -918,3 +918,11 @@ var rev = head => {
   }
   return prevNode
 }
+
+const rever = head => {
+  if (head === null || head.next === null) return head
+  var prevNode = rever(head.next)
+  head.next.next = head;
+  head.next = null
+  return prevNode
+}
