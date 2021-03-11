@@ -906,3 +906,15 @@ var removeNode = (head, n) => {
   return dummy.next
 }
 
+// reverse linked list
+
+var rev = head => {
+  var prevNode = null
+  while (head !== null) {
+    var nextNode = head.next
+    head.next = prevNode
+    prevNode = head;
+    head = nextNode
+  }
+  return prevNode
+}
