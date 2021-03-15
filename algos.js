@@ -949,3 +949,21 @@ var minsub = (s, nums) => {
   }
   return ans !== Number.MAX_SAFE_INTEGER ? ans : 0;
 }
+
+var min = (s, nums) => {
+  var left = 0, right = 0, sum = 0, res = 0;
+  while(right < nums.length) {
+    sum += nums[right]
+
+    while (sum >= s) {
+      var len = right -left + 1
+      if (res === 0 || len < res) res = len
+      sum -= nums[left++]
+    }
+    right++
+  }
+  return res
+}
+s = 11;
+nums = [2, 3, 5, 2, 4, 3];
+console.log(min(s, nums));
