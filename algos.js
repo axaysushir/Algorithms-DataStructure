@@ -934,3 +934,18 @@ const reverse = (head, next) => {
   node.next = next
   return reverse(temp, node)
 }
+
+var minsub = (s, nums) => {
+  var n = nums.length;
+  var ans = Number.MAX_SAFE_INTEGER;
+  var left = 0, sum = 0;
+
+  for (let i=0; i<n; i++) {
+    sum += nums[i]
+    while (sum >= s) {
+      ans = Math.min(ans, i+1 - left)
+      sum -= nums[left++]
+    }
+  }
+  return ans !== Number.MAX_SAFE_INTEGER ? ans : 0;
+}
