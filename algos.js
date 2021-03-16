@@ -967,3 +967,19 @@ var min = (s, nums) => {
 s = 11;
 nums = [2, 3, 5, 2, 4, 3];
 console.log(min(s, nums));
+
+
+var simplestPath = path => {
+  var start = []
+  path = path.split('/').filter(file => file.length && file != '.')
+  console.log(path)
+
+  for (let file of path) {
+    if (file == '..') start.pop()
+    else start.push(file)
+    console.log(file);
+  }
+  return '/' + start.join('/')
+}
+
+console.log(simplestPath('/Users/Joma/Documents/../Desktop/./../'))
