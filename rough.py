@@ -971,3 +971,18 @@ g.addEdge(0, 3)
 g.addEdge(3, 4)
 
 print(g.isCycle())               
+
+
+def simplePath(path):
+    res = []
+    path = path.split('/')
+
+    for file in path:
+        if file == '' or file == '.':
+            continue
+        elif file == '..':
+            if len(res) >=1:
+                res.pop()
+        else:
+            res.append(file)
+    return '/' + '/'.join(res)
