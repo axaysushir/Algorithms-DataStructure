@@ -1017,7 +1017,3 @@ class Median {
   }
 }
 
-var obj = new Median()
-obj.addnum(num)
-var a = obj.findmed()
-console.log(a)
