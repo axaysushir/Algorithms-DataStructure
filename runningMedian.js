@@ -40,7 +40,7 @@ class MedianFinder {
 
   findMedian() {
     // if odd return middle, if even return average of two middle
-    const mid = Math.floor(this.arr.legnth / 2);
+    const mid = Math.floor(this.arr.length / 2);
     return (this.arr.length & 1) === 1
       ? this.arr[mid]
       : (this.arr[mid] + this.arr[mid - 1]) / 2;

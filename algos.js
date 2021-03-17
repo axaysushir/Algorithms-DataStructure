@@ -983,3 +983,41 @@ var simplestPath = path => {
 }
 
 console.log(simplestPath('/Users/Joma/Documents/../Desktop/./../'))
+
+
+var num = [2, 1, 4, 7, 2, 0, 5]
+
+class Median {
+  constructor() {
+    this.arr = []
+  }
+
+  addnum(num) {
+    if (this.arr.length === 0) {
+      this.arr.push(num)
+      return 
+    }
+    let l = 0
+    let r = this.arr.length
+
+    while (l < r) {
+      mid = Math.floor((l + r)/ 2)
+      if (num > this.arr[mid]) {
+        l = mid + 1
+      } else {
+        r = mid
+      }
+    }
+    this.arr.splice(l, 0, num)
+  }
+
+  findmed() {
+    const mid = Math.floor(this.arr.length / 2)
+    return (this.arr.length & 1) === 1 ? this.arr[mid] : (this.arr[mid] + this.arr[mid -1] / 2)
+  }
+}
+
+var obj = new Median()
+obj.addnum(num)
+var a = obj.findmed()
+console.log(a)
