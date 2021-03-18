@@ -986,3 +986,41 @@ def simplePath(path):
         else:
             res.append(file)
     return '/' + '/'.join(res)
+
+
+
+class tiktok(object):
+    def __init__(self, n):
+        self.row = [0] * n
+        self.col = [0] * n
+        self.diag= 0
+        self.xdiag = 0
+        self.n = n
+    
+    def move(self, row, col, player):
+        if player == 1:
+            count = 1
+        else:
+            count = -1
+
+        self.row[row] += count
+        self.col[col] += count
+        if row == col:
+            self.diag += count
+        if row + col == self.n - 1:
+            self.xdiag += count
+        
+        if self.n in [self.row[row], self.col[col], self.diag, self.xdiag]:
+            return 1
+        if -self.n in [self.row[row], self.col[col], self.diag, self.xdiag]:
+            return 2
+        return 0
+
+board = tiktok(3)
+board.move(0, 0, 1)
+board.move(0, 2, 2)
+board.move(2, 2, 1)
+board.move(1, 1, 2)
+board.move(2, 0, 1)
+board.move(1, 0, 2)
+print(board.move(2, 1, 1))

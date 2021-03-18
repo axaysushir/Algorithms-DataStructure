@@ -1016,4 +1016,3 @@ class Median {
     return (this.arr.length & 1) === 1 ? this.arr[mid] : (this.arr[mid] + this.arr[mid -1] / 2)
   }
 }
-
