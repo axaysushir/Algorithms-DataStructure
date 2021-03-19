@@ -1024,3 +1024,30 @@ board.move(1, 1, 2)
 board.move(2, 0, 1)
 board.move(1, 0, 2)
 print(board.move(2, 1, 1))
+
+# Reverse Graph
+def addEdge(adj, src, dest):
+    adj[src].append(dest)
+
+def display(adj, v):
+    for i in range(v):
+        print(i, '-->', end=' ')
+        for j in range(len(adj[i])):
+            print(adj[i][j], end=' ')
+
+def reverseG(adj, rev, v):
+    for i in range(v):
+        for j in range(len(adj[i])):
+            addEdge(rev, adj[i][j], i)
+
+# Drivercode
+if __name__ == '__main__':
+    v = 4
+    adj = [[] for i in range(v)]
+    addEdge(adj, 0, 1)
+    addEdge(adj, 0, 3)
+    addEdge(adj, 1, 1)
+
+    rev = [[] for i in range(v)]
+    # reverseG(adj, rev, v)
+    display(rev, v)
