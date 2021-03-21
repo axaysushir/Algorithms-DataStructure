@@ -1051,3 +1051,18 @@ if __name__ == '__main__':
     rev = [[] for i in range(v)]
     # reverseG(adj, rev, v)
     display(rev, v)
+
+
+# overlapping rectangle
+
+def isOverlap(r1, r2):
+    if r1[0] >= r2[2] or r2[0] >= r1[2]:
+        return False
+    if r1[1] >= r2[3] or r2[1] >= r1[3]:
+        return False
+    
+    return True
+
+rec1 = [0, 0, 1, 1]
+rec2 = [1, 0, 2, 1]
+print(isOverlap(rec1, rec2))
