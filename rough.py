@@ -1066,3 +1066,13 @@ def isOverlap(r1, r2):
 rec1 = [0, 0, 1, 1]
 rec2 = [1, 0, 2, 1]
 print(isOverlap(rec1, rec2))
+
+def isRec(r1, r2):
+    def intersect(pl, pr, ql, qr):
+        return min(pr, qr) > min(pl, ql)
+    
+    return (intersect(r1[0], r1[2], r2[0], r2[2]) and intersect(r1[1], r1[3], r2[3], r1[3]))
+
+rec1 = [0, 0, 1, 1]
+rec2 = [1, 0, 2, 1]
+print(isRec(rec1, rec2))
