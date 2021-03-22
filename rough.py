@@ -1076,3 +1076,19 @@ def isRec(r1, r2):
 rec1 = [0, 0, 1, 1]
 rec2 = [1, 0, 2, 1]
 print(isRec(rec1, rec2))
+
+
+# Rotate Array
+nums = [1,2,3,4,5] 
+k = 2
+def rotate(nums, k):
+    k %= len(nums)
+    
+    for i in range(k):
+        prev = nums[-1]
+        for j in range(len(nums)):
+            nums[j], prev = prev, nums[j]
+    return nums
+
+print(rotate(nums, k))
+
