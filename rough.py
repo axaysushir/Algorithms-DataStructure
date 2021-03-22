@@ -1092,3 +1092,12 @@ def rotate(nums, k):
 
 print(rotate(nums, k))
 
+def roArr(num, k):
+    n = len(num)
+    a = [0] * n
+    for i in range(n):
+        a[(i+k) % n] = num[i]
+    num[:] = a
+    return num
+
+print(roArr(nums, k))
