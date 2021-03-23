@@ -1030,3 +1030,5 @@ var reInt = x => {
 }
 
 console.log(reInt(987));
+console.log(reInt(123456799712336));
+// console.log(2 ** 31 );
