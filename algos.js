@@ -1016,3 +1016,17 @@ class Median {
     return (this.arr.length & 1) === 1 ? this.arr[mid] : (this.arr[mid] + this.arr[mid -1] / 2)
   }
 }
+
+var reInt = x => {
+  var nag = x < 0
+  var rev = 0;
+  if (nag) x *= -1
+  while (x > 0) {
+    rev = (rev * 10) + (x % 10)
+    x = Math.floor(x/10)
+  }
+  if (rev > (2** 31 -1)) return 0
+  return nag ? (rev * -1) : rev
+}
+
+console.log(reInt(987));
