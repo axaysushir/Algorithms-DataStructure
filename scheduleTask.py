@@ -7,7 +7,7 @@ def schedule_tasks(tasks, n):
     maxfreq = 0
     L = len(tasks)
     for i in range(L):
-        taskfreq[tasks[i]] = taskfreq.get(tasks[i], 0)+1
+        taskfreq[tasks[i]] = taskfreq.get(tasks[i], 0)
 
     maxfreq = max(taskfreq.values())
 
@@ -19,7 +19,7 @@ def schedule_tasks(tasks, n):
     mintime = -1 + maxfreq + (maxfreq - 1) * n
 
     # how many tasks occur at maxfreq? Several tasks may have freq = maxfreq.
-    tasks_with_maxfreq = taskfreq.values().count(maxfreq)
+    tasks_with_maxfreq = list(taskfreq.values()).count(maxfreq)
     mintime += tasks_with_maxfreq
 
     return max(mintime, L)

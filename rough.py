@@ -1131,3 +1131,24 @@ class Solution:
         return sky
 
 print(Solution().generate_sky([(2, 8, 3), (4, 6, 5)]))
+
+# schedule tasks
+from collections import Counter
+def schedule(task, n):
+    taskfreq = {}
+    mintime = 0
+    maxfreq = 0
+    l = len(task)
+    for i in range(l):
+        taskfreq[task[i]] = taskfreq.get(task[i], 0)
+    
+    maxfreq = max(taskfreq.values())
+
+    mintime = -1 + maxfreq + (maxfreq-1) * n
+
+    taskWithMax = list(taskfreq.values()).count(maxfreq)
+    mintime += taskWithMax
+
+    return max(mintime, l)
+
+print(schedule(['q', 'q', 's', 'q', 'w', 'w'], 4))
