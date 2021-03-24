@@ -1023,7 +1023,9 @@ var reInt = x => {
   if (nag) x *= -1
   while (x > 0) {
     rev = (rev * 10) + (x % 10)
+    console.log(rev, 'rev');
     x = Math.floor(x/10)
+    console.log(x, "x")
   }
   if (rev > (2** 31 -1)) return 0
   return nag ? (rev * -1) : rev
@@ -1032,3 +1034,4 @@ var reInt = x => {
 console.log(reInt(987));
 console.log(reInt(123456799712336));
 // console.log(2 ** 31 );
+

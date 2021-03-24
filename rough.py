@@ -1101,3 +1101,33 @@ def roArr(num, k):
     return num
 
 print(roArr(nums, k))
+
+# 
+from heapq import heappop, heappush
+
+class Solution:
+    def generate_sky(self, building):
+        position = set()
+
+        for l, r, h in building:
+            position.add((l, -h, r))
+            position.add((r, 0,0))
+
+        building = []
+        sky = []
+
+        for x, h, r in sorted(position):
+            while building and building[0][1] <= x:
+                heappop(building)
+            
+            if h:
+                heappush(building, (h, r))
+            
+            currmaxHeight = -building[0][0]
+
+            if not sky or sky[-1][1] != currmaxHeight:
+                sky.append([x, currmaxHeight])
+        
+        return sky
+
+print(Solution().generate_sky([(2, 8, 3), (4, 6, 5)]))

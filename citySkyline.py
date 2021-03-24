@@ -48,7 +48,7 @@ class Solution:
             # IF this candidate is at left hand side of the bulding (have height)
             if H: heappush(buildings, (h, R))
 
-            # get max element in heap: its height with egative sign
+            # get max element in heap: its height with negative sign
             currMaxheight = -buildings[0][0]
 
             # If anything changed either case 1 and case 2: max height increase or decrease 
