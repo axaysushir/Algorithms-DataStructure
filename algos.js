@@ -1035,3 +1035,17 @@ console.log(reInt(987));
 console.log(reInt(123456799712336));
 // console.log(2 ** 31 );
 
+var plus = digit => {
+  for (let i= digit.length-1; i>=0; i--) {
+    if (digit[i] != 9) {
+      digit[i]++
+      return digit
+    } else {
+      digit[i] = 0
+    }
+  }
+  digit.unshift(1)
+  return digit
+}
+
+console.log(plus([1,9,9]));
