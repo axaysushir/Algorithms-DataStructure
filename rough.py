@@ -1152,3 +1152,12 @@ def schedule(task, n):
     return max(mintime, l)
 
 print(schedule(['q', 'q', 's', 'q', 'w', 'w'], 4))
+
+# PLus one
+def plus(digit):
+    strdig = ''.join([str(x) for x in digit])
+    print(strdig)
+    increment = str(int(strdig) + 1)
+    return [int(x) for x in increment]
+
+print(plus([2, 3, 4]))
