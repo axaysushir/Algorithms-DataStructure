@@ -1161,3 +1161,13 @@ def plus(digit):
     return [int(x) for x in increment]
 
 print(plus([2, 3, 4]))
+
+def plusone(digits):
+    res = []
+    inti = int(''.join(map(str, digits)))
+    inti += 1
+    for i in str(inti):
+        res.append(int(i))
+    return res
+
+print(plusone([2, 3, 4]))
