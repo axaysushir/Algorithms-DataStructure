@@ -46,7 +46,7 @@ def find_anagrams(s, p):
     return res
 
 print(find_anagrams('cbaebabacd', 'abc'))
-# [3, 7]
+# [0, 6]
 
 
 # Given a 32-bit integer, swap the 1st and 2nd bit, 3rd and 4th bit, up til the 31st and 32nd bit.

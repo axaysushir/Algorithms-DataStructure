@@ -1171,3 +1171,18 @@ def plusone(digits):
     return res
 
 print(plusone([2, 3, 4]))
+
+# find anagrams
+from collections import Counter
+def find_anagram(s, p):
+    l = len(p)
+    res = []
+    c = Counter(p)
+    for i in range(len(s) - l +1):
+        tmp = s[i:i+l]
+        if c == Counter(tmp):
+            res.append(i)
+    
+    return res
+
+print(find_anagram('cbaebabacd', 'abc'))
