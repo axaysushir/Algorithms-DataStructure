@@ -1186,3 +1186,34 @@ def find_anagram(s, p):
     return res
 
 print(find_anagram('cbaebabacd', 'abc'))
+
+def square(nums):
+    n = len(nums)
+    for i in range(n):
+        nums[i] = nums[i] ** 2
+    return sorted(nums)
+
+def squared(nums):
+    n = len(nums)
+    j = 0
+    while j < n and nums[j] < 0:
+        j += 1
+    i = j - 1
+    ans = []
+    while 0 <= i and j < n:
+        if nums[i]**2 < nums[j] ** 2:
+            ans.append(nums[i] ** 2)
+            i -= 1
+        else:
+            ans.append(nums[j]**2)
+            j += 1
+    
+    while i >= 0:
+        ans.append(nums[i]** 2)
+        i -= 1
+    while j < n:
+        ans.append(nums[j]**2)
+        j += 1
+    return ans
+
+print(squared([-5, -3, -1, 0, 1, 4, 5]))
