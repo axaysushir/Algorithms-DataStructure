@@ -1217,3 +1217,20 @@ def squared(nums):
     return ans
 
 print(squared([-5, -3, -1, 0, 1, 4, 5]))
+
+
+def sortPartial(num, size):
+    i, key, j = 0, 0, 0
+    for i in range(size):
+        key = num[i]
+        j = i - 1
+
+        while j >=0 and num[i] > key:
+            num[j+1] = num[j]
+            j = j - 1
+        num[j+1] = key
+
+
+num = [3, 2, 6, 5, 4]
+k=2
+print(sortPartial(num, k))
