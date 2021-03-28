@@ -7,10 +7,10 @@ let matrix = [[1,  2,  3,  4,  5],
 // The clockwise spiral traversal of this array is:
 // 1, 2, 3, 4, 5, 10, 15, 20, 19, 18, 17, 16, 11, 6, 7, 8, 9, 14, 13, 12
 // simulation: Draw the path that the spiral makes. We know that the path should turn clockwise whenever it would go out of bounds or into a cell that was previously visited. 
-//Time Complexity: O(N)O(N)O(N), where NNN is the total number of elements in the input matrix. We add every element in the matrix to our final answer.
-// Space Complexity: O(N)O(N)O(N), the information stored in seen and in ans.
+//Time Complexity: O(N), where N is the total number of elements in the input matrix. We add every element in the matrix to our final answer.
+// Space Complexity: O(N), the information stored in seen and in ans.
 // layer by layer: 
-//Time Complexity: O(N)O(N)O(N), where NNN is the total number of elements in the input matrix. We add every element in the matrix to our final answer.
+//Time Complexity: O(N), where NNN is the total number of elements in the input matrix. We add every element in the matrix to our final answer.
 // space complex: O(1) if out put array is taken account
 
 var spiralOrder = function(matrix) {
@@ -27,7 +27,7 @@ var spiralOrder = function(matrix) {
     }
     // add last row
     const lastRow = matrix.pop()
-    if (lastRow) reult = result.concat(lastRow.reverse())
+    if (lastRow) result = result.concat(lastRow.reverse())
      // add first col
     for (let i=matrix.length - 1; i >= 0; i--) {
         if (matrix[i].length) result.push(matrix[i].shift())

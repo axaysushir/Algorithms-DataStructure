@@ -1062,3 +1062,26 @@ while (j <= n) {
   } else j++
 }
 console.log(arr)
+
+// sprial order
+var spiral = matrix => {
+  if (matrix.length === 0 || matrix.length[0] === 0) return []
+  var res = []
+  // add first row
+  res = res.concat(matrix.shift())
+
+  for(let i=0; i < matrix.length-1; i++) {
+    res.push(matrix[i].pop())
+  }
+  const lastrow = matrix.pop()
+  if (lastrow) res = res.concat(lastrow.reverse())
+  for(let i= matrix.length-1; i>=0; i--) {
+    if (matrix[i].length) res.push(matrix[i].shift())
+  }
+  return res.concat(spiral(matrix))
+}
+let matrix = [[1,  2,  3,  4,  5],
+             [6,  7,  8,  9,  10],
+             [11, 12, 13, 14, 15],
+             [16, 17, 18, 19, 20]]
+console.log(spiral(matrix));
