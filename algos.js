@@ -1080,6 +1080,24 @@ var spiral = matrix => {
   }
   return res.concat(spiral(matrix))
 }
+
+var spiral = matrix => {
+  let res = []
+
+  while (matrix.length > 0) {
+    var top= matrix.shift()
+    var bottom = (matrix.pop() || []).reverse()
+    var left = [], right = []
+    for (let i=0; i < matrix.length; i++) {
+      if (matrix[i].length > 0) {
+        right.push(matrix[i].pop())
+        left.unshift(matrix[i].shift())
+      }     
+    }
+    res.push(...top, ...left, ...right, ...bottom)
+  }
+  return res
+}
 let matrix = [[1,  2,  3,  4,  5],
              [6,  7,  8,  9,  10],
              [11, 12, 13, 14, 15],
