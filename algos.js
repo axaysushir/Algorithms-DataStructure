@@ -1103,3 +1103,28 @@ let matrix = [[1,  2,  3,  4,  5],
              [11, 12, 13, 14, 15],
              [16, 17, 18, 19, 20]]
 console.log(spiral(matrix));
+
+// Detect cycle in linked list
+var hasCycle = head => {
+  let nodeseen = new Set()
+  while(!head) {
+    if (nodeseen.has(head)) return true
+    else nodeseen.add(head)
+    head = head.next
+  }
+  return false
+}
+
+var cyclic = head => {
+  if (!head || head.next === null) return false
+  var slow = head;
+  var fast = head.next
+  while (slow != fast) {
+    if (fast == null || fast.next == null) {
+      return false
+    }
+    slow = slow.next;
+    fast = fast.next.next
+  }
+  return true
+}
