@@ -1251,3 +1251,16 @@ def fibMemo(n):
     return fib(n, memo)
 x = fibMemo(1126)
 print(x)
+
+def bottom(n):
+    if n==1 or n==2 :
+        res = 1
+    bottom = [None] * (n+1)
+    bottom[1] = 1
+    bottom[2] = 1
+    for i in range(3, n+1):
+        bottom[i] = bottom[i-1] + bottom[i-2]
+    return bottom[n]
+
+x = bottom(90)
+print(x)
