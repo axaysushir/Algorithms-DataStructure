@@ -1234,3 +1234,20 @@ def sortPartial(num, size):
 num = [3, 2, 6, 5, 4]
 k=2
 print(sortPartial(num, k))
+
+# find nth fibonac number
+def fib(n, memo):
+    if memo[n] is not None:
+        return memo[n]
+    if n==1 or n==2:
+        res = 1
+    else:
+        res = fib(n-1, memo) + fib(n-2, memo)
+    memo[n] = res
+    return res
+
+def fibMemo(n):
+    memo = [None] * (n+1)
+    return fib(n, memo)
+x = fibMemo(1126)
+print(x)
