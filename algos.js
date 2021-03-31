@@ -1133,3 +1133,15 @@ var rotateString = (a, b) => {
   return a.length === b.length && (a+a).includes(b)
 }
 console.log(rotateString('abcde', 'cdeab'))
+
+var shift =  (a, b) => {
+  if (a.length !== b.length) return false
+  if (!a && !b) return true
+  for (let i=0; i<a.length; i++) {
+    if (a.charAt(i) === b.charAt(0)) {
+      if (a.slice(i) + a.slice(0, i) === b) return true
+    }
+  }
+  return false
+}
+console.log(shift('abcde', 'bcdea'));
