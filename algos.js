@@ -1128,3 +1128,8 @@ var cyclic = head => {
   }
   return true
 }
+
+var rotateString = (a, b) => {
+  return a.length === b.length && (a+a).includes(b)
+}
+console.log(rotateString('abcde', 'cdeab'))
