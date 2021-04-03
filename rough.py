@@ -1264,3 +1264,35 @@ def bottom(n):
 
 x = bottom(90)
 print(x)
+
+
+# balance binary tree
+class TreeNode:
+    def __init__(self, val, left=None, right=None) -> None:
+        self.val = val
+        self.left = left
+        self.right = right
+    
+    def __str__(self):
+        ans = str(self.val)
+        if self.left:
+            ans += str(self.left)
+        if self.right:
+            ans += str(self.right)
+        return ans
+    
+
+class Solution:
+    def balbst(self, nums):
+        def buildtree(left, right):
+            if left > right:
+                return None
+            mid = (left + right) // 2
+            newnode = TreeNode(nums[mid])
+            newnode.left = buildtree(left, mid-1)
+            newnode.right = buildtree(mid+1, right)
+            return newnode
+        return buildtree(0, len(nums) - 1)
+
+print(Solution().balbst([1,2,3,4]))
+
