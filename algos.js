@@ -1145,3 +1145,27 @@ var shift =  (a, b) => {
   return false
 }
 console.log(shift('abcde', 'bcdea'));
+
+// alphabet
+const isSorted = (words, order) => {
+  const alphabet = {}
+  for (let i=0; i< order.length; i++) {
+    alphabet[order[i]] = i
+  }
+
+  for (let i=0; i<words.length-1; i++) {
+    let first = words[i]
+    let sec = words[i+1]
+    let minlen = Math.min(first.length, sec.length)
+    let comparison = false
+    for (let j=0; j<minlen; j++) {
+      if (first[j] === sec[j]) continue
+      comparison = true
+      if (alphabet[first[j]] > alphabet[sec[j]]) return false
+      break
+    }
+    if (!comparison && first.length > sec.length) return false
+  }
+  return true
+}
+console.log(isSorted(["zyx", "zyxw", "zyxwa"], "zyxwvutsrqponmlkjihgfedcba"));
