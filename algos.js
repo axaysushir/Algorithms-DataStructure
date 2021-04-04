@@ -1169,3 +1169,25 @@ const isSorted = (words, order) => {
   return true
 }
 console.log(isSorted(["zyx", "zyxw", "zyxwa"], "zyxwvutsrqponmlkjihgfedcba"));
+
+const sorted = (word, order) => {
+  for (let i=0; i<word.length-1; i++) {
+    var word1 = word[i]
+    var word2 = word[i+1]
+    if (!isRightOrder(word1, word2, order)) return false
+  }
+  return true
+}
+
+const isRightOrder = (word1, word2, order) => {
+  var length = word1.length > word2.length ? word1.length : word2.length;
+  for (let i=0; i < length; i++) {
+    let ind1 = order.indexOf(word1[i])
+    let ind2 = order.indexOf(word2[i])
+
+    if (ind1 < ind2) return true
+    if (ind1 > ind2) return false
+  }
+  return true
+}
+console.log(sorted(["zyx", "zyxw", "zyxwa"], "zyxwvutsrqponmlkjihgfedcba"));
