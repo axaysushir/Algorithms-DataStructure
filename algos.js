@@ -1191,3 +1191,34 @@ const isRightOrder = (word1, word2, order) => {
   return true
 }
 console.log(sorted(["zyx", "zyxw", "zyxwa"], "zyxwvutsrqponmlkjihgfedcba"));
+
+var threeSum = nums => {
+  var target = 0;
+  var res = []
+
+  if (nums.length<3) return res;
+  nums = nums.sort((a, b) => a - b);
+
+  for (let i=0; i < nums.length; i++) {
+    if (nums[i] > target) break;
+    if (i >0 && nums[i] === nums[i-1]) continue
+    let j = i+1
+    let k = nums.length - 1
+    while (j < k) {
+      let sum = nums[i] + nums[j] + nums[k]
+      if (sum === target) {
+        res.push([nums[i], nums[j], nums[k]])
+        while (nums[j] === nums[j+1]) j++;
+        while (nums[k] === nums[k-1]) k--;
+        j++
+        k--
+        continue
+      }
+      if (sum < target) j++
+      if (sum > target) k--
+    }
+  }
+  return res
+}
+var nums = [0, -1,-1, 1];
+console.log(threeSum(nums));
