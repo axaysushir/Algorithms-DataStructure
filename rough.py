@@ -1332,3 +1332,4 @@ def sums(bin1, bin2):
     return res.zfill(maxLen)
 
 print(sums('111101', '1011'))
+print(sums('1', '1'))
