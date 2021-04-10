@@ -1314,3 +1314,21 @@ def closeSum(nums, target):
     return target - diff
 
 print(closeSum([2, 1, -5, 4], 3))
+
+def sums(bin1, bin2):
+    maxLen = max(len(bin1), len(bin2))
+    x = bin1.zfill(maxLen)
+    y = bin2.zfill(maxLen)
+    res = ''
+    carr = 0
+
+    for i in range(maxLen - 1, -1, -1):
+        r = carr
+        r += 1 if x[i] == '1' else 0
+        r += 1 if y[i] == '1' else 0
+        res = ('1' if r %2 == 1 else '0') + res
+        carr = 0 if r < 2 else 1
+    if carr != 0 : res = '1' + res
+    return res.zfill(maxLen)
+
+print(sums('111101', '1011'))
