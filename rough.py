@@ -1333,3 +1333,4 @@ def sums(bin1, bin2):
 
 print(sums('111101', '1011'))
 print(sums('1', '1'))
+print(sums('1111', '01010'))
