@@ -1223,3 +1223,15 @@ var threeSum = nums => {
 var nums = [0, -1,-1, 1];
 console.log(threeSum(nums));
 02564220025
+
+// search index
+
+let searchIdx = (nums, target) => {
+  let index = 0
+  for (let i=0; i <nums.length; i++) {
+    if (nums[i] == target) return i
+    else if (target > nums[i]) index = i+1
+    if (target <nums[i+1]) return index
+  }
+  return index
+}
