@@ -1235,3 +1235,9 @@ let searchIdx = (nums, target) => {
   }
   return index
 }
+
+let search = (nums, tar) => {
+  return (nums.indexOf(tar) && nums.concat(tar).sort((a,b) => a-b).indexOf(tar))
+}
+x= search([1,2,3], 5)
+console.log(x)
