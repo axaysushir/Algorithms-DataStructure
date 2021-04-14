@@ -1241,3 +1241,20 @@ let search = (nums, tar) => {
 }
 x= search([1,2,3], 5)
 console.log(x)
+
+// top frequent words
+var topK = (words, k) => {
+  const hash = words.reduce((map, word) => {
+    if (map.has(word)) map.set(word, map.get(word) + 1)
+    else map.set(word, 1)
+    return map
+  }, new Map())
+
+  const sorted = [...hash].sort((a,b) => {
+    if (a[1] > b[1]) return -1
+    if (a[1] < b[1]) return 1
+    if (a[0] > b[0]) return 1
+    if (a[0] < b[0]) return -1
+  })
+  return sorted.slice(0, k).map(([x]) => x)
+}
