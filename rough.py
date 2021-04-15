@@ -1334,3 +1334,32 @@ def sums(bin1, bin2):
 print(sums('111101', '1011'))
 print(sums('1', '1'))
 print(sums('1111', '01010'))
+
+class Node(object):
+    def __init__(self, val, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+class Solution:
+    def isCousin(self, root: Node, x, y):
+        res = []
+
+        def dfs(node, parent, depth):
+            if not node:
+                return 
+            if node.val == x or node.val == y:
+                res.append((parent, depth))
+            dfs(node.left, node, depth+1)
+            dfs(node.right, node, depth+1)
+        dfs(root, None, 0)
+
+        nodeX, nodeY = res
+        return nodeX[0] != nodeY[0] and nodeX[1] == nodeY[1]
+
+root = Node(1)
+root.left = Node(2)
+root.left.left = Node(4)
+root.right = Node(3)
+root.right.right = Node(5)
+print(Solution().isCousin(root, 5, 3))
