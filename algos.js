@@ -1258,3 +1258,28 @@ var topK = (words, k) => {
   })
   return sorted.slice(0, k).map(([x]) => x)
 }
+
+// find binry tree cousins
+
+var isCousins = function(root, x, y) {
+  var xParent, yParent = null
+  var xDepth, yDepth = 0
+  depthOfTree(root, x, y, 0, null) 
+  if (xDepth == yDepth && xParent !== yParent) return true
+}
+
+function depthOfTree(root, x, y, depth, prev)  {
+  if (root == null) return 
+  if (root.val == x) {
+    xParent = prev
+    xDepth = depth
+  }
+  if (root.val == y) {
+    yParent = prev
+    yDepth = depth
+  }
+  depth++
+  prev = root
+  depthOfTree(root.left, x, y, depth, prev)
+  depthOfTree(root.right, x, y, depth, prev)
+}
