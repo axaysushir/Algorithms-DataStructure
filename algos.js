@@ -1283,3 +1283,20 @@ function depthOfTree(root, x, y, depth, prev)  {
   depthOfTree(root.left, x, y, depth, prev)
   depthOfTree(root.right, x, y, depth, prev)
 }
+
+let deleteNode = head => {
+  if (!head) return null
+  let pre = new ListNode(0)
+  pre.next = head
+  let node = pre
+
+  while (node.next && node.next.next) {
+    if (node.next.val === node.next.next.val) {
+      let val = node.next.val
+      while (node.mext && node.next.val == val) {
+        node.next = node.next.next
+      }
+    } else node = node.next
+  }
+  return pre.next
+}
