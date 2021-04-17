@@ -1300,3 +1300,16 @@ let deleteNode = head => {
   }
   return pre.next
 }
+
+var delDup = head => {
+  var node = new ListNode(-1)
+  var ans = node;
+  var pre = head, cur = head;
+  while (cur) {
+    while (cur.next && cur.val == cur.next.val) cur = cur.next
+    if (pre == cur) (ans.next = cur), (ans = ans.next)
+    pre = cur = cur.next
+  }
+  ans.next = null
+  return node.next
+}
