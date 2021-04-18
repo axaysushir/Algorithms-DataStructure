@@ -1363,3 +1363,19 @@ root.left.left = Node(4)
 root.right = Node(3)
 root.right.right = Node(5)
 print(Solution().isCousin(root, 5, 3))
+
+def nonDupNum(nums):
+    n = len(nums)
+    for i in range(n):
+        j = 0
+        while (j < n):
+            if (i!=j and nums[i] == nums[j]):
+                break
+            j+= 1
+            if (j == n):
+                return nums[i]
+    return -1
+
+
+nums = [4, 3, 2, 4, 1, -3, 2]
+print(nonDupNum(nums))
