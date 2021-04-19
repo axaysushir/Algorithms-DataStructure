@@ -1379,3 +1379,18 @@ def nonDupNum(nums):
 
 nums = [4, 3, 2, 4, 1, -3, 2]
 print(nonDupNum(nums))
+
+def single(num):
+    n = len(num)
+    map = {}
+    for i in range(n):
+        if num[i] not in map:
+            map[num[i]] = 0
+            map[num[i]] += 1
+            # print(map)
+    for x in map:
+        if map[x] == 1:
+            return print(x), x
+
+num = [3,4, 4,2,1,2,5]
+print(single(num))
