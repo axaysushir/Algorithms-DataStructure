@@ -1314,4 +1314,18 @@ var delDup = head => {
   return node.next
 }
 
+var subarraySum = (nums, k) => {
+  var count = 0
+  for (let s = 0; s < nums.length; s++) {
+    for (let e =s+1; e < nums.length; e++ ) {
+      var sum = 0
+      for (let i=0; i< e; i++) sum += nums[i]
+      if (sum == k) count++
+    }
+  }
+  return count
+}
 
+let nums = [1, 1, 1];
+let k = 2;
+console.log(subarraySum(nums, k));
