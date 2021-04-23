@@ -1345,3 +1345,34 @@ var sub = (nums, k) => {
   }
   return count
 }
+
+// search range
+var searchRange = (nums, target) => {
+  let low = 0, high = nums.length-1, mid, right = -1, left = -1;
+  while (low < high) {
+    mid = Math.floor((low+high)/2)
+    if (nums[mid] === target) {
+      left = mid
+      high = mid - 1
+    } else if (nums[mid] > target) {
+      high = mid -1
+    }
+    else low = mid + 1
+  }
+  low = 0
+  high = nums.length -1
+  while (low <= high) {
+    mid = Math.floor((low+high)/2)
+    if (nums[mid] === target) {
+      right = mid
+      low = mid + 1
+    } else if (nums[mid] > target) {
+      high = mid - 1
+    } else low = mid + 1
+  }
+  return [left, right]
+}
+
+let nums = [1,2,4,5,6,8,9,1,3,8]
+let target = 8
+console.log(searchRange(nums, target));
