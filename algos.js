@@ -1376,3 +1376,19 @@ var searchRange = (nums, target) => {
 let nums = [1,2,4,5,6,8,9,1,3,8]
 let target = 8
 console.log(searchRange(nums, target));
+
+// invert binary tree
+function TreeNode(val, left, right) {
+  this.val = val === undefined ? 0 : null;
+  this.left = left === undefined ? null : left;
+  this.right = right === undefined ? null : right;
+}
+
+var invertTree = root => {
+  if (root === null) return null;
+  const right = invertTree(root.right)
+  const left = invertTree(root.left)
+  root.left = right
+  root.right = left
+  return root
+}
