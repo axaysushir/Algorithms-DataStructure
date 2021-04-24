@@ -1392,3 +1392,15 @@ var invertTree = root => {
   root.right = left
   return root
 }
+
+// Dfs
+var invert = root => {
+  var stack = [root]
+  while (stack.length) {
+    let n = stack.pop()
+    if (!n) continue
+    [n.left, n.right] = [n.right, n.left]
+    stack.push(n.left, n.right)
+  }
+  return root
+}
