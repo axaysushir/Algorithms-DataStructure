@@ -1394,3 +1394,32 @@ def single(num):
 
 num = [3,4, 4,2,1,2,5]
 print(single(num))
+
+# create balance binary tree from given array
+class TreeNode:
+    def __init__(self, val, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+    
+    def __str__(self):
+        ans = str(self.val)
+        if self.left:
+            ans += str(self.left)
+        if self.right:
+            ans += str(self.right)
+        return ans
+
+class Solution:
+    def sortedArray(self, nums):
+        def buildTree(left, right):
+            if left > right:
+                return None
+            mid = (left + right) // 2
+            newNode = TreeNode(nums[mid])
+            newNode.left = buildTree(left, mid-1)
+            newNode.right = buildTree(mid+1, right)
+            return newNode
+        return buildTree(0, len(nums)-1)
+
+print(Solution().sortedArray([1,2,3,4,5,6]))
