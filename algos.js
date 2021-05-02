@@ -1404,3 +1404,68 @@ var invert = root => {
   }
   return root
 }
+
+const inverted = root => {
+  if (root === null) return root;
+  [root.left, root.right] = [inverted(root.right), inverted(root.left)]
+  return root
+}
+
+// 
+// 0 batches can be made
+batches(
+  { milk: 100, butter: 50, flour: 5 },
+  { milk: 132, butter: 48, flour: 51 }
+)
+batches(
+  { milk: 100, flour: 4, sugar: 10, butter: 5 },
+  { milk: 1288, flour: 9, sugar: 95 }
+)
+
+// 1 batch can be made
+batches(
+  { milk: 100, butter: 50, cheese: 10 },
+  { milk: 198, butter: 52, cheese: 10 }
+)
+
+// 2 batches can be made
+batches(
+  { milk: 2, sugar: 40, butter: 20 },
+  { milk: 5, sugar: 120, butter: 500 }
+)
+console.log(Object.getPrototypeOf(batches))
+const batches = (recipe, available) => {
+  return Math.floor(
+    Math.min(...Object.keys(recipe).map(k => available[k] / recipe[k] || 0))
+  )
+}
+
+console.log(batches({ milk: 100, butter: 50, cheese: 10 },{ milk: 198, butter: 52, cheese: 10 }));
+
+console.log(typeof typeof 0) // "string"
+
+document.querySelectorAll('button').forEach(button => {
+  button.addEventListener('click', handleButtonClick)
+})
+
+document.addEventListener('click', e => {
+  if (e.target.closest('button')) handleButtonClick()
+})
+
+// generate an array containing the fibonacci seq upto n
+const fibonacci = n => {
+  [...Array(n)].reduce((acc, val, i) => acc.concat(i > 1 ? acc[i-1] + acc[i-1]: i), [])
+}
+
+var foo = 1
+var bar = () => {
+  console.log(foo);
+  var foo = 2
+}
+console.log(bar());
+
+// mask charcters
+const mask = (str, maskChar='#') =>
+  str.slice(-4).padStart(str.length, maskChar)
+
+console.log(mask('12345678901', '#'));

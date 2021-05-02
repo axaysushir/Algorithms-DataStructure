@@ -39,7 +39,7 @@ function invertTree(root) {
   return root;
 }
 
-// recursi0n
+// recursion
 var invertTree = function (root) {
   if (root === null) return root;
   [root.left, root.right] = [invertTree(root.right), invertTree(root.left)];
