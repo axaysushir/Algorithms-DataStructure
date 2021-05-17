@@ -1469,3 +1469,24 @@ const mask = (str, maskChar='#') =>
   str.slice(-4).padStart(str.length, maskChar)
 
 console.log(mask('12345678901', '#'));
+
+function Node(val, left, right) {
+  this.val = val === undefined ? 0: val;
+  this.right = val === undefined ? null : right;
+  this.left = val === undefined ? null : left;
+}
+
+var maxPathSum = root => {
+  let max = -Infinity
+  note(root)
+  return max
+
+  function note(node) {
+    if (node === null) return 0
+    let left = Math.max(note(node.left), 0)
+    let right = Math.max(note(note.right), 0)
+    let currmax = right + left + node.val
+    if (currmax > max) max = currmax
+    return node.val + Math.max(left, right)
+  }
+}

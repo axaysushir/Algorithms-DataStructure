@@ -42,3 +42,5 @@ n4 = Node(4)
 n3 = Node(3, null, n4)
 n2 = Node(2, null, n6)
 n1 = Node(1, n2, n3)
+
+console.log(maxPathSum(n1));
