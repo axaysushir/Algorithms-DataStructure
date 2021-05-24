@@ -434,6 +434,7 @@ def baseto(n, b):
 
 print(baseto(122356689121114444477746641131313131314644444484121213516848454792, 2))
 
+from anagramInString import alphabetCounter
 from collections import defaultdict
 class Graph:
     def __init__(self, vertices):
@@ -1453,3 +1454,61 @@ n2 = Node(1, n5)
 n1 = Node(1, n2, n3)
 
 print(filter(n1, 2))
+
+# find anagrams
+from collections import Counter
+import string
+
+def alphabet(s):
+    counter = Counter(s)
+    for c in string.ascii_lowercase:
+        if c not in counter:
+            counter[c]= 0
+    return counter
+
+def findAnagrams(s, t):
+    l = []
+    if len(s) < len(t):
+        return l
+    hist = alphabet(t)
+
+    current = alphabet(s[0: len(t)])
+    for i in range(len(s) - len(t) + 1):
+        if hist == current:
+            l.append(i)
+
+        if i == len(s) - len(t):
+            break
+        current[s[i]] -= 1
+        current[s[i+ len(t)]] += 1
+    return l
+
+print(findAnagrams('cbaebabacs', 'abc'))
+
+def find_anag(s, p):
+    l = len(p)
+    res = []
+    c = Counter(p)
+    for i in range(len(s) - l+1):
+        tmp = s[i: i+l]
+        if c == Counter(tmp):
+            res.append(i)
+    return res
+print(find_anag('cbabad', 'abc'))
+
+# rotate array
+def array(num, k):
+    k %= len(nums)
+    for i in range(k):
+        pre = nums[-1]
+        for j in range(len(nums)):
+            nums[j], pre = pre, nums[j]
+    return nums
+
+def rot(nums, k):
+    n = len(nums)
+    a = [0]*n
+    for i in range(n):
+        a[(i+k)%n] = nums[i]
+    nums[:] = a
+    return nums
