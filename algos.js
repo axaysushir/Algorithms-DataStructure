@@ -1491,3 +1491,16 @@ var maxPathSum = root => {
   }
 }
 
+let searchind = (nums, target) => {
+  let idx = 0
+  for(let i=0; i<nums.length; i++) {
+    if (nums[i] == target) return i
+    else if (target > nums[i]){
+      idx = i+1
+      if (target < nums[i+1]) return idx
+    }
+  }
+  return idx
+}
+
+console.log(searchind([1,2,3,4], 0));
