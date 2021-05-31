@@ -1512,3 +1512,38 @@ def rot(nums, k):
         a[(i+k)%n] = nums[i]
     nums[:] = a
     return nums
+
+# find largest bst
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+
+def size(root):
+    if root is None:
+        return 0
+    return size(root.left) +1+ size(root.right)
+
+def isBst(node, min, max):
+    if node is None:
+        return True
+    
+    if node.data < min or node.data > max:
+        return False
+    return isBst(node.left, min, node.data) and isBst(node.right, node.data, max)
+
+def find(root):
+    if isBst(root, float('-inf'), float('-inf')):
+        return size(root)
+    return max(find(root.left), find(root.right))
+
+if __name__ == '__main__':
+    root = Node(10)
+    root.left = Node(15)
+    root.right = Node(8)
+    root.left.left = Node(12)
+    root.left.right = Node(20)
+    root.right.left = Node(5)
+    root.right.right = Node(2)
+    print(find(root))
