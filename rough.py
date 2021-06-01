@@ -1546,4 +1546,4 @@ if __name__ == '__main__':
     root.left.right = Node(20)
     root.right.left = Node(5)
     root.right.right = Node(2)
-    print(find(root))
+    print(find(root)) sum
