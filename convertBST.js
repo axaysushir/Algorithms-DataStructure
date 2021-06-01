@@ -43,7 +43,8 @@ var sortedListToBST = function(head) {
     return constructTree(val)
 }
 
-// Though this might look a bit confusing at first, I think it is ultimately easier to remember because the code is so short and nothing is ambiguous. It might be hard to imagine the traversal state on the spot though.
+// Though this might look a bit confusing at first, I think it is ultimately easier to remember because 
+// the code is so short and nothing is ambiguous. It might be hard to imagine the traversal state on the spot though.
 
 // Find the mid point by counting length of the list
 // Traverse left subtree using the midpoint as your upper bound

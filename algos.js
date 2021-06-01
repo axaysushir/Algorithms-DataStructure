@@ -1504,3 +1504,40 @@ let searchind = (nums, target) => {
 }
 
 console.log(searchind([1,2,3,4], 0));
+
+var sorted = head => {
+  const val = []
+  while (head) {
+    val.push(head.val)
+    head = head.next
+  }
+  function construct(arr)  {
+    if (arr.length === 0) return null
+    if (arr.length === 1) return new TreeNode(arr[0])
+
+    let index = Math.floor(arr.length/2)
+    let node = new TreeNode(arr[index])
+    node.left = construct(arr.slice(0, index))
+    node.right = construct(arr.slice(index+1))
+    return node
+  }
+  return construct(val)
+}
+
+var listbst = head => {
+  const countNode(node) {
+    if (!node) return 0
+    return 1 + countNode(node.next)
+  } 
+  const numbofnodes = countNode(head)
+  return traverse(numbofnodes)
+  function traverse(n) {
+    if (n <= 0) return null
+    let left = traverse(Math.floor(n/2))
+    let root = new TreeNode(head.val)
+    root.left = left
+    head = head.next
+    root.right = travrse(n-Math.floor(n/2) -1)
+    return root
+  }
+}
