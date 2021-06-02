@@ -1541,3 +1541,13 @@ var listbst = head => {
     return root
   }
 }
+
+function TreeNode(val) {
+  this.val = val
+  this.left = this.right = null;
+}
+var targetNum = (original, cloned, target) => {
+  if (!original || !cloned) return
+  if (original.val == target.val) return cloned
+  else return getTargetCopy(original.left, cloned.left, target)
+}
