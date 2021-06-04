@@ -8,7 +8,7 @@
 # The idea is we can use SortedList like an order statistic tree, since we have O(logN) access to any k-th indexed value. For this problem, we want
 # k = middle index if there are an odd number of elements and two elements if there are an even number, k = middle index and k' = (middle index)-1. This gives us a nice and simple implementation with both add() and getMedian() running in O(logN).
 
-from sortedcontainers import SortedList
+from sorted_containers import SortedList
 
 class MedianFinder:
 

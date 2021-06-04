@@ -1549,5 +1549,5 @@ function TreeNode(val) {
 var targetNum = (original, cloned, target) => {
   if (!original || !cloned) return
   if (original.val == target.val) return cloned
-  else return getTargetCopy(original.left, cloned.left, target)
+  else return targetNum(original.left, cloned.left, target)
 }

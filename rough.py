@@ -1546,4 +1546,43 @@ if __name__ == '__main__':
     root.left.right = Node(20)
     root.right.left = Node(5)
     root.right.right = Node(2)
-    print(find(root)) sum
+    print(find(root)) 
+
+def sumBinary(b1,b2):
+    maxLen = max(len(b1), len(b2))
+    x = b1.zfill(maxLen)
+    y = b2.zfill(maxLen)
+
+    res = ''
+    carry = 0
+
+    for i in range(maxLen-1, -1, -1):
+        r = carry
+        r += 1 if x[i] == '1' else 0
+        r+= 1 if y[i] == '1' else 0
+        res = ('1' if r%2== 1 else '0') + res
+        carry = 0 if r < 2 else 1
+    if carry != 0: res = '1' + res
+
+    return res.zfill(maxLen)
+
+print(sumBinary("11101", "1011"))
+
+class Node:
+    def __init__(self, value, left=None, right=None):
+        self.value == value
+        self.right = right
+        self.left = left
+    def __repr__(self) -> str:
+        return f"value: {self.value}, left: ({self.left.__repr()}), right: ({self.right.__repr()})"
+
+def filterbst(root,k):
+    if root == None:
+        return None
+    
+    root.left = filterbst(root.left, k)
+    root.right = filterbst(root.right, k)
+
+    if root.left == None and root.right == None and root.value==k:
+        return None
+    else: return root
