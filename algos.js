@@ -1551,3 +1551,24 @@ var targetNum = (original, cloned, target) => {
   if (original.val == target.val) return cloned
   else return targetNum(original.left, cloned.left, target)
 }
+
+var remNthNode = (head, n) => {
+  let list;
+  let dummy = new list(0)
+  dummy.next = head
+  let length = 0
+  first = head
+
+  while (first != null) {
+    length++
+    first = first.next
+  }
+  length -= n;
+  first = dummy
+  while (length>0) {
+    length--
+    first = first.next
+  }
+  first.next = first.next.next
+  return dummy.next
+}

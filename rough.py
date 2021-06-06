@@ -1586,3 +1586,34 @@ def filterbst(root,k):
     if root.left == None and root.right == None and root.value==k:
         return None
     else: return root
+
+class Node:
+    def __init__(self, value, next=None):
+        self.value = value
+        self.next = next
+
+def rotate(head: Node, k):
+    if not head or not head.next or k == 0:
+        return head
+    tail = head
+    count = 1
+    while tail.next:
+        tail = tail.next
+        count += 1
+    
+    k = k%count
+    if k == 0: return head
+
+    tail.next = head
+    brk = 1
+    pointer = head
+    while brk != count - k:
+        pointer = pointer.next
+        brk += 1
+    head = pointer.next
+    pointer.next = None
+    return head
+
+llist = [Node(1, Node(2, Node(3, Node(4))))]
+
+print(rotate(llist, 3))

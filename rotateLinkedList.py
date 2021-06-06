@@ -6,7 +6,7 @@
     # of LL - k to get new tail and new head
     # 4. In case of, rotations more than length of LL, we just mod it with total length, for example, if LL length 
     # is 10 and we rotate it by 12, after 10th rotation, we get the same LL, so in fact, we are doing just 2 rotations 
-    # and that would be k%lenght (12%10)
+    # and that would be k%length (12%10)
 
 class Node:
   def __init__(self, value, next=None):
