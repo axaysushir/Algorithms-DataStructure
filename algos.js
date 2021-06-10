@@ -1572,3 +1572,28 @@ var remNthNode = (head, n) => {
   first.next = first.next.next
   return dummy.next
 }
+
+// rev integers
+var reverse = x => {
+  let nag = x < 0
+  let rev = 0
+  if (nag) x *= -1
+  while (x > 0) {
+    rev = (rev*10) + (x %10)
+    console.log(rev);
+    x = Math.floor(x/10)
+  }
+  if (reverse > (2**31-1)) return 0
+  return nag ? (rev * -1) : rev
+}
+console.log(reverse(-123));
+
+var simplepath = path => {
+  let start = []
+  path = path.split('/').filter(file => file.length && file != '.')
+  for (let file of path) {
+    if (file =='..') start.pop()
+    else start.push(file)
+  }
+  return '/' + start.join('/')
+}

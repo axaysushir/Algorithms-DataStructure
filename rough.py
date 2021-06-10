@@ -1617,3 +1617,17 @@ def rotate(head: Node, k):
 llist = [Node(1, Node(2, Node(3, Node(4))))]
 
 print(rotate(llist, 3))
+
+def shortpath(path):
+    res = []
+    path = path.split('/')
+
+    for file in path:
+        if file == '' or file == '.':
+            continue
+        elif file == '..':
+            if len(res) > 1:
+                res.pop()
+        else:
+            res.append(file)
+        return '/' + '/'.join(res)

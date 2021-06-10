@@ -37,17 +37,17 @@ console.log(simplifyPath('/Users/Joma/Documents/../Desktop/./../'))
 
 // Python solution: O(N) time complexity. 32ms
 
-class Solution:
-    def simplifyPath(self, path):
-        res = []
-        path = path.split('/')
+// class Solution:
+//     def simplifyPath(self, path):
+//         res = []
+//         path = path.split('/')
         
-        for file in path:
-            if file == '' or file == '.':
-                continue
-            elif file == '..':
-                if len(res) >= 1:   #for case /../
-                    res.pop()
-            else:
-                res.append(file)
-        return '/' + '/'.join(res)
+//         for file in path:
+//             if file == '' or file == '.':
+//                 continue
+//             elif file == '..':
+//                 if len(res) >= 1:   #for case /../
+//                     res.pop()
+//             else:
+//                 res.append(file)
+//         return '/' + '/'.join(res)
