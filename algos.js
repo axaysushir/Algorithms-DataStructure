@@ -1597,3 +1597,30 @@ var simplepath = path => {
   }
   return '/' + start.join('/')
 }
+
+let add = (l1, l2) => {
+  let res = new ListNode(0)
+  let curNode = res
+  let carry = 0
+
+  while (l1 != null || l2 != null) {
+    var v1 = 0
+    var v2 = 0
+    if (l1 != null) v1 = l1.val;
+    if (l1 != null) v2 = l2.val;
+
+    let sum = v1 + v2 + carry
+    carry = Math.floor(sum /10)
+    sum = sum % 10
+    curNode.next = new listNode(sum)
+
+    curNode = curNode.next;
+    if (l1 != null) l1 = l1.next;
+    if (l2 != null) l2 = l2.next;
+
+  }
+  if (carry > 0) {
+    curNode.next = new listNode(carry)
+  }
+  return res.next
+}
