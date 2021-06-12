@@ -1624,3 +1624,19 @@ let add = (l1, l2) => {
   }
   return res.next
 }
+
+// Longets common prefix
+let strs = ["hoo", "hood", "hoom", "hooore"];
+
+function longest(strs) {
+  let pre = ''
+  if (strs.length == 0) return pre;
+  for (let i=0; i < strs[0].length; i++) {
+    const char = strs[0][i]
+    for (let j=0; j < strs.length; j++) {
+      if (strs[i][j] !== char) return pre;
+    }
+    pre = pre + char
+  }
+  return pre;
+}
