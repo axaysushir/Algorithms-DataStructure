@@ -1631,3 +1631,39 @@ def shortpath(path):
         else:
             res.append(file)
         return '/' + '/'.join(res)
+
+# autocomplete words
+class Node:
+    def __init__(self, child, isword):
+        self,child = child
+        self.isword = isword
+
+class Solution:
+    def __init__(self) -> None:
+        self.trie = None
+    
+    def build(self, words):
+        self.trie = Node({}, False)
+        for word in words:
+            curr = self.trie
+            for char in word:
+                if not char in curr.child:
+                    curr.child[char] = Node({}, False)
+                curr = curr.child[char]
+            curr.isword = True
+    
+    def auto(self, pref):
+        curr = self.trie
+        for char in pref :
+            if not char in curr.child:
+                return []
+            curr = curr.child[char]
+        return self.findword(curr, pref)
+
+    def findword(self, node, pref):
+        words = []
+        if node.isword:
+            words += [pref]
+        for char in node.child:
+            words += self.findword(node.child[char], pref+ char)
+        return words
