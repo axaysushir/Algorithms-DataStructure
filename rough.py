@@ -1667,3 +1667,7 @@ class Solution:
         for char in node.child:
             words += self.findword(node.child[char], pref+ char)
         return words
+        
+s = Solution()
+s.build(['dog', 'dark', 'cat', 'door', 'dodge', 'car'])
+print(s.autocomplete('c'))
