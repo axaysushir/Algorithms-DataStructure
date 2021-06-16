@@ -13,7 +13,7 @@ class Node:
 
 def target_sum_bst(root, target):
     if root is None:
-        return targe == 0
+        return target == 0
     else: 
         ans = 0
         subSum = target - root.value
