@@ -1640,3 +1640,19 @@ function longest(strs) {
   }
   return pre;
 }
+
+var mat = (nums, r, c) => {
+  const total = nums.length * nums[0].length
+  console.log(total); // 4
+
+  const flatten = nums.flat()
+  console.log(flatten);
+  const res = []
+  for (let i=0; i <r; i++) {
+    const newArr = flatten.splice(0, c)
+    console.log(newArr);
+    res.push(newArr)
+  }
+  return res
+}
+mat([[1, 2], [3, 4]],2,2)
