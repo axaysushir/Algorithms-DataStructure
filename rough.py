@@ -1701,3 +1701,32 @@ n2 = Node(2, None, n6)
 n1 = Node(1, n2, n3)
 
 print(targetSum(n1, 4))
+
+class Node:
+    def __init__(self, val, left=None, right=None):
+        self.val = val
+        self.right = right
+        self.left = left
+
+def cousin(root: Node, x, y):
+    res = []
+    def dfs(node, parent, depth):
+        if not node:
+            return 
+        if node.val == x or node.val == y:
+            res.append((parent, depth))
+        
+        dfs(node.left, node, depth+1)
+        dfs(node.right, node, depth+1)
+    dfs(root, None, 0)
+    nodeX, nodeY = res
+    return nodeX[0] != nodeY[0] and nodeX[1] == nodeY[1]
+
+root = Node(1)
+root.left = Node(2)
+root.left.left = Node(4)
+root.left.right = Node(6)
+root.right = Node(3)
+root.right.right = Node(5)
+
+print(cousin(root, 5, 3))
