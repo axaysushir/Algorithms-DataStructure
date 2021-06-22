@@ -1684,3 +1684,38 @@ var threeSum = nums => {
   }
   return res
 }
+
+function TreeNode(val) {
+  this.val = val;
+  this.left = this.right = null;
+}
+
+var serialize = root => {
+  let data = []
+  function callDFS(node) {
+    if (!node) {
+      data.push('#')
+      return
+    }
+    data.push(node.val)
+    callDFS(node.left)
+    callDFS(node.right)
+  }
+  callDFS(root)
+  return data.join(',')
+}
+
+var deserial = data => {
+  data = data.split(',')
+  let index = 0
+  function call() {
+    const val = data[index]
+    index++
+    if (val === '#') return null
+    const node = new TreeNode(+val)
+    node.left = call()
+    node.right = call()
+    return node
+  }
+  return call
+}
