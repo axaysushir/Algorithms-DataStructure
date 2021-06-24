@@ -1719,3 +1719,23 @@ var deserial = data => {
   }
   return call
 }
+
+// serialize
+let serial = root => {
+  let res = []
+  if (root) {
+    res.push(root.val)
+    res.push(...serial(root.right))
+    res.push(...serial(root.left))
+  } else res.push(null)
+  return res;
+}
+
+let deserial = (data = []) =>{ 
+  let val = data.shift()
+  if (val == null) return null;
+  let node = new TreeNode(val)
+  node.left = deserial(data)
+  node.right = deserial(data)
+  return node
+}
