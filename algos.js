@@ -1739,3 +1739,20 @@ let deserial = (data = []) =>{
   node.right = deserial(data)
   return node
 }
+
+// using json
+var serialize = root => {
+  return JSON.stringify(root)
+}
+
+var deserialixe = data =>{
+  let object = Json.parse(data)
+  let dfs = object => {
+    Object.setPrototypeOf(object, TreeNode.prototype)
+    Object.values(object).forEach(v => {
+      if (object != null && typeof v === 'object')
+        dfs(v)
+    })
+  }
+  return object;
+}
