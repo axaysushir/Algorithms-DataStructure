@@ -1730,3 +1730,26 @@ root.right = Node(3)
 root.right.right = Node(5)
 
 print(cousin(root, 5, 3))
+
+class Node(object):
+    def __init__(self, val, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+class Solution:
+    def isCousin(self, root: Node, x, y):
+        res = []
+
+        def dfs(node, parent, depth):
+            if not node:
+                return 
+            if node.val == x or node.val == y:
+                res.append((parent, depth))
+            
+            dfs(node.left, node, depth+1)
+            dfs(node.right, node, depth+1)
+        dfs(root, None, 0)
+
+        nodeX, nodeY = res
+        return nodeX[0] != nodeY[0] and nodeX[1] == nodeY[1]
