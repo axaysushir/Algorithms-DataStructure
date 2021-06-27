@@ -1756,3 +1756,62 @@ var deserialixe = data =>{
   }
   return object;
 }
+
+// construct binary treee
+function TreeNode(val, left, right){
+  this.val = val === undefined ? 0 : val
+  this.right = right === undefined ? null : right
+  this.left = left === undefined ? null : left
+}
+
+let buildTree = (inorder, postorder) => {
+  if (inorder.length === 0) return null;
+  const inverted = {}
+  for (let i=0; i< inorder.length; i++) {
+    inverted[inorder[i]] = i
+  }
+
+  const helper = (instart, inend, postart, poend) =>{ 
+    if (instart > inend || postart > poend) return null;
+    const root = new TreeNode(postorder[poend])
+    const idx = inverted[postorder[poend]]
+    root.left = helper(instart, idx-1, postart, postart+idx - instart - 1)
+    root.right = helper(idx + 1, inend, postart + idx - instart, poend - 1)
+    return root;
+  }
+  return helper(0, inorder.length - 1, 0, postorder.legnth - 1)
+}
+
+postorder = [3,9,20,15,7]
+inorder = [9,3,15,20,7]
+console.log(buildTree(inorder, postorder));
+
+// preorder bst
+function TreeNode(val, left, right) {
+  this.val = val === undefined ? 0: val;
+  this.right = right === undefined ? null: right;
+  this.left = left === undefined ? null: left;
+}
+
+var build = (preorder, inorder) => {
+  const map = new Map()
+  let preidx = 0
+  for (let i=0; i < inorder.length; i++) {
+    map.set(inorder[i], i)
+  }
+
+  function calldfs(start, end) {
+    if (end < start) return null;
+    const node = new TreeNode(preorder[preidx])
+    const idx = map.get(preorder[preidx])
+    preidx++
+    node.left = calldfs(start, idx-1)
+    node.right = calldfs(idx+1, end)
+    return node
+  }
+  return calldfs(0, inorder.length - 1)
+}
+preorder = [3,9,20,15,7]
+inorder = [9,3,15,20,7]
+
+console.log(build(preorder, inorder));
