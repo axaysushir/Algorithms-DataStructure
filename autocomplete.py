@@ -34,6 +34,6 @@ class Solution:
         return words
 
 s = Solution()
-s.build(['dog', 'dark', 'cat', 'door', 'dodge', 'car'])
-print(s.autocomplete('c'))
+s.build(['dog', 'dark', 'cat', 'door', 'dodge', 'car', 'apple', 'mobile', 'phone', 'smart phone', 'pc', 'graphic card'])
+print(s.autocomplete('ca'))
 #['dog', 'door', 'dodge']
