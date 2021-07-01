@@ -1786,3 +1786,72 @@ n2 = Node(2, None, n6)
 n1 = Node(1, n2, n3)
 
 print(Solution().maxpathsum(n1))
+
+# autocomplete
+class Node:
+    def __init__(self, children, isword):
+        self.children = children
+        self.isword = isword
+
+class Solution:
+    def __init__(self):
+        self.trie = None
+    
+    def build(self, words):
+        self.trie = Node({}, False)
+        for w in words:
+            current = self.trie
+            for char in w:
+                if not char in current.children:
+                    current.children[char] = Node({}, False)
+                current = current.children[char]
+            current.isword = True
+    
+    def findwordFromNode(self, node, prf):
+        words = []
+        if node.isword:
+            words += [prf]
+        for char in node.children:
+            words += self.findwordFromNode(node.children[char], prf+char)
+        return words
+    
+    def autocomplete(self, prf):
+        current = self.trie
+        for c in prf:
+            if not c in current.children:
+                return []
+            current = current.children[c]
+        return self.findwordFromNode(current, prf)
+
+Solution().build(['dark', 'dom', 'cat', 'cow', 'dog'])
+print(Solution().autocomplete('c'))
+
+class Solution:
+    def __init__(self):
+        self.trie = None
+    
+    def build(self, words):
+        self.trie = Node({}, False)
+        for word in words:
+            current = self.trie
+            for char in word:
+                if not char in current.children:
+                    current.children[char] = Node({}, False)
+                current = current.children[char]
+            current.isword = True
+    
+    def findwordfromnode(self, node, prefix):
+        words = []
+        if node.isword:
+            words += [prefix]
+        for char in node.children:
+            words += self.findwordfromnode(node.children[char], prefix+ char)
+            return words
+    
+    def autocomplete(self, pref):
+        current = self.trie
+        for char in pref:
+            if not char in current.children:
+                return []
+            current = current.children[char]
+        return self.findwordfromnode(current, pref)
