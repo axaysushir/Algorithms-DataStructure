@@ -1815,3 +1815,14 @@ preorder = [3,9,20,15,7]
 inorder = [9,3,15,20,7]
 
 console.log(build(preorder, inorder));
+
+var revList = head => {
+  let prenode = null;
+  while (head != null) {
+    let nextnode = head.next
+    head.next = prenode
+    prenode = head;
+    head = nextnode;
+  }
+  return prenode
+}
