@@ -141,7 +141,7 @@ console.log(maxArea(height));
 // Input: "babad"
 // Output: "bab"
 // Note: "aba" is also a valid answer.
-// sol 1: longest common substring find lonest s and check reverse (O(n^2))
+// sol 1: longest common substring find longest s and check reverse (O(n^2))
 // sol 2: Brute force :pick all ele and check palindorme O(n^3) space O(1)
 //  sol3: Dyncamic programming O(n^2) time & space
 var longestPalindrome = function (s) {

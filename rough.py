@@ -1497,9 +1497,9 @@ def find_anag(s, p):
 print(find_anag('cbabad', 'abc'))
 
 # rotate array
-def array(num, k):
+def array(nums, k):
     k %= len(nums)
-    for i in range(k):
+    for _ in range(k):
         pre = nums[-1]
         for j in range(len(nums)):
             nums[j], pre = pre, nums[j]
@@ -1577,7 +1577,7 @@ class Node:
         return f"value: {self.value}, left: ({self.left.__repr()}), right: ({self.right.__repr()})"
 
 def filterbst(root,k):
-    if root == None:
+    if root is None:
         return None
     
     root.left = filterbst(root.left, k)
@@ -1623,7 +1623,7 @@ def shortpath(path):
     path = path.split('/')
 
     for file in path:
-        if file == '' or file == '.':
+        if file in ['', '.']:
             continue
         elif file == '..':
             if len(res) > 1:
@@ -1647,15 +1647,15 @@ class Solution:
         for word in words:
             curr = self.trie
             for char in word:
-                if not char in curr.child:
+                if char not in curr.child:
                     curr.child[char] = Node({}, False)
                 curr = curr.child[char]
             curr.isword = True
     
     def auto(self, pref):
         curr = self.trie
-        for char in pref :
-            if not char in curr.child:
+        for char in pref:
+            if char not in curr.child:
                 return []
             curr = curr.child[char]
         return self.findword(curr, pref)
@@ -1682,17 +1682,16 @@ class Node:
 def targetSum(root, target):
     if root is None:
         return target == 0
-    else:
-        ans = 0
-        subsum = target - root.val
+    ans = 0
+    subsum = target - root.val
 
-        if(subsum ==0 and root.left == None and root.right == None):
-            return True
-        if root.left is not None:
-            ans = ans or targetSum(root.left, subsum)
-        if root.right is not None:
-            ans = ans or targetSum(root.right, subsum)
-        return ans
+    if subsum == 0 and root.left is None and root.right is None:
+        return True
+    if root.left is not None:
+        ans = ans or targetSum(root.left, subsum)
+    if root.right is not None:
+        ans = ans or targetSum(root.right, subsum)
+    return ans
 
 n6 = Node(6)
 n4 = Node(4)
@@ -1712,7 +1711,7 @@ def cousin(root: Node, x, y):
     res = []
     def dfs(node, parent, depth):
         if not node:
-            return 
+            return None
         if node.val == x or node.val == y:
             res.append((parent, depth))
         
@@ -1743,7 +1742,7 @@ class Solution:
 
         def dfs(node, parent, depth):
             if not node:
-                return 
+                return None
             if node.val == x or node.val == y:
                 res.append((parent, depth))
             
@@ -1802,7 +1801,7 @@ class Solution:
         for w in words:
             current = self.trie
             for char in w:
-                if not char in current.children:
+                if char not in current.children:
                     current.children[char] = Node({}, False)
                 current = current.children[char]
             current.isword = True
@@ -1835,7 +1834,7 @@ class Solution:
         for word in words:
             current = self.trie
             for char in word:
-                if not char in current.children:
+                if char not in current.children:
                     current.children[char] = Node({}, False)
                 current = current.children[char]
             current.isword = True
@@ -1851,7 +1850,95 @@ class Solution:
     def autocomplete(self, pref):
         current = self.trie
         for char in pref:
-            if not char in current.children:
+            if char not in current.children:
                 return []
             current = current.children[char]
         return self.findwordfromnode(current, pref)
+
+# invert
+class Solution(object):
+    def invert(self, root):
+        stack = [root]
+        while stack:
+            node = stack.pop()
+            if node:
+                node.left, node.right = node.right, node.left
+                stack.append(root.right)
+                stack.append(root.left)
+        return root
+        
+
+# balance binary tree
+class Node:
+    def __init__(self, val, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+    
+    def __str__(self):
+        ans = str(self.val)
+        if self.left:
+            ans += str(self.left)
+        if self.right:
+            ans += str(self.right)
+        return ans
+
+def sortedArry(nums):
+    def buildtree(left, right):
+        if left > right:
+            return None
+        mid = (left + right) // 2
+        newNode = Node(nums[mid])
+        newNode.left = buildtree(left, mid-1)
+        newNode.right = buildtree(mid+1, right)
+        return newNode
+    return buildtree(0, len(nums)-1)
+
+print(sortedArry([1,2,3,4,5]))
+
+def sortsqu(a):
+    n = len(a)
+    j = 0
+    while j < n and a[j] < 0:
+        j+= 1
+        print(j, 'J - 1')
+    i = j-1
+    print(i, 'I - 2'), 
+
+    ans = []
+    while i >= 0 and j < n:
+        if a[i]**2 < a[j]**2:
+            ans.append(a[i]**2)
+            i -= 1
+            print('ans - 3', ans, 'I', i)
+        else: 
+            ans.append(a[j]**2)
+            j += 1
+            print('ans -4', ans, 'J', j)
+    while i >= 0:
+        ans.append(a[i]**2)
+        i -= 1
+        print('ans-5', ans, 'I', i)
+    while j < n:
+        ans.append()
+        j+= 1
+        print('ans-6', ans, 'J', j)
+    return ans
+
+print(sortsqu([-5, -3, -1, 0, 1, 4, 5]))
+
+def searchmat(mat, val):
+    for i in range(len(mat)):
+        for j in range(len(mat)):
+            if mat[i][j] == val:
+                print(mat[i][j], i, j)
+                return True
+    return False
+
+mat = [
+    [1, 3, 5, 8],
+    [10, 11, 15, 16],
+    [24, 27, 30, 31],
+]
+
+print(searchmat(mat, 27))

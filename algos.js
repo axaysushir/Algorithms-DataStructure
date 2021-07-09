@@ -1817,12 +1817,133 @@ inorder = [9,3,15,20,7]
 console.log(build(preorder, inorder));
 
 var revList = head => {
-  let prenode = null;
+  let prevnode = null;
   while (head != null) {
-    let nextnode = head.next
-    head.next = prenode
-    prenode = head;
+    let nextnode = head.next;
+    head.next = prevnode;
+    prevnode = head;
     head = nextnode;
   }
-  return prenode
+  return prevnode
 }
+
+let list = head => {
+  if (head == null || head.next == null) return
+  let prevnode = list(head.next)
+  head.next.next = head
+  head.next = null;
+  return prevnode
+}
+
+// invert binary tree
+function TreeNode(val, left, right) {
+  this.val = val === undefined ? 0 : val;
+  this.left = left === undefined ? null : left;
+  this.right = right === undefined ? null :  right;
+}
+
+var invert = root =>{ 
+  if (root === null) return null;
+  const left = invert(root.left)
+  const right = invert(root.right)
+  root.left = right;
+  root.right = left;
+  return root;
+}
+
+var inverted = root => {
+ let stack = [root]
+ while (stack.length) {
+   let n = stack.pop()
+   if (!n) continue
+   [n.left, n.right] = [n.right, n.left]
+   stack.push(n.left, n.right)
+ }
+ return root;
+}
+
+const targetindex = (nums, target) => {
+  let ind = 0
+  for (let i=0; i < nums.length; i++) {
+    if (nums[i] ===  target) return i
+    else if (target > nums[i]) {
+      ind = i+1
+      if (target < nums[i+1]) return ind
+    }
+  }
+  return ind;
+}
+
+console.log(targetindex([1,2,3,4,5], 10));
+
+const s = (a, b) => {
+  if (a.length == 0 && b.legnth == 0) return true
+  let n = a.length;
+  let temp = a.split('')
+  for (let i= 0; i <= n; i++) {
+    temp.push(temp[0])
+    temp.shift()
+    console.log('temp', temp);
+    if (temp.join('') == b) return true;
+  }
+  return false
+}
+console.log(s('abcde', 'ebcda'));
+
+
+// serialize and deserialize
+
+function Node(val) {
+  this.val = val;
+  this.left = this.right = null;
+}
+
+const serialize = root => {
+  var res = []
+  if (root) {
+    res.push(root.val)
+    res.push(...serialize(root.left))
+    res.push(...serialize(root.right))
+  } else res.push(null)
+  return res;
+}
+
+const deser = (data = []) => {
+  let val = data.shift()
+  if (val == null) return null;
+  let node = new Node(val)
+  node.left = deser(data)
+  node.right = deer(data)
+  return node
+}
+
+data = [1,2,3,null,null,4,5]
+console.log(deser(serialize(root)));
+
+// longest plaindromic substr
+var expand = (s, left, right) =>{ 
+  while (left >= 0 && right < s.length && s.charAt(left) == s.charAt(right)) {
+    left--
+    right++;
+  }
+  return right - left - 1
+}
+
+const lenoflong = s => {
+  var tmp = []
+  var res = 0
+  for (const char of s) {
+    const index = tmp.indexOf(char)
+    console.log('index', index);
+    if (index > - 1) {
+      tmp = tmp.slice(index + 1)
+    }
+    tmp.push(char)
+    console.log('temp', tmp);
+    if (tmp.length > res) res = tmp.length;
+  }
+  return res
+}
+
+console.log(lenoflong('abaca'));
+
