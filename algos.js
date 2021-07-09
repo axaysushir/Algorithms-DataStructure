@@ -1947,3 +1947,18 @@ const lenoflong = s => {
 
 console.log(lenoflong('abaca'));
 
+// container with most water
+let h = [1,8,6,2,5,4,8,3,7];
+
+let maxarea = h => {
+  let i=0, j = h.length - 1, max = 0, area;
+  while (i < j) {
+    area = (j-i) * Math.min(h[i], h[j])
+    console.log(area, j, i);
+    max = Math.max(area, max);
+    h[i] < h[j] ? i++ : j--;
+  }
+  return max;
+}
+console.log(maxarea(h));
+console.log('11' + 1, '11' - 1);
