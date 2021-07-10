@@ -1962,3 +1962,17 @@ let maxarea = h => {
 }
 console.log(maxarea(h));
 console.log('11' + 1, '11' - 1);
+
+// rev int
+const rev = val => {
+  let res = 0;
+  const base = 10;
+  while(val) {
+    res = res * base + (val %base)
+    val = (val/base) | 0
+
+  }
+  return  (res | 0) == res ? res : 0
+}
+
+console.log(rev(01248))
