@@ -1975,4 +1975,4 @@ const rev = val => {
   return  (res | 0) == res ? res : 0
 }
 
-console.log(rev(01248))
+console.log(rev(1248))

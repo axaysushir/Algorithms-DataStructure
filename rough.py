@@ -1942,3 +1942,54 @@ mat = [
 ]
 
 print(searchmat(mat, 27))
+
+class Node:
+    def __init__(self, val, left=None, right=None):
+        self.val = val
+        self.right = right
+        self.left = left
+    
+plus = '+'
+minus = '-'
+times = '*'
+divide = '/'
+
+operators = {'-', '+', '/', '*'}
+
+def isOperator(c: chr):
+    return c in operators
+
+def calculate(a, operator, b):
+    if operator == '+': return a+b
+    elif operator == '/': return a/b
+    elif operator == '-': return a-b
+    else: return a*b
+
+def eva(root: Node):
+    if not root: return None
+    if not isOperator(root.val):
+        return root.val
+    else:
+        return calculate(eva(root.left), root.val, eva(root.right))
+
+tree = Node(times)
+tree.left = Node(plus)
+tree.left.left = Node(3)
+tree.left.right = Node(2)
+tree.right = Node(plus)
+tree.right.left = Node(4)
+tree.right.right = Node(5)
+print(eva(tree))
+
+
+def rot(nums, k):
+    k %= len(nums)
+    print(k)
+    for _ in range(k):
+        prev = nums[-1]
+        for j in range(len(nums)):
+            nums[j], prev = prev, nums[j]
+            print(nums[j], prev)
+    return nums
+
+print(rot([1,2,34,5,], 2))

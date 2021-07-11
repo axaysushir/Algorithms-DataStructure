@@ -6,7 +6,7 @@ class Solution:
     def rotate(self, nums, k):
         k %= len(nums) # speed up rotation
 
-        for i in range(k):
+        for _ in range(k):
             previous = nums[-1]
             for j in range(len(nums)):
                 nums[j], previous = previous, nums[j]
