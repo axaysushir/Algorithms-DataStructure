@@ -1984,12 +1984,11 @@ print(eva(tree))
 
 def rot(nums, k):
     k %= len(nums)
-    print(k)
+
     for _ in range(k):
-        prev = nums[-1]
+        prev =  nums[-1]
         for j in range(len(nums)):
             nums[j], prev = prev, nums[j]
-            print(nums[j], prev)
     return nums
 
 print(rot([1,2,34,5,], 2))
