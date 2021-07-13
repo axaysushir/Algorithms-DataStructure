@@ -1992,3 +1992,15 @@ def rot(nums, k):
     return nums
 
 print(rot([1,2,34,5,], 2))
+
+def sm(a):
+    n = len(a)
+    res = 1
+
+    for i in range(n):
+        if a[i] <= res:
+            res += a[i]
+        else:
+            break
+    return res
+    
