@@ -28,7 +28,7 @@ for example : start at first element 1
 1+1 = 2 second element
 2+1 = 3
 7 + 1 = 8 if we want element at index 3 is 8 we have add [7 and 1]
-8=1 = 9
+8+1 = 9
 
 '''
 
@@ -38,9 +38,9 @@ def findSmallest(arr):
 
     # Travese the array and increment res if arr[i] is smaller
     # then or equal to res
-    for i in range(0, n):
+    for i in range(n):
         if arr[i] <= res:
-            res = res + arr[i]
+            res += arr[i]
         else:
             break
     return res

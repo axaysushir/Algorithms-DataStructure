@@ -1976,3 +1976,25 @@ const rev = val => {
 }
 
 console.log(rev(1248))
+
+let sort_color = nums => {
+  let red = 0, white = 0, blue = nums.length - 1;
+  while (white <= blue) {
+    if (nums[white] == 0) {
+      swap(red++, white--)
+    } else if (nums[white] == 1) {
+      white++
+    } else if (nums[white] == 2) {
+      swap(blue--, white)
+    }
+  }
+
+  function swap(a, b) {
+    let temp = nums[a]
+    nums[a] = nums[b]
+    nums[b] =  temp;
+  }
+}
+
+nums = [2,0,2,1,1,0]
+console.log(sort_color(nums));
