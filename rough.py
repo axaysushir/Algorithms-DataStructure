@@ -1984,7 +1984,7 @@ print(eva(tree))
 
 def rot(nums, k):
     k %= len(nums)
-
+    print(k)
     for _ in range(k):
         prev =  nums[-1]
         for j in range(len(nums)):
