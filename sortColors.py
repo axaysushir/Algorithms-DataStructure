@@ -19,7 +19,7 @@ class Solution:
         
         for i, val in enumerate(nums):
             if val == 0:
-                nums.pop(i)
+                nums.pop(1)
                 nums.insert(idx+1, val)
                 idx += 1
             elif val == 1:

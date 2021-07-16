@@ -1977,24 +1977,57 @@ const rev = val => {
 
 console.log(rev(1248))
 
+let sort_color = nums => {
+  let red = 0, white = 0, blue = nums.length - 1;
+  while (white <= blue) {
+    if (nums[white] == 0) {
+      swap(red++, white--)
+    } else if (nums[white] == 1) {
+      white++
+    } else if (nums[white] == 2) {
+      swap(blue--, white)
+    }
+  }
+  return nums
+
+  function swap(a, b) {
+    let temp = nums[a]
+    nums[a] = nums[b]
+    nums[b] =  temp;
+  }
+}
+
+Array.prototype.insert = (index, item) => {
+  this.splice(index, 0, item)
+}
+
 // let sort_color = nums => {
-//   let red = 0, white = 0, blue = nums.length - 1;
-//   while (white <= blue) {
-//     if (nums[white] == 0) {
-//       swap(red++, white--)
-//     } else if (nums[white] == 1) {
-//       white++
-//     } else if (nums[white] == 2) {
-//       swap(blue--, white)
+//   let id = -1
+//   res = []
+//   for (const [i, e] of nums.entries()) {
+//     console.log(i, e)
+//     if (e === 0) {
+//       nums.splice(i, 1)
+//       console.log(nums)
+//     } else if (e === 1){
+//       nums.splice(i, 1)
 //     }
 //   }
-
-//   function swap(a, b) {
-//     let temp = nums[a]
-//     nums[a] = nums[b]
-//     nums[b] =  temp;
-//   }
+//   return res
 // }
 
-// nums = [2,0,2,1,1,0]
-// console.log(sort_color(nums));
+let sort_color = nums => {
+  for (let i=0; i< nums.length; i++) {
+    for (let j= nums.length -1; j > i; j--) {
+      if (nums[i] > nums[j]) {
+        let swap = nums[j]
+        nums[j] = nums[i]
+        nums[i] = swap
+      }
+    }
+  }
+  return nums
+}
+
+nums = [2,0,2,1,1,0]
+console.log(soSrt_color(nums));
