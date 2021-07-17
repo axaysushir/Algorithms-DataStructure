@@ -2031,3 +2031,25 @@ let sort_color = nums => {
 
 nums = [2,0,2,1,1,0]
 console.log(soSrt_color(nums));
+
+// part sort using insertion sort
+
+let sort = (nums) => {
+  let key, j
+  for (let i=1; i < nums.length; i++) {
+    key = nums[i]
+    j = i-1;
+    while (j >= 0 && nums[j] > key) {
+      nums[j+1] = nums[j]
+      j -= 1
+    }
+    nums[j+1] = key
+  }
+  return nums
+}
+
+
+// nums = [3, 2, 6, 5, 4]
+nums =  [10, 9, 8, 7, 4, 70, 60, 50]
+k=4
+console.log(insertionSort(nums, k));

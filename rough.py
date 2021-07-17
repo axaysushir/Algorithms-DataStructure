@@ -2004,3 +2004,36 @@ def sm(a):
             break
     return res
     
+def insertionSort(nums, size):
+    i, key, j = 0,0,0
+    for i in range(len(nums)):
+        key = nums[i]
+        j = i-1
+        print(key, j)
+        while j >= 0 and nums[j] > key:
+            nums[j+1] = nums[j]
+            j -= 1
+        nums[j+1] = key
+    return nums
+
+nums = [3, 2, 6, 5, 4]
+k=2
+print(insertionSort(nums, k))
+
+def insertion_sort():
+    arr = [3, 2, 6, 5, 4]
+    for i in range(1, len(arr)):
+        # Set key:
+        key = arr[i]
+
+        j = i - 1
+        while j >= 0 and arr[j] > key:
+            # Swap:
+            arr[j + 1] = arr[j]
+            arr[j] = key
+            
+            # Decrement 'j':
+            j -= 1
+    return arr
+
+print(insertion_sort())
