@@ -15,7 +15,7 @@ def sort_partially_sorted(nums, size):
     for i in range(size):
         key = nums[i]
         j = i - 1
-        #Move elements of A[0..i-1], that are greater than key, to one position  
+        # Move elements of A[0..i-1], that are greater than key, to one position  
         # ahead of their current position.This loop will run at most k times 
         while j >= 0 and nums[i] > key:
             nums[j + 1] = nums[j]

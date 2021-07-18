@@ -20,7 +20,7 @@ var topKFrequent = function(words, k){
         if (a[1] > b[1]) return -1
         if (a[1] < b[1]) return 1
         if (a[0] > b[0]) return 1
-        if (a[0] > b[0]) return -1
+        if (a[0] < b[0]) return -1
         return 1
     })
     return sorted.slice(0, k).map(([x]) => x)

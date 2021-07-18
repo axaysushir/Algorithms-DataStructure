@@ -2030,13 +2030,13 @@ let sort_color = nums => {
 }
 
 nums = [2,0,2,1,1,0]
-console.log(soSrt_color(nums));
+console.log(sort_color(nums));
 
 // part sort using insertion sort
 
 let sort = (nums) => {
   let key, j
-  for (let i=1; i < nums.length; i++) {
+  for (let i=0; i < nums.length; i++) {
     key = nums[i]
     j = i-1;
     while (j >= 0 && nums[j] > key) {
@@ -2049,7 +2049,52 @@ let sort = (nums) => {
 }
 
 
-// nums = [3, 2, 6, 5, 4]
-nums =  [10, 9, 8, 7, 4, 70, 60, 50]
+nums = [3, 2, 6, 5, 4]
+// nums =  [10, 9, 8, 7, 4, 70, 60, 50]
 k=4
-console.log(insertionSort(nums, k));
+console.log(sort(nums, k));
+
+// top k frequent words
+var topk = (words, k) => {
+  const hash = words.reduce((map, word) => {
+    console.log(map, word)
+    if (map.has(word)) map.set(word, map.get(word) + 1)
+    else map.set(word, 1)
+    return map
+  }, new Map())
+  console.log(hash)
+
+  const sorted = [...hash].sort((a,b) => {
+    console.log('sort', a, b);
+    if (a[1] > b[1]) return -1
+    if (a[1] < b[1]) return 1
+    if (a[0] > b[0]) return 1
+    if (a[0] < b[0]) return -1
+    return 1
+  })
+  console.log(sorted);
+  return sorted.slice(0, k).map(([x]) => x)
+}
+
+var kfreq = (words, k) => {
+  let hash = {}
+
+  for (let i=0; i<words.length; i++) {
+    let temp = (hash[words[i]] ? hash[words[i]] : 0) + 1
+    hash[words[i]] = temp
+    console.log(temp);
+  }
+
+  let res = Object.keys(hash).sort((next, prev) => {
+    console.log(hash[next], hash[prev])
+    if (hash[prev] - hash[next] == 0) {
+      return next.localeCompare(prev)
+    } else return hash[prev] - hash[next]
+  })
+  console.log(res);
+}
+
+var nums = ["daily", "interview", "pro", "pro", 
+"for", "daily", "pro", "problems"], k = 2
+
+console.log(kfreq(nums, k));
