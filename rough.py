@@ -2037,3 +2037,38 @@ def insertion_sort():
     return arr
 
 print(insertion_sort())
+
+class Node:
+    def __init__(self, child, isword):
+        self.isword  = isword
+        self.child = child
+
+class Solution:
+    def __init__(self) -> None:
+        self.trie = None
+    
+    def build(self, words):
+        self.trie = Node({}, False)
+        for word in words:
+            curr = self.trie    
+            for char in word:
+                if char not in curr.child:
+                    curr.child[char] = Node({}, False)
+                curr = curr.child[char]
+            curr.isword = True
+    
+    def findword(self, node, pref):
+        if node.isword:
+            words = []
+            words += [pref]
+        for char in node.child:
+            words += self.findword(node.child[char], pref + char)
+        return words
+    
+    def auto(self, pref):
+        curr = self.trie
+        for char in pref:
+            if char not in curr.child:
+                return []
+            curr = curr.child[char]
+        return self.findword(curr, pref)

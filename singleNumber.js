@@ -28,7 +28,7 @@ let singleNumber = function(nums) {
 // sort and splice
 var singleNum = nums => {
     nums.sort()
-    for (let i= nums.length-1; i>=0l i--) {
+    for (let i= nums.length-1; i>=0; i--) {
         if (nums[i] === nums[i-1]) {
             nums.splice(i-1, 2)
         }

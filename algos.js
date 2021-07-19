@@ -265,10 +265,12 @@ const rev = head => {
 
 
 // Path sum of BST
-function Node(val, left, right) {
-  this.val = val === undefined ? 0 : val;
-  this.left = left === undefined ? null : left;
-  this.right = right === undefined ? null : right;
+class Node {
+  constructor(val, left, right) {
+    this.val = val === undefined ? 0 : val;
+    this.left = left === undefined ? null : left;
+    this.right = right === undefined ? null : right;
+  }
 }
 
  var maxPathSum = root => {
@@ -341,9 +343,11 @@ console.log(tree(preo, inorder));
 
 
 // clone tree
-function Node(val) {
-  this.val = val
-  this.left = this.right = null
+class Node {
+  constructor(val) {
+    this.val = val;
+    this.left = this.right = null;
+  }
 }
 
 var getcopy = (original, cloned,target) => {
@@ -484,9 +488,11 @@ var convert = n => {
 console.log(convert(513236464665606111444455631123245698981131465656554566666))
 
 
-function Node(val) {
-  this.val = val
-  this.left = this.right = null
+class Node {
+  constructor(val) {
+    this.val = val;
+    this.left = this.right = null;
+  }
 }
 
 var serialize = function(root) {
@@ -1470,10 +1476,12 @@ const mask = (str, maskChar='#') =>
 
 console.log(mask('12345678901', '#'));
 
-function Node(val, left, right) {
-  this.val = val === undefined ? 0: val;
-  this.right = val === undefined ? null : right;
-  this.left = val === undefined ? null : left;
+class Node {
+  constructor(val, left, right) {
+    this.val = val === undefined ? 0 : val;
+    this.right = val === undefined ? null : right;
+    this.left = val === undefined ? null : left;
+  }
 }
 
 var maxPathSum = root => {
@@ -2098,3 +2106,92 @@ var nums = ["daily", "interview", "pro", "pro",
 "for", "daily", "pro", "problems"], k = 2
 
 console.log(kfreq(nums, k));
+
+
+
+class Trie {
+  constructor() {
+    this.trie = null;
+    this.isword = []
+  }
+
+  newNode() {
+    return {
+      isLeaf: false,
+      child: {}
+    }
+  }
+
+  build(word) {
+    if (!this.trie) this.trie = this.newNode()
+    let root = this.trie;
+    for (const char of word) {
+      if (!char in root.child) {
+        root.child[char] = this.newNode()
+      }
+      root = root.child[char]
+    }
+    root.isLeaf = true
+  }
+
+  find(word) {
+    let root = this.trie;
+    for (const char of word) {
+      if (char in root.child) {
+        root = root.child[char];
+      } else return null;
+    }
+    return root
+  }
+
+  traverse(root, word) {
+    if (root.isLeaf) {
+      this.isword.push(word)
+      return;
+    }
+    for(const char in root.child) {
+      this.traverse(root.child[char])
+    }
+  }
+
+  complete(word, child=null) {
+    const root = this.find(word)
+    if (!root) return this.isword;
+    const children = root.child
+    let spread = 0;
+    for (const char in children) {
+      this.traverse(children[char])
+      spread++
+      if (child && spread === child) break;
+    }
+    return this.isword;
+  }
+}
+
+let sol = new Trie()
+sol.build(['dog', 'dark', 'cat', 'door', 'dodge', 'car', 'apple', 'mobile', 'phone', 'smart phone', 'pc', 'graphic card']);
+console.log(sol.find(complete('ca')))
+
+// uniq num
+let single = nums => {
+  let set = new Set()
+  for (num of nums) {
+    if (set.has(num)) set.delete(num)
+    else set.add(num)
+  }
+  return Array.from(set)[0]
+}
+
+var singular = nums => {
+  nums.sort()
+  for (let i= nums.length-1; i>= 0; i--) {
+    if (nums[i] === nums[i-1]) {
+      console.log(nums[i], nums[i-1]);
+      nums.splice(i-1, 2)
+    }
+  }
+  return nums[0]
+}
+
+arr = [7, 3, 5, 5, 4, 3, 4, 8, 8]
+console.log(singular(arr));

@@ -55,7 +55,7 @@ root.left.right = Node(6)
 root.right = Node(3)
 root.right.right = Node(5)
 
-print(Solution().isCousins(root, 5, 3))
+print(Solution().isCousins(root, 5, 6))
 
 
 '''
