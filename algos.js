@@ -2197,10 +2197,10 @@ arr = [7, 3, 5, 5, 4, 3, 4, 8, 8]
 console.log(singular(arr));
 
 
-let Node = (root, x, y) => {
+let Node = (root, left, right) => {
   this.root = root
-  this.x = x
-  this.y = y
+  this.left = left
+  this.right = right
 }
 var iscous = (root, x, y) => {
   let xpar = null, ypar = null, xdep = 0, ydep = 0;
@@ -2228,4 +2228,6 @@ let root = Node(1)
 Node(2) = root.right;
 Node(4) = root.left;
 Node(6) = root.left.right;
+Node(5) = root.right
+Node(3) = root.right.right;
 console.log(root, 4, 3)
