@@ -2197,31 +2197,33 @@ arr = [7, 3, 5, 5, 4, 3, 4, 8, 8]
 console.log(singular(arr));
 
 
-let Node = (root, left, right) => {
-  this.root = root
+let Node = (val, left, right) => {
+  this.val = val
   this.left = left
   this.right = right
 }
 var iscous = (root, x, y) => {
-  let xpar = null, ypar = null, xdep = 0, ydep = 0;
-  depthOfTree(root, x, y, 0, null)
+  let xpar, ypar = null;
+  let xdep, ydep = 0;
+
+  depthoftree(root, x, y, 0, null)
   if(xdep == ydep && xpar !== ypar) return true
 }
 
 function depthoftree(root,x, y, depth, prev) {
-  if (root == null) return 
+  if (root == null) return;
   if (root.val == x) {
     xpar = prev
     xdep = depth
   }
   if (root.val == y) {
-    ypar = prev
-    ydep = depth
+    ypar = prev;
+    ydep = depth;
   }
   depth++
   prev = root
-  depthOfTree(root.left, x, y, depth, prev)
-  depthOfTree(root.right, x,y, depth, prev)
+  depthoftree(root.left, x, y, depth, prev)
+  depthoftree(root.right, x, y, depth, prev)
 }
 
 let root = Node(1)
