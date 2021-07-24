@@ -2197,10 +2197,10 @@ arr = [7, 3, 5, 5, 4, 3, 4, 8, 8]
 console.log(singular(arr));
 
 
-let Node = (val, left, right) => {
+function Node(val) {
   this.val = val
-  this.left = left
-  this.right = right
+  this.left = null;
+  this.right = null;
 }
 var iscous = (root, x, y) => {
   let xpar, ypar = null;
@@ -2226,10 +2226,14 @@ function depthoftree(root,x, y, depth, prev) {
   depthoftree(root.right, x, y, depth, prev)
 }
 
-let root = Node(1)
-Node(2) = root.right;
-Node(4) = root.left;
-Node(6) = root.left.right;
-Node(5) = root.right
-Node(3) = root.right.right;
-console.log(root, 4, 3)
+// clone tree
+function Node(val) {
+  this.val = val;
+  this.left = this.right = null;
+}
+
+var clone = (ori, clone, tar) => {
+  if (!ori || !clone) return 
+  if (ori.val === tar.val) return clone;
+  else return clone(ori.left, tar.left, tar)
+}
