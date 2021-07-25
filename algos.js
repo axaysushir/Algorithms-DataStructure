@@ -2237,3 +2237,23 @@ var clone = (ori, clone, tar) => {
   if (ori.val === tar.val) return clone;
   else return clone(ori.left, tar.left, tar)
 }
+
+// compare version number
+
+var compare = (v1, v2) => {
+  let a = v1.split('.')
+  let b = v2.split('.')
+
+  for (let i=0; i< a.length || i < b.length; i++) {
+    let first = i < a.length ? parseInt(a[i], 10) : 0;
+    let second = i < b.length ? parseInt(b[i], 10) : 0;
+    console.log(first, second);
+    if (first  < second) return -1
+    if (first > second) return 1
+  }
+  return 0;
+}
+
+let v1 = '1.2.3'
+let v2 = '1.2.3.1'
+console.log(compare(v1, v2));
