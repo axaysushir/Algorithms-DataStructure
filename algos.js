@@ -2257,3 +2257,30 @@ var compare = (v1, v2) => {
 let v1 = '1.2.3'
 let v2 = '1.2.3.1'
 console.log(compare(v1, v2));
+
+// climb stairs
+var climbe = n =>{ 
+  if (n==1) return 1
+  let dp = [n]
+  dp[1] = 1
+  dp[2] = 2
+  for (let i=3; i<= n; i++) {
+    dp[i] = dp[i-1] + dp[i-2]
+  }
+  console.log(dp)
+  return dp[n]
+}
+
+let climbst = n => {
+  let memo = []
+  return climb(0, n, memo)
+}
+
+let climb = (i, n, memo) => {
+  if (i > n) return 0;
+  if (i==n) return 1;
+  if (memo[i] > 0) return memo[i]
+  memo[i] = climb(i+1, n, memo) + climb(i+2, n, memo)
+  return memo[i]
+}
+console.log(climbe(25));
