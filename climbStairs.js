@@ -50,6 +50,6 @@ var climbStairs = function (n){
     }
     return dp[n]
 }
-console.log(climbStairs(5));
+console.log(climbStairs(25));
 
 
