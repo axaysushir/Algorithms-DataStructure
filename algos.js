@@ -2284,3 +2284,30 @@ let climb = (i, n, memo) => {
   return memo[i]
 }
 console.log(climbe(25));
+
+let matrix = [[1,  2,  3,  4,  5],
+             [6,  7,  8,  9,  10],
+             [11, 12, 13, 14, 15],
+             [16, 17, 18, 19, 20]]
+var spiralGrid = (matrix) => {
+  if (matrix.length === 0) return []
+  if (matrix.length[0] === 0) return []
+
+  let res = []
+  res = res.concat(matrix.shift())
+  console.log(res)
+
+  for (let i=0; i<matrix.length-1; i++) {
+    res.push(matrix[i].pop())
+  }
+  console.log(res)
+
+  const lastrow = matrix.pop()
+  if (lastrow) res = res.concat(lastrow.reverse())
+
+  for (let i=matrix.length -1; i>= 0; i--) {
+    if (matrix[i].length) res.push(matrix[i].shift())
+  }
+  return res.concat(spiralGrid(matrix))
+}
+console.log(spiralGrid(matrix))

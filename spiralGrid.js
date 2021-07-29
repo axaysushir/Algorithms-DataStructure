@@ -34,7 +34,7 @@ var spiralOrder = function(matrix) {
     }
     return result.concat(spiralOrder(matrix))
 }
-
+console.log(spiralOrder);
 
 var spiralOrder = function(matrix) {
     const res = []
