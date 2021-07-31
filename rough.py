@@ -2072,3 +2072,32 @@ class Solution:
                 return []
             curr = curr.child[char]
         return self.findword(curr, pref)
+
+
+class Node():
+    def __init__(self, val, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+    
+    def __str__(self):
+        ans = str(self.val)
+        if self.left:
+            ans += str(self.left)
+        if self.right:
+            ans += str(self.right)
+        return ans
+
+class Solution:
+    def sortedArr(self, nums):
+        def buildtree(left, right):
+            if left > right:
+                return None
+            mid = (left+right) // 2
+            newNode = Node(mid)
+            newNode.left = buildtree(left, mid-1)
+            newNode.right = buildtree(mid+1, right)
+            return newNode
+        return buildtree(0, len(nums-1))
+
+print(Solution().sortedArr([1,2,3,4,5,6,7,7,8,8,9]))
