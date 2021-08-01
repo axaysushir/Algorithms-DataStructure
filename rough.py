@@ -2094,7 +2094,7 @@ class Solution:
             if left > right:
                 return None
             mid = (left+right) // 2
-            newNode = Node(mid)
+            newNode = Node(nums[mid])
             newNode.left = buildtree(left, mid-1)
             newNode.right = buildtree(mid+1, right)
             return newNode
