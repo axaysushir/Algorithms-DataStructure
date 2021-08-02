@@ -2089,15 +2089,15 @@ class Node():
         return ans
 
 class Solution:
-    def sortedArr(self, nums):
-        def buildtree(left, right):
-            if left > right:
-                return None
-            mid = (left+right) // 2
+    def sortedArr(self, nums: int):
+        def tree(left:int, right:int):
+            if left > right: return None
+            mid = (left+right)//2
             newNode = Node(nums[mid])
-            newNode.left = buildtree(left, mid-1)
-            newNode.right = buildtree(mid+1, right)
+            newNode.left = tree(left, mid-1)
+            newNode.right = tree(mid+1, right)
             return newNode
-        return buildtree(0, len(nums-1))
+        return tree(0, len(nums-1))
 
-print(Solution().sortedArr([1,2,3,4,5,6,7,7,8,8,9]))
+
+print(Solution().sortedArr([1,2,3,4,5,6]))
