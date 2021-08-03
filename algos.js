@@ -2309,25 +2309,23 @@ var spiralGrid = (matrix) => {
 console.log(spiralGrid(matrix))
 
 const isSorted = (words, order) => {
-  for (let i=0; i < words.legnth-1; i++) {
+  for (let i=0; i<words.length; i++) {
     let word1 = words[i]
     let word2 = words[i+1]
-    if (!isRightOrder(word1, word2, order)) return false
-  }
-  return true;
-}
-
-const isRightOrder = (word1, word2, order) =>{ 
-  let length = word1.length > word2.length ? word1.length : word2.length;
-
-  for(let i=0; i<length;i++) {
-    let ind1 = order.indexOf(word1[i])
-    let ind2 = order.indexOf(word2[i])
-
-    if (ind1 > ind2) return true
-    if (ind1 < ind2) return false
+    if (!isRightOrder(word1, word2, order)) return false;
   }
   return true
 }
 
-console.log(isSorted(['zyx', 'zyxw', 'zyxy'], "zyxwvutsrqponmlkjihgfedcba"))
+const isRightOrder = (word1, word2, order) =>{ 
+  let length = word1.length > word2.length ? word1.length : word2.length;
+  for (let i=0; i<length; i++) {
+    let ind1 = order.indexOf(word1)
+    let ind2 = order.indexOf(word2)
+    if (ind1 < ind2) return true
+    if (ind1 > ind2) return false
+  }
+  return true
+}
+
+console.log(isSorted(['zyx', 'zyxw', 'zyxw'], "zyxwvutsrqponmlkjihgfedcba"))
