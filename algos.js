@@ -2329,3 +2329,18 @@ const isRightOrder = (word1, word2, order) =>{
 }
 
 console.log(isSorted(['zyx', 'zyxw', 'zyxw'], "zyxwvutsrqponmlkjihgfedcba"))
+
+let maxim = (root) => {
+  let max= -Infinity
+  note(root)
+  return max
+  function note(root) {
+    if (!node) return 0;
+
+    let left = Math.max(note(root.left), 0)
+    let right = Math.max(note(root.right), 0)
+    let cur = right + root.val +left
+    if (cur > max) max = cur
+    return node.val + Math.max(left, right)
+  }
+}
