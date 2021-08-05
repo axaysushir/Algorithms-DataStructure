@@ -27,6 +27,36 @@ b = ListNode(6)
 b.next = a.next.next
 
 c = getIntersactionNode(a, b)
-
-
 console.log(c);
+
+
+// solution 2:
+function listNode(val) {
+    this.val = val;
+    this.next = null
+}
+let a,b,c, next;
+a = listNode(1)
+a.next = listNode(2)
+a.next.next = listNode(3)
+a.next.next.next = listNode(4)
+b = listNode(6)
+b.next = a.next.next;
+
+var findIntersection = (headA, headB) => {
+    let hash = []
+    while (headA !== null) {
+        hash.push(headA)
+        headA = headA.next
+    }
+    while (headB !== null) {
+        if (hash.includes(headB)) {
+            return headB
+        }
+        headB = headB.next;
+    }
+    return null
+}
+
+console.log(findIntersection(a, b))
+
