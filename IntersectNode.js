@@ -15,8 +15,8 @@ let getIntersactionNode = function(headA, headB) {
 }
 
 function ListNode(val) {
-    this.val = val
-    this.next = null
+    this.val = val;
+    this.next = null;
 }
 let a, b, c, next
 a = ListNode(1)
@@ -35,7 +35,7 @@ function listNode(val) {
     this.val = val;
     this.next = null
 }
-let a,b,c, next;
+let a,b, next;
 a = listNode(1)
 a.next = listNode(2)
 a.next.next = listNode(3)
