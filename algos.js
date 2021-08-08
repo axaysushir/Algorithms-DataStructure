@@ -2345,3 +2345,23 @@ let maxim = (root) => {
   }
 }
 
+// longest consec seq
+let longest = nums =>{ 
+  if (nums.length === 0) return 0
+  nums.sort((a,b) => a-b)
+  let longestStreak = 1
+  let curStreak = 1
+  for(let i =1; i<nums.length; i++) {
+    if (nums[i] !== nums[i-1]) {
+      if (nums[i] == nums[i-1]+1){
+        curStreak+= 1
+      } else {
+        longestStreak = Math.max(longestStreak, curStreak)
+        curStreak = 1
+      }
+    }
+  }
+  return Math.max(longestStreak, curStreak)
+}
+nums = [100, 4, 200, 1, 3, 2]
+console.log(longest(nums));
