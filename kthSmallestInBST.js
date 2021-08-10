@@ -25,7 +25,8 @@ root.right = TreeNode(4)
 k = 1
 console.log(kthsmall(root, k));
 
-// sol -2 
+// solution 2
+ 
 var kthSmallest = function(root, k) {
     let count = 0;
     let nums = []
