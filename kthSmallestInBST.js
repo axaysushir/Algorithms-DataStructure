@@ -26,7 +26,7 @@ k = 1
 console.log(kthsmall(root, k));
 
 // solution 2
- 
+
 var kthSmallest = function(root, k) {
     let count = 0;
     let nums = []
