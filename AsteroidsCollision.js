@@ -55,12 +55,12 @@ console.log(asteroidCollision(asteroids));
 //     while (i < asteroids.length) {
 //         if (asteroids[i] > 0) stack.push(asteroids[i])
 //         else {
-//             while (!stack.length && stack.unshift() > 0 && stack.unshift() < Math.abs(asteroids[i])) {
+//             while (!stack.length && stack.pop() > 0 && stack.pop() < Math.abs(asteroids[i])) {
 //                 stack.pop()
 //             }
-//             if (stack.length === 0 || stack.unshift() < 0) {
+//             if (stack.length === 0 || stack.pop() < 0) {
 //                 stack.push(asteroids[i])
-//             } else if(stack.unshift() === Math.abs(asteroids[i])) {
+//             } else if(stack.pop() === Math.abs(asteroids[i])) {
 //                 stack.pop()
 //             }
 //         }
@@ -72,3 +72,5 @@ console.log(asteroidCollision(asteroids));
 //     }
 //     return remaining;
 // };
+
+// console.log(asteroidCollision([2,1,-1, -2]));

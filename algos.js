@@ -2365,3 +2365,27 @@ let longest = nums =>{
 }
 nums = [100, 4, 200, 1, 3, 2]
 console.log(longest(nums));
+
+// meeting rooms
+var meetingRooms = interval =>{ 
+  let start = [], end = []
+  intervals.forEach(i =>{ 
+    start.push(i.start);
+    end.push(i.end);
+  })
+  start.sort((a,b) => a-b)
+  end.sort((a,b) => a-b)
+  let rooms = 0
+  let endpoint = 0
+  for (let i=0; i<interval.length; i++) {
+    if (start[i] < end[endpoint]) rooms++
+    else endpoint++
+  }
+  return rooms
+}
+intervals = [
+  { start: 0, end: 30 },
+  { start: 5, end: 10 },
+  { start: 15, end: 20 },
+];
+console.log(meetingRooms(intervals));
