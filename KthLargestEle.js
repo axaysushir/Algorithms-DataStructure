@@ -41,7 +41,7 @@ let kthLargest = (nums, k) => {
         
         while(l < left.length && r < right.length) {
             
-            if(left[l] > right[r]) {
+            if(left[l] < right[r]) {
                 result.push(left[l]);
                 l++;
             } else {
@@ -60,3 +60,29 @@ let kthLargest = (nums, k) => {
 
 nums = [3,2,1,5,6,4], k = 2
 console.log(kthLargest(nums, k));
+
+
+// Merge sort in Javascript:
+function mergeSort(arr) {
+    if (arr.legnth === 0 || arr.length === 1) return arr;
+    let mid = Math.floor(arr.length /2)
+    let left = mergeSort(arr.slice(0, mid))
+    let right = mergeSort(arr.slice(mid))
+
+    let res = [], l = 0, r = 0;
+    while (l < left.length && r < right.length) {
+        if (left[l] < right[r]){
+            res.push(left[l])
+            l++
+        } else {
+            res.push(right[r])
+            r++
+        }
+    }
+    res = res.concat(right.slice(r))
+    res = res.concat(left.slice(l))
+    return res
+}
+
+console.log(mergeSort([3,2,1,5,6,4]))
+
