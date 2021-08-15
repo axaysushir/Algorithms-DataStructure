@@ -2389,3 +2389,23 @@ intervals = [
   { start: 15, end: 20 },
 ];
 console.log(meetingRooms(intervals));
+
+// Jump indexes
+let jump = nums => {
+  if (nums.length === 1) return 0;
+
+  let reachidx = 0, previdx = 0, jump = 0;
+  for (let i=0; i<nums.length; i++) {
+    if (i + nums[i] >= reachidx) {
+      reachidx = i+nums[i]
+    }
+    if (i === previdx) {
+      jump += 1
+      previdx = reachidx
+      if (previdx >= nums.length -1) break;
+    }
+  }
+  return jump
+}
+
+console.log(jump([3, 2, 5, 1, 1, 9, 3, 4]));
