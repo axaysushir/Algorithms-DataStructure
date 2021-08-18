@@ -2409,3 +2409,14 @@ let jump = nums => {
 }
 
 console.log(jump([3, 2, 5, 1, 1, 9, 3, 4]));
+
+// Find str in str()
+
+var strstr = (haystack, needle) => {
+  if ((!haystack && !needle)|| (haystack && !needle)) return 0
+  let idx = haystack.indexOf(needle) 
+  return idx
+}
+
+haystack = "", needle = "ll"
+console.log(strstr(haystack, needle));
