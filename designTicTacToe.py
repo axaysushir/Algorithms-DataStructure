@@ -96,11 +96,8 @@ class ticTacToe(object):
         self.n = n
 
     def move(self, row, col, player):
-        if player == 1:
-            count = 1
-        else:
-            count = -1
-
+        count = 1 if player == 1 else -1
+        
         self.row[row] += count
         self.col[col] += count
         if row == col:
