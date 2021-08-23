@@ -2123,3 +2123,43 @@ class Solution:
         dfs(root)
         sum = max(res)
         return max(i*(sum - i) for i in res) % (10**9 + 7)
+
+# Start and end points to first and last element of an array respectively
+def partition(start, end, arr):
+    # Initialize pivot's index to start
+    pivot_index = start
+    pivot = arr[pivot_index]
+
+    # This loop run till start pointer crosses end pointer
+    # and it does we swap the pivot with element on end pointer
+    while start < end:
+        # Increment the start pointer till it find an element greater than pivot
+        while start < len(arr) and arr[start] <= pivot:
+            start += 1
+    
+        # Decrement the end pointer till it finds an element less then pivot
+        while arr[end] > pivot:
+            end -= 1
+
+        # if start & end have not crossed each other, swap then numbers
+        if (start < end):
+            arr[start], arr[end] = arr[end], arr[start]
+    
+    # swap pivot element with element in end pointer. it puts pivot at its correct place
+    arr[end], arr[pivot_index] = arr[pivot_index], arr[end]
+
+    # return end pointer to divide arr into 2
+    return end
+
+def quickSort(start, end, arr):
+    if start < end:
+        # p is paftition idx, arr p is at right place
+        p = partition(start, end, arr)
+
+        # sort element before and after partition
+        quickSort(start, p - 1, arr)
+        quickSort(p + 1, end, arr)
+
+arr = [3, 12, 5, 2, 9, 1, 4]
+quickSort(0, len(arr) - 1, arr)
+print(arr)
