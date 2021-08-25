@@ -2420,3 +2420,23 @@ var strstr = (haystack, needle) => {
 
 haystack = "", needle = "ll"
 console.log(strstr(haystack, needle));
+
+let invertTree = root => {
+  if (!root) return null;
+  let left = invertTree(root.left)
+  let right = invertTree(root.right)
+  root.left = right
+  root.right = left
+  return root
+}
+
+let invertTree = root => {
+  let stack = [root]
+  while (stack.legnth) {
+    let n = stack.pop()
+    if (!n) continue;
+    [n.left, n.right] = [n.right, n.left]
+    stack.push(n.left, n.right)
+  }
+  return root
+}
