@@ -2163,3 +2163,38 @@ def quickSort(start, end, arr):
 arr = [3, 12, 5, 2, 9, 1, 4]
 quickSort(0, len(arr) - 1, arr)
 print(arr)
+
+class Node:
+    def __init__(self, children, isword):
+        self.children = children
+        self.isword = isword
+
+class solution:
+    def __init__(self):
+        self.trie = None
+    
+    def build(self, words):
+        self.trie = Node({}, False)
+        for word in words:
+            current = self.trie
+            for char in word:
+                if char not in current.children:
+                    current.children[char] = Node({}, False)
+                current = current.children[char]
+                current.isword = True
+    
+    def findWordFromNode(self, node, prefix):
+        words = []
+        if node.isword:
+            words += [prefix]
+        for char in node.children:
+            words += self.findWordFromNode(node.children[char], prefix + char)
+        return words
+    
+    def autocomplete(self, prefix):
+        current = self.trie
+        for char in prefix:
+            if char not in current.children:
+                return []
+            current = current.children[char]
+        return self.findWordFromNode(current, prefix)
