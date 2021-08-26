@@ -2198,3 +2198,37 @@ class solution:
                 return []
             current = current.children[char]
         return self.findWordFromNode(current, prefix)
+
+# bst sub trree
+class Node:
+    def __init__(self, val):
+        self.val = val
+        self.left = None
+        self.right = None
+
+def size(root):
+    if root is None:
+        return 0
+    return size(root.left) + 1 + size(root.right)
+
+def isbst(node, min, max):
+    if not node: return 0
+    if (node.val < min or node.val > max):
+        return False
+    return isbst(node.left, min, node.val) and isbst(node.right, node.val, max)
+
+def find(root):
+    if isbst(root, float('-inf'), float('-inf')):
+        return size(root)
+    return max(find(root.left), find(root.right))
+
+if __name__ == '__main__':
+    root = Node(10)
+    root.left = Node(15)
+    root.right = Node(8)
+    root.left.left = Node(12)
+    root.left.right = Node(20)
+    root.right.left = Node(5)
+    root.right.right = Node(2)
+
+    print(find(root))

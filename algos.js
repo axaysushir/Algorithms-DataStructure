@@ -2443,15 +2443,14 @@ let invertTree = root => {
 
 let maxPath = root => {
   let max = -Infinity
-  let curr
   note(root)
   return max
   function note(node) {
     if (!node) return null;
     let right = Math.max(note(node.right), 0)
-    let left = Math.max(note(node.left), 0)
-    curr = left + right + node.val
-    if (curr > max) max = curr
-    return node.val + Math.max(left, right)
+    let left = Math.max(note(root.left), 0)
+    let currmax = node.val + right + left
+    if (currmax > max) max = currmax
+    return Math.max(left, right) + node.val
   }
 }
