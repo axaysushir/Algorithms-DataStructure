@@ -2232,3 +2232,32 @@ if __name__ == '__main__':
     root.right.right = Node(2)
 
     print(find(root))
+
+class Node:
+    def __init__(self, val, next):
+        self.val = val
+        self.next = next
+
+class Solution:
+    def rotate(self, head: Node, k):
+        if not head or not head.next or k == 0:
+            return head
+    
+        tail = head
+        count = 1
+        while tail.next:
+            tail = tail.next
+            count += 1
+        
+        k = k % count
+        if k == 0:
+            return head
+        tail.next = head
+        breakat = 1
+        pointer = head
+        while breakat != count - k:
+            pointer = pointer.next
+            breakat += 1
+        head = pointer.next
+        pointer.next = None
+        return head
