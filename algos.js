@@ -2469,3 +2469,20 @@ const twoSum = (nums, k) => {
 }
 
 console.log(twoSum([1,2,7,8], 10));
+
+// tic tac toe
+const tictac = n => {
+  let rows = [n], cols = [n], diag = 0, xdiag = 0;
+  function move(row, col, player) {
+    let count = player === 1 ? 1 : -1;
+    row[row] += count
+    cols[col] += count
+    if (row == col) diag += count;
+    if (row + col == n-1) xdig += count;
+
+    if (Math.abs(rows[row]) == n || Math.abs(cols[col]) == n || Math.abs(diag) == n || Math.abs(xdiag) == n) {
+      return count > 0 ? 1 : 2
+    }
+    return 0
+  }
+}

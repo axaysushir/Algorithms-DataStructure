@@ -19,6 +19,7 @@ var TicTacToe = n => {
         }
         return 0
     }
+    return move(row, col, player)
 }
 
 let board;
