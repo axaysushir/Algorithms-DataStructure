@@ -2454,3 +2454,18 @@ let maxPath = root => {
     return Math.max(left, right) + node.val
   }
 }
+
+const twoSum = (nums, k) => {
+  let sums  = []
+  for (let i=0; i<nums.length; i++) {
+    for (let j=i+1; j<nums.length; j++) {
+      if (nums[i] + nums[j] === k){
+        sums.push(i)
+        sums.push(j)
+      }
+    }
+  }
+  return sums
+}
+
+console.log(twoSum([1,2,7,8], 10));

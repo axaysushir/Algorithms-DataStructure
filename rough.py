@@ -2242,22 +2242,31 @@ class Solution:
     def rotate(self, head: Node, k):
         if not head or not head.next or k == 0:
             return head
-    
+        
         tail = head
         count = 1
         while tail.next:
             tail = tail.next
-            count += 1
+            count+= 1
         
-        k = k % count
+        k = K % count
         if k == 0:
-            return head
+            return 0
         tail.next = head
         breakat = 1
-        pointer = head
+        point = head
         while breakat != count - k:
-            pointer = pointer.next
+            point = point.next
             breakat += 1
-        head = pointer.next
-        pointer.next = None
-        return head
+        head = point.next
+
+def partialSort(nums, size):
+    i, j, key = 0, 0, 0
+    for i in range(size):
+        key = nums[i]
+        j = i-1
+
+        while j >= 0 and nums[i] > key:
+            nums[j+1] = nums[j]
+            j = j-1
+        nums[j+1] = key
