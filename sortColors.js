@@ -57,6 +57,7 @@ let sortColor = nums => {
             }
         }
     }
+    return nums
 }
 
 

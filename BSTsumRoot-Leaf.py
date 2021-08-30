@@ -44,7 +44,7 @@ n1 = Node(1, n2, n3)
 #  / \
 # 4   5
 
-print(bst_numbers_sum(n1, 125))
+# print(bst_numbers_sum(n1, 125))
 # 262
 # Explanation: 124 + 125 + 13 = 262
 

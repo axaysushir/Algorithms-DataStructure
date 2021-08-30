@@ -2270,3 +2270,38 @@ def partialSort(nums, size):
             nums[j+1] = nums[j]
             j = j-1
         nums[j+1] = key
+
+# bst path sum root to leaf
+class Node:
+    def __init__(self, val, left=None, right = None):
+        self.val = val
+        self.left = left
+        self.right = right
+    
+    def __repr__(self):
+        return f"({self.val}, {self.left}, {self.right})"
+
+def bstNumberSum(root, num):
+    if root is None:
+        return num
+    else:
+        ans = 0
+
+        subsum = num - root.val
+
+        if subsum == 0 and root.left == None and root.right == None:
+            return True
+        if root.left is not None:
+            ans = ans or bstNumberSum(root.left, subsum)
+        if root.right is not None:
+            ans = ans or bstNumberSum(root.right, subsum)
+        return ans
+
+root = Node(10)
+root.left = Node(8)
+root.right = Node(2)
+root.left.right = Node(5)
+root.left.left = Node(3)
+root.right.left = Node(2)
+
+print(bstNumberSum(root, 125))

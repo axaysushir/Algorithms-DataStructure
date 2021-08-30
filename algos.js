@@ -2487,4 +2487,20 @@ const tictac = n => {
   }
 }
 
-// 
+// sort colors
+let sortColors = nums => {
+  let n = nums.length;
+  for (let i=0; i<n; i++) {
+    for (let j = n-1; j> i; j--) {
+      if (nums[i] > nums[j]) {
+        let swap = nums[j]
+        nums[j] = nums[i]
+        nums[i] = swap
+      }
+    }
+  }
+  return nums
+} 
+
+nums = [2,0,2,1,1,0]
+console.log(sortColors(nums));
