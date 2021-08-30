@@ -28,7 +28,7 @@ var topKFrequent = function(words, k){
 
 // Solution 2: Hash & Sorting
 
-var topKFrequent = (words, k){
+var topKFrequent = (words, k) => {
     let hash = {}
     
     // insert uniq data inhashmap

@@ -2504,3 +2504,21 @@ let sortColors = nums => {
 
 nums = [2,0,2,1,1,0]
 console.log(sortColors(nums));
+
+// top k ele
+var topK = (words, k) => {
+  let hash = {}
+  for (let i=0; i<words.length; i++) {
+    let temp = (hash[words[i]] ? hash[words[i]] : 0) + 1
+    hash[words[i]] = temp
+  }
+  console.log(hash)
+  let res = Object.keys(hash).sort((next, prev) => {
+    if (hash[prev] - hash[next] == 0) {
+      return next.localeCompare(prev)
+    } else return hash[prev] - hash[next]
+  })
+  return res.slice(0, k)
+}
+console.log(topK(["daily", "interview", "pro", "pro", 
+"for", "daily", "pro", "problems"], 2));
