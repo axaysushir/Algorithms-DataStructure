@@ -35,7 +35,7 @@ console.log(climbStairs(5));
 // one can reach ith step in one of the two ways
 // Tking a single step from (i-1)th step
 // Tking a 2 step from (i-2)th step
-//  SO total number of waus to reach ith is equal to sum of ways of reaching
+//  SO total number of ways to reach ith is equal to sum of ways of reaching
 // (i-1) th + (i-2)th step
 // let dp[i] denotes number of ways to reach ith step
 // dp[i] = dp[i-1] + dp[i-2]

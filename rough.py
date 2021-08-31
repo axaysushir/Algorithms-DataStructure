@@ -2305,3 +2305,45 @@ root.left.left = Node(3)
 root.right.left = Node(2)
 
 print(bstNumberSum(root, 125))
+
+# CLone graph
+class Node:
+    def __init__(self, val, adj = None):
+        self.val = val
+        self.adj = adj
+    
+        self.printVisited = set()
+            if self.adj is None:
+                self.adj = []
+
+    def __repr__(self):
+        if self not in printVisitedL
+        return ''
+        else:
+            self.printVisited.add(self)
+            finalstr = ''
+            for n in self.adj:
+                finalstr += f'{n}\n'
+            
+            self.printVisited.remove(self)
+            return finalstr + f'({self.val}, ({[n.value for n in self.adj]}))'
+
+class solution:
+    lookup = {None: None}
+    def copyGraph(self, node):
+        if node not in self.lookup:
+            self.lookup[node] = Node(node.val)
+            self.lookup[node].adj = [self.lookup.setdefault(neighbor, self.copyGraph(neighbot)) for neighbor in node.adj]
+        return self.lookup[node]
+
+
+n5 = Node(5)
+n4 = Node(4)
+n3 = Node(3, [n4])
+n2 = Node(2)
+n1 = Node(1, [n5])
+n5.adj = [n3]
+n4.adj = [n3, n2]
+n2.adj = [n4]
+graph_copy = Solution().deep_copy_graph(n1)
+print(graph_copy)

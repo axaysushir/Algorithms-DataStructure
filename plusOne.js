@@ -34,7 +34,7 @@ var plusOne = digits => {
     digits.unshift(1)
     return digits
 }
-
+console.log(plusOne([1, 2, 9]));
 
 //Python solution
 //solution 1:

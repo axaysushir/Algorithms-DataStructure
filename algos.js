@@ -2509,16 +2509,57 @@ console.log(sortColors(nums));
 var topK = (words, k) => {
   let hash = {}
   for (let i=0; i<words.length; i++) {
-    let temp = (hash[words[i]] ? hash[words[i]] : 0) + 1
-    hash[words[i]] = temp
+    let temp = (hash[words[i]] ? hash[words[i]] : 0 + 1)
+    hash[words[i]]  = temp
   }
-  console.log(hash)
-  let res = Object.keys(hash).sort((next, prev) => {
-    if (hash[prev] - hash[next] == 0) {
-      return next.localeCompare(prev)
-    } else return hash[prev] - hash[next]
+
+  let res = Object.keys(hash).sort((next, pre) => {
+    if (hash[pre] - hash[next] == 0) {
+      return next.localeCompare(pre)
+    } else return hash[pre] - hash[next]
   })
   return res.slice(0, k)
 }
 console.log(topK(["daily", "interview", "pro", "pro", 
 "for", "daily", "pro", "problems"], 2));
+
+var isPalindrome = str => {
+  let left = 0, right = str.length -1;
+  while (right > 1) {
+    if (str[left++] !== str[right--]) {
+      return 'Is not palindrome: ' + str
+    }
+  }
+  return true
+}
+
+console.log(isPalindrome('oppo'));
+
+// steps
+var climb = n => {
+  if(n ==1 ) return 1
+  let dp= [n+1]
+  dp[1] = 1
+  dp[2] = 2
+  for (let i=3; i<=n;i++) {
+    dp[i] = dp[i-1] + dp[i-2]
+  }
+  return dp[n]
+}
+
+console.log(climb(4));
+
+let plusOne = nums => {
+  for (let i= nums.length -1; i>=0; i--) {
+    if (nums[i] !== 9) {
+      nums[i]++
+      return nums
+    } else {
+      nums[i] = 0
+    }
+  }
+  nums.unshift(1)
+  return nums
+}
+
+console.log(plusOne([9, 9, 8, 9]));
