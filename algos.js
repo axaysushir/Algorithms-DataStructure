@@ -2588,3 +2588,22 @@ let addnums = (l1, l2) => {
   }
   return res.next
 }
+
+var rev = head => {
+  let prev = null
+  while (head.next !== null) {
+    nextnode = head.next
+    head.next = prev
+    prev = head
+    head = nextnode
+  }
+  return prev
+}
+
+const revlist = head =>  {
+  if(head == null || head.next == null) return head;
+  let prev = revlist(head.next)
+  head.next.next = head;
+  head.next = null
+  return prev
+}
