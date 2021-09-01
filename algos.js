@@ -2563,3 +2563,28 @@ let plusOne = nums => {
 }
 
 console.log(plusOne([9, 9, 8, 9]));
+
+let addnums = (l1, l2) => {
+  let res = new ListNode(0)
+  let carry = 0
+  let currnode = res
+
+  while (l1 !== null || l2 !== null) {
+    let v1 = 0, v2 = 0;
+    if (l1 !== null) v1 = l1.val;
+    if (l2 !== null)  v2 = l2.val;
+    let sum = v1 + v2 + carry
+    carry = Math.floor(sum /10)
+    sum = sum % 10
+
+    currnode.next = new Listnode(sum)
+    currnode = currnode.next;
+    if (l1 !== null) l1 = l1.next
+    if (l2 !== null) l2 = l2.next;
+
+  }
+  if (carry > 0) {
+    currnode.next = new Listnode(carry)
+  }
+  return res.next
+}

@@ -2347,3 +2347,34 @@ n4.adj = [n3, n2]
 n2.adj = [n4]
 graph_copy = Solution().deep_copy_graph(n1)
 print(graph_copy)
+
+# root to leaf sum 
+class Node:
+    def __init__(self, val, left = None, right = None):
+        self.val = val
+        self.right = right
+        self.left = left
+
+def roottoleaf(root, target):
+    if root is None:
+        return target == 0
+    else:
+        ans = 0
+
+        subsum = target - root.val
+        if (subsum == 0 and root.left is None and root.right is None):
+            return True
+        if (root.left):
+            ans = ans or roottoleaf(root.left, subsum)
+        if root.right:
+            ans = ans or roottoleaf(root.right, subsum)
+        
+        return ans
+
+n6 = Node(6)
+n4 = Node(4)
+n3 = Node(3, None, n4)
+n2 = Node(2, None, n6)
+n1 = Node(1, n2, n3)
+
+print(roottoleaf(n1, 2))
