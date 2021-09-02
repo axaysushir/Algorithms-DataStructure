@@ -1901,9 +1901,11 @@ console.log(s('abcde', 'ebcda'));
 
 // serialize and deserialize
 
-function Node(val) {
-  this.val = val;
-  this.left = this.right = null;
+class Node {
+  constructor(val) {
+    this.val = val;
+    this.left = this.right = null;
+  }
 }
 
 const serialize = root => {
@@ -2197,10 +2199,12 @@ arr = [7, 3, 5, 5, 4, 3, 4, 8, 8]
 console.log(singular(arr));
 
 
-function Node(val) {
-  this.val = val
-  this.left = null;
-  this.right = null;
+class Node {
+  constructor(val) {
+    this.val = val;
+    this.left = null;
+    this.right = null;
+  }
 }
 var iscous = (root, x, y) => {
   let xpar, ypar = null;
@@ -2606,4 +2610,67 @@ const revlist = head =>  {
   head.next.next = head;
   head.next = null
   return prev
+}
+
+// rotate LL
+class Node {
+  constructor(val, next) {
+    this.val = val
+    this.next = next
+  }
+
+  rotate(head, k) {
+    if (!head || !head.next || k == 0) return head;
+    let tail = head;
+    let count = 1
+    while (tail.next) {
+      tail = tail.next;
+      count++
+    }
+    k = k % count
+    if(k == 0) return head;
+    tail.next = head
+    let breakat = 1
+    pointer = head
+    while (breakat !== count - k) {
+      pointer = pointer.next
+      breakat++
+    }
+    head = pointer.next
+    pointer.next = None
+    return head
+  }
+}
+
+// delete duplicate
+var del = head => {
+  let node = new ListNode(-1)
+  let ans = node, pre = head, cur = head;
+  while (cur) {
+    while (cur.next && cur.val == cur.next.val) cur = cur.next;
+    if (pre == cur) {
+      ans.next = cur
+      ans = ans.next
+    }
+    pre = cur = cur.next;
+  }
+  ans.next = null
+  return node.next
+}
+
+var dele = head => {
+  if (!head) return null;
+  let pre = new ListNode(0)
+  pre.next = head;
+  let node = pre;
+  while (node.next && node.next.next) {
+    if (node.next.val === node.next.next.val) {
+      let val = node.next.val
+      while (node.next && node.next.val == val) {
+        node.next = node.next.next
+      }
+    }
+    else node = node.next
+  }
+  return pre.next
 }
