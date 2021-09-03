@@ -2659,18 +2659,48 @@ var del = head => {
 }
 
 var dele = head => {
-  if (!head) return null;
+  if (!head) return null
   let pre = new ListNode(0)
+  let node = pre
   pre.next = head;
-  let node = pre;
-  while (node.next && node.next.next) {
+  while(node.next && node.next.next) {
     if (node.next.val === node.next.next.val) {
-      let val = node.next.val
-      while (node.next && node.next.val == val) {
+      let val = node.next.val;
+      while (node.next && node.next.val === val) {
         node.next = node.next.next
       }
-    }
-    else node = node.next
+    } else node = node.next
   }
   return pre.next
 }
+
+let getIslandcount = (grid, i, j) => {
+  if (i<0 || i >= grid.length || j >= grid[i].length) return 0;
+  grid[i][j] = '0'
+  getIslandcount(grid, i+1, j)
+  getIslandcount(grid, i, j+1)
+  getIslandcount(grid, i-1, j)
+  getIslandcount(grid, i, j-1)
+  return 1;
+}
+
+const numberOfIslands = grid => {
+  if (grid == null || grid.length === 0) return 0;
+  let islands= 0;
+  for (let i=0; i<grid.length; i++) {
+    for (let j=0; j<grid[i].length; j++) {
+      if (grid[i][j] == '1') {
+        islands += getIslandcount(grid, i, j)
+      }
+    }
+  }
+  return islands
+}
+
+grid = [
+  ["1","1","0","0","0"],
+  ["1","1","0","0","0"],
+  ["0","0","1","0","0"],
+  ["0","0","0","1","1"]
+]
+console.log(numberOfIslands(grid));
