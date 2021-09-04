@@ -2674,7 +2674,7 @@ var dele = head => {
   return pre.next
 }
 
-let getIslandcount = (grid, i, j) => {
+let getIslandcount = function (grid, i, j) {
   if (i<0 || i >= grid.length || j >= grid[i].length) return 0;
   grid[i][j] = '0'
   getIslandcount(grid, i+1, j)
@@ -2685,15 +2685,15 @@ let getIslandcount = (grid, i, j) => {
 }
 
 const numberOfIslands = grid => {
-  if (grid == null || grid.length === 0) return 0;
+  if (grid === null || grid.length === 0) return 0;
   let islands= 0;
-  for (let i=0; i<grid.length; i++) {
-    for (let j=0; j<grid[i].length; j++) {
-      if (grid[i][j] == '1') {
-        islands += getIslandcount(grid, i, j)
-      }
+  for (let i = 0; i < grid.length; i++) {
+    for (let j = 0; j < grid[i].length; j++) {
+        if (grid[i][j] === '1') {
+            islands += getIslandcount(grid, i, j);
+        }
     }
-  }
+}
   return islands
 }
 
@@ -2704,3 +2704,17 @@ grid = [
   ["0","0","0","1","1"]
 ]
 console.log(numberOfIslands(grid));
+
+// get Intersectio in node:. 
+let getIntersactionNode = (headA, headB) => {
+  if (headA === null || headB === null) return null;
+  let p1 = headA, p2 = headB;
+  while (p1 !== p2) {
+    p1 = p1.next;
+    p2 = p2.next
+    if (p1 === p2) return p1
+    if (p1 === null) p1 = headB;
+    if (p2 === null) p2 = headA;
+  }
+  return p1
+}
