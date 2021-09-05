@@ -2718,3 +2718,22 @@ let getIntersactionNode = (headA, headB) => {
   }
   return p1
 }
+
+// JUmp
+function jump(nums) {
+  if (nums.length == 1) return 0;
+  let jumps = 0, maxreach = nums[0], steps = nums[0]
+  for (let i=1; i<nums.length-1; i++) {
+    maxreach = Math.max(maxreach, i + nums[i])
+    console.log(maxreach, 'max');
+    steps--
+    console.log('step', steps);
+    if (steps == 0) {
+      jumps++
+      steps = maxreach - i
+    }
+    console.log(jumps);
+  }
+  return jumps + 1
+}
+console.log(jump([3, 2, 5, 1, 1, 9, 3, 4]));
