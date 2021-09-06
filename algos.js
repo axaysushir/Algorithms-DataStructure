@@ -2737,3 +2737,25 @@ function jump(nums) {
   return jumps + 1
 }
 console.log(jump([3, 2, 5, 1, 1, 9, 3, 4]));
+
+const kthLargest = (nums, k) => {
+  function mergeSort(arr) {
+    if (arr.length === 0 || arr.length === 1) return arr;
+    const mid = Math.floor(arr.length /2)
+    const left = mergeSort(arr.slice(0, mid))
+    const right = mergeSort(arr.slice(mid))
+    let res = [], l = 0, r = 0;
+    while (l <left.length && r < right.length) {
+      if (left[l] < right[r]) {
+        res.push(left[l])
+        l++
+      } else {
+        res.push(right[r])
+        r++
+      }
+    }
+    res = res.concat(left.slice(l), right.slice(r))
+    return res
+  }
+  return mergeSort(nums)[k-1]
+}
