@@ -46,6 +46,6 @@ class Solution(object):
 
 
 
-// Time Complexity: O(N)O(N)O(N), where NNN is the length of S.
+// Time Complexity: O(N), where N is the length of S.
 
-// Space Complexity: O(1)O(1)O(1). 
+// Space Complexity: O(1). 

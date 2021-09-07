@@ -2759,3 +2759,49 @@ const kthLargest = (nums, k) => {
   }
   return mergeSort(nums)[k-1]
 }
+
+let balance = s => {
+  let ans = 0, bal = 0;
+  for (let i=0; i<s.length; i++) {
+    bal += s.charAt(i) == '(' ? 1: -1;
+    if (bal == -1) {
+      ans++
+      bal++
+    }
+    return ans + bal;
+  }
+}
+
+console.log(balance('(()()'));
+
+const mergeList = (l1, l2) =>{ 
+  if (!l1 || !l2) return l1 || l2
+  if (l1.val > l2.val) [l1, l2] = [l2, l1]
+  l1.next = mergeList(l1.next, l2)
+  return l1 || l2
+}
+let l1 = [1, 2, 4];
+let l2 = [1, 3, 4];
+console.log(mergeList(l1, l2));
+
+const meeting = interval => {
+  let st = [], end = []
+  interval.forEach(interval => {
+    st.push(interval.st)
+    end.push(interval.end)
+  })
+  st.sort((a,b) => a-b)
+  end.sort((a,b) => a -b)
+  let rooms = 0, endpoint = 0;
+  for (let i=0; i<interval.length; i++) {
+    if (st[i] < end[endpoint]) rooms++;
+    else endpoint++
+  }
+  return rooms
+}
+intervals = [
+  { start: 0, end: 30 },
+  { start: 5, end: 10 },
+  { start: 15, end: 20 },
+];
+console.log(meeting(intervals));
