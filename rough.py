@@ -2378,3 +2378,10 @@ n2 = Node(2, None, n6)
 n1 = Node(1, n2, n3)
 
 print(roottoleaf(n1, 2))
+
+def firstMissing(nums):
+    s = set([x for x in nums if 0 < x <= len(nums)])
+    val = 1
+    while val in s:
+        val += 1
+    return val
