@@ -2805,3 +2805,9 @@ intervals = [
   { start: 15, end: 20 },
 ];
 console.log(meeting(intervals));
+
+let missing = nums => {
+  let n=1
+  while (nums.indexOf(n) >= 0) n++
+  return n
+}
