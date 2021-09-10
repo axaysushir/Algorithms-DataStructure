@@ -15,16 +15,16 @@ class Node:
 
 # Recursion 
 def filter(root, k):
-    if root == None:
-      return None
+  if root is None:
+    return None
 
-    root.left = filter(root.left, k) 
-    root.right = filter(root.right, k)
+  root.left = filter(root.left, k)
+  root.right = filter(root.right, k)
 
-    if root.left == None and root.right == None and root.value == k:
-        return None
-    else:
-        return root
+  if root.left is None and root.right is None and root.value == k:
+    return None
+  else:
+    return root
 
 
 

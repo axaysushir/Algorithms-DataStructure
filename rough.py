@@ -2385,3 +2385,29 @@ def firstMissing(nums):
     while val in s:
         val += 1
     return val
+
+class Node:
+    def __init__(self, val, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+    def __repe__(self):
+        return f"value: {self.val}, left: ({self.left.__repr__()}, right: ({self.right.__repr__()})"
+
+def filter(root, k):
+    if root is None: return None
+    root.left = filter(root.left, k)
+    root.right = filter(root.right, k)
+
+    if root.left is None and root.right is None and root.val == k:
+        return None
+    else:
+        return root
+
+n5 = Node(2)
+n4 = Node(1)
+n3 = Node(1, n4)
+n2 = Node(1, n5)
+n1 = Node(1, n2, n3)
+
+print(filter(n1, 1))

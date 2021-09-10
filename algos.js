@@ -2811,3 +2811,24 @@ let missing = nums => {
   while (nums.indexOf(n) >= 0) n++
   return n
 }
+
+const bstcousin = (root, x, y) => {
+  let xp = null, yp = null, xd = 0, yd =0
+  depthoftree(root, x, y, 0, null)
+  if (xd == yd && xp !== yp) return true
+}
+function depthOfTree(root, x, y, depth, prev) {
+  if (root == null) return null;
+  if (root.val == x) {
+    xp = prev
+    xd = depth
+  }
+  if (root.val == y) {
+    yp = prev
+    yd = depth
+  }
+  depth++
+  prev = root
+  depthoftree(root.left, x, y, depth, prev)
+  depthoftree(root.right, x,y, depth, prev)
+}
