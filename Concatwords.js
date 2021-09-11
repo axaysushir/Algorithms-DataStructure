@@ -34,3 +34,30 @@ const findConcatenatedWordsInDict = words => {
 input = ['rat', 'cat', 'cats', 'dog', 'catsdog', 'dogcat', 'dogcatrat']
 console.log(findConcatenatedWordsInDict(input));
 // [ 'catsdog', 'dogcat', 'dogcatrat' ]
+
+// solution 2:
+const findConcat = words => {
+    const set = new Set(words)
+
+    const helper = (word, num=0) => {
+        if (!word) return num > 1;
+        let temp = ''
+        // build temp word by appending char
+        for (let i=0; i<word.length; i++) {
+            temp += word[i]
+            if (set.has(temp)) {
+                let sub = word.substr(i+1)
+                if (helper(sub, num+1)) return true
+            }
+        }
+        return false
+    }
+    const ans = []
+    words.forEach(w => {
+        if (helper(w)) ans.push(w)
+    })
+    return ans
+}
+
+words = ['rat', 'cat', 'cats', 'dog', 'catsdog', 'dogcat', 'dogcatrat']
+console.log(findConcat(words));
