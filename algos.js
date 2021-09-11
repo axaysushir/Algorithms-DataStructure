@@ -2832,3 +2832,27 @@ function depthOfTree(root, x, y, depth, prev) {
   depthoftree(root.left, x, y, depth, prev)
   depthoftree(root.right, x,y, depth, prev)
 }
+
+const minmax = arr => {
+  if (arr.length  < 1 || arr === null) return null
+  let min, max
+  if (arr.length == 1) {
+    max  = arr[0]
+    min = arr[0]
+    return min, max
+  }
+  if (arr[0] > arr[1]) {
+    max = arr[0]
+    min = arr[1]
+  } else {
+    max = arr[0]
+    min = arr[1]
+  }
+  for(let i=0; i<= arr.length -1 ; i++) {
+    if (max < arr[i]) max = arr[i]
+    else if (min > arr[i]) min = arr[i]
+  }
+  return [min, max]
+}
+
+console.log(minmax([-1,3, 5, 1, 2, 4, 8, 9]));
