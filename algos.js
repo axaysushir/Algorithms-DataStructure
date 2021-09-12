@@ -2856,3 +2856,51 @@ const minmax = arr => {
 }
 
 console.log(minmax([-1,3, 5, 1, 2, 4, 8, 9]));
+
+const convert = n => {
+  let alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  let m, res = []
+  while (n > 0) {
+    m= (n-1) % 26
+    console.log(m, 'M');
+    n = (n-1-m) / 26
+    console.log(n, 'N', 'alp', alpha[m]);
+    res.unshift(alpha[m])
+  }
+  return res
+}
+console.log(convert(27));
+
+const searchRange = (nums, target) => {
+  let res = []
+  res.push(nums.indexOf(target))
+  res.push(nums.lastIndexOf(target))
+  return res
+}
+
+const searchIndex = (nums, target) => {
+  let low = 0, high = nums.length - 1, mid, right = -1, left = -1;
+  while (low <= high) {
+    mid = Math.floor((low + high)/2)
+    if(nums[mid] === target) {
+      left = mid
+      high = mid - 1
+    } else if (nums[mid] > target) {
+      high= mid -1
+    } else low = mid + 1
+  }
+low = 0, high = nums.length - 1
+  while (low <= high) {
+    mid = Math.floor((low + high)/2)
+    if (nums[mid] ===  target) {
+      right = mid
+      low = mid + 1
+    } else if (nums[mid] >  target) {
+      high = mid - 1
+    } else low = mid + 1
+  }
+  return [left, right]
+}
+let nums = [5, 7, 7, 8, 8, 10];
+let target = 8;
+console.log(searchIndex(nums, target));
