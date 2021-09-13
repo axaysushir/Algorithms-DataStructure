@@ -2411,3 +2411,37 @@ n2 = Node(1, n5)
 n1 = Node(1, n2, n3)
 
 print(filter(n1, 1))
+
+class Node:
+    def __init__(self, val):
+        self.val = val
+        self.left = None
+        self.right = None
+
+def inorder(root):
+    if root is not None:
+        inorder(root.left)
+        print(root.val)
+        inorder(root.right)
+
+def removeNode(root):
+    if root is None:
+        return None
+    root.left = removeNode(root.left)
+    root.right = removeNode(root.right)
+    if root.left is None and root.right is None:
+        return root
+    if root.left is None:
+        newroot = root.right
+        temp = root
+        root = None
+        del(temp)
+        return newroot
+    
+    if root.right is None:
+        newroot = root.left
+        temp = root
+        root = None
+        del(temp)
+        return newroot
+    return root
