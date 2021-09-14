@@ -2904,3 +2904,34 @@ low = 0, high = nums.length - 1
 let nums = [5, 7, 7, 8, 8, 10];
 let target = 8;
 console.log(searchIndex(nums, target));
+
+const transpose = (matrix) => {
+  let rows = matrix.length, cols = matrix[0].length;
+  let res = Array(cols).fill(0)
+  for (let i=0; i<res.length; i++) {
+    res[i] = Array(rows).fill(0)
+  }
+  for (let i=0; i<rows; i++) {
+    for (let j=0; j< cols; j++) {
+      res[j][i] = matrix[i][j]
+    }
+  }
+  return res
+}
+
+const transFormMatrix = matrix =>{ 
+  let res = []
+  for (let i=0; i<matrix.length; i++) {
+    for (let j=0; j<matrix[0].length; j++) {
+      res[j] = res[j] || []
+      console.log(res[j]);
+      res[j][i] = matrix[i][j]
+    }
+  }
+  return res
+}
+mat = [
+  [1, 2, 3],
+  [4, 5, 6],
+]
+console.log(trans(mat));
