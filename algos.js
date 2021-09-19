@@ -2935,3 +2935,175 @@ mat = [
   [4, 5, 6],
 ]
 console.log(trans(mat));
+
+const threesum = nums => {
+  let target = 0, res = []
+  if (nums.length < 3) return res
+  nums = nums.sort((a,b) => a - b)
+
+  for (let i=0; i<nums.length - 2; i++) {
+    if (nums[i] >  target) break;
+    if (i>0 && nums[i] === nums[i+1]) continue;
+    let j = i+1;
+    let k = nums.length -1;
+    while(j < k) {
+      let sum = nums[i] + nums[j] + nums[k]
+      if (sum === target) {
+        res.push(nums[i], nums[j], nums[k])
+        while(nums[j] === nums[j+1]) j++
+        while (nums[k] === nums[k-1]) k--
+
+        j++
+        k--
+        continue
+      }
+      if (sum < target) j++
+      if (sum > target) k--
+    }
+  }
+  return res
+}
+
+// autocomplete in JS
+let data = ['cat', 'dog', 'cow', 'copy', 'apple']
+
+function matchData(input) {
+  let reg = new RegExp(input.split('').join('\\w*').replace(/\w/, ''), 'i')
+  return data.filter(item => {
+    if (item.match(reg)) return item
+  })
+}
+function changeInput(val) {
+  let autocomplete = matchData(val)
+  return autocomplete
+}
+console.log(changeInput('do'));
+
+let countPrime = n => {
+  let prime = new Array(n+1).fill(1)
+  let count = 0;
+  for (let i=2; i<n;i++) {
+    if (prime[i] === 1)count++;
+    for (let j=i*i; j <=n; j+= i) {
+      prime[j] = 0
+    }
+  }
+  return count
+}
+console.log(countPrime(10));
+
+const a = [1,2,3]
+a[100] = 'foo';
+console.log(a.length);
+
+const foot = {
+  name: 'abc'
+}
+delete foot.name
+
+console.log('i');
+setTimeout(() => {
+  console.log('love')
+},0)
+console.log('Jaa');
+
+const foo = {
+  bar() {
+    console.log('a');
+  },
+  name: 'l',
+  age: 24
+
+}
+console.log(foo);
+
+class X{
+  get y() {return 42}
+}
+var x = new X()
+
+console.log(x.get().y());
+
+var v = 1
+var f1 = function() {
+  console.log(v);
+}
+var f2 = function() {
+  var v = 2;
+  f1()
+}
+console.log(f2());
+
+var obj 
+console.log(obj);
+
+function fractionTodec(nume, deno) {
+  if (nume === 0) return '0'
+  let s = ''
+  if (Math.sign(nume) !== Math.sign(deno)) s+= '-'
+  let n = Math.abs(nume)
+  const d = Math.abs(deno)
+  s += Math.floor(n/d)
+  s %= d
+  if (n == 0) return s
+  s += '.'
+  const map = {}
+  while (n != 0) {
+    map[n] = s.length;
+    n *= 10
+    s += Math.floor(n/d)
+    n %= d
+
+    const i = map[n]
+    if (i !== null) return `${s.slice(0, i)}(${s.slice(i)})`
+  }
+  return s
+}
+console.log(fractionTodec(1242, 12));
+
+function fixpoint(arr, low, high) {
+  let mid
+  if (high >= low) {
+    mid = Math.floor((low+high)/2)
+  }
+  if (mid === arr[mid]) {
+    return mid
+  }
+  if (mid > arr[mid]) {
+    return fixpoint(arr, mid + 1, high)
+  }
+  else { 
+    return fixpoint(arr, low, mid-1) 
+  }
+
+  // return -1
+}
+arr = [-10, -1, 0, 3, 10, 11, 30, 50, 100] 
+n = arr.length;
+console.log(fixpoint(arr, 0, n-1));
+
+const invertBst = root => {
+  if (root === null) return null;
+  const left = invertBst(root.left)
+  const right = invertBst(root.right)
+  root.left = right
+  root.right = left
+  return root;
+}
+
+const invert = root => {
+  let stack = [root]
+  while (stack.length) {
+    let n = stack.pop()
+    if (!n) continue;
+    [n.left, n.right] = [n.right, n.left]
+    stack.push(n.left, n.right)
+  }
+  return root
+}
+
+const ine = root =>{ 
+  if (!root) return null;
+  [root.left, root.right] = [ine(root.right), ine(root.left)]
+  return root
+}
