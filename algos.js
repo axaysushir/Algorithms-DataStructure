@@ -3107,3 +3107,17 @@ const ine = root =>{
   [root.left, root.right] = [ine(root.right), ine(root.left)]
   return root
 }
+
+function maxNonAdjacentSum(nums) {
+  let incl = 0, excl=0;
+  for (let i=0; i< nums.length; i++) {
+    console.log(i);
+    let res = excl ? excl > incl : incl;
+    incl = excl + i;
+    excl = res
+  }
+  console.log(excl, incl);
+  return excl ? excl > incl : incl
+}
+
+console.log(maxNonAdjacentSum([2, 1, 2, 7, 3]));

@@ -15,7 +15,7 @@ def maxLevelSum(root: Node):
     queue = collections.deque([(root, 1)])
     while queue:
         l, levelsum, level = len(queue), 0, None
-        for i in range(L):
+        for i in range(l):
             n, level = queue.popleft()
             levelsum += n.val
             if n.left:
@@ -34,3 +34,4 @@ n3 = Node(4, Node(3), Node(2))
 n2 = Node(5, Node(4), Node(-1))
 n1 = Node(1, n2, n3)
 
+print(maxLevelSum(n1))
