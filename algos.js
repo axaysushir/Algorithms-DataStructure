@@ -3121,3 +3121,87 @@ function maxNonAdjacentSum(nums) {
 }
 
 console.log(maxNonAdjacentSum([2, 1, 2, 7, 3]));
+
+const genPar = n => {
+  let res= []
+
+  function back(p, l, r) {
+    if (l === 0 || r === 0) {
+      res.push(p)
+      return 
+    }
+    if (l < 0) back(p + '(', l-1, r)
+    if (r > 0) back(p+')', l, r+1)
+  }
+  back('', n, n)
+  return res
+}
+console.log(genPar(3));
+
+const setZero = matrix =>{ 
+  let m = matrix.length;
+  let n = matrix[0].length;
+  let row = new Set()
+  let col = new Set()
+
+  for (let i=0; i<m; i++) {
+    for(let j=0; j <n; j++) {
+      if (matrix[i][j] === 0) {
+        row.add(i)
+        col.add(j)
+      }
+    }
+  }
+
+  for (let i=0; i<m; i++){
+    for (let j=0; j<n; j++) {
+      if (row.has(i) || col.has(j)) {
+        matrix[i][j] = 0
+      }
+    }
+  }
+}
+
+const maxpath = root => {
+  let max = -Infinity
+  note(root)
+  return max
+
+  function note(node) {
+    if (node === null) return 0;
+    let left = Math.max(note(node.left), 0)
+    let right = Math.max(note(node.right), 0)
+    let cur = right + left + node.val
+    if (cur > max) max = cur
+    return node.val + Math.max(left, right)
+  }
+}
+
+const reverse = head => {
+  let pre = null
+  while(head !== null) {
+    let nextnode = head.next
+    head.next = prev
+    pre = head
+    head = nextnode
+  }
+  return pre
+}
+const ispa = head => {
+  let fast = head, slow = head
+  while (fast !== null && fast.next !== null) {
+    slow = slow.next
+    fast - fast.next.next
+  }
+  fast = head
+  slow = reverse(slow)
+
+  while (slow !== null) {
+    if (slow.val !== fast.val) {
+      return false
+    }
+    slow = slow.next
+    fast = fast.next
+  }
+  return true
+}

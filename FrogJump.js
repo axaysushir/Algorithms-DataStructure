@@ -5,7 +5,7 @@ var canCross = function(stones) {
         if (stones[i] > stones[i-1] * 2) return false
     }
     let stonePositions = new Set()
-    for (stone in stones) {
+    for (let stone in stones) {
         stonePositions.add(stone)
     }
     let lastStone = stones[stones.length - 1]

@@ -2445,3 +2445,49 @@ def removeNode(root):
         del(temp)
         return newroot
     return root
+
+class Node:
+    def __init__(self, val, left=None, right=None):
+        self.val = val
+        self.right = right
+        self.left = left
+    def __repr__(self):
+        return f"(value: {self.val} Left: {self.left} Right: {self.right})"
+
+def isIdentical(r1, r2):
+    if r1 is None and r2 is None:
+        return True
+    if r1 is None or r2 is None:
+        return False
+    return (r1.val == r2.val and isIdentical(r1.left, r2.left) and isIdentical(r1.right, r2.right))
+
+def findSubtree(s, t):
+    if s is None:
+        return True
+    if t is None:
+        return False
+    if isIdentical(s, t):
+        return True
+    return findSubtree(t.left, s) or findSubtree(t.right, s)
+
+t3 = Node(4, Node(3), Node(2))
+t2 = Node(5, Node(4), Node(-1))
+t = Node(1,t2, t3)
+
+s = Node(4, Node(6, Node(0)))
+print(findSubtree(s, t))
+
+def sTask(tasks, n):
+    freq = {}
+    mintime = 0
+    maxfreq = 0
+    
+    for i in range(len(tasks)):
+        freq[tasks[i]] = freq.get(tasks[i], 0)
+    maxfreq = max(freq.values())
+
+    mintime = freq + (maxfreq -1 )* n-1
+
+    maxtasks = list(freq.values()).count(maxfreq)
+    mintime += maxtasks
+    return max(mintime, len(tasks))
