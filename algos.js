@@ -3179,29 +3179,46 @@ const maxpath = root => {
 
 const reverse = head => {
   let pre = null
-  while(head !== null) {
-    let nextnode = head.next
-    head.next = prev
+  while (head !== null) {
+    let next = head.next
+    head.next = pre
     pre = head
-    head = nextnode
+    head = next
   }
-  return pre
 }
 const ispa = head => {
-  let fast = head, slow = head
+  let fast = head, slow= head
   while (fast !== null && fast.next !== null) {
     slow = slow.next
-    fast - fast.next.next
+    fast = fast.next.next
   }
   fast = head
   slow = reverse(slow)
 
   while (slow !== null) {
-    if (slow.val !== fast.val) {
-      return false
-    }
-    slow = slow.next
+    if (slow.val !== fast.val) return false
+    slow= slow.next
     fast = fast.next
   }
   return true
 }
+
+const maxEle = nums => {
+  let maxcount = 0, ind = -1
+  let count = 0
+  for (let i=0; i<nums.length; i++) {
+    for (let j=1; j<nums.length-1; j++) {
+      if (nums[i] == nums[j]) count++
+      if (count > maxcount) {
+        maxcount = count
+        ind = i
+      }
+    }
+  }
+  if (maxcount > Math.floor(nums.length/2)) {
+    return nums[ind]
+  }
+}
+
+nums = [1, 1, 2, 1, 3, 5, 1]
+console.log(maxEle(nums));
