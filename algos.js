@@ -3204,21 +3204,61 @@ const ispa = head => {
 }
 
 const maxEle = nums => {
-  let maxcount = 0, ind = -1
-  let count = 0
+  let maxcount = 0, ind = -1, count = 0;
   for (let i=0; i<nums.length; i++) {
-    for (let j=1; j<nums.length-1; j++) {
-      if (nums[i] == nums[j]) count++
+    for (let j=1; j <nums.length; j++) {
+      if (nums[i] === nums[j]) count++
       if (count > maxcount) {
         maxcount = count
         ind = i
       }
     }
   }
-  if (maxcount > Math.floor(nums.length/2)) {
+  if (maxcount > Math.floor(nums.length /2)) {
     return nums[ind]
   }
 }
 
 nums = [1, 1, 2, 1, 3, 5, 1]
 console.log(maxEle(nums));
+
+function size(root) {
+  if (root === null) return 0;
+  return size(root.left) + 1 + size(root.right)
+}
+
+function isbst(node, min, max) {
+  if (node == null) return true;
+  if (node.val < min || node.val > max) return false;
+  return isbst(node.left, min, node.val) && isbst(node.right, node.val, max)
+}
+
+function findLargestBst(root) {
+  if (isbst(root, parseFloat(-Infinity), parseFloat(-Infinity))) {
+    return size(root)
+  }
+}
+
+function checkPal(str){
+  let left = 0, right = str.length -1;
+  while (right > 1) {
+    if (str[left++] !== str[right--]){
+      return str + " is not palindrome"
+    }
+  }
+  return str
+}
+console.log(checkPal('oppo'));
+
+function findNode(a,b,node) {
+  let ans
+  const inorder = (o, c) => {
+    if (o) {
+      inorder(o.left, c.right)
+      if (o === node) ans = c
+      inorder(o.right, c.right)
+    }
+  }
+  inorder(a, b)
+  return ans
+}
