@@ -3284,3 +3284,18 @@ const findConcat = words => {
   })
   return ans
 }
+
+
+const uniqpaths = (m,n) => {
+  let grid = []
+  for (let i=0; i<n; i++) {
+    grid.push([])
+    for(let j=0; j<m; j++) {
+      if (i===0 || j ===0) grid[i][j] = 1
+      else grid[i][j] = grid[i-1][j] + grid[i][j-1]
+    }
+  }
+  return grid[n-1][m-1]
+}
+
+console.log(uniqpaths(3, 2));

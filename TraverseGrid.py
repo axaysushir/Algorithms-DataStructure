@@ -13,7 +13,7 @@ class Solution:
         if m == 1 or n == 1:
             return 1
         # recursively find no of ways to reach last cell
-        return (uniquePaths(m-1, n) + uniquePaths(m, n-1))
+        return (self.uniquePaths(m-1, n) + self.uniquePaths(m, n-1))
 
 # dynamic programming time complexxity O(m*n)
 
