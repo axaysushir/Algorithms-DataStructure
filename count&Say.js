@@ -76,4 +76,4 @@ const countAndSay = (n) => {
     return countAndSay(n - 1, newStr + count + say)
 }
 
-console.log(countAndSay(12));
+console.log(countAndSay(4));

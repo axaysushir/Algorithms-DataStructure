@@ -3285,6 +3285,19 @@ const findConcat = words => {
   return ans
 }
 
+const swapNode = head => {
+  return pairs(head)
+  function pairs(node) {
+    if (!node) return null;
+    let nextnode = node.next
+    if (nextnode) {
+      node.next = pairs(nextnode.next)
+      nextnode.next = node
+    }
+    return nextnode ? nextnode : node
+  }
+}
+
 
 const uniqpaths = (m,n) => {
   let grid = []
@@ -3299,3 +3312,18 @@ const uniqpaths = (m,n) => {
 }
 
 console.log(uniqpaths(3, 2));
+
+function mem(n) {
+  let memo = new Array(n+1).fill(null)
+  return fibonacci(n, memo)
+}
+function fibonacci(n, memo) {
+  let res
+  if (memo[n] !== null) return memo[n]
+  if (n==1 || n==2) res = 1
+  else res = fibonacci(n-1, memo) + fibonacci(n-1, memo)
+  memo[n] = res
+  return res
+}
+
+console.log(mem(6));
