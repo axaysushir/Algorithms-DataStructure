@@ -46,3 +46,22 @@ var findOrder = function (numCourses, prerequisites) {
 };
 
 console.log(findOrder(1, []));
+
+function find(root, level, maxLev, res) {
+  if (root !== null) {
+    level += 1
+    find(root.left, level, maxLev, res)
+    if (level > maxLev[0]) {
+      res[0] = root.val
+      maxLev[0] = level
+    }
+    return find(root.right, level, maxLev, res)
+  }
+}
+
+function deepest(root) {
+  res = [-1]
+  maxLev = [-1]
+  find(root, 0, maxLev, res)
+  return res[0]
+}
