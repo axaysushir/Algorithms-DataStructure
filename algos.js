@@ -3327,3 +3327,11 @@ function fibonacci(n, memo) {
 }
 
 console.log(mem(6));
+
+class Node {
+  constructor(val, left, right) {
+    this.val = val
+    this.left = left
+    this.right = right
+  }
+}
