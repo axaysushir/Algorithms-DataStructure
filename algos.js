@@ -3335,3 +3335,21 @@ class Node {
     this.right = right
   }
 }
+
+var flatbst = root => {
+  return getFlatten(root)
+}
+function getFlatten(root ) {
+  if (root == null) return
+  let left = root.left;
+  let right = root.right;
+
+  root.left = null;
+  getFlatten(left)
+  getFlatten(right)
+
+  root.right = left;
+  let current = root
+  while (current.right !== null) current = current.right
+  current.right = right
+}
