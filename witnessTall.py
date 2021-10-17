@@ -23,4 +23,4 @@ def witness(heights):
         max_height = max(heights[i], max_height)
     return total
 
-print(witness([3,6,3,4,1,9]))
+print(witness([3,6,3,4,1]))

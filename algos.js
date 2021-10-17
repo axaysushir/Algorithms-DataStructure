@@ -3353,3 +3353,15 @@ function getFlatten(root ) {
   while (current.right !== null) current = current.right
   current.right = right
 }
+
+function witness(height) {
+  maxheight = -Infinity;
+  total = 0;
+  for (let i=0; i< height.length -1; i++) {
+    if (height[i] > maxheight) total++
+    maxheight = Math.max(height[i], maxheight)
+  }
+  return total
+}
+
+console.log(witness([3,6,3,4,1]))
