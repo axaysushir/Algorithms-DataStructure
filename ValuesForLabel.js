@@ -11,7 +11,8 @@ var largestValueFromlabels = (values, numWanted, labels, uselimit) => {
     const map = new Map()
     pairs.sort((a,b) => a[0] - b[0])
 
-    let sum = 0;
+    let sum = 0;.
+    .   
     while (pairs.length > 0 && numWanted > 0) {
         const top = pairs.pop()
         const [value, label] = top;
