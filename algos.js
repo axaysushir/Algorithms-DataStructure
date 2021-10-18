@@ -3365,3 +3365,40 @@ function witness(height) {
 }
 
 console.log(witness([3,6,3,4,1]))
+
+function convert(s, rows) {
+  return zigzagString(s, rows)
+}
+
+function zigzagString(s, rows) {
+  if (s.length == 0 || rows == 1) return s;
+  var arr = new Array(rows)
+  for (let i=0; i<rows; i++) arr[i] = [];
+
+  // console.log(arr);
+  let row = 0, down;
+  for (let i=0; i<s.length; i++) {
+    var curr = s[i]
+    if (curr !== '') arr[row].push(s[i])
+    if (row == rows-1) down = false
+    else if (row == 0) down = true
+    down ? row++ : row--
+    // console.log(arr);
+  }
+  return [].concat.apply([], arr).join('')
+}
+
+console.log(convert('PAYPALISHIRING', 3));
+
+function missingnumber(nums) {
+  let len = nums.length;
+  if (!len) return 0;
+  let sum = len * ((len+1) /2)
+  let arrsum = nums.reduce((a, b) => {
+    return a + b
+  })
+  console.log(arrsum, sum);
+  return sum - arrsum
+}
+
+console.log(missingnumber([1,2,3,4,6]));
