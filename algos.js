@@ -3402,3 +3402,44 @@ function missingnumber(nums) {
 }
 
 console.log(missingnumber([1,2,3,4,6]));
+
+var addStrings = function(num1, num2) {
+    var res = []
+    let i = num1.length -1
+    let j = num2.length - 1
+    let carry = 0;
+
+    whilre (i >= 0 || j >= 0) {
+      let sum = carry;
+      if (i>= 0) {
+        sum += num1.charAt(i--) - '0'
+      }
+      if (j>= 0) {
+        sum += num1.charAt(j--) - '0'
+      }
+
+      res.push(sum % 10)
+      carry = sum / 10
+    }
+    if (carry !== 0) {
+      res.push(carry)
+    }
+    return res.split('').reverse().toString()
+};
+
+var addstring = (num1, num2) => {
+  let ans = '', carry  =0, substr = 1
+  const long = Math.max(num1.length, num2.length)
+
+  while (substr <= long) {
+    let n1 = (substr > num1.length) ? 0 : Number(num1[num1.length] - substr)
+    let n2 = (substr > num2.length) ? 0 : Number(num2[num2.length] - substr)
+    const digit = n1 + n2 + carry;
+    carry = (digit >= 10) ? 1 : 0;
+    ans = String(digit%10) + ans;
+    substr++
+
+  }
+  ans= (carry === 1) ? '1' + ans : ans
+  return ans
+}
