@@ -3426,3 +3426,16 @@ var addStrings = function(num1, num2) {
     }
     return res.split('').reverse().toString()
 };
+
+function lcs(str) {
+  let pre = ''
+  if (str.length === 0) return pre
+  for (let i=0; i<str[0].length;i++) {
+    const char = str[0][i]
+    for (let j=0; j <str.length; j++) {
+      if (str[j][i] !== char) return pre
+    }
+    pre = pre + char
+  }
+  return pre
+}
