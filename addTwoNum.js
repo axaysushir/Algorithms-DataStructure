@@ -53,7 +53,7 @@ var lengthOfLongestSubstring = function (s) {
   [...s].forEach((ele) => {
     if (temp.includes(ele)) {
       // find index of ele in temp arr increment by 1
-      tmp = [...temp.slice(tmp.findIndex((y) => y === ele) + 1)];
+      temp = [...temp.slice(temp.findIndex((y) => y === ele) + 1)];
     }
     temp.push(ele);
     if (temp.length > result.length) result = temp;

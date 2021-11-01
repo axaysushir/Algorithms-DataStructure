@@ -2491,3 +2491,23 @@ def sTask(tasks, n):
     maxtasks = list(freq.values()).count(maxfreq)
     mintime += maxtasks
     return max(mintime, len(tasks))
+
+# min path sum
+class Solution:
+    def minPathSum(self, grid: List[List[int]]) -> int:
+        if len(grid) == 0:
+            return 0
+        rows = len(grid)
+        cols = len(grid[0])
+        #Simple DP Grid Reduction Approach
+        for row in range(rows):
+            for col in range(cols):
+                if row > 0 or col > 0: #if not in top left corner
+                    if row == 0: #if we're at top row
+                        grid[row][col] += grid[row][col - 1] 
+                    elif col == 0: #if we're at leftmost column
+                        grid[row][col] += grid[row - 1][col]
+                    else: #otherwise we check both top and left (possible spots to come from) and get minimum
+                        grid[row][col] += min(grid[row - 1][col], grid[row][col - 1])
+        #return bottom right spot
+        return grid[-1][-1]

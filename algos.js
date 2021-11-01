@@ -3439,3 +3439,30 @@ function lcs(str) {
   }
   return pre
 }
+
+function long(s) {
+  let res = 0, temp = []
+  for (const char of s) {
+    let idx = temp.indexOf(char)
+    if (idx > -1) {
+      temp = temp.slice(idx + 1)
+      console.log(temp);
+    }
+    temp.push(char)
+    if (temp.length > res) res = temp.length;
+  }
+  return res
+}
+console.log(long("abcabcbb"));
+
+function maxWater(height) {
+  let i=0; j = height.length -1, max = 0;
+  let area
+  while (i < j) {
+    area = (j-i) * Math.min(height[i], height[j])
+    max = Math.max(area, max)
+    height[i] < height[j] ? i++ : j--;
+  }
+  return max
+}
+console.log(maxWater([1, 8, 6, 2, 5, 4, 8, 3, 7]));
