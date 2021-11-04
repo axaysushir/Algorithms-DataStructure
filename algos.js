@@ -3482,16 +3482,3 @@ var findRepeatedDnaSequences = function(s) {
     return repeated
 };
 
-var findRepeatedDnaSequences = (s) => {
-  let seen = new Set()
-  let repeated = new Set()
-
-  for (let i=0; i<s.length; i++) {
-    let subseq = s.substring(i, i+10)
-    if (subseq.length === 10) {
-      if (seen.has(subseq)) repeated.add(subseq)
-      seen.add(subseq)
-    }
-  }
-  return [...repeated]
-}
