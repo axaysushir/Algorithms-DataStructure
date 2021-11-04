@@ -3466,3 +3466,32 @@ function maxWater(height) {
   return max
 }
 console.log(maxWater([1, 8, 6, 2, 5, 4, 8, 3, 7]));
+
+// repeated dna
+var findRepeatedDnaSequences = function(s) {
+    var repeated = []
+    var seen = new Map()
+    let i = 0;
+    while(i+10 <= s.length) {
+      let subseq = s.substring(i, i++ + 10)
+      seen.set(subseq, seen.get(seen, 0) + 1)
+      if (seen.get(subseq) == 2) {
+        repeated.push(subseq)
+      }
+    }
+    return repeated
+};
+
+var findRepeatedDnaSequences = (s) => {
+  let seen = new Set()
+  let repeated = new Set()
+
+  for (let i=0; i<s.length; i++) {
+    let subseq = s.substring(i, i+10)
+    if (subseq.length === 10) {
+      if (seen.has(subseq)) repeated.add(subseq)
+      seen.add(subseq)
+    }
+  }
+  return [...repeated]
+}
