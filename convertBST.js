@@ -71,3 +71,17 @@ var sortedListToBST = function(head) {
         return 1 + countNode(node.next)
     }
 }
+
+function sortedArrToBst(nums){
+    function build(left, right){
+        if (left >  right) {
+            return null;
+        }
+        let mid = Math.floor((left + right)/2)
+        newNode = TreeNode(nums[mid])
+        newNode.left = build(left, mid-1)
+        newNode.right = build(mid + 1, right)
+        return newNode
+    }
+    return build(0, nums.length-1)
+}
