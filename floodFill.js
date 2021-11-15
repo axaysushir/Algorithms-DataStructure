@@ -7,7 +7,7 @@ To perform a flood fill, consider the starting pixel, plus any pixels connected 
 
 Return the modified image after performing the flood fill.
 */
-
+// Solution 1:
 var floodFill = function(image, sr, sc, newColor) {  
     const fill = (i, j, color) => {
         if (i < 0 || i >= image.length || j < 0 || j >= image[i].length || image[i][j] !== color || image[i][j] === newColor) return 
@@ -21,6 +21,7 @@ var floodFill = function(image, sr, sc, newColor) {
     return image  
 }
 
+// Solution 2:
 function flatBSt(root) {
     while (root !== null) {
         if (root.right !== null) {
