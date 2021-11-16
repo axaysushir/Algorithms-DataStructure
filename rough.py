@@ -2491,5 +2491,3 @@ def sTask(tasks, n):
     maxtasks = list(freq.values()).count(maxfreq)
     mintime += maxtasks
     return max(mintime, len(tasks))
-
-# min path sum
