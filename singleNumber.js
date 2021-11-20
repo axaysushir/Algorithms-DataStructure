@@ -15,7 +15,7 @@ print(Solution().findSingle(nums))
 // Using set
 let singleNumber = function(nums) {
     let set = new Set()
-    for (num of nums) {
+    for (let num of nums) {
         if (set.has(num)) {
             set.delete(num)
         } else {
@@ -36,6 +36,16 @@ var singleNum = nums => {
     return nums[0]
 }
 
+// Bit manipullation
+let findSingle = nums => {
+    let ans = nums[0]
+    for (let i =1; i<nums.length; i++) {
+        ans ^= nums[i]
+    }
+    return ans
+}
+nums = [1, 1, 3, 4, 4, 5, 6, 5, 6]
+console.log(findSingle(nums))
 /*
 Python Bit Manipulation
 class solution:
