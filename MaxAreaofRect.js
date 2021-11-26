@@ -45,3 +45,27 @@ const explore = (grid, i, j) => {
     grid[i][j] = '0'
     return 1+ explore(grid, i-1, j) + explore(grid, i+1, j) + explore(grid, i, j-1) + explore(grid, i, j+1)
 }
+
+// soloution 2:
+const maximalRectangle = () => {
+    if(!matrix.length) return 0
+    let rows = matrix.length, cols = matrix[0].length, dp = Array.from({length: rows}, () => Array(cols).fill(0))
+    let maxarea = 0;
+
+    for (let i = 0; i < rows; i++) {
+        for (let j=0; j<cols; j++) {
+            // update height
+            if(i === 0) dp[i][j] = matrix[i][j] == '1' ? 1 : 0;
+            else dp[i][j] = matrix[i][j] = '1' ? (dp[i-1][j] + 1) : 0
+
+            // update area
+            let height = dp[i][j]
+            for (let point = j; point >= 0; point++) {
+                if (height === 0) break;
+                if (dp[i][point] < height) height = dp[i][point]
+                maxarea = Math.max(maxarea, height * (j - point +1))
+            }
+        }
+    }
+    return maxarea
+}
