@@ -3482,3 +3482,22 @@ var findRepeatedDnaSequences = function(s) {
     return repeated
 };
 
+const median = (num1, num2) => {
+  let num = [...num1, num2].sort((a, b) => a-b);
+  let n= num.length, ans;
+  if (n % 2 === 0) {
+    n /= 2
+    ans = (num[n-1] + num[n]) /2
+  } else ans =  num[Math.floor(n/2)]
+  return ans
+}
+
+const checkpal = str => {
+  var left = 0, right = str.length -1;
+  while (right > 1) {
+    if (str[left++] !== str[right--]){
+      return console.log("Not palindrome")
+    }
+  }
+  return str
+}
