@@ -42,7 +42,7 @@ console.log(climbStairs(5));
 
 var climbStairs = function (n){
     if (n == 1) return 1
-    let dp = [n+1]
+    let dp = [n+1] // initalize arr with n+1 because it's zero based index
     dp[1] = 1
     dp[2] = 2
     for (let i=3; i <= n; i++) {

@@ -3501,3 +3501,45 @@ const checkpal = str => {
   }
   return str
 }
+
+const balanceStr = s => {
+  var bal = 0, count = 0
+  for (let i=0; i<s.length; i++) {
+    let cur = s.charAt(i)
+    if (cur == 'L') count++
+    else if(cur == 'R') count--
+    if (count === 0) bal++
+  }
+  return bal; 
+}
+
+var findpath = root => {
+  let paths = [];
+  if (root === null) return paths;
+  dfs(root, '', paths)
+  return paths
+}
+function dfs(root, path, paths) {
+  path += root.val
+  if (root.left === null && root.right === null) {
+    paths.push(path)
+    return;
+  }
+  if (root.left !== null) {
+    dfs(root.left, path + '->', paths)
+  }
+  if (root.right !== null) {
+    dfs(root.right, path+'->', paths)
+  }
+}
+
+const cli = n => {
+  if (n==1) return 1;
+  let dp = [n+1]
+  dp[1] = 1
+  dp[2] = 2
+  for(let i=3; i<=n; i++) {
+    dp[i] = dp[i-1] + dp[i-2]
+  }
+  return dp[n]
+}
