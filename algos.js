@@ -3543,3 +3543,18 @@ const cli = n => {
   }
   return dp[n]
 }
+
+var intersectNode = (headA, headB) =>{ 
+  let hash = []
+  while (headA !== null) {
+    hash.push(headA)
+    head = headA.next
+  }
+  while (headB !== null) {
+    if (hash.includes(headB)) {
+      return headB
+    }
+    headB = headB.next
+  }
+  return null
+}
