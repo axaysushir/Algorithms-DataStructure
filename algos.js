@@ -3558,3 +3558,27 @@ var intersectNode = (headA, headB) =>{
   }
   return null
 }
+
+const levelorder = root => {
+  let result = []
+  if (root === null) return result;
+  let queue = []
+  queue.push(root)
+  while (queue.length > 0) {
+    let row = []
+    let rowsize = queue.length;
+    while (rowsize > 0) {
+      let currentNode = queue.shift()
+      if (currentNode.left !== null) {
+        queue.push(currentNode.left)
+      }
+      if (currentNode.right !== null) {
+        queue.push(currentNode.right)
+      }
+      row.push(currentNode.val)
+      rowsize--
+    }
+    result.push(row)
+  }
+  return res
+}
