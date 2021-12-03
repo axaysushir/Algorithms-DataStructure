@@ -59,4 +59,4 @@ var solveSudoku = board => {
     return sudoku(board)
 }
 
-console.log(solveSudoku(board))
+console.log(solveSudoku(board)) // true

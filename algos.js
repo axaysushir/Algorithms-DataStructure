@@ -3582,3 +3582,46 @@ const levelorder = root => {
   }
   return res
 }
+
+var plusOne = digits => {
+  for(let i=digits.length-1; i>=0; i--) {
+    if (digits[i] !== 9) {
+      digits[i]++
+      return digits
+    } else digits[i] = 0
+  }
+  digits.unshift(1)
+  return digits
+}
+console.log(plusOne([9,9,9]))
+
+const bottomup = n => {
+  let res = 1
+  if (n==1 || n == 2) res = 1
+  let bottomup = new Array(n+1)
+  bottomup[1] = 1
+  bottomup[2] = 1
+  for (let i=3; i<n+1; i++) {
+    bottomup[i] = bottomup[i-1] + bottomup[i-2]
+  }
+  return bottomup[n]
+}
+
+console.log(bottomup(7))
+
+const euclidian = ([x, y]) => x**2 + y**2
+function kClosest(points, k) {
+  let pq = new MaxPriorityQueue()
+  for (let i of points) {
+    let dist = euclidian(point)
+    if (pq.size() < k){
+      pq.enqueue(point, dist)
+    } else if (dist < pq.front().priority) {
+      pq.dequeue()
+      pq.enqueue(point, dist)
+    }
+  }
+  return pq.toArray().map(el => el.element)
+
+}
+console.log(kClosest([[1, 3], [-2, 2]], 1))
