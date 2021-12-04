@@ -3596,7 +3596,7 @@ var plusOne = digits => {
 console.log(plusOne([9,9,9]))
 
 const bottomup = n => {
-  let res = 1
+  let res
   if (n==1 || n == 2) res = 1
   let bottomup = new Array(n+1)
   bottomup[1] = 1
@@ -3607,7 +3607,7 @@ const bottomup = n => {
   return bottomup[n]
 }
 
-console.log(bottomup(7))
+console.log(bottomup(10))
 
 const euclidian = ([x, y]) => x**2 + y**2
 function kClosest(points, k) {
