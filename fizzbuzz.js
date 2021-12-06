@@ -23,3 +23,4 @@ var fizzBuzz = function(n) {
     }
     return ans
 };
+console.log(fizzBuzz(12))
