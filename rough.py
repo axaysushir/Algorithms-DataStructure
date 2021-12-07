@@ -2491,3 +2491,9 @@ def sTask(tasks, n):
     maxtasks = list(freq.values()).count(maxfreq)
     mintime += maxtasks
     return max(mintime, len(tasks))
+
+
+def close(points, k):
+    points.sort(key = lambda k: k[0]**2 + k[1]**2)
+    return points[:k]
+print(close([(0, 0), (1, 2), (-3, 4), (3, 1)], 2))
