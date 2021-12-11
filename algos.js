@@ -3625,3 +3625,25 @@ function kClosest(points, k) {
 
 }
 console.log(kClosest([[1, 3], [-2, 2]], 1))
+
+function checkpal(s, start, end) {
+  while(start < end) {
+    if (s[start] !== s[end]) return false;
+    start++
+    end--
+  }
+  return true
+}
+function validPal(s) {
+  let start = 0, end = s.length -1;
+  while (start < end) {
+    if (s[start] !== s[end]) {
+      return checkpal(s, start, end-1) || checkpal(s, start+1, end)
+    }
+    start++
+    end--
+  }
+  return true
+}
+
+console.log(validPal('abbda'));
