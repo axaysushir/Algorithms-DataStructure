@@ -3647,3 +3647,24 @@ function validPal(s) {
 }
 
 console.log(validPal('abbda'));
+
+const iscous = (root, x, y) => {
+  let xpar = null, ypar = null, xd = 0, yd = 0;
+  depthOfTree(root, x, y, 0, null)
+  if (xd === yd && xpar !== ypar) return true;
+}
+function depthOfTree(root, x, y, depth, prev){
+  if (root == null) return null;
+  if (root.val == x) {
+    xpar = prev;
+    xd = depth;
+  }
+  if (root.val == y) {
+    yd = depth;
+    ypar = prev
+  }
+  depth++
+  prev = root;
+  depthOfTree(root.left, x, y, depth, prev)
+  depthOfTree(root.right, x, y, depth, prev)
+}
