@@ -434,6 +434,7 @@ def baseto(n, b):
 
 print(baseto(122356689121114444477746641131313131314644444484121213516848454792, 2))
 
+from BSTSubTree import findLargestBST
 from anagramInString import alphabetCounter
 from collections import defaultdict
 class Graph:
@@ -2497,3 +2498,26 @@ def close(points, k):
     points.sort(key = lambda k: k[0]**2 + k[1]**2)
     return points[:k]
 print(close([(0, 0), (1, 2), (-3, 4), (3, 1)], 2))
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+    
+    def size(root):
+        if root is None:
+            return 0
+        return size(root.left) + 1 + size(root.right)
+
+    def isBst(node, min, max):
+        if node is None:
+            return True
+        if node.data < min or node.data > max:
+            return False
+        return isBst(node.left, min, node.data) and isBst(node.right, node.data, max)
+    
+    def findLargestBst(root):
+        if isBst(root, float('-int'), float('-inf')):
+            return size(root)
+        return max(findLargestBST(root.left), findLargestBST(root.right))
