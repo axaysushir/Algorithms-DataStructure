@@ -3668,3 +3668,12 @@ function depthOfTree(root, x, y, depth, prev){
   depthOfTree(root.left, x, y, depth, prev)
   depthOfTree(root.right, x, y, depth, prev)
 }
+
+const mergelist = (l1, l2) => {
+  if (!l1 || !l2) return l1 || l2
+  if (l1.val > l2.val) {
+    [l1, l2] = [l2, l1]
+  }
+  l1.next = mergeList(l1.next, l2)
+  return l1 || l2
+}
