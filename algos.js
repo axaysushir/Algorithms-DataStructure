@@ -4214,3 +4214,16 @@ var balanceString = s => {
   }
   return bal;
 }
+
+const longestpref = str => {
+  let pref = ''
+  if (str.length == 0) return pref;
+  for (let i=0; i<str[0].length; i++) {
+    const char = str[0][i];
+    for (let j=0; j < str.length; j++) {
+      if (str[j][i] !== char) return pref;
+    }
+    pref = pref+char;
+  }
+  return pref;
+}
