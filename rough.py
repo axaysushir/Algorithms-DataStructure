@@ -2521,3 +2521,22 @@ class Node:
         if isBst(root, float('-int'), float('-inf')):
             return size(root)
         return max(findLargestBST(root.left), findLargestBST(root.right))
+
+
+# clone tree
+class Node:
+    def __init__(self, val):
+        self.val = val
+        self.right = None
+        self.left = None
+
+class sol:
+    def find(self, a, b, node):
+        def inorder(o: Node, c: Node):
+            if o:
+                inorder(o.left, c.left)
+                if o is node:
+                    self.ans = c
+                inorder(o.right, c.right)
+        inorder(a, b)
+        return self.ans
