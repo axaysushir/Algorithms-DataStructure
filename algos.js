@@ -3677,3 +3677,13 @@ const mergelist = (l1, l2) => {
   l1.next = mergeList(l1.next, l2)
   return l1 || l2
 }
+
+var rev = s => {
+  if (s.length == 1) return s;
+  let temp 
+  for (let i=0, j=s.length-1; i<s.length/2; i++, j--) {
+    temp = s[i]
+    s[i] = s[j]
+    s[j] = temp
+  }
+}
