@@ -3700,3 +3700,16 @@ function logestPref(str) {
   }
   return pref
 }
+
+function logestStr(s) {
+  let res = 0, temp = []
+  for (let char of s) {
+    const idx = temp.indexOf(char)
+    if (idx > -1) {
+      temp = temp.slice(idx + 1)
+    }
+    temp.push(char)
+    if (temp.length > res) res = temp.length;
+  }
+  return res
+}
