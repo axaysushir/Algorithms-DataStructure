@@ -2540,3 +2540,18 @@ class sol:
                 inorder(o.right, c.right)
         inorder(a, b)
         return self.ans
+
+# max area
+def maxArea(h):
+    i = 0
+    j = len(h) - 1
+    Max = 0
+    while i < j:
+        area = (j-i) * min(h[i], h[j])
+        Max = max(area, Max)
+        if h[i] < h[j]:
+            i += 1
+        else: j -= 1
+    return Max
+height = [1, 8, 6, 2, 5, 4, 8, 3, 7];
+print(maxArea(height))
