@@ -3713,3 +3713,26 @@ function logestStr(s) {
   }
   return res
 }
+
+const expand = (s,left, right) => {
+  while (left >= 0 && right <s.length && s.charAt(left) == s.charAt(right)){
+    left--
+    right++
+  }
+  return right - left - 1;
+}
+const longeststr = s => {
+  let start = 0, maxlen = 0
+  if (s == null || s.length < 1 || s === undefined) return ''
+  for (let i=0; i < s.length; i++) {
+    let l1 = expand(s, i, i)
+    let l2 = expand(s, i, i+1)
+    let len = Math.max(l1, l2)
+
+    if (len > maxlen) {
+      maxlen = len;
+      start = i - Math.floor((len-1) /2)
+    }
+  }
+  return str.substr(start, maxlen)
+}
