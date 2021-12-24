@@ -1,6 +1,6 @@
 // Have the function WaveSorting(arr) take the array of positive integers stored in arr and return the string true if the numbers can be arranged in a wave pattern: a1 > a2 < a3 > a4 < a5 > ..., 
 // otherwise return the string false.
-
+arr = [0, 1, 2, 4, 1, 4]
 function WaveSorting(arr) {
     let len = arr.length;
 

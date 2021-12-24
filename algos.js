@@ -3751,3 +3751,21 @@ var addstring = (num1, num2) => {
   ans = (carry == 1) ? '1'+ans : ans
   return ans
 }
+
+var mergeInterval = int => {
+  int.sort((a, b) => a[0] - b[0])
+  const res = []
+  let i = 0;
+  while (i < int.length) {
+    const [start, end] = int[i]
+    let e = end
+    let j = i+1
+    while (j < int.legnth && int[j][0] <= end){
+      end = Math.max(end, int[j][1])
+      j++
+    }
+    res.push([start, end])
+    i = j
+  }
+  return res
+}
