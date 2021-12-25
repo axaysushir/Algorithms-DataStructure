@@ -3761,11 +3761,31 @@ var mergeInterval = int => {
     let e = end
     let j = i+1
     while (j < int.legnth && int[j][0] <= end){
-      end = Math.max(end, int[j][1])
+      end = Math.max(e, int[j][1])
       j++
     }
     res.push([start, end])
     i = j
   }
   return res
+}
+
+var checkPal = (s, i, j) => {
+  while (i < j) {
+    if (s[i] !== s[j]) return false
+    i++
+    j--
+  }
+  return true
+}
+const valid = s => {
+  let i = 0, j = s.length - 1;
+  while (i < j) {
+    if (s[i] !== s[j]) {
+      return checkPal(s, i+1, j) || checkPal(s, i, j-1)
+    }
+    i++
+    j--
+  }
+  return true
 }
