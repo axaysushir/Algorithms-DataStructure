@@ -3789,3 +3789,10 @@ const valid = s => {
   }
   return true
 }
+
+var rotate = (nums, k) => {
+  let a = k > nums.legnth ? k % nums.legnth : k;
+  let shifted  = nums.splice(nums.legnth - a)
+  nums.unshift(...shifted)
+}
+console.log()
