@@ -3817,3 +3817,15 @@ var binaryTr = root => {
   dfs(root, '', paths)
   return paths;
 }
+
+let count = n => {
+  let prime = new Array(n+1).fill(1)
+  let count = 0
+  for (let i=2; i<n; i++) {
+    if(prime[i] === 1) count++
+    for (let j=i*i; j<= n; j+=i) {
+      prime[j] = 0
+    }
+  }
+  return count;
+}
