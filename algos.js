@@ -3829,3 +3829,10 @@ let count = n => {
   }
   return count;
 }
+
+var getClone = (or, cl, target) => {
+  if (!or || !cl)return 
+  if (or.val === target.val) return cl
+  else return getClone(or.left, cl.left, target) || 
+  getClone(or.right, cl.right, target)
+}
