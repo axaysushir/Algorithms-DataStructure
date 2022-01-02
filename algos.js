@@ -3836,3 +3836,18 @@ var getClone = (or, cl, target) => {
   else return getClone(or.left, cl.left, target) || 
   getClone(or.right, cl.right, target)
 }
+
+let deleteNode = head => {
+  let node = new ListNode(-1)
+  let ans = node;
+  let pre = head, cur = head;
+  while (cur) {
+    while (cur.next && cur.val === cur.next.val) cur = cur.next;
+    if (pre == cur) {
+      ans.next = cur
+      ans = ans.next
+    }
+    ans.next = null;
+    return node.next
+  }
+}
