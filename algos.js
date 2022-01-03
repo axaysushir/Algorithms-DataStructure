@@ -3869,3 +3869,15 @@ let duplicate = head => {
   }
   return pre.next
 }
+
+var revll = head => {
+  let p = null;
+
+  while (head !== null) {
+    let nextnode = head.next;
+    head.next = p
+    p = head
+    head = nextnode
+  }
+  return p
+}
