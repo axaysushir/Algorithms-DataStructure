@@ -3886,5 +3886,5 @@ var searchrange= (nums, t) => {
   let ind = []
   ind.push(nums.indexOf(t))
   ind.push(nums.lastIndexOf(t))
-  return ind
+  return ind;
 }
