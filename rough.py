@@ -2556,4 +2556,11 @@ def maxArea(h):
 height = [1, 8, 6, 2, 5, 4, 8, 3, 7];
 print(maxArea(height))
 
-def palindorme(s):
+def check(s):
+    try:
+        s = float(s)
+        return True
+    except:
+        return False
+
+print(check('12.3'))

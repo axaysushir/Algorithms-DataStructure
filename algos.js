@@ -3888,3 +3888,18 @@ var searchrange= (nums, t) => {
   ind.push(nums.lastIndexOf(t))
   return ind;
 }
+
+const check = (s) => {
+  // try {
+  //   if (s = Math.parseFloat(s))
+  //     return true
+  // } catch (error) {
+  //   if (error) return false
+  // }
+}
+const isNumber = s=> {
+  if (parseFloat(s)) return true
+  else return false
+}
+
+console.log(isNumber('12.q3'), parseFloat('12.q3'));
