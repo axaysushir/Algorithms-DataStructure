@@ -3903,3 +3903,9 @@ const isNumber = s=> {
 }
 
 console.log(isNumber('12.q3'), parseFloat('12.q3'));
+
+function rotat(nums, k) {
+  let a = k > nums.length ? k % nums.length : k;
+  let shift = nums.splice(nums.length -a)
+  nums.unshift(...shift)
+}
