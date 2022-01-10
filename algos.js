@@ -3909,3 +3909,16 @@ function rotat(nums, k) {
   let shift = nums.splice(nums.length -a)
   nums.unshift(...shift)
 }
+
+const isvalid = s =>{ 
+  let stack = []
+  let arr = s.split('')
+  for (let c of arr) {
+    if (c === '[') stack.push(']')
+    else if (c === '{') stack.push('}')
+    else if (c === '(') stack.push(')')
+    else if (s.length === 0 || c !== stack.pop()) return false
+  }
+  if (stack.length === 0) return true
+  else return false
+}
