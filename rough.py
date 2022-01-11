@@ -2564,3 +2564,13 @@ def check(s):
         return False
 
 print(check('12.3'))
+
+def find_anagram(s, p):
+    l = len(p)
+    res = []
+    c = Counter(p)
+    for i in range(len(s) - l+1):
+        tmp = s[i:i+l]
+        if c == Counter(tmp):
+            res.append(i)
+    return res

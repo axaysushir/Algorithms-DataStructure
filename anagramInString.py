@@ -27,7 +27,7 @@ def findAnagram(s, t):
         # advance current
         current[s[i]] -= 1
         current[s[i + len(t)]] += 1
-    
+
     return l
 
 print(findAnagram('cbaebabacd', 'abc'))
@@ -42,7 +42,7 @@ def find_anagrams(s, p):
         tmp = s[i:i+l]
         if c == Counter(tmp):
             res.append(i)
-    
+
     return res
 
 print(find_anagrams('cbaebabacd', 'abc'))
@@ -55,4 +55,3 @@ def swapBits(x):
 
 print(f"0b{swapBits(0b10101010101010101010101010101010):032b}")
 # 0b01010101010101010101010101010101
-
