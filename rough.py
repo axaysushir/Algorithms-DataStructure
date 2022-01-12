@@ -108,71 +108,71 @@ class Solution:
         return ' '.join(s.split()[::-1])
 
 
-# Python program for expression tree 
+# Python program for expression tree
 
-# An expression tree node 
-class Et: 
+# An expression tree node
+class Et:
 
-	# Constructor to create a node 
-	def __init__(self , value): 
-		self.value = value 
+	# Constructor to create a node
+	def __init__(self , value):
+		self.value = value
 		self.left = None
 		self.right = None
 
-# A utility function to check if 'c' 
-# is an operator 
-def isOperator(c): 
+# A utility function to check if 'c'
+# is an operator
+def isOperator(c):
 	if (c == '+' or c == '-' or c == '*'
-		or c == '/' or c == '^'): 
+		or c == '/' or c == '^'):
 		return True
-	else: 
+	else:
 		return False
 
-# A utility function to do inorder traversal 
-def inorder(t): 
-	if t is not None: 
-		inorder(t.left) 
+# A utility function to do inorder traversal
+def inorder(t):
+	if t is not None:
+		inorder(t.left)
 		print(t.value)
-		inorder(t.right) 
+		inorder(t.right)
 
-# Returns root of constructed tree for 
-# given postfix expression 
-def constructTree(postfix): 
-	stack = [] 
+# Returns root of constructed tree for
+# given postfix expression
+def constructTree(postfix):
+	stack = []
 
-	# Traverse through every character of input expression 
-	for char in postfix : 
+	# Traverse through every character of input expression
+	for char in postfix :
 
-		# if operand, simply push into stack 
-		if not isOperator(char): 
-			t = Et(char) 
-			stack.append(t) 
+		# if operand, simply push into stack
+		if not isOperator(char):
+			t = Et(char)
+			stack.append(t)
 
-		# Operator 
-		else: 
+		# Operator
+		else:
 
-			# Pop two top nodes 
-			t = Et(char) 
-			t1 = stack.pop() 
-			t2 = stack.pop() 
-				
-			# make them children 
-			t.right = t1 
-			t.left = t2 
-			
-			# Add this subexpression to stack 
-			stack.append(t) 
+			# Pop two top nodes
+			t = Et(char)
+			t1 = stack.pop()
+			t2 = stack.pop()
 
-	# Only element will be the root of expression tree 
-	t = stack.pop() 
-	
-	return t 
+			# make them children
+			t.right = t1
+			t.left = t2
 
-# Driver program to test above 
+			# Add this subexpression to stack
+			stack.append(t)
+
+	# Only element will be the root of expression tree
+	t = stack.pop()
+
+	return t
+
+# Driver program to test above
 postfix = "(3 + 2) * (4 + 5)"
-r = constructTree(postfix) 
+r = constructTree(postfix)
 print("Infix expression is")
-inorder(r) 
+inorder(r)
 
 
 
@@ -184,7 +184,7 @@ class Node:
 class Solution:
     def __init__(self) -> None:
         self.tri = None
-    
+
     def build(self, words):
         self.tri = Node({}, False)
         for word in words:
@@ -194,7 +194,7 @@ class Solution:
                     current.child[char] = Node({}, False)
                 current = current.child[char]
             current.word = True
-    
+
     def autocomplete(self, prefix):
         current = self.tri
         for char in prefix:
@@ -219,7 +219,7 @@ print(s.autocomplete('c'))
 class Node:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
-        self.right = right 
+        self.right = right
         self.left = left
 
 
@@ -230,7 +230,7 @@ class Solution():
         def visited(node):
             if node is None:
                 return 0
-            
+
             left = visited(node.left)
             right = visited(node.right)
             currmax = max(node.val + max(left, right), node.val)
@@ -239,7 +239,7 @@ class Solution():
 
         visited(root)
         return self.max
-    
+
 n6 = Node(6)
 n4 = Node(4)
 n3 = Node(3, None, n4)
@@ -253,7 +253,7 @@ class Node:
         self.value = value
         self.right = right
         self.left = left
-        
+
     def __repr__(self):
         return f"(value: {self.value} left: {self.left} right: {self.right})"
 
@@ -262,7 +262,7 @@ class Node:
             return True
         if r1 is None or r2 is None:
             return False
-        
+
         return (r1.value == r2.value and isidentical(r1.left, r2.left) and isidentical(r1.right, r2.right))
 
     def findtree(s, t):
@@ -272,10 +272,10 @@ class Node:
             return False
         if isidentical(t,s):
             return True
-        
+
         return findtree(t.left, s) or findtree(t.right, s)
 
-# Code runner 
+# Code runner
 t3 = Node(4, Node(3), Node(2))
 t2 = Node(5, Node(4), Node(-1))
 t = Node(1, t2, t3)
@@ -291,8 +291,8 @@ def rotate(nums, k):
         prev = nums[-1]
         for j in range(len(nums)):
             nums[j], prev = prev, nums[j]
-        
-    return nums 
+
+    return nums
 
 print(rotate([1,2,3,4,5], 3))
 
@@ -301,7 +301,7 @@ def rotates(nums, k):
     a = [0] * n
     for i in range(n):
         a[(i+k) % n] = nums[i]
-    
+
     nums[:] = a
     return nums
 
@@ -319,7 +319,7 @@ def reversebit(n):
         if (n & 1 == 1):
             rev = rev ^ 1
         n = n >> 1
-    
+
     return rev
 
 print(bits(1234))
@@ -336,16 +336,16 @@ class Node:
 def size(root):
     if root is None:
         return 0
-    
-    return size(root.left) + 1 + size(root.right) 
+
+    return size(root.left) + 1 + size(root.right)
 
 def isbst(node, min, max):
     if node is None:
         return True
-    
+
     if node.data < min or node.data > max:
         return False
-    
+
     return isbst(node.left, min, node.data) and isbst(node.right, max, node.data)
 
 def find(root):
@@ -370,7 +370,7 @@ class Node:
         self.val = val
         self.right = right
         self.left = left
-    
+
     def __repr__(self):
         return f"({self.val}, {self.left}, {self.right})"
 
@@ -415,7 +415,7 @@ class Solution(object):
                 if suf in worddict or self.canform(suf, worddict, cache):
                     cache[word] = True
                     return True
-        
+
         cache[word] = False
         return False
 
@@ -442,11 +442,11 @@ class Graph:
         self.v = vertices
         self.graph = defaultdict(list)
 
-    
+
     def addEdge(self, v, w):
         self.graph[v].append(w)
         self.graph[w].append(v)
-    
+
     def iscycleutil(self,v,visited, parent):
         visited[v] = True
         for i in self.graph[v]:
@@ -456,7 +456,7 @@ class Graph:
                 elif parent != i:
                     return True
         return False
-    
+
     def iscycle(self):
         visited = [False] * (self.v)
         for i in range(self.v):
@@ -479,7 +479,7 @@ print(g.iscycle())
 class Tictac(object):
     def __init__(self, n):
         self.grid = [[''] * n for i in range(n)]
-    
+
     def move(self, col, row, player):
         if player == 1:
             mark = 'X'
@@ -522,19 +522,19 @@ class TicTacToe(object):
             count = 1
         else:
             count = -1
-        
+
         self.row[row] += count
         self.col[col] += count
         if row == col:
             self.diag += count
         if row + col == self.n - 1:
             self.xdiag += count
-        
+
         if self.n in [self.row[row], self.col[col], self.diag, self.xdiag]:
             return 1
         if -self.n in [self.row[row], self.col[col], self.diag, self.xdiag]:
             return 2
-        
+
         return 0
 
 board = TicTacToe(3)
@@ -557,18 +557,18 @@ class Solution:
     def rotateRight(self, head, k):
         if not head or not head.next or k == 0:
             return head
-        
+
         tail = head
         count = 1
         while tail.next:
             tail = tail.next
             count += 1
-        
-        # new k 
+
+        # new k
         k = k % count
         if k == 0:
             return head
-        
+
         tail.next = head
         breakAT = 1
         pointer = head
@@ -576,7 +576,7 @@ class Solution:
         while breakAT != count -k:
             pointer = pointer.next
             breakAT += 1
-        
+
         head = pointer.next
         pointer.next = None
         return head
@@ -592,18 +592,18 @@ class Node:
     def __init__(self, data):
         self.data = data
         self.left = None
-        self.right = None 
+        self.right = None
 
 def size(root):
     if root is None:
         return 0
-    
+
     return size(root.left) + 1 + size(root.right)
 
 def isbst(node, min, max):
     if node is None:
         return True
-    
+
     if node.data < min or node.data > max:
         return False
     return isbst(node.left, min, node.data) and isbst(node.right, node.data, max)
@@ -636,7 +636,7 @@ class subtreeinfo:
 def findlargebst(root):
     if root is None:
         return subtreeinfo(float('-inf'), float('-inf'))
-    
+
     left = findlargebst(root.left)
     right = findlargebst(root.right)
 
@@ -644,10 +644,10 @@ def findlargebst(root):
         info = subtreeinfo(min(root.data, min(left.min, right.min)),
                             max(root.data, max(left.max, right.max)),
                             left.size + 1 + right.size, True)
-    
+
     else:
         info = subtreeinfo(0,0, max(left.size, right.size), False)
-    
+
     return info
 
 if __name__ == '__main__':
@@ -697,7 +697,7 @@ def findCommon(A):
     for i in range(len(A) + 1 -2 ):
         duplicates = findduplicates(Counter(A[i]), Counter(A[i+1]))
         out = findduplicates(out, duplicates)
-    
+
     for i in out :
         if out[i] > 0:
             res += [i] * out[i]
@@ -780,7 +780,7 @@ def calculate(a: int, operator: chr, b: int):
 def evalute(root: Node):
     if not root:
         return None
-    
+
     if not isOperator(root.key):
         return root.key
     else:
@@ -806,7 +806,7 @@ def findnum(nums, target):
         if first == -1:
             first = i
         last = i
-    
+
     return (first, last)
 
 print(findnum([1,2,1,3,5,7], 2))
@@ -817,7 +817,7 @@ class Node:
         self.val = val
         self.right = right
         self.left = left
-    
+
     def __repr__(self):
         return f"({self.val}, {self.left}, {self.right})"
 
@@ -831,12 +831,12 @@ def bst_sum(root, num):
 
         if (subsum == 0 and root.left == None and root.right == None):
             return True
-        
+
         if root.left is not None:
             ans = ans or bst_sum(root.left, subsum)
         if root.right is not None:
             ans = ans or bst_sum(root.right, subsum)
-        
+
         return ans
 
 
@@ -899,7 +899,7 @@ def height(root):
 
 def deepnode(root, level):
     if not root:
-        return 
+        return
     if level == 1:
         print(root.val)
     elif level > 1:
@@ -939,7 +939,7 @@ class Graph:
     def __init__(self, vertices):
         self.v = vertices
         self.graph = defaultdict(list)
-    
+
     # Add edges to graph
     def addEdge(self, v, w):
         self.graph[v].append(w)
@@ -955,7 +955,7 @@ class Graph:
                 elif parent != i:
                     return True
         return False
-    
+
     def isCycle(self):
         visited = [False]*(self.v)
         for i in range(self.v):
@@ -972,7 +972,7 @@ g.addEdge(2, 0)
 g.addEdge(0, 3)
 g.addEdge(3, 4)
 
-print(g.isCycle())               
+print(g.isCycle())
 
 
 def simplePath(path):
@@ -998,7 +998,7 @@ class tiktok(object):
         self.diag= 0
         self.xdiag = 0
         self.n = n
-    
+
     def move(self, row, col, player):
         if player == 1:
             count = 1
@@ -1011,7 +1011,7 @@ class tiktok(object):
             self.diag += count
         if row + col == self.n - 1:
             self.xdiag += count
-        
+
         if self.n in [self.row[row], self.col[col], self.diag, self.xdiag]:
             return 1
         if -self.n in [self.row[row], self.col[col], self.diag, self.xdiag]:
@@ -1062,7 +1062,7 @@ def isOverlap(r1, r2):
         return False
     if r1[1] >= r2[3] or r2[1] >= r1[3]:
         return False
-    
+
     return True
 
 rec1 = [0, 0, 1, 1]
@@ -1072,7 +1072,7 @@ print(isOverlap(rec1, rec2))
 def isRec(r1, r2):
     def intersect(pl, pr, ql, qr):
         return min(pr, qr) > min(pl, ql)
-    
+
     return (intersect(r1[0], r1[2], r2[0], r2[2]) and intersect(r1[1], r1[3], r2[3], r1[3]))
 
 rec1 = [0, 0, 1, 1]
@@ -1081,11 +1081,11 @@ print(isRec(rec1, rec2))
 
 
 # Rotate Array
-nums = [1,2,3,4,5] 
+nums = [1,2,3,4,5]
 k = 2
 def rotate(nums, k):
     k %= len(nums)
-    
+
     for i in range(k):
         prev = nums[-1]
         for j in range(len(nums)):
@@ -1104,7 +1104,7 @@ def roArr(num, k):
 
 print(roArr(nums, k))
 
-# 
+#
 from heapq import heappop, heappush
 
 class Solution:
@@ -1121,15 +1121,15 @@ class Solution:
         for x, h, r in sorted(position):
             while building and building[0][1] <= x:
                 heappop(building)
-            
+
             if h:
                 heappush(building, (h, r))
-            
+
             currmaxHeight = -building[0][0]
 
             if not sky or sky[-1][1] != currmaxHeight:
                 sky.append([x, currmaxHeight])
-        
+
         return sky
 
 print(Solution().generate_sky([(2, 8, 3), (4, 6, 5)]))
@@ -1143,7 +1143,7 @@ def schedule(task, n):
     l = len(task)
     for i in range(l):
         taskfreq[task[i]] = taskfreq.get(task[i], 0)
-    
+
     maxfreq = max(taskfreq.values())
 
     mintime = -1 + maxfreq + (maxfreq-1) * n
@@ -1184,7 +1184,7 @@ def find_anagram(s, p):
         tmp = s[i:i+l]
         if c == Counter(tmp):
             res.append(i)
-    
+
     return res
 
 print(find_anagram('cbaebabacd', 'abc'))
@@ -1209,7 +1209,7 @@ def squared(nums):
         else:
             ans.append(nums[j]**2)
             j += 1
-    
+
     while i >= 0:
         ans.append(nums[i]** 2)
         i -= 1
@@ -1274,7 +1274,7 @@ class TreeNode:
         self.val = val
         self.left = left
         self.right = right
-    
+
     def __str__(self):
         ans = str(self.val)
         if self.left:
@@ -1282,7 +1282,7 @@ class TreeNode:
         if self.right:
             ans += str(self.right)
         return ans
-    
+
 
 class Solution:
     def balbst(self, nums):
@@ -1349,7 +1349,7 @@ class Solution:
 
         def dfs(node, parent, depth):
             if not node:
-                return 
+                return
             if node.val == x or node.val == y:
                 res.append((parent, depth))
             dfs(node.left, node, depth+1)
@@ -1403,7 +1403,7 @@ class TreeNode:
         self.val = val
         self.left = left
         self.right = right
-    
+
     def __str__(self):
         ans = str(self.val)
         if self.left:
@@ -1433,14 +1433,14 @@ class Node:
         self.val = val
         self.left = left
         self.right = right
-    
+
     def __repr__(self):
         return f"value: {self.val}, left: ({self.left.__repr__()}), right: ({self.right.__repr__()})"
 
 def filter(root, k):
     if root == None:
         return None
-    
+
     root.left = filter(root.left, k)
     root.right = filter(root.right, k)
 
@@ -1529,7 +1529,7 @@ def size(root):
 def isBst(node, min, max):
     if node is None:
         return True
-    
+
     if node.data < min or node.data > max:
         return False
     return isBst(node.left, min, node.data) and isBst(node.right, node.data, max)
@@ -1547,7 +1547,7 @@ if __name__ == '__main__':
     root.left.right = Node(20)
     root.right.left = Node(5)
     root.right.right = Node(2)
-    print(find(root)) 
+    print(find(root))
 
 def sumBinary(b1,b2):
     maxLen = max(len(b1), len(b2))
@@ -1580,7 +1580,7 @@ class Node:
 def filterbst(root,k):
     if root is None:
         return None
-    
+
     root.left = filterbst(root.left, k)
     root.right = filterbst(root.right, k)
 
@@ -1601,7 +1601,7 @@ def rotate(head: Node, k):
     while tail.next:
         tail = tail.next
         count += 1
-    
+
     k = k%count
     if k == 0: return head
 
@@ -1642,7 +1642,7 @@ class Node:
 class Solution:
     def __init__(self) -> None:
         self.trie = None
-    
+
     def build(self, words):
         self.trie = Node({}, False)
         for word in words:
@@ -1652,7 +1652,7 @@ class Solution:
                     curr.child[char] = Node({}, False)
                 curr = curr.child[char]
             curr.isword = True
-    
+
     def auto(self, pref):
         curr = self.trie
         for char in pref:
@@ -1668,7 +1668,7 @@ class Solution:
         for char in node.child:
             words += self.findword(node.child[char], pref+ char)
         return words
-        
+
 s = Solution()
 s.build(['dog', 'dark', 'cat', 'door', 'dodge', 'car'])
 print(s.autocomplete('c'))
@@ -1715,7 +1715,7 @@ def cousin(root: Node, x, y):
             return None
         if node.val == x or node.val == y:
             res.append((parent, depth))
-        
+
         dfs(node.left, node, depth+1)
         dfs(node.right, node, depth+1)
     dfs(root, None, 0)
@@ -1746,7 +1746,7 @@ class Solution:
                 return None
             if node.val == x or node.val == y:
                 res.append((parent, depth))
-            
+
             dfs(node.left, node, depth+1)
             dfs(node.right, node, depth+1)
         dfs(root, None, 0)
@@ -1769,13 +1769,13 @@ class Solution():
         def visit(node):
             if node is not None:
                 return 0
-            
+
             left = visit(node.left)
             right = visit(node.right)
             currmax = max(node.val + max(left, right), node.val)
             self.max = max(self.max, currmax, left + right+node.val)
             return currmax
-        
+
         visit(root)
         return self.max
 
@@ -1796,7 +1796,7 @@ class Node:
 class Solution:
     def __init__(self):
         self.trie = None
-    
+
     def build(self, words):
         self.trie = Node({}, False)
         for w in words:
@@ -1806,7 +1806,7 @@ class Solution:
                     current.children[char] = Node({}, False)
                 current = current.children[char]
             current.isword = True
-    
+
     def findwordFromNode(self, node, prf):
         words = []
         if node.isword:
@@ -1814,7 +1814,7 @@ class Solution:
         for char in node.children:
             words += self.findwordFromNode(node.children[char], prf+char)
         return words
-    
+
     def autocomplete(self, prf):
         current = self.trie
         for c in prf:
@@ -1829,7 +1829,7 @@ print(Solution().autocomplete('c'))
 class Solution:
     def __init__(self):
         self.trie = None
-    
+
     def build(self, words):
         self.trie = Node({}, False)
         for word in words:
@@ -1839,7 +1839,7 @@ class Solution:
                     current.children[char] = Node({}, False)
                 current = current.children[char]
             current.isword = True
-    
+
     def findwordfromnode(self, node, prefix):
         words = []
         if node.isword:
@@ -1847,7 +1847,7 @@ class Solution:
         for char in node.children:
             words += self.findwordfromnode(node.children[char], prefix+ char)
             return words
-    
+
     def autocomplete(self, pref):
         current = self.trie
         for char in pref:
@@ -1867,7 +1867,7 @@ class Solution(object):
                 stack.append(root.right)
                 stack.append(root.left)
         return root
-        
+
 
 # balance binary tree
 class Node:
@@ -1875,7 +1875,7 @@ class Node:
         self.val = val
         self.left = left
         self.right = right
-    
+
     def __str__(self):
         ans = str(self.val)
         if self.left:
@@ -1904,7 +1904,7 @@ def sortsqu(a):
         j+= 1
         print(j, 'J - 1')
     i = j-1
-    print(i, 'I - 2'), 
+    print(i, 'I - 2'),
 
     ans = []
     while i >= 0 and j < n:
@@ -1912,7 +1912,7 @@ def sortsqu(a):
             ans.append(a[i]**2)
             i -= 1
             print('ans - 3', ans, 'I', i)
-        else: 
+        else:
             ans.append(a[j]**2)
             j += 1
             print('ans -4', ans, 'J', j)
@@ -1949,7 +1949,7 @@ class Node:
         self.val = val
         self.right = right
         self.left = left
-    
+
 plus = '+'
 minus = '-'
 times = '*'
@@ -2004,7 +2004,7 @@ def sm(a):
         else:
             break
     return res
-    
+
 def insertionSort(nums, size):
     i, key, j = 0,0,0
     for i in range(len(nums)):
@@ -2032,7 +2032,7 @@ def insertion_sort():
             # Swap:
             arr[j + 1] = arr[j]
             arr[j] = key
-            
+
             # Decrement 'j':
             j -= 1
     return arr
@@ -2047,17 +2047,17 @@ class Node:
 class Solution:
     def __init__(self) -> None:
         self.trie = None
-    
+
     def build(self, words):
         self.trie = Node({}, False)
         for word in words:
-            curr = self.trie    
+            curr = self.trie
             for char in word:
                 if char not in curr.child:
                     curr.child[char] = Node({}, False)
                 curr = curr.child[char]
             curr.isword = True
-    
+
     def findword(self, node, pref):
         if node.isword:
             words = []
@@ -2065,7 +2065,7 @@ class Solution:
         for char in node.child:
             words += self.findword(node.child[char], pref + char)
         return words
-    
+
     def auto(self, pref):
         curr = self.trie
         for char in pref:
@@ -2080,7 +2080,7 @@ class Node():
         self.val = val
         self.left = left
         self.right = right
-    
+
     def __str__(self):
         ans = str(self.val)
         if self.left:
@@ -2119,7 +2119,7 @@ class Solution:
             ans = dfs(node.left) + dfs(node.right) + node.val
             res.append(ans)
             return ans
-        
+
         res = []
         dfs(root)
         sum = max(res)
@@ -2137,7 +2137,7 @@ def partition(start, end, arr):
         # Increment the start pointer till it find an element greater than pivot
         while start < len(arr) and arr[start] <= pivot:
             start += 1
-    
+
         # Decrement the end pointer till it finds an element less then pivot
         while arr[end] > pivot:
             end -= 1
@@ -2145,7 +2145,7 @@ def partition(start, end, arr):
         # if start & end have not crossed each other, swap then numbers
         if (start < end):
             arr[start], arr[end] = arr[end], arr[start]
-    
+
     # swap pivot element with element in end pointer. it puts pivot at its correct place
     arr[end], arr[pivot_index] = arr[pivot_index], arr[end]
 
@@ -2173,7 +2173,7 @@ class Node:
 class solution:
     def __init__(self):
         self.trie = None
-    
+
     def build(self, words):
         self.trie = Node({}, False)
         for word in words:
@@ -2183,7 +2183,7 @@ class solution:
                     current.children[char] = Node({}, False)
                 current = current.children[char]
                 current.isword = True
-    
+
     def findWordFromNode(self, node, prefix):
         words = []
         if node.isword:
@@ -2191,7 +2191,7 @@ class solution:
         for char in node.children:
             words += self.findWordFromNode(node.children[char], prefix + char)
         return words
-    
+
     def autocomplete(self, prefix):
         current = self.trie
         for char in prefix:
@@ -2243,13 +2243,13 @@ class Solution:
     def rotate(self, head: Node, k):
         if not head or not head.next or k == 0:
             return head
-        
+
         tail = head
         count = 1
         while tail.next:
             tail = tail.next
             count+= 1
-        
+
         k = K % count
         if k == 0:
             return 0
@@ -2278,7 +2278,7 @@ class Node:
         self.val = val
         self.left = left
         self.right = right
-    
+
     def __repr__(self):
         return f"({self.val}, {self.left}, {self.right})"
 
@@ -2312,7 +2312,7 @@ class Node:
     def __init__(self, val, adj = None):
         self.val = val
         self.adj = adj
-    
+
         self.printVisited = set()
             if self.adj is None:
                 self.adj = []
@@ -2325,7 +2325,7 @@ class Node:
             finalstr = ''
             for n in self.adj:
                 finalstr += f'{n}\n'
-            
+
             self.printVisited.remove(self)
             return finalstr + f'({self.val}, ({[n.value for n in self.adj]}))'
 
@@ -2349,7 +2349,7 @@ n2.adj = [n4]
 graph_copy = Solution().deep_copy_graph(n1)
 print(graph_copy)
 
-# root to leaf sum 
+# root to leaf sum
 class Node:
     def __init__(self, val, left = None, right = None):
         self.val = val
@@ -2369,7 +2369,7 @@ def roottoleaf(root, target):
             ans = ans or roottoleaf(root.left, subsum)
         if root.right:
             ans = ans or roottoleaf(root.right, subsum)
-        
+
         return ans
 
 n6 = Node(6)
@@ -2438,7 +2438,7 @@ def removeNode(root):
         root = None
         del(temp)
         return newroot
-    
+
     if root.right is None:
         newroot = root.left
         temp = root
@@ -2482,7 +2482,7 @@ def sTask(tasks, n):
     freq = {}
     mintime = 0
     maxfreq = 0
-    
+
     for i in range(len(tasks)):
         freq[tasks[i]] = freq.get(tasks[i], 0)
     maxfreq = max(freq.values())
@@ -2504,7 +2504,7 @@ class Node:
         self.data = data
         self.left = None
         self.right = None
-    
+
     def size(root):
         if root is None:
             return 0
@@ -2516,7 +2516,7 @@ class Node:
         if node.data < min or node.data > max:
             return False
         return isBst(node.left, min, node.data) and isBst(node.right, node.data, max)
-    
+
     def findLargestBst(root):
         if isBst(root, float('-int'), float('-inf')):
             return size(root)
@@ -2574,3 +2574,27 @@ def find_anagram(s, p):
         if c == Counter(tmp):
             res.append(i)
     return res
+
+class Solution:
+    def roateRight(self, head: Node, k):
+        if not head or not head.next or k == 0:
+            return head
+        tail = head
+        count = 1
+        while tail.next:
+            tail = tail.next
+            count += 1
+
+        k = k % count
+        if k == 0:
+            return head
+
+        tail.next = head
+        breakAt = 1
+        pointer = head
+        while breakAt != count - k:
+            pointer = pointer.next
+            breakAt += 1
+        head = pointer.next
+        pointer.next = None
+        return head
