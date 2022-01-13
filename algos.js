@@ -141,7 +141,7 @@ let values = [2, 4, 6, 8, 10, 12, 14];
 console.log(solution(values, 5));
 
 
-// 
+//
 let x = 25
 let y = -5
 let multiply = function(x,y) {
@@ -177,7 +177,7 @@ let move = nums => {
     nums[i] == 0 && nums.splice(i, 1) && nums.push(0)
   }
   return nums
-} 
+}
 
 let twosum = (nums, target) => {
   let sum = []
@@ -351,7 +351,7 @@ class Node {
 }
 
 var getcopy = (original, cloned,target) => {
-  if (!original || !cloned) return 
+  if (!original || !cloned) return
   if (original.val === target.val) return cloned
   else return getcopy(original.left, cloned.left, target)
 }
@@ -455,7 +455,7 @@ const lengthof =(s) => {
     if (char in seen && start <= seen[char]) {
       longest  = Math.max(i-start, longest)
       start = seen[char] + 1
-    }   
+    }
     seen[char] = i
   });
   return Math.max(s.length - start, longest)
@@ -500,7 +500,7 @@ var serialize = function(root) {
   function dfs(node) {
     if (!node) {
       data.push('#')
-      return 
+      return
     }
     data.push(node.val)
     dfs(node.left)
@@ -513,7 +513,7 @@ var serialize = function(root) {
 var deser =  data => {
   data = data.split(',')
   let idx = 0
-  
+
   function dfs() {
     const val = data[idx]
     idx++
@@ -534,7 +534,7 @@ var serial = root => {
   return JSON.stringify(root)
 }
 
-var deserial = data =>{ 
+var deserial = data =>{
   let object = JSON.parse(data)
   let dfs = object => {
     Object.setPrototypeOf(object, Node, prototype)
@@ -598,7 +598,7 @@ function TreeNode(val) {
 }
 
 var getcloned = (original, cloned, target) => {
-  if (!original || !cloned) return 
+  if (!original || !cloned) return
   if (original.val == target.val) return cloned
   else return getcloned(original.left, cloned.left, target)
 }
@@ -758,7 +758,7 @@ var addnum = (l1, l2) => {
     currentNode.next = new ListNode(sum)
     currentNode = currentNode.next
     if (l1 != null) v1 = l1.next
-    if (l2 != null) v2 = l2.next    
+    if (l2 != null) v2 = l2.next
   }
   if (carry > 0) currentNode.next = new ListNode(carry)
   return res.next
@@ -1001,7 +1001,7 @@ class Median {
   addnum(num) {
     if (this.arr.length === 0) {
       this.arr.push(num)
-      return 
+      return
     }
     let l = 0
     let r = this.arr.length
@@ -1098,7 +1098,7 @@ var spiral = matrix => {
       if (matrix[i].length > 0) {
         right.push(matrix[i].pop())
         left.unshift(matrix[i].shift())
-      }     
+      }
     }
     res.push(...top, ...left, ...right, ...bottom)
   }
@@ -1270,12 +1270,12 @@ var topK = (words, k) => {
 var isCousins = function(root, x, y) {
   var xParent, yParent = null
   var xDepth, yDepth = 0
-  depthOfTree(root, x, y, 0, null) 
+  depthOfTree(root, x, y, 0, null)
   if (xDepth == yDepth && xParent !== yParent) return true
 }
 
 function depthOfTree(root, x, y, depth, prev)  {
-  if (root == null) return 
+  if (root == null) return
   if (root.val == x) {
     xParent = prev
     xDepth = depth
@@ -1417,7 +1417,7 @@ const inverted = root => {
   return root
 }
 
-// 
+//
 // 0 batches can be made
 batches(
   { milk: 100, butter: 50, flour: 5 },
@@ -1536,7 +1536,7 @@ var listbst = head => {
   const countNode(node) {
     if (!node) return 0
     return 1 + countNode(node.next)
-  } 
+  }
   const numbofnodes = countNode(head)
   return traverse(numbofnodes)
   function traverse(n) {
@@ -1739,7 +1739,7 @@ let serial = root => {
   return res;
 }
 
-let deserial = (data = []) =>{ 
+let deserial = (data = []) =>{
   let val = data.shift()
   if (val == null) return null;
   let node = new TreeNode(val)
@@ -1779,7 +1779,7 @@ let buildTree = (inorder, postorder) => {
     inverted[inorder[i]] = i
   }
 
-  const helper = (instart, inend, postart, poend) =>{ 
+  const helper = (instart, inend, postart, poend) =>{
     if (instart > inend || postart > poend) return null;
     const root = new TreeNode(postorder[poend])
     const idx = inverted[postorder[poend]]
@@ -1850,7 +1850,7 @@ function TreeNode(val, left, right) {
   this.right = right === undefined ? null :  right;
 }
 
-var invert = root =>{ 
+var invert = root =>{
   if (root === null) return null;
   const left = invert(root.left)
   const right = invert(root.right)
@@ -1931,7 +1931,7 @@ data = [1,2,3,null,null,4,5]
 console.log(deser(serialize(root)));
 
 // longest plaindromic substr
-var expand = (s, left, right) =>{ 
+var expand = (s, left, right) =>{
   while (left >= 0 && right < s.length && s.charAt(left) == s.charAt(right)) {
     left--
     right++;
@@ -2104,7 +2104,7 @@ var kfreq = (words, k) => {
   console.log(res);
 }
 
-var nums = ["daily", "interview", "pro", "pro", 
+var nums = ["daily", "interview", "pro", "pro",
 "for", "daily", "pro", "problems"], k = 2
 
 console.log(kfreq(nums, k));
@@ -2237,7 +2237,7 @@ function Node(val) {
 }
 
 var clone = (ori, clone, tar) => {
-  if (!ori || !clone) return 
+  if (!ori || !clone) return
   if (ori.val === tar.val) return clone;
   else return clone(ori.left, tar.left, tar)
 }
@@ -2263,7 +2263,7 @@ let v2 = '1.2.3.1'
 console.log(compare(v1, v2));
 
 // climb stairs
-var climbe = n =>{ 
+var climbe = n =>{
   if (n==1) return 1
   let dp = [n]
   dp[1] = 1
@@ -2321,7 +2321,7 @@ const isSorted = (words, order) => {
   return true
 }
 
-const isRightOrder = (word1, word2, order) =>{ 
+const isRightOrder = (word1, word2, order) =>{
   let length = word1.length > word2.length ? word1.length : word2.length;
   for (let i=0; i<length; i++) {
     let ind1 = order.indexOf(word1)
@@ -2350,7 +2350,7 @@ let maxim = (root) => {
 }
 
 // longest consec seq
-let longest = nums =>{ 
+let longest = nums =>{
   if (nums.length === 0) return 0
   nums.sort((a,b) => a-b)
   let longestStreak = 1
@@ -2371,9 +2371,9 @@ nums = [100, 4, 200, 1, 3, 2]
 console.log(longest(nums));
 
 // meeting rooms
-var meetingRooms = interval =>{ 
+var meetingRooms = interval =>{
   let start = [], end = []
-  intervals.forEach(i =>{ 
+  intervals.forEach(i =>{
     start.push(i.start);
     end.push(i.end);
   })
@@ -2418,7 +2418,7 @@ console.log(jump([3, 2, 5, 1, 1, 9, 3, 4]));
 
 var strstr = (haystack, needle) => {
   if ((!haystack && !needle)|| (haystack && !needle)) return 0
-  let idx = haystack.indexOf(needle) 
+  let idx = haystack.indexOf(needle)
   return idx
 }
 
@@ -2504,7 +2504,7 @@ let sortColors = nums => {
     }
   }
   return nums
-} 
+}
 
 nums = [2,0,2,1,1,0]
 console.log(sortColors(nums));
@@ -2524,7 +2524,7 @@ var topK = (words, k) => {
   })
   return res.slice(0, k)
 }
-console.log(topK(["daily", "interview", "pro", "pro", 
+console.log(topK(["daily", "interview", "pro", "pro",
 "for", "daily", "pro", "problems"], 2));
 
 var isPalindrome = str => {
@@ -2705,7 +2705,7 @@ grid = [
 ]
 console.log(numberOfIslands(grid));
 
-// get Intersectio in node:. 
+// get Intersectio in node:.
 let getIntersactionNode = (headA, headB) => {
   if (headA === null || headB === null) return null;
   let p1 = headA, p2 = headB;
@@ -2774,7 +2774,7 @@ let balance = s => {
 
 console.log(balance('(()()'));
 
-const mergeList = (l1, l2) =>{ 
+const mergeList = (l1, l2) =>{
   if (!l1 || !l2) return l1 || l2
   if (l1.val > l2.val) [l1, l2] = [l2, l1]
   l1.next = mergeList(l1.next, l2)
@@ -2919,7 +2919,7 @@ const transpose = (matrix) => {
   return res
 }
 
-const transFormMatrix = matrix =>{ 
+const transFormMatrix = matrix =>{
   let res = []
   for (let i=0; i<matrix.length; i++) {
     for (let j=0; j<matrix[0].length; j++) {
@@ -3034,7 +3034,7 @@ var f2 = function() {
 }
 console.log(f2());
 
-var obj 
+var obj
 console.log(obj);
 
 function fractionTodec(nume, deno) {
@@ -3072,13 +3072,13 @@ function fixpoint(arr, low, high) {
   if (mid > arr[mid]) {
     return fixpoint(arr, mid + 1, high)
   }
-  else { 
-    return fixpoint(arr, low, mid-1) 
+  else {
+    return fixpoint(arr, low, mid-1)
   }
 
   // return -1
 }
-arr = [-10, -1, 0, 3, 10, 11, 30, 50, 100] 
+arr = [-10, -1, 0, 3, 10, 11, 30, 50, 100]
 n = arr.length;
 console.log(fixpoint(arr, 0, n-1));
 
@@ -3102,7 +3102,7 @@ const invert = root => {
   return root
 }
 
-const ine = root =>{ 
+const ine = root =>{
   if (!root) return null;
   [root.left, root.right] = [ine(root.right), ine(root.left)]
   return root
@@ -3128,7 +3128,7 @@ const genPar = n => {
   function back(p, l, r) {
     if (l === 0 || r === 0) {
       res.push(p)
-      return 
+      return
     }
     if (l < 0) back(p + '(', l-1, r)
     if (r > 0) back(p+')', l, r+1)
@@ -3138,7 +3138,7 @@ const genPar = n => {
 }
 console.log(genPar(3));
 
-const setZero = matrix =>{ 
+const setZero = matrix =>{
   let m = matrix.length;
   let n = matrix[0].length;
   let row = new Set()
@@ -3510,7 +3510,7 @@ const balanceStr = s => {
     else if(cur == 'R') count--
     if (count === 0) bal++
   }
-  return bal; 
+  return bal;
 }
 
 var findpath = root => {
@@ -3544,7 +3544,7 @@ const cli = n => {
   return dp[n]
 }
 
-var intersectNode = (headA, headB) =>{ 
+var intersectNode = (headA, headB) =>{
   let hash = []
   while (headA !== null) {
     hash.push(headA)
@@ -3680,7 +3680,7 @@ const mergelist = (l1, l2) => {
 
 var rev = s => {
   if (s.length == 1) return s;
-  let temp 
+  let temp
   for (let i=0, j=s.length-1; i<s.length/2; i++, j--) {
     temp = s[i]
     s[i] = s[j]
@@ -3831,9 +3831,9 @@ let count = n => {
 }
 
 var getClone = (or, cl, target) => {
-  if (!or || !cl)return 
+  if (!or || !cl)return
   if (or.val === target.val) return cl
-  else return getClone(or.left, cl.left, target) || 
+  else return getClone(or.left, cl.left, target) ||
   getClone(or.right, cl.right, target)
 }
 
@@ -3910,7 +3910,7 @@ function rotat(nums, k) {
   nums.unshift(...shift)
 }
 
-const isvalid = s =>{ 
+const isvalid = s =>{
   let stack = []
   let arr = s.split('')
   for (let c of arr) {
@@ -3921,4 +3921,24 @@ const isvalid = s =>{
   }
   if (stack.length === 0) return true
   else return false
+}
+
+var setZeroes = matrix => {
+  var m = matrix.lenght, n = matrix[0].lenght;
+  var row = new Set(), cols = new Set()
+
+  for (let i=0; i<m;i++) {
+    for (let j=0; j<n; j++) {
+      if (matrix[i][j] == 0) {
+        rows.add(i)
+        cols.add(j)
+      }
+    }
+  }
+
+  for(let i = 0; i<m; i++) {
+    for (let j=0; j<n; j++) {
+      if (row.has(i) || cols.has(j)) matrix[i][j] = 0;
+    }
+  }
 }
