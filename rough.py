@@ -2598,3 +2598,14 @@ class Solution:
         head = pointer.next
         pointer.next = None
         return head
+
+def findSmallest(arr):
+    n = len(arr)
+    res = 1
+    for i in range(n):
+        if (arr[i] <=  res):
+            res += arr[i]
+        else:
+            break
+arr = [1,2,3,8,9,10]
+print(findSmallest(arr)) # 7
