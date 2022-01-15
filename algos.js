@@ -3942,3 +3942,34 @@ var setZeroes = matrix => {
     }
   }
 }
+
+var findSmallest = arr => {
+  let n = arr.length, res = 1;
+  for (let i=0; i<n; i++) {
+    if (arr[i] <= res) {
+      res += arr[i]
+    }else break
+  }
+  return res
+}
+
+// check is sorted
+const isSorted = (words, order) => {
+  for (let i=0; i<words.length; i++) {
+    let word1 = words[i]
+    let word2 = words[i+1]
+    if (!rightOrder(word1, word2, order)) return false;
+  }
+  return true
+}
+
+var isRightOrder = (w1, w2, order) => {
+  let l = w1.length > w2.length ? w1.length : w2.length;
+  for(let i=0; i<l; i++) {
+    let i1 = order.indexOf(w1[i])
+    let l2 = order.indexOf(w2[i])
+    if (i1 < i2) return true
+    if (i1 > i2) return false
+  }
+  return true
+}
