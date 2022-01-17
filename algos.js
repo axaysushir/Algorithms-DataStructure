@@ -3984,3 +3984,9 @@ var findPeak = arr => {
   }
   return left;
 }
+
+var getcopy = (ori, clone, target) => {
+  if (!!ori || !clone)return;
+  if (ori.val === target.val) return clone
+  else return getcopy(ori.left, clo.left, target) || getcopy(ori.right, clo.right, target)
+}
