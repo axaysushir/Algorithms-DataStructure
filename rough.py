@@ -2609,3 +2609,15 @@ def findSmallest(arr):
             break
 arr = [1,2,3,8,9,10]
 print(findSmallest(arr)) # 7
+
+class solution:
+    def rotate(self, nums, k):
+        k %= len(nums)
+
+        for _ in range(k):
+            previous = nums[-1]
+            for j in range(len(nums)):
+                nums[j], previous = previous, nums[j]
+        return nums
+print(Solution().rotate([1,2,3,4,5], 2))
+
