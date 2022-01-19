@@ -3990,3 +3990,15 @@ var getcopy = (ori, clone, target) => {
   if (ori.val === target.val) return clone
   else return getcopy(ori.left, clo.left, target) || getcopy(ori.right, clo.right, target)
 }
+
+const rotate = (nums, k) => {
+  k %= nums.length;
+  for (let i=0; i<k.length; i++) {
+    let pre = nums[-1]
+    for (let j = 0; j<nums.length; j++) {
+      nums[j], pre = pre, nums[j]
+    }
+    return nums
+  }
+}
+console.log(rotate([1,2,3,4,5], 2));
