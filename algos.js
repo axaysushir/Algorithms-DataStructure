@@ -3993,7 +3993,7 @@ var getcopy = (ori, clone, target) => {
 
 const rotate = (nums, k) => {
   k %= nums.length;
-  for (let i=0; i<k.length; i++) {
+  while (k.length) {
     let pre = nums[-1]
     for (let j = 0; j<nums.length; j++) {
       nums[j], pre = pre, nums[j]
@@ -4002,3 +4002,24 @@ const rotate = (nums, k) => {
   }
 }
 console.log(rotate([1,2,3,4,5], 2));
+
+function depth(root, x, y, depth, prev) {
+  if (root == null) return null;
+  if (root.val == x) {
+    xparent = prev;
+    xdepth = depth;
+  }
+  if (root.val == y) {
+    yparent = prev;
+    ydepth = depth;
+  }
+  depth++
+  prev = root;
+  depth(root.left, x, y, depth, prev)
+  depth(root.right, x, y, depth, prev)
+}
+function iscousins(root, x, y) {
+  let xparent = null, yparent = null, xdepth = 0, ydepth = 0;
+  depth(root, x, y, 0, null)
+  if (xdepth == ydepth && xparent !== yparent) return true;
+}
