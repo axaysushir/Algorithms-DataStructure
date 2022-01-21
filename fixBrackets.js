@@ -22,7 +22,7 @@ Also, if the balance of S is positive (say, +B), we must add B ')' brackets at t
 var minAddToMakeValid = function(S) {
     let ans = 0, bal = 0
     for (let i=0; i < S.length; i++){
-        bal += S.chatAt(i) == '(' ? 1: -1;
+        bal += S.chartAt(i) == '(' ? 1: -1;
         // if it is guaranteed bal >= -1
         if (bal == -1){
             ans++
@@ -31,7 +31,7 @@ var minAddToMakeValid = function(S) {
     }
     return ans + bal
 };
-
+console.log(minAddToMakeValid('(()()'));
 // Python solution
 class Solution(object):
     def minAddToMakeValid(self, s):
