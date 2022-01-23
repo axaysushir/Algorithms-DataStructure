@@ -4037,3 +4037,4 @@ var findBalance = s => {
 }
 
 console.log(findBalance('(()()'));
+console.log(findBalance('(()'));
