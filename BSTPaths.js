@@ -48,3 +48,17 @@ const del = head => {
   ans.next = null;
   return node.next;
 }
+
+const fizz = n => {
+  let ans = []
+  for (let i=1; i<=n; i++) {
+    let div3 = (i%3==0)
+    let div5 = (i%5 == 0)
+    if (div3 && div5) {
+      ans.push('fizzBuzz')
+    } else if (div3) ans.push('fizz')
+    else if (div5) ans.push('Buzz')
+    else ans.push(i.toString())
+  }
+  return ans
+}
