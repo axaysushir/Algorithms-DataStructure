@@ -34,3 +34,17 @@ function dfs(root, path, paths) {
     dfs(root.right, path + "->", paths);
   }
 }
+
+const del = head => {
+  var node = new ListNode(-1)
+  var ans = node, pre = head, cur = head;
+  while (cur) {
+    while (cur.next && cur.next.val === cur.next.val) cur = cur.next;
+    if (pre == cur) {
+      ans.next = cur
+      ans = ans.next;
+    }
+  }
+  ans.next = null;
+  return node.next;
+}
