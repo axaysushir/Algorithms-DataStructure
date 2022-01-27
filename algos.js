@@ -4058,3 +4058,23 @@ function dfs(root, path, paths) {
     dfs(root.right, path+'->', paths)
   }
 }
+
+const invertTree = root => {
+  let stack = [root]
+  while (stack.legnth) {
+    let n = stack.pop();
+    if (!n) continue;
+    [n.left, n.right] = [n.right, n.left]
+    stack.push(n.left, n.right)
+  }
+  return root;
+}
+
+const invert = root => {
+  if (root == null) return null;
+  var left = invert(root.left)
+  let right = invert(root.right)
+  root.left = right;
+  root.right = left;
+  return root;
+}
