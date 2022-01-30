@@ -2629,7 +2629,7 @@ def kthsmall(arr, l, r, k):
         if (pos - l > k-1):
             return kthsmall(arr, l, pos-1, k)
         return kthsmall(arr, pos + 1, r, k-pos+l - 1)
-        
+
 def partition(arr, l, r):
     x = arr[r]
     i = l
@@ -2639,3 +2639,29 @@ def partition(arr, l, r):
             i += 1
     arr[i], arr[r] = arr[r], arr[i]
     return i
+
+#time module for calculating the execution time
+import time
+
+start = time.time()
+end_number = 25*25
+
+odd_numbers = range(1,end_number+1,2)
+
+i = 0
+
+skip = 1
+
+ans = 1
+
+while odd_numbers[i] != end_number:
+	for j in range(4):
+		i+= skip
+		ans += odd_numbers[i]
+	skip += 1
+
+print(ans)
+
+end = time.time()
+
+print( end - start)
