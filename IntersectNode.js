@@ -49,7 +49,7 @@ var findIntersection = (headA, headB) => {
         hash.push(headA)
         headA = headA.next
     }
-    while (headB !== null) {
+    while (head~B !== null) {
         if (hash.includes(headB)) {
             return headB
         }
@@ -59,4 +59,3 @@ var findIntersection = (headA, headB) => {
 }
 
 console.log(findIntersection(a, b))
-
