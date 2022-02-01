@@ -2665,3 +2665,11 @@ print(ans)
 end = time.time()
 
 print( end - start)
+
+def mergeTree(root1, root2):
+    if root1 == None: return root2
+    if root2 == None: return root1
+    root1.val += root2.val
+    root1.left = mergeTree(root1.left, root2.left)
+    root1.right = mergeTree(root1.right, root2.right)
+    return root1
