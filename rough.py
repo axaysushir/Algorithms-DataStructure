@@ -2673,3 +2673,11 @@ def mergeTree(root1, root2):
     root1.left = mergeTree(root1.left, root2.left)
     root1.right = mergeTree(root1.right, root2.right)
     return root1
+
+def plus(digits):
+    res = []
+    integer = int("".join(map(str, digits)))
+    integer += 1
+    for i in str(integer):
+        res.append(int(i))
+    return res
