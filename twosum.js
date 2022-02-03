@@ -51,7 +51,7 @@ var twoSum = function(numbers, target) {
   while (l < r) {
       let sum = numbers[l] + numbers[r]
       if (sum == target){
-          return [l+1, r+1]
+          return [l+1, r+1] // 0 based array return index + 1
       } else if (sum > target){
           r--
       } else l++

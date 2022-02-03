@@ -2681,3 +2681,14 @@ def plus(digits):
     for i in str(integer):
         res.append(int(i))
     return res
+
+def towSum(num, t):
+    left = 0
+    right = len(num) - 1
+    while left < right:
+        sum = num[left] + num[right]
+        if sum == t:
+            return [left+1, right+1] // 0 based array
+        elif sum > t: right+=1
+        else: left += 1
+print(towSum([2,5,7,9], 14))
