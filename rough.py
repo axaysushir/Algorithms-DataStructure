@@ -2688,7 +2688,7 @@ def towSum(num, t):
     while left < right:
         sum = num[left] + num[right]
         if sum == t:
-            return [left+1, right+1] // 0 based array
+            return [left+1, right+1] # 0 based array
         elif sum > t: right+=1
         else: left += 1
 print(towSum([2,5,7,9], 14))
