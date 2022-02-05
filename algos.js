@@ -4115,6 +4115,21 @@ var valid = s => {
     else if (c == '(') stack.push(')')
     else if (s.length == 0 || c !== stack.pop()) return false
   }
-  if (stack.legth == 0) return true
+  if (stack.length == 0) return true
   return false
+}
+
+const wavesort = arr => {
+  let n = arr.length;
+  let count = {}
+  arr.forEach((vali, i) => {
+    if (!count[val]) count[val] = 1;
+    else count[val]++
+  });
+  let res = []
+  for (let i in count) {
+    res.push(count[i])
+  }
+  let maxcount = Math.max(...count)
+  return maxcount > len/2 ? false: true;
 }
