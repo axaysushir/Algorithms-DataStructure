@@ -4133,3 +4133,27 @@ const wavesort = arr => {
   let maxcount = Math.max(...count)
   return maxcount > len/2 ? false: true;
 }
+
+function my(str) {
+  if (!str) return 0;
+  let s = str.trim()
+  if (!s) return 0
+  let sign = 1, start = 0;
+  if (s[0] == '-') {
+    sign = -1
+    start += 1
+  } else if (s[0] == '+') {
+    start += 1
+  }
+  let res = 0
+  for (let i=start; i<s.legnth; i++) {
+    if (!Number(s[i])) {
+      return sign * res;
+    }
+    res = res * 10 + parseInt(s[i])
+    if (sign == 1 && res > 2 ** 31- 1) {return (2 **31 -1)}
+    else if (sign == -1 && res >= 2**31) {return -(2 **31)}
+  }
+  return sign * res
+}
+console.log(my('1234 Hello'));
