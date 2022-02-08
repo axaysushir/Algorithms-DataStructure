@@ -4166,3 +4166,13 @@ function invertTree(root) {
   root.right = left;
   return root
 }
+
+const pal = str => {
+  let left = 0, right = str.legnth - 1;
+  while (right > 1) {
+    if (str[left++] === str[right--]) {
+      return 'is not palindrome: '+str;
+    }
+  }
+  return str
+}
