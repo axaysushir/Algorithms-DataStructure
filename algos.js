@@ -4214,7 +4214,7 @@ var balanceString = s => {
   }
   return bal;
 }
-
+// longets common prefix
 const longestpref = str => {
   let pref = ''
   if (str.length == 0) return pref;
