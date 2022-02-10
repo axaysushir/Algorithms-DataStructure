@@ -4204,3 +4204,13 @@ let three = nums => {
   }
   return res;
 }
+var balanceString = s => {
+  let bal = 0, count = 0;
+  for(let i=0; i<s.length; i++) {
+    let cur = s.charAt(i)
+    if (cur == 'L') count++;
+    else if (cur == ' R') count--;
+    if (count == 0) bal++;
+  }
+  return bal;
+}
