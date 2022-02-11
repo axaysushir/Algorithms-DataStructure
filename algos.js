@@ -4227,3 +4227,17 @@ const longestpref = str => {
   }
   return pref;
 }
+
+const longestsub = s => {
+  let res = 0;
+  let tmp = []
+  for (let char of s) {
+    const index = tmp.indexOf(char);
+    if (index > -1) {
+      tmp = tmp.slice(index+1);
+    }
+    tmp.push(char);
+    if (tmp.length > res) res = tmp.length;
+  }
+  return res;
+}
