@@ -4241,3 +4241,17 @@ const longestsub = s => {
   }
   return res;
 }
+
+const prime = n => {
+  let prime = new Array(n+1).fill(1)
+  let count = 0;
+  for (let i=0; i<n; i++) {
+    if (prime[i] == 1) count++
+    for (let j=i*i; j<=n; j+=i) {
+      prime[j] = 0
+    }
+  }
+  return count;
+}
+
+console.log(prime(200))
