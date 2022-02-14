@@ -4255,3 +4255,15 @@ const prime = n => {
 }
 
 console.log(prime(200))
+
+const sortedArr = nums => {
+  function build(l, r) {
+    if (left > right) return null;
+    let mid = Math.floor((left+right)/2)
+    newNode = TreeNode(nums[mid])
+    newNode.left = build(left, mid-1)
+    newNode.right = build(mid + 1, right)
+    return newNode
+  }
+  return build(0, nums.length - 1)
+}
