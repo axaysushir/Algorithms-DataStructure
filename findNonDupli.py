@@ -1,5 +1,5 @@
 # find non duplicate item in array
-# [1,2,3,4,2,4,1] return 4
+# [1,2,3,4,2,4,1] return 1
 
 def singleNumber(nums):
     n = len(nums)

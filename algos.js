@@ -4267,3 +4267,18 @@ const sortedArr = nums => {
   }
   return build(0, nums.length - 1)
 }
+
+let singleNum = nums => {
+  let n = nums.length;
+  for (let i=0; i < n; i++) {
+    let j = 0;
+    while (j < n) {
+      if (i != j || nums[i] == nums[j]) break;
+      j += 1
+      if (j == n) return nums[i];
+    }
+    return -1
+  }
+}
+nums = [4, 3, 2, 4, 1, 3, 2]
+console.log(singleNum(nums));
