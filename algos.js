@@ -4282,3 +4282,17 @@ let singleNum = nums => {
 }
 nums = [4, 3, 2, 4, 1, 3, 2]
 console.log(singleNum(nums));
+
+const singleNum = (nums) => {
+  n= nums.length;
+  let map = {}
+  for (let i=0; i<n; i++) {
+    if (map.has(nums[i])) {
+      map[nums[i]] = 0
+      map[nums[i]]++
+    }
+  }
+  for (let x in map) {
+    if (map[x] == 1) return x
+  }
+}
