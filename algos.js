@@ -4296,3 +4296,15 @@ const singleNum = (nums) => {
     if (map[x] == 1) return x
   }
 }
+
+var peakele = nums => {
+  let left = 0, right = nums.length - 1;
+  while (left < right) {
+    let mid = Math.trunc((left+right) / 2)
+    if (nums[mid] < nums[mid+1]) {
+      left = mid + 1
+    } else right = mid;
+  }
+  return left
+}
+console.log(peakele([1,2,1,5,6,9]))
