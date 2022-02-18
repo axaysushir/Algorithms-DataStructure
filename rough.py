@@ -2692,3 +2692,16 @@ def towSum(num, t):
         elif sum > t: right+=1
         else: left += 1
 print(towSum([2,5,7,9], 14))
+
+def snum(nums):
+    n = len(nums)
+    map = {}
+    for i in range(n):
+        if nums[i] not in map:
+            map[nums[i]] = 0
+            map[nums[i]] += 1
+
+    for x in map:
+        if (map[x] == 1):
+            return x
+    
