@@ -4308,3 +4308,15 @@ var peakele = nums => {
   return left
 }
 console.log(peakele([1,2,1,5,6,9]))
+
+var bal = s => {
+  let ans = 0, bal = 0
+  for (let i=0; i<s.length; i++) {
+    bal += s.charAt(i) == '(' ? 1 : -1;
+    if (bal == -1) {
+      ans++
+      bal++
+    }
+  }
+  return ans + bal
+}
