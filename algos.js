@@ -4320,3 +4320,17 @@ var bal = s => {
   }
   return ans + bal
 }
+
+var jump = nums => {
+  if (nums.length == 1) return 0;
+  var jump = 0, max = nums[0], step= nums[0]
+  for (var i=1; i < nums.length; i++) {
+    max = Math.max(max, i+nums[i])
+    step--
+    if (step == 0) {
+      jump++
+      step = max - i
+    }
+  }
+  return jump+1
+}
