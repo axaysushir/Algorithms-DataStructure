@@ -4334,3 +4334,19 @@ var jump = nums => {
   }
   return jump+1
 }
+function find(a, b, c) {
+  let d = a.length; e = b.legnth, f = c.length;
+
+  let i, j, k = 0;
+  while (i < d && j < e && k < f) {
+    if (a[i] == b[j] && b[j] == c[k]) {
+      console.log(a[i]);
+      i++
+      j++
+      k++
+    } else if (a[i] < b[j]) i++
+    else if (b[j] < c[k]) j++
+    else k++
+  }
+
+}
