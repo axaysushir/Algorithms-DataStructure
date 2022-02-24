@@ -2713,3 +2713,22 @@ def balancebracket(s):
             ans += 1
             bal += 1
     return ans + bal
+class Node:
+    def __init__(self, val, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+def minDep(root):
+    if not root:
+        return 0
+    elif not root.left:
+        return minDep(root.right) +1
+    elif not root.right:
+        return minDep(root.left) + 1
+    return min(minDep(root.left), minDep(root.right))
+
+n3 = Node(3, None, Node(4))
+n2 = Node(2, Node(3))
+n1 = Node(1, n2, n3)
+print(minDep(n1))
