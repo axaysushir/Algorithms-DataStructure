@@ -4361,3 +4361,31 @@ var merge = (l1, l2) => {
     return l2;
   }
 }
+
+var intersaction = (nums1, nums2) => {
+  let output = new Set();
+  let result = [];
+  for (let i = 0; i < nums1.length; i++) {
+    for (let j = 0; j < nums2.length; j++) {
+      if (nums1[i] === nums2[j]) {
+        output.add(nums1[i]);
+      }
+    }
+  }
+
+  for (let num of output) {
+    result.push(num);
+  }
+  return result;
+};
+
+var inter = (n1, n2) => {
+  let map = {}, res = new Set()
+  for (let n of n1) map[n] = n;
+  for (let n of n2) map[n] >= 0 && res.add(n)
+  console.log(map, res)
+  return [...res];
+
+}
+nums1 = [1,2,2,1], nums2 = [2,2]
+console.log(inter(nums1, nums2));
