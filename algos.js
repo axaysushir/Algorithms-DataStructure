@@ -4393,3 +4393,14 @@ var inter = (n1, n2) => {
 }
 nums1 = [1,2,2,1], nums2 = [2,2]
 console.log(inter(nums1, nums2));
+
+function missing(nums) {
+  let len = nums.length;
+  if (!len) return 0;
+  let sum = len * ((len + 1) / 2);
+  let arrsum = nums.reduce((a, b) => {
+    return a + b;
+  });
+  return sum - arrsum;
+}
+console.log(missing([4,5,2,6,8,2,1,5]));

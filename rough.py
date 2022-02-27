@@ -2732,3 +2732,13 @@ n3 = Node(3, None, Node(4))
 n2 = Node(2, Node(3))
 n1 = Node(1, n2, n3)
 print(Node.minDep(n1))
+
+class Solution:
+    def missingNumber(self, nums):
+        if len(nums) == max(nums):
+            for num in range(max(nums)):
+                if num not in nums:
+                    return num
+        else:
+            return len(nums)
+print(Solution().missingNumber([4,5,2,6,8,2,1,5]))

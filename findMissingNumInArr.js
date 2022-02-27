@@ -50,5 +50,5 @@ class Solution:
                 if num not in nums:
                 return num
         else:
-        return len(nums)
+    return len(nums)
 */
