@@ -69,4 +69,4 @@ var intersac = function (nums1, nums2) {
 //     def intersaction(self, nums1, nums2):
 //         return list(set(nums1) & set(nums2))
 
-// print(Solition().intersaction(nums1, nums2))
+// print(Solution().intersaction(nums1, nums2))
