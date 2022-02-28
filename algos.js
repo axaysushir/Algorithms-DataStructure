@@ -4404,3 +4404,13 @@ function missing(nums) {
   return sum - arrsum;
 }
 console.log(missing([4,5,2,6,8,2,1,5]));
+
+function firstchar(s) {
+  let hash =  {}
+  for (let char of s) {
+    if (char in hash) return char
+    else hash[char] = 0
+  }
+  return 0
+}
+console.log(firstchar('qwertyyy'));
