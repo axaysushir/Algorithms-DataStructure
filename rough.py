@@ -2742,3 +2742,41 @@ class Solution:
         else:
             return len(nums)
 print(Solution().missingNumber([4,5,2,6,8,2,1,5]))
+
+class Solution:
+    def __init__(self, v):
+        self.v = v
+        self.adj = [[] for i in range(v)]
+
+    def dfs(self, temp, v, visited):
+        visited[v] = True
+        temp.append(v)
+
+        for i in self.adj[v]:
+            if visited[v] == False:
+                temp = self.dfs(temp, i, visited)
+        return temp
+
+    def addedge(self, v, w):
+        self.adj[v].append(w)
+        self.adj[w].append(v)
+
+    def connected(self):
+        visited = []
+        connect = []
+
+        for i in range(self.v):
+            visited.append(False)
+        for v in range(self.v):
+            if visited[v] == False:
+                temp = []
+                connect.append(self.dfs(temp, v, visited))
+        return connect
+
+if __name__ == "__main__":
+    g = Solution(5)
+    g.addedge(1, 0)
+    g.addedge(2,3)
+    g.addedge(3,4)
+    cc = g.connected()
+    print(cc)
