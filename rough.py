@@ -2780,3 +2780,18 @@ if __name__ == "__main__":
     g.addedge(3,4)
     cc = g.connected()
     print(cc)
+
+def compareTriplets(a, b):
+    # Write your code here
+    res = []
+    x, y = 0, 0
+    for i in range(len(a)):
+        if a[i] > b[i]:
+            x+= 1
+        elif a[i] < b[i]:
+            y += 1
+        else: continue
+    res.append(x)
+    res.append(y)
+    return res
+print(compareTriplets([17,28,30], [98,16,8]))
