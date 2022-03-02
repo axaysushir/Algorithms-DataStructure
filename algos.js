@@ -4414,3 +4414,10 @@ function firstchar(s) {
   return 0
 }
 console.log(firstchar('qwertyyy'));
+
+function stairs(n) {
+  for (let i=1; i<=n; i++){
+    console.log(" ".repeat(n-1)+ '#'.repeat(i))
+  }
+}
+console.log(stairs(5));

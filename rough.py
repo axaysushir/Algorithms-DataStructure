@@ -2795,3 +2795,12 @@ def compareTriplets(a, b):
     res.append(y)
     return res
 print(compareTriplets([17,28,30], [98,16,8]))
+
+def staircase(n):
+    m = ' '
+    t = 1
+    while n > 0:
+        print((n-1) * m + t * ('#'))
+        n = n - 1
+        t = t+1
+print(staircase(5000))
