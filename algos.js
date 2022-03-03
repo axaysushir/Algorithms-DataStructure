@@ -4421,3 +4421,15 @@ function stairs(n) {
   }
 }
 console.log(stairs(5));
+
+function two(num, target) {
+  let l = 0, r = num.length - 1;
+  while (l < r) {
+    let sum = num[l] + num[r]
+    if (sum === target) {
+      return [l+1, r+1]
+    } else if (sum > target) r--
+    else l++
+  }
+}
+console.log(two([2,7,11,15], 17));
