@@ -57,3 +57,20 @@ var twoSum = function(numbers, target) {
       } else l++
   }
 };
+
+var productExceptSelf = function(nums) {
+    const prod = nums.reduce((res, num, index) => {
+        if (index == 0) return [1]
+        const pre = index - 1
+        res[index] = res[pre]*nums[pre]
+        return res
+    }, [])
+    console.log(prod);
+    const right = nums.reduceRight((res, num, index) => {
+      console.log(res, num, index)
+      prod[index] *= res
+      return res * num
+    })
+    return prod
+};
+console.log(productExceptSelf([1,2,3,4]));
