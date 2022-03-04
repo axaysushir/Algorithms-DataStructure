@@ -1,3 +1,10 @@
+// split the string, now it become array.
+// create stack and loop thorugh the array.
+// at every opening bracket push closing bracket to stack
+// if s.length is 0 or current char not equal to stack.pop()
+// return false means we find non matching bracket
+// if stack length is 0 then return true it is valid string
+
 let isValid = function (s) {
   if (s === null || s.length <= 0) return true;
   let currentArr = s.split("");
@@ -15,6 +22,3 @@ let isValid = function (s) {
 
 let s = "()[{]}";
 console.log(isValid(s));
-
-
-

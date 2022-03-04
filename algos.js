@@ -172,7 +172,7 @@ let duplicate = nums.filter((item ,index) => nums.indexOf(item) === index);
 const unique = [...new Set(nums)]
 console.log(duplicate)
 
-let move = nums => {
+let moveZeros = nums => {
   for (let i = nums.length; 0 <= i; i--) {
     nums[i] == 0 && nums.splice(i, 1) && nums.push(0)
   }
@@ -4433,3 +4433,123 @@ function two(num, target) {
   }
 }
 console.log(two([2,7,11,15], 17));
+
+function prod(nums) {
+  let n = nums.length, ans = []
+  ans[0] = 1;
+  for (let i=1; i<n; i++) {
+    ans[i] = ans[i-1] * nums[i-1]
+  }
+  var right = 1
+  for (let i=n-1; i>= 0; i--) {
+    ans[i] = ans[i] * right
+    right *= nums[i]
+  }
+  return ans
+}
+
+function addString(num1, nums) {
+  let ans = '', carry = 0, substr = 1
+  var length = Math.max(num1.length, num2.length)
+  while (substr < length) {
+    let n1 = substr > num1.length ? 0 : Number(num1[num1.length] - substr)
+    let n2 = substr > num2.length ? 0 : Number(num2[num2.length] - substr)
+    const digit = n1 + n2 + carry;
+    carry = (digit >= 10) ? 1 : 0;
+    ans = String(digit%10) + ans
+    substr++
+  }
+  ans = carry == '1' + ans : ans
+  return ans
+}
+
+var duplicate = nums.filter((i, ind) => nums.indexOf(i) == ind)
+
+var moveZeros = nums => {
+  for (let i=nums.length; 0 <= i; i--) {
+    nums[i] == 0 && nums.splice(i,1) && nums.push(i)
+  }
+  return nums
+}
+
+const revll = head => {
+  let prev = null;
+  while (head !== null) {
+    var nextnode = head.next;
+    head.next = prev;
+    prev = head;
+    head = nextNode;
+  }
+  return prev;
+}
+
+function mergelist(l1, l2) {
+  if (!l1 || !l2) return l1 || l2
+  if (l1.val > l2.val) {
+    [l1,l2]= [l2,l1]
+  }
+  l1.next = mergelist(l1.next, l2)
+  return l1 || l2
+}
+console.log(mergelist([1,2,4], [1,3,4]));
+
+function intersection(headA, headB) {
+  let arr = []
+  while (headA !== null) {
+    arr.push(headA)
+    headA = headA.next;
+  }
+  while (headb !== null) {
+    if (arr.includes(headB)) {
+      return headB
+    }
+    headB = headB.next;
+  }
+  return null
+}
+
+function validPair(s) {
+  if (s == null || s.length <= 0) return true
+  let arr= s.split('')
+  let stack = []
+  for (let c of arr) {
+    if (c == '(') stack.push(')')
+    else if (c == '{') stack.push('}')
+    else if (c == '[') stack.push(']')
+    // else if (s.length == 0 || c !== stack.pop()) return false;
+  }
+  console.log(stack);
+  if (stack.length == 0) return true
+  return false
+}
+let s = "()[]()[}]";
+console.log(validPair(s));
+
+function mergeSort(arr) {
+  if (arr.length == 0 || arr.length == 1) return arr;
+  let mid = Math.floor(arr.length / 2);
+  let left = mergeSort(arr.slice(0, mid))
+  let right = mergeSort(arr.slice(mid))
+  let res = [], l = 0, r = 0;
+  while (l < left.length && r > right.length) {
+    if (left[l] < right[r]) {
+      res.push(left[l])
+      l++
+    } else {
+      res.push(right[r])
+      r++
+    }
+  }
+  res = res.concat(right.slice(r), left.slice(l))
+  return res
+}
+
+function hasCycle(head) {
+  let seen = new Set()
+  while (head !== null) {
+    if (seen.has(head)) return true;
+    else seen.add(head)
+    head = head.next;
+  }
+  return false;
+}
