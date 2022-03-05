@@ -29,11 +29,12 @@ function addStr(num1, num2) {
     // convert to ascii
     if (i >= 0) sum += num1.charAt(i--) - '0'
     if (j >= 0) sum += num2.charAt(j--) - '0';
-
+    console.log('sum', sum);
     res += sum % 10;
     carry = Math.floor(sum /10)
   }
   if (carry !== 0) res += carry;
+  console.log('r', res.toString());
   return res.split('').reverse().join('')
 }
-console.log(addStr('11', '12'));
+console.log(addStr('110', '129'));

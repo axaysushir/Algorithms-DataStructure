@@ -2816,3 +2816,11 @@ def productExceptSelf(nums):
         cur *= nums[j+1]
         res[j] *=  cur
     return res
+
+x = 10
+y = 4
+
+while x >= y:
+    y = y+ 2
+    print(y)
+print(y)
