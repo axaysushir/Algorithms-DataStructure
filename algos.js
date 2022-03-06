@@ -4553,3 +4553,74 @@ function hasCycle(head) {
   }
   return false;
 }
+class Node() {
+  constructor(val, right, left) {
+    this.val = val;
+    this.left = left;
+    this.right = right;
+  }
+}
+
+function minDepth(root){
+  if (!root) return 0;
+  else if (!root.left) return minDepth(root.right) + 1
+  else if (!root.right) return minDepth(root.left) + 1
+  return Math.min(minDepth(root.left), minDepth(root.right))
+}
+
+function mergebst(root1, root2) {
+  if (!root1) return root2;
+  if (!root2) return root1;
+  root1.val += root2.val;
+  root1.left = mergebst(root1.left, root2.left)
+  root1.right = mergebst(root1.right, root2.right)
+  return root1
+}
+
+function lengthofstr(s) {
+  let res = 0, temp = []
+  for (let char of s) {
+    let index = temp.indexOf(char);
+    if (index > -1) {
+      temp = temp.slice(index+1)
+    }
+    temp.push(char)
+    if (temp.length > res) res = temp.length;
+  }
+  return res
+}
+function checkpalindrom(str) {
+  let left = 0, right = str.length - 1;
+  while (right > 1) {
+    if (str[left++] !== str[right--]){
+      return false
+    }
+  }
+  return str
+}
+
+let arr = [3,3,2,1,3,2,1], i = 0, j = 0, mdi = 2, n = arr.length - 1;
+while (j <= n) {
+  if (arr[j] < mid) {
+    [arr[i], arr[j]] = [arr[j],arr[i]]
+    i++
+    j++
+  } else if (arr[j] > mid) {
+    [arr[n], arr[j]] = [arr[j], arr[n]]
+    n--
+  } else j++
+}
+
+const sortColors = nums => {
+  let n = nums.length;
+  for (let i=0; i<n; i++ ) {
+    for (let j=n; j > i; j--) {
+      if (nums[i] > nums[j]) {
+        let swap = nums[j]
+        nums[j] = nums[i]
+        nums[i] = swap
+      }
+    }
+  }
+  return nums
+}
