@@ -4516,7 +4516,7 @@ function validPair(s) {
     if (c == '(') stack.push(')')
     else if (c == '{') stack.push('}')
     else if (c == '[') stack.push(']')
-    // else if (s.length == 0 || c !== stack.pop()) return false;
+    else if (s.length == 0 || c !== stack.pop()) return false;
   }
   console.log(stack);
   if (stack.length == 0) return true
@@ -4624,3 +4624,52 @@ const sortColors = nums => {
   }
   return nums
 }
+
+function fib(n) {
+let res
+  if (n==1 || n==2) res = 1
+  else res = fib(n-1) + fin(n-2)
+}
+function fibonac(n) {
+  let res
+  let bottomup = new Array(n+1).fill(null)
+  bottomup[1] = 1
+  bottomup[2] = 1
+  for (i=3; i<n+1; i++) {
+    bottomup[i]  = bottomup[i-1] + bottomup[i-2]
+  }
+  return bottomup[n]
+}
+console.log(fibonac(7));
+
+function int(n1, n2) {
+  let map={}, set = new Set();
+  for (let n of n1) map[n] = n;
+  console.log(map);
+  for (let n of n2) map[n] >= 0 && set.add(n)
+  return [...set]
+}
+console.log(int([1,2,2,1], [2,2]));
+
+function countPrimes(n) {
+  // mark all to prime
+  let prime = new Array(n+1).fill(1)
+  let count = 0;
+  for (let i=2; i<n; i++) {
+    if (prime[i] == 1) count++
+    for (let j=i*i; j <=n; j+=i) {
+      prime[j] = 0
+    }
+  }
+  return count
+}
+
+function middleNode(head) {
+  slow = fast = head;
+  while (fast && fast.next) {
+    slow = slow.next;
+    fast = fast.next.next;
+  }
+  return slow
+}
+console.log(middleNode([1,2,3,4,5,6]));

@@ -30,7 +30,7 @@ var searchRange = (nums, target) => {
     }
     else if (nums[mid] > target) {
       high = mid - 1
-    } 
+    }
     else low = mid + 1
   }
 
@@ -50,3 +50,18 @@ var searchRange = (nums, target) => {
 let nums = [5, 7, 7, 8, 8, 10];
 let target = 8;
 console.log(searchRange(nums, target));
+
+
+
+function intersecarr(arr1, arr2) {
+  let res = [], output = new Set()
+  for (let i=0; i<arr1.length; i++) {
+    for (let j=0; j<arr2.length; j++) {
+      if (nums1[i] === nums2[j]) {
+        output.add(num1[i])
+      }
+    }
+  }
+  for (let n of output) res.push(n)
+  return res
+}

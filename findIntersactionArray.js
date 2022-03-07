@@ -47,7 +47,8 @@ var intersaction = (nums1, nums2) => {
 
 // Then loop through the other array, checking to see if the number already exists. It's important to check by using map[n] >= 0 because if the number is 0 it will convert to false, which we don't want.
 
-// If the number is in our map, we want to add it to a "Set". Set is a data type much like a map, but only allows unique items. This is perfect because the output only wants us to return the value of the common numbers, not the numbers themselves, each, individually.
+// If the number is in our map, we want to add it to a "Set". Set is a data type much like a map, but only allows unique items. This is perfect because the output only wants us to return the value of the common numbers,
+// not the numbers themselves, each, individually.
 
 // Lastly, we need to convert our Set back to an array, which we can do by using Array.from() or through the use of array destructuring.
 
