@@ -4673,3 +4673,14 @@ function middleNode(head) {
   return slow
 }
 console.log(middleNode([1,2,3,4,5,6]));
+
+function findPeak(nums) {
+  let left = 0, right = nums.length -1;
+  while(left < right) {
+    let mid = Math.trunc((left+right)/2);
+    if (nums[mid] < nums[mid+1]){
+      left = mid + 1
+    }else right = mid
+  }
+  return left
+}
