@@ -4684,3 +4684,9 @@ function findPeak(nums) {
   }
   return left
 }
+
+function lenoflast(str) {
+  let arr = str.split(' ')
+  return arr.filter(x => x !== ' ').pop().length
+
+}
