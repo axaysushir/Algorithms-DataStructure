@@ -4690,3 +4690,15 @@ function lenoflast(str) {
   return arr.filter(x => x !== ' ').pop().length
 
 }
+
+function simplify(path) {
+  var start = []
+  path = path.split('/').filter(file => file.length && file !== '.')
+  for (let i of path) {
+    if (i == '..') start.pop()
+    else start.push(i)
+  }
+  console.log(start);
+  return '/' + start.join('/')
+}
+console.log(simplify('/users/data/docs/../desktop/./../'));
