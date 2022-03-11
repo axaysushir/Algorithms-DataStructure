@@ -2824,3 +2824,14 @@ while x >= y:
     y = y+ 2
     print(y)
 print(y)
+
+def arrtobst(nums):
+    def buildtree(left, right):
+        if left > right:
+            return None
+        mid = (left+right) //2
+        node = TreeNode(nums[mid])
+        node.left = buildtree(left, mid-1)
+        node.right= buildtree(mid+1, right)
+        return node
+    return buildtree(0, len(nums)-1)
