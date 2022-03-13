@@ -2825,6 +2825,20 @@ while x >= y:
     print(y)
 print(y)
 
+class TreeNode:
+    def __init__(self, val, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+    def __str__(self):
+        ans = str(self.val)
+        if self.left:
+            ans += str(self.left)
+        if self.right:
+            ans += str(self.right)
+        return ans
+
 def arrtobst(nums):
     def buildtree(left, right):
         if left > right:
