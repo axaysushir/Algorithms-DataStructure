@@ -4702,3 +4702,19 @@ function simplify(path) {
   return '/' + start.join('/')
 }
 console.log(simplify('/users/data/docs/../desktop/./../'));
+
+function assignCookie(g, s) {
+  g.sort((a,b) => a-b)
+  s.sort((a, b) => a-b)
+
+  let content = 0
+  let i = g.length-1, j = s.length - 1;
+  while (i >=0 && j >= 0) {
+    if (s[j] >= g[i]) {
+      content++
+      i--
+      j--
+    }else i--
+  }
+  return content
+}
