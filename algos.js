@@ -4718,3 +4718,14 @@ function assignCookie(g, s) {
   }
   return content
 }
+
+var checkBalance = s => {
+  let bal = 0, couunt = 0;
+  for (let i=0; i<s.length; i++) {
+    let curr = s.charAt(i)
+    if (curr == 'L')  count++
+    else if (curr == 'R') count --
+    if (count==0) bal++
+  }
+  return bal
+}
