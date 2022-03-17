@@ -4745,3 +4745,24 @@ function addBinary(a, b) {
   if (carry !== 0) res = 1 + res;
   return res
 }
+
+function findConcat(words) {
+  let set = new Set(words)
+  const helper = (word, num=0) => {
+    if (!word) return num > 1;
+    let temp = ''
+    for (let i=0; i<word.length; i++) {
+      temp += word[i]
+      if (set.has(temp)) {
+        let sub = word.substr(i+1)
+        if (helper(sub, num+1)) return true;
+      }
+    }
+    return false
+  }
+  const ans = []
+  words.forEach((i) => {
+    if (helper(i)) ans.push(i)
+  });
+  return ans
+}
