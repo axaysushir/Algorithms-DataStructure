@@ -2849,3 +2849,14 @@ def arrtobst(nums):
         node.right= buildtree(mid+1, right)
         return node
     return buildtree(0, len(nums)-1)
+
+def maxSubarray(nums):
+    maxCur = nums[0]
+    maxGlobal = nums[0]
+    for i in range(len(nums)):
+        maxCur = max(nums[i], maxCur+nums[i])
+        if maxCur > maxGlobal:
+            maxGlobal = maxCur
+    return maxGlobal
+
+print(maxSubarray([34, -50, 42, 14, -5, 86]))
