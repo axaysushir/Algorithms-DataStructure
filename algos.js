@@ -4792,3 +4792,9 @@ function decodeString(s) {
   }
   return stack.join('')
 }
+
+function getCopy(ori, clone, target) {
+  if (!original || !cloned) return
+  if (or.val === target.val) return cloned
+  else return getCopy(ori.left, clone.left, target) || getCopy(ori.right, clone.right, target)
+}
