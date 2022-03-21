@@ -2860,3 +2860,15 @@ def maxSubarray(nums):
     return maxGlobal
 
 print(maxSubarray([34, -50, 42, 14, -5, 86]))
+
+def fixpoint(arr,low,high):
+    if high >= low:
+        mid = (low + high) //2
+
+    if mid is arr[mid]:
+        return mid
+    if mid > arr[mid]:
+        return fixpoint(arr, (mid+1), high)
+    else:
+        return fixpoint(arr, low, (mid-1))
+    return -1
