@@ -4798,3 +4798,8 @@ function getCopy(ori, clone, target) {
   if (or.val === target.val) return cloned
   else return getCopy(ori.left, clone.left, target) || getCopy(ori.right, clone.right, target)
 }
+
+function angleClock(hour, min) {
+  let angle = Math.abs((hour * 30) + (minute*0.5) - minute*6)
+  return angle > 180 ? 360 - angle: angle;
+}
