@@ -2874,3 +2874,19 @@ def fixpoint(arr,low,high):
 arr = [-10, -1, 0, 3, 10, 11, 30, 50, 100]
 n = len(arr)
 print(fixpoint(arr, 0, n - 1))
+
+def fizzbuzz(n):
+    ans = []
+    for i in range(1, n):
+        div3 = (i%3 == 0)
+        div5 = (i%5 == 0)
+        if div3 and div5:
+            ans.append("fizzbuzz")
+        elif div3:
+            ans.append('fizz')
+        elif div5:
+            ans.append('buzz')
+        else:
+            ans.append(str(i))
+    return ans
+print(fizzbuzz(12))
