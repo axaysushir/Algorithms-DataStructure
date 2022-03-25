@@ -4813,3 +4813,19 @@ function missing(num) {
   return n
 }
 console.log(missing([3, 4, , 1, -1]));
+
+function generate(n) {
+  let res = []
+  function backtrack(p, l, r) {
+    if (l == 0|| r == 0) {
+      res.push(p)
+      return
+    }
+    if (l > 0) backtrack(p +'(', l-1, r)
+    if (r > 0) backtrack(p+')', l, r+1)
+  }
+  backtrack('', n, n)
+  return res
+}
+
+console.log(generate(8));
