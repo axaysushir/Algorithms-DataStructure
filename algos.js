@@ -4803,3 +4803,13 @@ function angleClock(hour, min) {
   let angle = Math.abs((hour * 30) + (minute*0.5) - minute*6)
   return angle > 180 ? 360 - angle: angle;
 }
+
+function missing(num) {
+  let n =1
+  while (num.indexOf(n) >= 0) {
+    n++;
+    console.log(n++)
+  }
+  return n
+}
+console.log(missing([3, 4, , 1, -1]));
