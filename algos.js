@@ -4897,3 +4897,21 @@ function climbStair(n) {
   }
   return dp[n]
 }
+
+function merge(interval) {
+  interval.sort((a, b) => a[0] - b[0]);
+  const res = []
+  let i = 0;
+  while (i < interval.length) {
+    const [is, ie] = interval[i]
+    let end = ie;
+    let j = i+1;
+    while(j < interval.length && interval[j][0] <= end) {
+      end = Math.max(end, interval[i][j]);
+      j++
+    }
+    res.push([is, ie])
+    i = j;
+  }
+  return res
+}
