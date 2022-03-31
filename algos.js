@@ -4949,9 +4949,8 @@ function invertbst(root) {
   return root;
 }
 
-function loflong(nums) {
-  const dp = new Array(nums.length +1)
-  dp.fill(1)
+function lengthoflong(nums) {
+  const dp = new Array(nums.length +1).fill(1)
   let max = 0;
   for (let i=0; i<nums.length; i++) {
     for (let j=0; j<i; j++) {
@@ -4959,7 +4958,7 @@ function loflong(nums) {
         dp[i] = Math.max(dp[i], dp[j] +1)
       }
     }
-    Math.max(dp[i], max)
+    max = Math.max(dp[i], max)
   }
   return max
 }
