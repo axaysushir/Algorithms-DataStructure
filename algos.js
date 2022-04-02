@@ -4962,3 +4962,17 @@ function lengthoflong(nums) {
   }
   return max
 }
+
+function convertToTitle(title) {
+  const alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  let res = 0
+  function getTitle(str) {
+    if (str.length > 1) {
+      getTitle(str.slice(1))
+    }
+    res += (alpha.indexOf(str[0]) + 1) * Math.pow(26, str.length-1)
+  }
+  getTitle(title)
+  return res
+}
+console.log(convertToTitle('AA'));
