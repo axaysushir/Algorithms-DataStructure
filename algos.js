@@ -4829,3 +4829,41 @@ function generate(n) {
 }
 
 console.log(generate(8));
+
+class set {
+  constructor() {
+    this.collections = []
+  }
+  add (Value) {
+    if (!this.has(value)) {
+      this.collections.push(value)
+      return true;
+    }
+    return false
+  }
+
+  has(value) {
+    if (this.coll.indexOf(value) !== -1) return true
+  }
+  values() {
+    return this.collections;
+
+  remove(value) {
+    if (this.has(value)) {
+      var index = this.coll.indexOf(value)
+      this.collections.splice(INDEX, 1)
+      return true
+    }
+  }
+}
+
+function reverseLink(head) {
+  let prevnode = null;
+  while (head !== null) {
+    let nextNode = head.next;
+    head.next = prevNode;
+    prevnoed = head;
+    head = nextNode;
+  }
+  return head;
+}
