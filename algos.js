@@ -4976,3 +4976,44 @@ function convertToTitle(title) {
   return res
 }
 console.log(convertToTitle('AA'));
+
+function topkele(words, k) {
+  const hash = words.reduce((map, word) => {
+    if (map.has(word)) map.set(word, map.get(word) +1)
+    else map.set(word, 1)
+    return map
+  }, new Map())
+console.log(hash);
+  const sorted = [...hash].sort((a,b) => {
+    if (a[1] > b[1]) return -1;
+    if (a[1] < b[1]) return 1;
+    if (a[0] < b[0]) return -1;
+    if (a[0] > b[0]) return 1;
+    return 1
+  })
+  console.log(sorted);
+  return sorted.slice(0, k).map(([x]) => x)
+}
+
+console.log(topkele(["daily", "interview", "pro", "pro",
+"for", "daily", "pro", "problems"], 2));
+
+fucgtion check(s, start, end) {
+  while (start < end) {
+    if (s[start] !== s[end]) return false;
+    start++
+    end--
+  }
+  return true
+}
+const valid = s => {
+  let start = 0, end = s.length -1;
+  while (start < end) {
+    if (s[start] != s[end]) {
+      return check(s, start+1, end) || check(s, start, end-1)
+    }
+    start++;
+    end--;
+  }
+  return true
+}
