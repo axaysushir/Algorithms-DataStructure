@@ -2890,3 +2890,22 @@ def fizzbuzz(n):
             ans.append(str(i))
     return ans
 print(fizzbuzz(12))
+
+def larget(val, label, wanted, limit):
+    allInOne = [[val[i], label[i]] for i in range(len(val))]
+    allInOne.sort()
+    ans = 0
+    usage = {}
+    used = 0
+    for v, l in reversed(allInOne):
+        if used = wanted:
+            break
+        if l not in usage:
+            usage[l] = 0
+        usage[l] += 1
+        if usage[l] <= limit:
+            used += 1
+            ans += v
+        else:
+            usage[l] -= 1
+    return ans
