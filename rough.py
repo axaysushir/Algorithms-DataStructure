@@ -2908,4 +2908,9 @@ def larget(val, label, wanted, limit):
             ans += v
         else:
             usage[l] -= 1
-    return ans
+     return ans
+
+def traverseGrid(m,n):
+    if m == 1 or n == 1:
+        return 1
+    return (traverseGrid(m-1, n) + traverseGrid(m, n-1))
