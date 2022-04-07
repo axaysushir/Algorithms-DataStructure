@@ -2914,3 +2914,14 @@ def traverseGrid(m,n):
     if m == 1 or n == 1:
         return 1
     return (traverseGrid(m-1, n) + traverseGrid(m, n-1))
+
+def tr(m, n):
+    dp = [[0 for i in range(m+1)] for j in range(n+1)]
+    for i in range(1, m+1):
+        for j in range(n+1):
+            if i == 1 or j == 1:
+                dp[i][j] = 1
+            else:
+                dp[i][j] = (dp[i-1][j] + dp[i][j-1])
+    return dp[m][n]
+print(tr(5, 5))
