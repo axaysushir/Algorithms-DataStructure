@@ -2925,3 +2925,16 @@ def tr(m, n):
                 dp[i][j] = (dp[i-1][j] + dp[i][j-1])
     return dp[m][n]
 print(tr(5, 5))
+
+def permute(s, ans):
+    if len(s) == 0:
+        return s
+
+    for i in range(len(s)):
+        ch = s[i]
+        left = s[0:i]
+        right = s[i+1:]
+        rest = left + right
+        permute(rest, ans + ch)
+
+permute('abc', '')
