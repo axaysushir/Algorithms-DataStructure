@@ -21,7 +21,7 @@ const permute = (s) => {
 
     // remove duplicates
     if (s.indexOf(char) !== i) continue
-    let remChar = s.slice(0, i) + s.substr(i+1, s.length)
+    let remChar = s.slice(0, i) + s.slice(i+1, s.length)
     console.log('rem', remChar);
     for (let item of permute(remChar)) {
       ans.push(char + item)

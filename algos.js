@@ -4998,7 +4998,7 @@ console.log(hash);
 console.log(topkele(["daily", "interview", "pro", "pro",
 "for", "daily", "pro", "problems"], 2));
 
-fucgtion check(s, start, end) {
+function check(s, start, end) {
   while (start < end) {
     if (s[start] !== s[end]) return false;
     start++
@@ -5006,10 +5006,11 @@ fucgtion check(s, start, end) {
   }
   return true
 }
+
 const valid = s => {
   let start = 0, end = s.length -1;
   while (start < end) {
-    if (s[start] != s[end]) {
+    if (s[start] !== s[end]) {
       return check(s, start+1, end) || check(s, start, end-1)
     }
     start++;
@@ -5017,3 +5018,38 @@ const valid = s => {
   }
   return true
 }
+
+function addDigit(s) {
+  for (let i=s.length-1; i>= 0; i--) {
+    if (s[i] !== 9) {
+      s[i]++
+      return s
+    } else {
+      s[i] = 0
+    }
+  }
+  s.unshift(1)
+  return s
+}
+
+/*
+create local variable max to store min value, here we can
+use -infinity.
+traverse the given array till last element and for each ele compare it with
+max, if current ele is greater then max, replace val of max with current element
+at the end return max
+
+Time complexity: O(N) to travese the array completely
+Space complexity: O(1), only extra variable max is created which will take O(1) space
+If use merge sort it will take O(n log n) time
+*/
+const findLargestNumber = arr => {
+  let max = -Infinity
+  for (let i=0; i<arr.length; i++) {
+    if (arr[i] > max) {
+      max = arr[i]
+    }
+  }
+  return max
+}
+console.log(findLargestNumber([1,5,6,10,2,4,12]));
