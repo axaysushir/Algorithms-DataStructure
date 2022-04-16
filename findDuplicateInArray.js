@@ -7,7 +7,7 @@ function findDuplicateNum(nums) {
   let res = [] // store result in array
 
   for (let i=0; i<sortedNums.length; i++) {
-    // if each element with next element start from index 0
+    // compare each element with next element start from index 0 in sorted array
     // if two elements are same then add it in result
     if (sortedNums[i] == sortedNums[i+1]) {
       res.push(sortedNums[i])

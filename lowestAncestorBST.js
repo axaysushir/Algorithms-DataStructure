@@ -1,6 +1,6 @@
 /* Asked By Apple
-You are given the root of a binary tree, along with two nodes, A and B. Find and return the 
-lowest common ancestor of A and B. For this problem, you can assume that each node also has 
+You are given the root of a binary tree, along with two nodes, A and B. Find and return the
+lowest common ancestor of A and B. For this problem, you can assume that each node also has
 a pointer to its parent, along with its left and right child.
 class TreeNode:
   def __init__(self, val):
@@ -38,7 +38,7 @@ print lowestCommonAncestor(root, a, b).val
 1.  Start traversing the tree from the root node.
 2.  If both the nodes p and q are in the right subtree, then continue the search with right subtree starting step 1.
 3.  If both the nodes p and q are in the left subtree, then continue the search with left subtree starting step 1.
-4.  If both step 2 and step 3 are not true, this means we have found the node which is common to node p's and q's subtrees. 
+4.  If both step 2 and step 3 are not true, this means we have found the node which is common to node p's and q's subtrees.
     and hence we return this common node as the LCA.
 */
 
@@ -51,9 +51,9 @@ var lowestCommonAncestor = function(root, p, q) {
 
     if (pVal > parentVal && qVal > parentVal) {
         return lowestCommonAncestor(root.right, p, q)
-    } else if (pVal < parentVal && qVal , parentVal) {
+    } else if (pVal < parentVal && qVal < parentVal) {
         return lowestCommonAncestor(root.left, p, q)
-    } 
+    }
     // we have found the LCA node
     else return root
 };
