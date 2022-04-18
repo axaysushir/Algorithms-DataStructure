@@ -5100,3 +5100,121 @@ const longestseq = nums => {
   }
   return Math.max(longest, current)
 }
+
+function lis(nums) {
+  const dp = new Array(nums.length+1).fill(1)
+  let max = 0;
+  for (let i=0; i<nums.length; i++) {
+    for (let j=0; j < i; j++) {
+      if (nums[i] > nums[j]) {
+        dp[i] = Math.max(dp[i], dp[j] +1)
+      }
+    }
+    max = Math.max(dp[i], max)
+  }
+  return max
+}
+
+function isPalindromell(head) {
+  let slow = fast = head;
+  while (fast && fast.next) {
+    slow = slow.next;
+    fast = fast.next;
+  }
+  fast = head;
+  slow = revll(slow)
+  while (slow !== null) {
+    if (slow.val !== fast.val) return false
+    slow = slow.next;
+    fast = fast.next;
+  }
+  return true
+}
+function revll(head) {
+  let prev = null;
+  while (head !== null) {
+    let nextnode = head.next;
+    head.next = prev;
+    prev = head;
+    head = nextNode
+  }
+  return prev
+}
+
+function robHouse(nums) {
+  if (!nums) return 0;
+  if (nums.length == 1) return nums[0]
+  if (nums.length == 2) return Math.max(nums[0], nums[1])
+  let dp = new Array(nums.length)
+  // console.log(dp);
+  dp[0] = nums[0]
+  dp[1] = Math.max(nums[0], nums[1])
+  for (let i=2; i<dp.length; i++) {
+    dp[i] = Math.max(nums[i] + dp[i-2], dp[i-1])
+  }
+  return dp[nums.length-1]
+}
+
+console.log(robHouse([1,4,3,1]));
+
+function isBalanced(root) {
+  return getHeight(root) !== -1
+
+  const getHeight = node => {
+    if (!node) return 0;
+    let left = getHeight(node.left)
+    let right = getHeight(node.right)
+
+    if (left == -1 || right == -1 || Math.abs(left-right) > 1){
+      return -1
+    }
+    return Math.max(left, right) + 1
+  }
+}
+
+class Node {
+  constructor(item) {
+    this.data = item;
+    this.left = this.right = null
+  }
+}
+
+function depth(node) {
+  if (node == null) return -1
+  let left = depth(node.left)
+  let right = depth(node.right)
+
+  return Math.max(left, right) + 1
+}
+let root = new Node(1);
+root.left = new Node(2);
+root.right = new Node(3);
+root.left.left = new Node(4);
+root.left.right = new Node(5);
+
+console.log(depth(root));
+
+
+function per(s) {
+  if (s.length == 0 || s.length < 2) return s;
+  let ans = []
+  for (let i=0; i<str.length; i++) {
+    let char = s[i]
+    if (s.indexOf(char) !== i) continue
+    let rem = s.slice(0,i) + s.slice(i+1, s.lenght)
+    for (let item of per(rem)) {
+      ans.push(char + item)
+    }
+  }
+  return ans
+}
+
+let x = 5, y = 10;
+x = x + y
+y = x - y
+x = x - y
+//
+x = x*y
+y = Math.abs(x/y)
+x = Math.abs(x/y)
+console.log(x, y);
