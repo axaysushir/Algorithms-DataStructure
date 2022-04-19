@@ -5218,3 +5218,17 @@ x = x*y
 y = Math.abs(x/y)
 x = Math.abs(x/y)
 console.log(x, y);
+
+function sort(nums) {
+  for (let i=0; i<nums.length; i++) {
+    for (let j=nums.length-1; j >= i; j--){
+      if (nums[i] > nums[j]) {
+        let swap = nums[j]
+        nums[j] = nums[i]
+        nums[i] = swap
+      }
+    }
+  }
+  return nums
+}
+console.log(sort([1,5,78,12,14,123]));
