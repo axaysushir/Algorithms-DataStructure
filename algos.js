@@ -4629,6 +4629,7 @@ function fib(n) {
 let res
   if (n==1 || n==2) res = 1
   else res = fib(n-1) + fin(n-2)
+  return res
 }
 function fibonac(n) {
   let res
@@ -5232,3 +5233,52 @@ function sort(nums) {
   return nums
 }
 console.log(sort([1,5,78,12,14,123]));
+
+function shortest(p1,p2) {
+  let dx = Math.abs(p1[0] - p2[0])
+  let dy = Math.abs(p1[1] - p2[1])
+  return Math.max(dx, dy)
+}
+function points(arr) {
+  let steps = 0;
+  for (let i=0; i<arr.length-1; i++) {
+    steps += shortest(arr[i], arr[i+1])
+  }
+  return steps
+}
+function longinc(arr) {
+  const dp = new Array(nums.length+1)
+  dp.fill(1)
+  let max = 0
+  for (let i=0; i<nums.length; i++) {
+    for (let j =0; j<i; j++) {
+      if (nums[i] > nums[j]) {
+        dp[i] = Math.max(dp[i], dp[j] +1)
+        console.log(dp[i]);
+      }
+    }
+    max = Math.max(dp[i], max)
+  }
+  return max
+}
+nums = [0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15];
+console.log(longinc(nums));
+
+function consecutive(nums) {
+  if (nums.length == 0) return 0;
+  nums.sort((a,b) => a -b)
+  let long = 0, curr = 0;
+  for (let i=1; i<nums.length; i++) {
+    if (nums[i] !== nums[i-1]) {
+      console.log(nums[i], nums[i-1]);
+      if (nums[i] == nums[i-1]+1) {
+        curr += 1
+      } else {
+        long = Math.max(long, curr)
+        curr = 1
+      }
+    }
+  }
+  return Math.max(long, curr)
+}
+console.log(consecutive([100, 4, 200, 1, 3,2]));

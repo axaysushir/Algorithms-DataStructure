@@ -39,11 +39,11 @@ function formWord(str, s) {
 
 function findWord(str1, str2) {
   let s = ''
-  for (let i of str2) {
+  for (let i in str2) {
     s += str2[i]
   }
   for (let i=0; i<str1.length; i++) {
-    return findWord(str1[i], s)
+    formWord(str1[i], s)
   }
 }
 var str1 = ["go", "bat", "me", "eat",
