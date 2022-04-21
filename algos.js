@@ -5282,3 +5282,17 @@ function consecutive(nums) {
   return Math.max(long, curr)
 }
 console.log(consecutive([100, 4, 200, 1, 3,2]));
+
+function formWord(str, s) {
+  for (let i=0; i<str.length; i++) {
+    if (s.indexOf(str[i]) < 0) return
+  }
+  console.log(str)
+}
+function findWord(str1, str2) {
+  let s = ''
+  for (let i in str) s += str2[i]
+  for (let i=0; i<str1.length; i++) {
+    formWord(str1[i], s)
+  }
+}
