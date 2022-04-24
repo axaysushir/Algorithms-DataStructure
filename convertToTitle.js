@@ -46,8 +46,8 @@ console.log(convertToTitle(704))
 // ...
 // Z -> 26
 // AA -> 27
-// AB -> 28 
-var titleToNumber = function(columnTitle) => {
+// AB -> 28
+var titleToNumber = function(columnTitle) {
   const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   let res= 0
   const getNumericVal = (str) => {
@@ -59,3 +59,4 @@ var titleToNumber = function(columnTitle) => {
   getNumericVal(columnTitle)
   return res
 }
+console.log(titleToNumber('A'));

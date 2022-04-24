@@ -6,6 +6,8 @@ var reverseString = s => {
         s[i] = s[j]
         s[j] = temp
     }
+    return s
 }
 
-s = ['h', 'e', 'l', 'l', 'o']
+let s = ['h', 'e', 'l', 'l', 'o']
+console.log(reverseString(s));

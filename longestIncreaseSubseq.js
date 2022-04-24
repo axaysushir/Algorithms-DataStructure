@@ -55,14 +55,14 @@ console.log(lengthOfLIS(nums));
 
 // class Solution():
 //     def findLongestSub(self, nums):
-//         if len(nums) <2 : 
+//         if len(nums) <2 :
 //             return len(nums)
-        
+
 //         stack = [nums[0]]
 //         for i in nums[1:]:
 //             if stack[-1] < i:
 //                 stack.append(i)
-//             else: 
+//             else:
 //                 pos = bisect.bisect_left(stack, i, 0, len(stack)) # Binary seacrh
 //                 stack[pos] = i
 //         return len(stack)

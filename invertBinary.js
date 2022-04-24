@@ -45,3 +45,21 @@ var invertTree = function (root) {
   [root.left, root.right] = [invertTree(root.right), invertTree(root.left)];
   return root;
 };
+
+var i = 3
+function c(j) {
+  j = 4
+}
+c(i)
+console.log(i);
+
+var MyClass = function (n) {
+  this.n = n;
+}
+MyClass.square = function () {
+  return this.n * this.n
+}
+var object = new MyClass(4)
+alert(object.square)
+
+if (!!1234)

@@ -5147,12 +5147,12 @@ function robHouse(nums) {
   if (nums.length == 1) return nums[0]
   if (nums.length == 2) return Math.max(nums[0], nums[1])
   let dp = new Array(nums.length)
-  // console.log(dp);
   dp[0] = nums[0]
   dp[1] = Math.max(nums[0], nums[1])
   for (let i=2; i<dp.length; i++) {
     dp[i] = Math.max(nums[i] + dp[i-2], dp[i-1])
   }
+  console.log(dp);
   return dp[nums.length-1]
 }
 
@@ -5202,7 +5202,7 @@ function per(s) {
   for (let i=0; i<str.length; i++) {
     let char = s[i]
     if (s.indexOf(char) !== i) continue
-    let rem = s.slice(0,i) + s.slice(i+1, s.lenght)
+    let rem = s.slice(0,i) + s.slice(i+1, s.length)
     for (let item of per(rem)) {
       ans.push(char + item)
     }
@@ -5247,14 +5247,12 @@ function points(arr) {
   return steps
 }
 function longinc(arr) {
-  const dp = new Array(nums.length+1)
-  dp.fill(1)
+  const dp = new Array(arr.length+1).fill(1)
   let max = 0
-  for (let i=0; i<nums.length; i++) {
-    for (let j =0; j<i; j++) {
-      if (nums[i] > nums[j]) {
-        dp[i] = Math.max(dp[i], dp[j] +1)
-        console.log(dp[i]);
+  for (let i=0; i<arr.length; i++) {
+    for (let j=0; j<=i; j++) {
+      if(arr[i] > arr[j]) {
+        dp[i] = Math.max(dp[i], dp[j]+1)
       }
     }
     max = Math.max(dp[i], max)
@@ -5265,21 +5263,20 @@ nums = [0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15];
 console.log(longinc(nums));
 
 function consecutive(nums) {
-  if (nums.length == 0) return 0;
-  nums.sort((a,b) => a -b)
-  let long = 0, curr = 0;
-  for (let i=1; i<nums.length; i++) {
-    if (nums[i] !== nums[i-1]) {
-      console.log(nums[i], nums[i-1]);
-      if (nums[i] == nums[i-1]+1) {
-        curr += 1
-      } else {
-        long = Math.max(long, curr)
-        curr = 1
+    if (nums.length == 0)return 0;
+    nums.sort((a, b) => a-b)
+    let long = curr = 0;
+    for (let i=1; i<nums.length; i++) {
+      if (nums[i] !== nums[i-1]) {
+        if (nums[i] == nums[i-1] + 1) {
+          curr += 1
+        } else {
+          long = Math.max(long, curr)
+          curr = 1
+        }
       }
     }
-  }
-  return Math.max(long, curr)
+    return Math.max(long, curr)
 }
 console.log(consecutive([100, 4, 200, 1, 3,2]));
 
@@ -5296,3 +5293,104 @@ function findWord(str1, str2) {
     formWord(str1[i], s)
   }
 }
+
+function isSorted(arr, n) {
+  if (n == 1 || n == 0)
+        return true;
+
+    // Unsorted pair found (Equal values allowed)
+    if (arr[n - 1] < arr[n - 2])
+        return false;
+
+    // Last pair was sorted
+    // Keep on checking
+    return isSorted(arr, n - 1);
+}
+arr = [1,2,3,4, 2], n = arr.length
+console.log(isSorted(arr, n));
+
+function maxSubarr(nums) {
+  let maxcurr = nums[0], maxglobal = nums[0]
+  for (let i=1; i<nums.length; i++) {
+    maxcurr = Math.max(nums[i], maxcurr + nums[i])
+    if (maxcurr > maxglobal) maxglobal = maxcurr
+  }
+  return maxglobal;
+}
+
+function maxarea(nums) {
+  let i = 0, j = nums.length-1, max = 0, area;
+  while (i < j) {
+    area = (j-i) * Math.min(height[i], height[j])
+    max = Math.max(area, max)
+    height[i] < height[j] > i++ : j--
+  }
+  return max
+}
+function clone(node) {
+  return dfs(node)
+}
+function dfs(root, seen = new Map()) {
+  if (!root) return null
+  if (seen.has(root)) seen.get(root)
+  let newroot = new Node(root.val)
+  see.set(root, newroot)
+  for (let c of root.neighbors) {
+    newroot.neighbors.push(dfs(c, seen))
+  }
+  return newroot
+}
+
+var reverse = s => {
+  if (s == '') return;
+  return s.split(' ').map(x => x.split('').reverse().join('')).join(' ')
+}
+
+function uniqPath(m, n) {
+  let grid = []
+  for (let i=0; i<n; i++) {
+    grid.push([])
+    for (let j=0; j<m; j++) {
+      if (i == 0 || j==0) grid[i][j] = 1;
+      else grid[i][j] = grid[i-1][j] + grid[i][j-1]
+    }
+  }
+  console.log(grid);
+  return grid[n-1][m-1]
+}
+console.log(uniqPath(3,2));
+function revstr(s) {
+  if (s.length == 1) return s;
+  for (let i=0, j=s.length-1; i<s.length/2; i++, j--) {
+    let temp =s[i]
+    s[i] = s[j]
+    s[j] = temp
+  }
+}
+
+function rootleaf(root, target) {
+  if (!root) return target = 0
+  else {
+    let ans = 0, subsum = target - root.val;
+    if (subsum == 0 && root.left == null && root.right == null) {
+      return true
+    }
+    if (root.left !== null) {
+      ans = ans || rootleaf(root.left, subsum)
+    }
+    if (root.right !== null) {
+      ans = ans || rootleaf(root.right, subsum)
+    }
+    return ans
+  }
+}
+
+function title(s) {
+  let res = 0;
+  for (let i=0; i<s.length; i++) {
+    res *= 26
+    res += s[i].charCodeAt(0) - 'A'.charCodeAt(0) + 1
+  }
+  return res
+}
+console.log(title('AC'));
