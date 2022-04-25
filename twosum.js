@@ -45,19 +45,20 @@ nput: numbers = [2,7,11,15], target = 9
 Output: [1,2]
 Explanation: The sum of 2 and 7 is 9. Therefore, index1 = 1, index2 = 2. We return [1, 2].
 */
-
+let arr = [1,22,3,16,7,19], target= 25
 var twoSum = function(numbers, target) {
   let l = 0, r = numbers.length-1;
   while (l < r) {
       let sum = numbers[l] + numbers[r]
       if (sum == target){
+        console.log(l, r);
           return [l+1, r+1] // 0 based array return index + 1
       } else if (sum > target){
           r--
       } else l++
   }
 };
-
+console.log(twoSum(arr, target));
 var productExceptSelf = function(nums) {
     const prod = nums.reduce((res, num, index) => {
         if (index == 0) return [1]
