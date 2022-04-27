@@ -5395,7 +5395,7 @@ function title(s) {
 }
 console.log(title('AC'));
 
-var max = nums => {
+var LongestIncresing = nums => {
   const dp  = new Array(nums.length + 1)
   dp.fill(1)
   let max = 0;
