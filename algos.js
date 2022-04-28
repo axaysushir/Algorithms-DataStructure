@@ -5409,3 +5409,12 @@ var LongestIncresing = nums => {
   }
   return max
 }
+
+var perect = nums => {
+  if (num <= 0) return False
+  let sum = 0;
+  for (let i=1; i<num; i++) {
+    if (num % i == 0) sum += i
+  }
+  return sum == num
+}
