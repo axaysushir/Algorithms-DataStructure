@@ -5410,11 +5410,14 @@ var LongestIncresing = nums => {
   return max
 }
 
-var perect = nums => {
+var perfect = num => {
   if (num <= 0) return False
   let sum = 0;
   for (let i=1; i<num; i++) {
     if (num % i == 0) sum += i
+    if (sum > num) return false
   }
-  return sum == num
+  return sum === num
 }
+
+console.log(perfect(1234));
