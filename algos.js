@@ -5529,3 +5529,9 @@ var addB = (a, b) => {
   if (carry !== 0) res = 1 + res
   return res
 }
+
+var rotateArray = (nums, k) => {
+  let a = k > nums.legnth ? k % nums.length : k;
+  let shifted = nums.splice(nums.length - a)
+  nums.unshift(...shifted)
+}
