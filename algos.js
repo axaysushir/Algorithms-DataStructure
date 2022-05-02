@@ -5435,3 +5435,17 @@ var plusone = digits => {
   return digits
 }
 console.log(plusone([1,2,5]));
+
+var prod = nums => {
+  let n= nums.length, ans = []
+  ans[0] = 1;
+  for (let i=1; i<n; i++) {
+    ans[i] = nums[i-1] * ans[i-1]
+  }
+  var right = 1
+  for (let i=n-1; i>= 0; i--){
+    ans[i] = ans[i] * right;
+    right *= nums[i]
+  }
+  return ans
+}
