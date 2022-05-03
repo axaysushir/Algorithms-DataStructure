@@ -5436,7 +5436,9 @@ var plusone = digits => {
 }
 console.log(plusone([1,2,5]));
 
+
 var productExceptSelf = nums => {
+
   let n= nums.length, ans = []
   ans[0] = 1;
   for (let i=1; i<n; i++) {
