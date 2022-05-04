@@ -5451,3 +5451,16 @@ var productExceptSelf = nums => {
   }
   return ans
 }
+
+let product = nums => {
+  let res = []
+  nums.reduce((left, cur, i) => {
+    res[i] = left;
+    return left * cur
+  }, 1)
+  nums.reduceRight((right, cur, i) => {
+    res[i] *= right
+    return right * cur
+  }, 1)
+  return res
+}
