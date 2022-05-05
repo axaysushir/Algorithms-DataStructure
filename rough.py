@@ -2939,3 +2939,24 @@ def permute(s):
             ans.append(j+char)
 
 print(permute('abc'))
+
+def rpn(token):
+    stack = []
+    for i in token:
+        if i.lstrip('-').isnumeric():
+            stack.append(int(i))
+        else:
+            a = stack.pop()
+            b = stack.pop()
+
+            if i == '*':
+                ans = a*b
+            elif i == '+':
+                ans = a+b
+            elif i === '/':
+                ans = a / b
+            elif i == '-':
+                ans = b - a
+
+            stack.append(ans)
+    return stack[len(stack)-1]
