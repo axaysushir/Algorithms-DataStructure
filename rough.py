@@ -2953,10 +2953,12 @@ def rpn(token):
                 ans = a*b
             elif i == '+':
                 ans = a+b
-            elif i === '/':
+            elif i == '/':
                 ans = a / b
             elif i == '-':
                 ans = b - a
 
             stack.append(ans)
     return stack[len(stack)-1]
+
+print(rpn(['1', '2', '3', '+', '2', '*', '-']))
