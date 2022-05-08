@@ -2979,3 +2979,11 @@ def printbst(root):
                 q.append(temp.right)
             count -= 1
         print(' ')
+
+root = Node('a')
+root = Node('a');
+root.left = Node('b');
+root.right = Node('c');
+root.left.left = Node('d');
+root.left.right = Node('e');
+root.right.right = Node('f'); 
