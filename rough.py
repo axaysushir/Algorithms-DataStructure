@@ -2986,4 +2986,6 @@ root.left = Node('b');
 root.right = Node('c');
 root.left.left = Node('d');
 root.left.right = Node('e');
-root.right.right = Node('f'); 
+root.right.right = Node('f');
+
+print(printbst(root))
