@@ -19,7 +19,7 @@ console.log(coinChanhge([1,2,5], 11));
 // using dp 
 function change(c, a) {
     if (a == 0)return 0;
-    let dp = new Array(a+1)
+    let dp = new Array(a+1).fill(0)
     for (let i=1; i<= a; i++) {
         dp[i] = 10001;
     }
@@ -32,3 +32,5 @@ function change(c, a) {
     }
     return dp[a] >= 10001 ? -1 : dp[a]
 }
+
+console.log(change([1,2,5], 11));
