@@ -33,4 +33,5 @@ function change(c, a) {
     return dp[a] >= 10001 ? -1 : dp[a]
 }
 
-console.log(change([1,2,5], 11));
+console.log(change([], 11));
+
