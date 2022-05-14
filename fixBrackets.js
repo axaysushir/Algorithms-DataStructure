@@ -32,16 +32,17 @@ var minAddToMakeValid = function(S) {
     return ans + bal
 };
 console.log(minAddToMakeValid('(()()'));
+
 // Python solution
-class Solution(object):
-    def minAddToMakeValid(self, s):
-        ans = bal = 0
-        for symbol in s:
-            bal += 1 if symbol == '(' else -1
-            if bal == -1:
-                ans += 1
-                bal += 1
-        return ans + bal
+// class Solution(object):
+//     def minAddToMakeValid(self, s):
+//         ans = bal = 0
+//         for symbol in s:
+//             bal += 1 if symbol == '(' else -1
+//             if bal == -1:
+//                 ans += 1
+//                 bal += 1
+//         return ans + bal
 
 
 
