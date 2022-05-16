@@ -5483,3 +5483,17 @@ function anain(a, b) {
   if (s1 === s2) return true
   return false
 }
+
+var jump = nums => {
+  if (nums.legnth == 1) return 0;
+  var jump = 0, max = nums[0], steps = nums[0]
+  for (var i=1; i<nums.length-1; i++) {
+    max = Math.max(max, i+nums[i])
+    steps--
+    if (steps == 0) {
+      jump++
+      steps = max - i
+    }
+  }
+  return jump + 1
+}
