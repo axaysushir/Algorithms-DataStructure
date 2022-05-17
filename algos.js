@@ -5497,3 +5497,19 @@ var jump = nums => {
   }
   return jump + 1
 }
+
+var minJump = nums => {
+  let max = nums[0], start = 0, end = 0. count = 1;
+  if (nums.length < 2) return 0;
+  while (max < nums.length-1) {
+    var n = start, m = end;
+    for (let i=n; i<m; i++) {
+      if (i + nums[i] > max) {
+        max = i + nums[i]
+        end = max
+      }
+    }
+    count++
+  }
+  return count
+}
