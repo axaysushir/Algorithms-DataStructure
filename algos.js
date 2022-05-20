@@ -5535,3 +5535,4 @@ var rotateArray = (nums, k) => {
   let shifted = nums.splice(nums.length - a)
   nums.unshift(...shifted)
 }
+console.log(rotateArray([1,2,3], 2))
