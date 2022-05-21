@@ -5536,3 +5536,11 @@ var rotateArray = (nums, k) => {
   nums.unshift(...shifted)
 }
 console.log(rotateArray([1,2,3], 2))
+
+var addSingle = num => {
+  if (num === 0) return 0
+  if (num % 9 === 0) return 9
+  return num % 9
+}
+
+console.log(addSingle(123));
