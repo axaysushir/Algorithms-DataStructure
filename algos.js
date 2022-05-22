@@ -5544,3 +5544,8 @@ var addSingle = num => {
 }
 
 console.log(addSingle(123));
+
+var angleOf = (hour, minute) => {
+  let angle = Math.abs((hour * 30) + (minute * 0.5) - minute * 6)
+  return angle > 180 ? 360 - angle : angle;
+}
