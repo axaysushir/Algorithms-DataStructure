@@ -5549,3 +5549,5 @@ var angleOf = (hour, minute) => {
   let angle = Math.abs((hour * 30) + (minute * 0.5) - minute * 6)
   return angle > 180 ? 360 - angle : angle;
 }
+
+console.log(angleOf(5, 34));
