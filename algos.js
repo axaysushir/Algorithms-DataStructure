@@ -5551,3 +5551,22 @@ var angleOf = (hour, minute) => {
 }
 
 console.log(angleOf(5, 34));
+
+var ast = asteroid => {
+  let stack = []
+  function top(stack) {
+    return stack[stack.length -1]
+  }
+  for (let i of asteroid) {
+    if (i > 0) {
+      stack.push(i)
+      continue;
+    }
+    while (top(stack) > 0 && top(stack) < Math.abs(i)) {
+      stack.pop()
+    }
+    if (top(stack) == Math.abs(i)) stack.pop()
+    else if (!stack.length || top(stack) < 0) stack.push(i)
+  }
+  return stack
+}
