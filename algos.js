@@ -5570,3 +5570,5 @@ var ast = asteroid => {
   }
   return stack
 }
+
+console.log(ast([5,10,-5]));
