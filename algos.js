@@ -5573,3 +5573,13 @@ var ast = asteroid => {
 
 console.log(ast([5,10,-5]));
 
+var bal = s => {
+  let bal = 0, count = 0
+  for (let i=0; i<s.length; i++) {
+    let curr = s.charAt(i)
+    if (curr == 'L') count++;
+    else if (curr == 'R') count--
+    if (count== 0) bal++
+  }
+  return count
+}
