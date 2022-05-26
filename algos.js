@@ -5583,3 +5583,4 @@ var bal = s => {
   }
   return count
 }
+console.log(bal('llr'));
