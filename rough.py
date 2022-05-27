@@ -3001,4 +3001,4 @@ def numTobase(n, b):
         n //= b
     return digits[::-1]
 
-print(num)
+print(num(123, 3))
