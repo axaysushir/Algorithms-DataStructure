@@ -5572,3 +5572,4 @@ var ast = asteroid => {
 }
 
 console.log(ast([5,10,-5]));
+
