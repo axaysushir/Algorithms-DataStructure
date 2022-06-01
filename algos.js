@@ -5596,5 +5596,27 @@ var reverseString = s => {
   return s
 }
 
-let s = ['h', 'e', 'l', 'l', 'o']
-console.log(reverseString(s));
+// let s = ['h', 'e', 'l', 'l', 'o']
+// console.log(reverseString(s));
+
+function depthofbst(root, x, y, depth, prev) {
+  if (root == null) return null;
+  if (root.val == x ){
+    xparent = prev;
+    xdept = depth;
+  }
+  if (root.val == y) {
+    yparent = prev;
+    ydepth = depth;
+  }
+  depth++
+  prev = root
+  depthofbst(root.left, x, y, depth, prev)
+  depthofbst(root.right,x,y,depth, prev)
+}
+
+var isCousin = (root, x, y) => {
+  let xparent = null, yparent = null, xdepth=0, ydepth = 0
+  depthofbst(root, x, y,0, null)
+  if (xdept == ydepth && xparent !== yparent) return true
+}
