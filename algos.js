@@ -5620,3 +5620,16 @@ var isCousin = (root, x, y) => {
   depthofbst(root, x, y,0, null)
   if (xdept == ydepth && xparent !== yparent) return true
 }
+
+function titleto(col) {
+  const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  let res = 0;
+  const getval(str) {
+    if (str.length > 1) {
+      getval(str.slice(1))
+    }
+    res += (alphabet.indexOf(str[0] + 1) * Math.pow(26, str.length-1))
+  }
+  getval(col)
+  return res
+}
