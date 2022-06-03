@@ -5633,3 +5633,13 @@ function titleto(col) {
   getval(col)
   return res
 }
+
+const missnum = nums => {
+  let actualSum = nums.length;
+  let sum = 0;
+  for (let i=0; i<nums.length; i++) {
+    actualSum = actualSum + i
+    sum = sum + nums[i]
+  }
+  return actualSum -sum
+}
