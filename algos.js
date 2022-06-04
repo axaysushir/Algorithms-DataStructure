@@ -5643,3 +5643,15 @@ const missnum = nums => {
   }
   return actualSum -sum
 }
+
+var maxprofit = prices => {
+  let minprice = Number.MAX_SAFE_INTEGER
+  let maxprofit = 0;
+  for (let i=0; i<prices.length; i++) {
+    if (prices[i] < minprice) minpirce= prices[i]
+    else if (prices[i] - minprice > maxprofit) {
+      maxprofit = prices[i] - minprice
+    }
+  }
+  return maxprofit
+}
