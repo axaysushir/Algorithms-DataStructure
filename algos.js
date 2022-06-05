@@ -5655,3 +5655,24 @@ var maxprofit = prices => {
   }
   return maxprofit
 }
+
+var produex = nums => {
+  var n = nums.length;
+  var ans = []
+  ans[0] = 1;
+  for (let i=1; i<n; i++) {
+    console.log('nums' + nums[i-1], 'ans'+ ans[i-1]);
+    ans[i] = nums[i-1] * ans[i-1]
+    console.log(ans[i]);
+  }
+
+  var right = 1;
+  for (let i=n-1; i>= 0; i--) {
+    ans[i] = ans[i] * right
+    right *= nums[i]
+  }
+
+  return ans
+}
+
+console.log(produex([1,2,3,4]));

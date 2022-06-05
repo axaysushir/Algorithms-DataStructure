@@ -11,7 +11,7 @@
 // 3: The only change in this approach is that we don't explicitly build the R array from before. Instead, we simply use
 //  a variable to keep track of the running product of elements to the
 //  right and we keep updating the answer array by doing answer[i]=answer[i]∗Ranswer[i] = answer[i] * Ranswer[i]=answer[i]∗R. For a given index i, 
-// answer[i] contains the product of all the elements to the left and R would contain product of all the elements to the right. We then update R as R=R∗nums[i]R = R * nums[i]R=R∗nums[i]
+// answer[i] contains the product of all the elements to the left and R would contain product of all the elements to the right. We then update R as R=R∗nums[i]
 
 // Time complexity : O(N) where N represents the number of elements in the 
 // input array. We use one iteration to construct the array L, one to update the array answeransweranswer.
