@@ -3002,3 +3002,26 @@ def numTobase(n, b):
     return digits[::-1]
 
 print(num(123, 3))
+
+from heapq import heappop, heappush
+
+class Solution:
+    def generate(self, building):
+        pos = set()
+        for l,r,h in building:
+            pos.add((l, -h, r))
+            pos.add((r,0,0))
+        
+        building = []
+        sky = []
+
+        for x, h, r in sorted(pos):
+            while building and building[0][1] <= x:
+                heappop(building)
+            if h: heappush(building, (h,r))
+
+            curr = -building[0][0]
+
+            if not sky or sky[-1][1] != curr:
+                sky.append([x, curr])
+        return sky
