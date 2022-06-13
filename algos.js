@@ -5676,3 +5676,12 @@ var produex = nums => {
 }
 
 console.log(produex([1,2,3,4]));
+
+let maxsub = nums => {
+  let curr = nums[0], global = nums[0]
+  for (let i=1; i<nums.length; i++) {
+    curr = Math.max(nums[i], curr)
+    if (curr > global) global = current
+  }
+  return global
+}
