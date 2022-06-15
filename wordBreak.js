@@ -36,3 +36,17 @@ var wordBreak = function(s, wordDict) {
 }
 
 console.log(worBreak('leetcode', 'leet-code'));
+
+// memoization:
+const wordBreak = function(s, wordDict, index = 0, memo= new Set()) {
+    if (memo.has(index)) return false;
+    if (index == s.length) return true;
+
+    for (let i= wordDict.length-1; i>= 0; i--) {
+        const word = wordDict[i]
+        if (s.substr(index, word.length) !== word) continue;
+        if (wordBreak(s, wordDict, index+word.length, memo)) return true
+    }
+    memo.add(index)
+    return false
+}
