@@ -26,8 +26,8 @@ var insert = function(intervals, newInterval) {
     }
      // when we reach the point then check for over lapping and create new end by comparing every intervals 
      // end value and start by comparing every intervals start value 
-    while (i < intervals.length && intervals[i][1] <= end) {
-        start = Math.max(intervals[i][0], start)
+    while (i < intervals.length && intervals[i][0] <= end) {
+        start = Math.min(intervals[i][0], start)
         end = Math.max(end, intervals[i][1])
         i++
     }
