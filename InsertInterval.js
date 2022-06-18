@@ -19,7 +19,7 @@ Output: [[1,2],[3,10],[12,16]]
 Explanation: Because the new interval [4,8] overlaps with [3,5],[6,7],[8,10].
 */
 var insert = function(intervals, newInterval) {
-    let i=0, start = intervals[0], end = intervals[1], res=[]
+    let i=0, start = newIntervals[0], end = newIntervals[1], res=[]
 // check every intervals end value if less then the start value of newInterval so just add into list 
     while (i < intervals.length && intervals[i][1] < start) {
         res.push(intervals[i++])
