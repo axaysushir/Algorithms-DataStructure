@@ -38,3 +38,6 @@ var insert = function(intervals, newInterval) {
     }
     return res
 }
+
+intervals = [[1,3],[6,9]], newInterval = [2,5]
+console.log(insert(intervals, newInterval));
