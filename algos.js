@@ -5709,3 +5709,5 @@ const numisland = grid => {
   }
   return island
 }
+
+console.log(numIslands(grid));
