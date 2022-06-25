@@ -5722,3 +5722,4 @@ var simplify = path => {
   }
   return '/' + start.join('/')
 }
+
