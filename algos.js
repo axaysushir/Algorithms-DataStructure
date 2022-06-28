@@ -5723,4 +5723,4 @@ var simplify = path => {
   return '/' + start.join('/')
 }
 
-console.log(simplify("/user/data/../temp"));
+console.log(simplify("/user/data/../temp/list"));
