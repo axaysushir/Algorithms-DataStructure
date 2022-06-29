@@ -37,10 +37,4 @@ function order(words) {
     return sorted
 }
 
-console.log(order([
-    "wrt",
-    "wrf",
-    "er",
-    "ett",
-    "rftt"
-    ]));
+console.log(order(["wrt","wrf","er","ett","rftt"]));
