@@ -5724,3 +5724,16 @@ var simplify = path => {
 }
 
 console.log(simplify("/user/data/../temp/list"));
+
+var titleTO = (title) => {
+  const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  let res = 0
+  const getNumval = (str) => {
+    if (str.length > 1) {
+      getNumval(str.slice(1))
+    }
+    res += (alphabet.indexOf(str[0]) +1) * (Math.pow(26, str.length-1))
+  }
+  getNumval(title)
+  return res
+}
