@@ -5737,3 +5737,15 @@ var titleTO = (title) => {
   getNumval(title)
   return res
 }
+
+const hasCycle = head => {
+  let seen = new Set()
+  while (head != null) {
+    if (seen.has(head)) {
+      return true
+    }
+    else seen.add(head)
+    head = head.next
+  }
+  return false
+}
