@@ -5749,3 +5749,16 @@ const hasCycle = head => {
   }
   return false
 }
+
+let lenoflongest = s => {
+  let res = 0, tmep = []
+  for (let c of s) {
+    let index = temp.indexOf(c)
+    if (index > -1) {
+      temp = temp.slice(index +1)
+    }
+    temp.push(c)
+    if (temp.length > res) res = temp.length
+  }
+  return res;
+}
