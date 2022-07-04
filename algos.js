@@ -5762,3 +5762,5 @@ let lenoflongest = s => {
   }
   return res;
 }
+
+console.log(lenoflongest('bbbcbb'));
