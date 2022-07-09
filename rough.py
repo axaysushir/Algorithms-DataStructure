@@ -3025,3 +3025,19 @@ class Solution:
             if not sky or sky[-1][1] != curr:
                 sky.append([x, curr])
         return sky
+
+class Node:
+    def __init__(self, key, left= None, right = None):
+        self.key = key
+        self.left = left
+        self.right = right
+
+plus = '+'
+minus = '-'
+times = '-'
+divide = '/'
+
+operators = {'+', '-', '*', '/'}
+
+def isOperator(c: chr):
+    return c in operators
