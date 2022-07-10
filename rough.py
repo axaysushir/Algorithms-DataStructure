@@ -3041,3 +3041,12 @@ operators = {'+', '-', '*', '/'}
 
 def isOperator(c: chr):
     return c in operators
+
+def calculate(root: Node):
+    if not root:
+        return None
+    
+    if not isOperator(root.key):
+        return root.key
+    else:
+        return calculate(evaluate(root.left), root.key, evaluate(root.right))
