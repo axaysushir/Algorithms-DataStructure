@@ -5790,3 +5790,10 @@ var prodexself = nums => {
   }
   return ans
 }
+
+
+var rot = (arr, k) => {
+  let a = k > nums.length ? k % nums.length : k;
+  let shift = nums.splice(nums.length - a)
+  nums.unshift(...shifted)
+}
