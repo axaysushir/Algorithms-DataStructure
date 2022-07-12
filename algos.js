@@ -5797,3 +5797,18 @@ var rot = (arr, k) => {
   let shift = nums.splice(nums.length - a)
   nums.unshift(...shifted)
 }
+
+const addstr = (num1, num2) => {
+  let ans = '', carry = 0, sub = 1
+  const long = Math.max(num1.length, num2.length)
+  while (sub <= long) {
+    let n1 = (sub > num1.length) ? 0 : Number(num1[num1.length] - sub)
+    let n2 = (sub > num2.length) ? 0 : Number(num2[num2.length] - sub)
+    const digit = n1 + n2 + carry
+    carry = (digit >= 10) ? 1 : 0
+    ans = String(digit%10) + ans
+    sub++
+  }
+  ans = (carry == 1) ? '1' + ans : ans
+  return ans
+}
