@@ -5812,3 +5812,5 @@ const addstr = (num1, num2) => {
   ans = (carry == 1) ? '1' + ans : ans
   return ans
 }
+
+console.log(addstr('12', '23'));
