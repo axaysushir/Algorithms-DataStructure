@@ -5814,3 +5814,19 @@ const addstr = (num1, num2) => {
 }
 
 console.log(addstr('12', '23'));
+
+const assign = (g, s) => {
+  g.sort((a, b) => a-b)
+  s.sort((a,b) => a-b)
+  let content = 0
+  let i = g.length - 1, j = s.length -1
+
+  while (i >= 0 && j >= 0) {
+    if (s[i] >= g[i]) {
+      i--
+      j--
+      content++
+    }else i--
+  }
+  return content
+}
