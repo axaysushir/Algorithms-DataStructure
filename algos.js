@@ -5830,3 +5830,16 @@ const assign = (g, s) => {
   }
   return content
 }
+
+const compareVersion = (v1, v2) => {
+  let a = v1.split('.')
+  let b = v2.split('.')
+
+  for (let i=0; i<a.length || i < b.length; i++) {
+    let first = i < a.length ? parseInt(a[i], 10) : 0
+    let second = i < b.length ? parseInt(b[i], 10) : 0
+    if (first < second) return -1
+    if (first > second) return 1
+  }
+  return 0
+}
