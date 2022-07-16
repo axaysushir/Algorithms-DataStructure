@@ -5843,3 +5843,25 @@ const compareVersion = (v1, v2) => {
   }
   return 0
 }
+
+const findConcat = word => {
+  let set = new Set(words)
+  let temp = ''
+
+  const helper = (word, num=0) => {
+    if (!word) return num > 1;
+    for (let i=0; i<word.length; i++) {
+      temp += word[i]
+      if (set.has(temp)) {
+        let sub = word.substr(i+1)
+        if (helper(sub, num+1)) return true
+      }
+    }
+    return false
+  }
+  const ans = []
+  words.forEach(w => {
+    if (helper(w)) ans.push(w)
+  })
+  return ans
+}
