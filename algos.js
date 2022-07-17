@@ -5865,3 +5865,11 @@ const findConcat = word => {
   })
   return ans
 }
+
+var searchRange = (nums, target) => {
+  let ind = []
+
+  ind.push(nums.indexOf(target))
+  ind.push(nums.lastIndexOf(target))
+  return ind
+}
