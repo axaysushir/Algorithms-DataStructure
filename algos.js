@@ -5873,3 +5873,5 @@ var searchRange = (nums, target) => {
   ind.push(nums.lastIndexOf(target))
   return ind
 }
+
+console.log(searchRange([1,2], 2));
