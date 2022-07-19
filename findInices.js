@@ -65,3 +65,5 @@ function intersecarr(arr1, arr2) {
   for (let n of output) res.push(n)
   return res
 }
+
+console.log(intersecarr([123], [3,4,5]));
