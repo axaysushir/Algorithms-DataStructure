@@ -4,8 +4,8 @@
 
 // Example:
 // solution 1: consider all triplets O(n^3) time complx.
-// solution 2: use sorting O(nlog n) Sorting the numsnumsnums array takes O(nlogn) time. and space
-//Another solution could be to sort the given numsnumsnums array(in ascending order) and find out the product of the last three numbers.
+// solution 2: use sorting O(nlog n) Sorting the nums array takes O(nlogn) time. and space
+//Another solution could be to sort the given nums array(in ascending order) and find out the product of the last three numbers.
 
 // But, we can note that this product will be maximum only if all the numbers in numsnumsnums array are positive. But, in the given problem statement, negative elements could exist as well.
 // Thus, it could also be possible that two negative numbers lying at the left extreme end could also contribute to lead to a larger product if the third number in the triplet being considered is the largest positive number in the numsnumsnums array.
