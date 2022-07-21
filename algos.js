@@ -5895,3 +5895,5 @@ const maxprodsum = nums => {
   }
   return Math.max(max1 * max2 * max3, max1 * min1 * min2)
 }
+
+console.log(maxprodsum());
