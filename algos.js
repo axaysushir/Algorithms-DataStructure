@@ -5897,3 +5897,9 @@ const maxprodsum = nums => {
 }
 
 console.log(maxprodsum([1,23, 56]));
+
+const addDigits = num => {
+  if (num == 0) return 0
+  if (num % 9 == 0) return 9
+  return num % 9
+}
