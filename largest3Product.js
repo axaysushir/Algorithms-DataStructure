@@ -48,5 +48,5 @@ var maximumProduct = function(nums) {
     }
     return Math.max(max1 * max2 * max3, max1 * min1 * min2);
   };
-var nums = [1, 2, 3, 4]
+var nums = [1, 2, 3, 4, 5, 6, 7]
 console.log(maximumProduct(nums))
