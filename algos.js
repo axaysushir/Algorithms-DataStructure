@@ -5903,4 +5903,4 @@ const addDigits = num => {
   if (num % 9 == 0) return 9
   return num % 9
 }
-console.log(addDigits([1,2,3]))
+console.log(addDigits([1,2,3, 4, 5]))
