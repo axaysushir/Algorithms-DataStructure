@@ -5904,3 +5904,10 @@ const addDigits = num => {
   return num % 9
 }
 console.log(addDigits(1234))
+
+var clonet = (or, clo, target) {
+  if (!or || !clo) return
+
+  if (or.val === target.val) return clo
+  else return clonet(or.left, clo.left, target) || clonet(or.right, clo.right, target)
+}
