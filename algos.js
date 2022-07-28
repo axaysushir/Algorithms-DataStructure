@@ -5911,3 +5911,5 @@ var clonet = (or, clo, target) {
   if (or.val === target.val) return clo
   else return clonet(or.left, clo.left, target) || clonet(or.right, clo.right, target)
 }
+
+clonet()
