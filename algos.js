@@ -5913,3 +5913,10 @@ var clonet = (or, clo, target) {
 }
 
 clonet()
+
+function checkana(a, b) {
+  let s1 = a.split('').sort().join('')
+  let s2 = b.split('').sort().join('')
+  if (s1 == s2) return true
+  return false
+}
