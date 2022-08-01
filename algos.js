@@ -5920,3 +5920,23 @@ function checkana(a, b) {
   if (s1 == s2) return true
   return false
 }
+
+let people = [1, 4, 2, 3], limit = 4
+
+const numberofBoats = (people, limit) => {
+  let boats = 0, i = 0, j = people.length - 1;
+
+  while (i <= j) {
+    if (people[i] + people[j] <= limit) {
+        i++
+        j--
+    } else {
+        j--
+    }
+
+    boats++
+  }
+  return boats
+}
+
+console.log(numberofBoats(people, limit))
