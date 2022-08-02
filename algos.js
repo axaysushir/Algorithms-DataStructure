@@ -5925,7 +5925,7 @@ let people = [1, 4, 2, 3], limit = 4
 
 const numberofBoats = (people, limit) => {
   let boats = 0, i = 0, j = people.length - 1;
-
+  people.sort((a, b) => a-b)
   while (i <= j) {
     if (people[i] + people[j] <= limit) {
         i++
@@ -5940,3 +5940,25 @@ const numberofBoats = (people, limit) => {
 }
 
 console.log(numberofBoats(people, limit))
+
+const binaryPath = root => {
+  let paths = []
+  if(root == null) return paths
+  dfs(root, '', paths)
+  return paths
+}
+
+function dfs(root, path, paths) {
+  path += root.val
+
+  if (root.left == null && root.right == null) {
+    paths.push(path)
+    return 
+  }
+  if (root.left != null) {
+    dfs(root.left, path+'->', paths)
+  }
+  if (root.right != null) {
+    dfs(root.right, path+'->',paths)
+  }
+}
