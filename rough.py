@@ -3064,3 +3064,5 @@ def has_character_map(s, t):
             if strdict[s[i]] = t[i]:
                 return False
     return True
+
+has_character_map('abc', 'def')
