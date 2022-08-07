@@ -6019,3 +6019,4 @@ var buddystr = (a, b) => {
   }
   return count === 2 ? true : false
 }
+console.log(buddystr('ab', 'ba'));
