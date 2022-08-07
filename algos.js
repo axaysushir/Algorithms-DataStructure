@@ -5992,10 +5992,30 @@ class MedianFind {
 
   findMedian() {
     const mid = Math.floor(this.arr.length /2)
-    return (this.arr.length & 1) === 1 ? this.arr[mid] : (this.arr[mid] + this.ar[mid-1])/2
+    return (this.arr.length & 1) === 1 ? this.arr[mid] : (this.arr[mid] + this.arr[mid-1])/2
   }
 }
 
 var obj = new MedianFinder()
 obj.addNum(num)
 var res = obj.findMedian()
+
+var buddystr = (a, b) => {
+  if (a == '') return false
+  if (a.length !== b.lenght) return false
+  if (a === b) return a.length !== new Set(a).size
+
+  let char1, charb, count = 0;
+  for (let i=0; i<a.length; i++) {
+    if (a[i] != b[i]) {
+      count++
+      if (!chara) {
+        chara = a[i]
+        charb = b[i]
+      } else {
+        if (chara !== b[i] || charb !== a[i]) return false
+      }
+    }
+  }
+  return count === 2 ? true : false
+}
