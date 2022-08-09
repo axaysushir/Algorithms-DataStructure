@@ -6020,3 +6020,17 @@ var buddystr = (a, b) => {
   return count === 2 ? true : false
 }
 console.log(buddystr('ab', 'ba'));
+
+var deleteNode = head => {
+  var node = new ListNode(-1)
+  var ans = node, pre = head, cur = head;
+  while (head) {
+    while (cur.next && cur.next.val === cur.next.val) cur = cur.next;
+    if (pre = cur) {
+      ans.next = cur
+      ans = ans.next
+    }
+  }
+  ans.next = null
+  return node.next
+}
