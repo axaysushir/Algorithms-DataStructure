@@ -62,3 +62,4 @@ const fizz = n => {
   }
   return ans
 }
+console.log(fizz(12));
