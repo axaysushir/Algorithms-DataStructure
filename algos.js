@@ -6034,3 +6034,5 @@ var deleteNode = head => {
   ans.next = null
   return node.next
 }
+
+console.log(deleteNode(head));
