@@ -3065,4 +3065,4 @@ def has_character_map(s, t):
                 return False
     return True
 
-print(has_character_map('abc', 'def'))
+print(has_character_map('abcd', 'defh'))
