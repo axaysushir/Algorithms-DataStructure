@@ -3066,3 +3066,34 @@ def has_character_map(s, t):
     return True
 
 print(has_character_map('abcd', 'defh'))
+
+class Solution:
+    def rotateRight(self, head:Node, k):
+        if not head or not head.next or k == 0:
+            return head
+
+        tail = head
+        count = 1
+        while tail.next:
+            tail = tail.next
+            count += 1
+        
+        k = k% count
+        if k == 0:
+            return head
+        
+        tail.next = head
+        brkat = 1
+        pointer = head
+
+        while brkat != count -k:
+            pointer = pointer.next
+            brkat += 1
+        
+        head = pointer.next
+        pointer.next = None
+        return head
+
+llist = [Node(1, Node(2, Node(3, Node(4))))]
+
+print(Solution.rotateRight(llist, 3))
