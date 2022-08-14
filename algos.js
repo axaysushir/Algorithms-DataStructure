@@ -6041,7 +6041,7 @@ var maxSub = nums => {
   let maxCurr = nums[0], global = nums[0]
 
   for (let i=1; i <nums.length; i++) {
-    maxCurr = Math.max(nums[0], maxCurr + nums[i])
+    maxCurr = Math.max(nums[i], maxCurr + nums[i])
     if (maxCurr > global) global = maxCurr
   }
   return global
