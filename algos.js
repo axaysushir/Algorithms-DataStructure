@@ -6046,3 +6046,4 @@ var maxSub = nums => {
   }
   return global
 }
+console.log(maxSub([1, 2, -3]));
