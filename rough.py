@@ -3097,3 +3097,18 @@ class Solution:
 llist = [Node(1, Node(2, Node(3, Node(4))))]
 
 print(Solution.rotateRight(llist, 3))
+
+def maxSub(nums):
+    minimum = num[0]
+    maximum = nums[0]
+    glo = maximum
+
+    for num in nums[1:]:
+        newmin = minimum  * num
+        newmax = maximum * num
+
+        mimimum = min(num, newmin, newmax)
+        maximum = max(num, newmax, newmin)
+        glo = max(mimimum, maximum)
+    
+    return glo
