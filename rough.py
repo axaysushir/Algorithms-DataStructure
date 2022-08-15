@@ -3112,3 +3112,5 @@ def maxSub(nums):
         glo = max(mimimum, maximum)
     
     return glo
+
+print(maxSub())
