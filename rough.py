@@ -3113,4 +3113,4 @@ def maxSub(nums):
     
     return glo
 
-print(maxSub())
+print(maxSub([1,2,5,7,-3,1,-4]))
