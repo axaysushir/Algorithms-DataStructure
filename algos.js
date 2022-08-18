@@ -6064,4 +6064,4 @@ var searchINArr = (nums, target) => {
   }
   return -1
 }
-console.log(searchINArr(nums, target));
+console.log(searchINArr([4,5,6,1,2,3,], 5));
