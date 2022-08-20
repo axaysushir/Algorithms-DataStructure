@@ -6078,3 +6078,5 @@ var robhouse = nums => {
   }
   return dp[nums.length-1]
 }
+
+console.log(robhouse([1,2,4,6,7]));
