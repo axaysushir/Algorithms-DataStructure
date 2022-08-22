@@ -6080,3 +6080,21 @@ var robhouse = nums => {
 }
 
 console.log(robhouse([1,2,4,6,7]));
+
+var insertinto = (interval, newinter) => {
+  let i=0, start = newinter[0], end = newinter[1], res = []
+
+  while (i < interval.length && interval[i][1] < start) {
+    res.push(interval[i++])
+  }
+  while (i < interval.length && interval[i][0] <= end) {
+    start = Math.min(interval[i][0], start)
+    end = Math.max(end, interval[i][1])
+    i++
+  }
+  res.push([start, end])
+  while (i < interval.length) {
+    res.push(interval[i++])
+  }
+  return res
+}
