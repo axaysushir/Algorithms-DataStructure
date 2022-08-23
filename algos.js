@@ -6099,3 +6099,4 @@ var insertinto = (interval, newinter) => {
   return res
 }
 intervals = [[1,3],[6,9]], newInterval = [2,5]
+console.log(insertinto(intervals, newInterval));
