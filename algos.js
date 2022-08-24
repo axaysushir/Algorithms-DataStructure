@@ -6100,3 +6100,26 @@ var insertinto = (interval, newinter) => {
 }
 intervals = [[1,3],[6,9]], newInterval = [2,5]
 console.log(insertinto(intervals, newInterval));
+
+var getCount = (grid, i, j) => {
+  if (i<0 || j <0 || i >= grid.length || j >= grid[i].length || grid[i][j] == '0') {
+    return 0
+  }
+  grid[i][j] = '0';
+  getCount(grid, i+1, j)
+  getCount(grid, i-1, j)
+  getCount(grid, i, j+1)
+  getCount(grid, i, j-1)
+  return 1
+}
+
+var getIslands = (grid) => {
+  if (grid == null || grid.length == 0) return 0
+  let islands = 0
+  for (let i=0; i<grid.length; i++) {
+    for (let j=0; j<grid[i].length;j++) {
+      if (grid[i][j] == '1') islands += getCount(grid, i, j)
+    }
+  }
+  return islands
+}
