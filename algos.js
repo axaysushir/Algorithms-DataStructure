@@ -6123,3 +6123,4 @@ var getIslands = (grid) => {
   }
   return islands
 }
+console.log(getCount(grid));
