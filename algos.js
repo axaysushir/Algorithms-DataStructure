@@ -6124,3 +6124,13 @@ var getIslands = (grid) => {
   return islands
 }
 console.log(getCount(grid));
+
+var gethi = height => {
+  let area, i= 0, j = arr.length-1, max = 0
+  while (i < j) {
+    area = (j-i) * Math.max(height[i], height[j])
+    max = Math.max(max, area)
+    height[i] < height[j] ? i++ : j-- 
+  }
+  return max
+}
