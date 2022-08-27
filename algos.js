@@ -6134,3 +6134,12 @@ var gethi = height => {
   }
   return max
 }
+
+var missing = nums => {
+  let n = nums.length;
+  if (!len) return 0
+  let arrsum = nums.reduce((a,b) => {
+    return a+b
+  })
+  return sum - arrsum
+}
