@@ -6138,6 +6138,7 @@ var gethi = height => {
 var missing = nums => {
   let n = nums.length;
   if (!len) return 0
+  let sum = len * ((len+1)/2)
   let arrsum = nums.reduce((a,b) => {
     return a+b
   })
