@@ -3114,3 +3114,12 @@ def maxSub(nums):
     return glo
 
 print(maxSub([1,2,5,7,-3,1,-4]))
+
+def canjump(nums):
+    goal = len(nums) -1
+    piece = 0
+
+    for space, jump in enumerate(reversed(nums)):
+        if piece >= space - jump:
+            piece = space
+    return piece == goal
