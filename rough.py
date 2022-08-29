@@ -3122,4 +3122,6 @@ def canjump(nums):
     for space, jump in enumerate(reversed(nums)):
         if piece >= space - jump:
             piece = space
-    return piece == goal
+    return piece == 
+
+print(canjump([1,2,4,3,1]))
