@@ -6144,3 +6144,5 @@ var missing = nums => {
   })
   return sum - arrsum
 }
+
+console.log(missing());
