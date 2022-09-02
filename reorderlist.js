@@ -6,15 +6,15 @@ function reorderList(head) {
         slow = slow.next
     }
     // store second half
-    let second = slow.next
+    let secondhalf = slow.next
     // make last node in left half equal to null
     slow.next = null;
 
     // rev right half
     let prev = null
     while (second) {
-        let temp = second.next
-        second.next = prev
+        let temp = secondhalf.next
+        secondhalf.next = prev
         prev = second
         second = temp
     }
