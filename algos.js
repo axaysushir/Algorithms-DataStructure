@@ -6166,3 +6166,18 @@ var wordsearch = (board, word) => {
   }
   return false
 }
+
+var validparent = str => {
+    if (s == null || s.length == 0) return false
+    let arr = s.split('')
+    let stack = []
+
+    for (let c of arr) {
+      if (c === '(') stack.push(')')
+      else if (c === '[') stack.push(']')
+      else if (c === '{') stack.push('}')
+      else if (stack.length == 0 || c !== stack.pop()) return false
+    }
+    if (stack.length == 0) return true
+    return false
+}
