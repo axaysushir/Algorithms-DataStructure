@@ -6205,3 +6205,16 @@ var palin = str => {
   }
   return str.substr(len, maxlen)
 }
+
+const longestsubstr = s => {
+  let temp = [], res = 0,
+  for (let c of s) {
+    let ind = temp.indexOf(c)
+    if (ind > -1) {
+      temp = temp.slice(ind + 1)
+    }
+    temp.push(c)
+    if (temp.length > res) res = temp.length
+  }
+  return res
+}
