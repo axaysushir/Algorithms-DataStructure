@@ -6218,3 +6218,23 @@ const longestsubstr = s => {
   }
   return res
 }
+
+class MedianFinder {
+  constructor() {
+    this.arr= []
+    this.half = Math.abs(arr.length /2)
+  }
+
+  addnum(num) {
+    this.arr.push(num)
+    this.arr.sort()
+    this.half = Math.abs(arr.length /2)
+  }
+  findmed(){
+    if (this.arr.length == 0) return 0
+    if (this.arr.length %2  == 0) {
+      return (this.arr[this.half] + this.arr[this.half]) /2
+    }
+    return this.arr[this.half]
+  }
+}
