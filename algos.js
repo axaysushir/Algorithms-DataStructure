@@ -6238,3 +6238,7 @@ class MedianFinder {
     return this.arr[this.half]
   }
 }
+
+var obj= new MedianFinder()
+obj.addnum([1,2,3])
+console.log(obj.findmed());
