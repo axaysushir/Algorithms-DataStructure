@@ -9,7 +9,7 @@ class MedianFinder {
       this.arr.sort()
       this.half = Math.abs(arr.length /2)
     }
-    findmed(){
+    findmedian(){
       if (this.arr.length == 0) return 0
       if (this.arr.length %2  == 0) {
         return (this.arr[this.half] + this.arr[this.half]) /2
@@ -20,7 +20,7 @@ class MedianFinder {
   
   var obj= new MedianFinder()
   obj.addnum([1,2,3])
-  console.log(obj.findmed());
+  console.log(obj.findmedian());
   
 // class MedianFinder {
 //     constructor() {
