@@ -29,3 +29,19 @@ def canJump(self, nums: List[int]) -> bool:
             piece = space
     
     return piece == goal
+
+
+# Js solution
+'''
+var canJump = nums => {
+  let goal = nums.length - 1, piece = 0
+
+  for (let i=goal; i>= 0; i--) {
+    if (i+nums[i] >= goal) {
+      goal = i
+    }
+  }
+  return goal == 0
+}
+
+'''

@@ -6242,3 +6242,15 @@ class MedianFinder {
 var obj= new MedianFinder()
 obj.addnum([1,2,3])
 console.log(obj.findmed());
+
+
+var canJump = nums => {
+  let goal = nums.length - 1, piece = 0
+
+  for (let i=goal; i>= 0; i--) {
+    if (i+nums[i] >= goal) {
+      goal = i
+    }
+  }
+  return goal == 0
+}
