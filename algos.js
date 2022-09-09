@@ -6254,3 +6254,16 @@ var canJump = nums => {
   }
   return goal == 0
 }
+
+var kthsmallestele = (root, k) => {
+  let output = []
+  inorder(root)
+  return output[k-1]
+  function inorder(root) {
+    if (!root) return null;
+    inorder(root.left)
+    output.push(root.val)
+    inorder(root.right)
+  }
+}
+
