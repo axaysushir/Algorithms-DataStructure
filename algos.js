@@ -6267,3 +6267,15 @@ var kthsmallestele = (root, k) => {
   }
 }
 
+const kth = (root, k) => { 
+  let count = 0
+  let nums = []
+  while (nums.length > 0 || root !== null) {
+    nums.push(root)
+    root = root.left
+  }
+  root = nums.pop()
+  count++
+  if (count === k) return root.val
+  root = root.right
+}
