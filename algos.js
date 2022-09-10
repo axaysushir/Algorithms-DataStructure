@@ -6279,3 +6279,26 @@ const kth = (root, k) => {
   if (count === k) return root.val
   root = root.right
 }
+
+const kthlargetinarr = (nums, k) => {
+  function merge(nums) {
+    if (arr.legnth == 0 || arr.length == 1) return arr
+    let mid = Math.floor(arr.legnth / 2)
+    let left = merge(arr.slice(0, mid))
+    let right = merge(arr.slice(mid))
+
+    let res = [],l = 0, r = 0
+    while (l < left.length && r , right.length) {
+      if (left[l] < right[r]) {
+        res.push(left[l])
+        l++
+      } else {
+        res.push(right[r])
+        r++
+      }
+    }
+    res = res.concat(left.slice(l), right.slice(r))
+    return res
+  }
+  return merge(nums)[k-1]
+}
