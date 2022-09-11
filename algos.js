@@ -6302,3 +6302,17 @@ const kthlargetinarr = (nums, k) => {
   }
   return merge(nums)[k-1]
 }
+
+var jumptoend = nums => {
+  if (nums.length == 1) return 0
+  let jump = 0, maxReach = nums[0], step = nums[0]
+  for (var i=1; i<nums.length -1; i++) {
+    maxReach = Math.max(maxReach, i+ nums[i])
+    steps--
+    if (steps == 0) {
+      jump++
+      steps = maxReach - i
+    }
+  }
+  return jumps + 1
+}
