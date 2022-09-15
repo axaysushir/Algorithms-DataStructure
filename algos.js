@@ -6332,3 +6332,12 @@ var jumpmin = nums => {
   }
   return count
 }
+
+const maxsubarrsum = nums => {
+  let maxcurr = nums[0], global = nums[0]
+  for (let i=1; i<nums.length; i++) {
+    maxcurr = Math.max(nums[i], maxcurr+nums[i])
+    if (maxcurr > global) global = maxcurr
+  }
+  return global
+}
