@@ -6379,3 +6379,19 @@ const threesum = nums => {
   }
   return res
 }
+
+const bstrightSideview = root => {
+  let visible = []
+  if (root == null) return visible
+  let que = [root]
+  while (que.length > 0) {
+    let size = que.length
+    for (let i=0; i<size; i++) {
+      let cur = que.shift()
+      if (i == size - 1) visible.push(cur.val)
+      if (cur.left != null) que.push(cur.left)
+      if (cur.right != null) que.push(cur.right)
+    }
+  }
+  return visible
+}
