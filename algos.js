@@ -6395,3 +6395,21 @@ const bstrightSideview = root => {
   }
   return visible
 }
+
+const bstrootsum = (root, num) => {
+  if (root == null) return num
+  else {
+    let ans = 0
+    subsum = num - root.val
+    if (subsum == 0 && root.left == null && root.right == null){
+      return true
+    }
+    if (root.left != null) {
+      ans = ans || bstrootsum(root.left, subnum)
+    }
+    if(root.right != null) {
+      ans = ans || bstrootsum(root.right, subnum)
+    }
+    return ans
+  }
+}
