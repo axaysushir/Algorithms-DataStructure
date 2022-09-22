@@ -6413,3 +6413,17 @@ const bstrootsum = (root, num) => {
     return ans
   }
 }
+
+const prodExceptnum = nums => {
+  let n = nums.length, ans = []
+  ans[0] = 1
+  for (let i=1; i<n; i++) {
+    ans = nums[i-1] * ans[i-1]
+  }
+  var right = 1
+  for (let i=n-1; i>= 0; i--) {
+    ans[i] = ans[i] * right
+    right *= nums[i]
+  }
+  return ans
+}
