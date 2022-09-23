@@ -3125,3 +3125,10 @@ def canjump(nums):
     return piece == 
 
 print(canjump([1,2,4,3,1]))
+
+def overlaprect(rec1, rec2):
+    if rec1[0] >= rec2[2] or rec2[0] >= rec1[2]:
+        return False
+    if rec1[1] >= rec2[3] or rec2[1] >= rec1[3]:
+        return False
+    return True
