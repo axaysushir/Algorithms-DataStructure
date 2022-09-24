@@ -3132,3 +3132,5 @@ def overlaprect(rec1, rec2):
     if rec1[1] >= rec2[3] or rec2[1] >= rec1[3]:
         return False
     return True
+
+overlaprect([0,0,1,1], [1,0,2,1])
