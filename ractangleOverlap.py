@@ -40,7 +40,7 @@ print(Solution().isRectangleOverlap(rec1, rec2))
 
 # Time and Space Complexity: O(1)
 
-# Solution 2:
+# Solution 2: Using recursion
 
 
 class Solution:
