@@ -6427,3 +6427,13 @@ const prodExceptnum = nums => {
   }
   return ans
 }
+const leftutil = (node, level) => {
+  var maxLevel = 0
+  if (!node) return
+  if (maxLevel < level) level = maxLevel
+  leftutil(node.left, level+1)
+  leftutil(node.right, level+1)
+}
+function leftsidebst(root) {
+  leftutil(root, 1)
+}
