@@ -6437,3 +6437,20 @@ const leftutil = (node, level) => {
 function leftsidebst(root) {
   leftutil(root, 1)
 }
+
+const isprime = n => {
+  if (n <= 1) return false
+  if (n <= 3) return true
+  if (n%2 == 0 || n%3 == 0) return false;
+  i = 5
+  while(i * i <= n) {
+    if (n%i == 0 || n%(i+2) == 0) return false
+  }
+  return true
+}
+
+function chekprime(n) {
+  for (i=2; i<=n+1; i++) {
+    if (isprime(i)) console.log(i)
+  }
+}
