@@ -6454,3 +6454,17 @@ function chekprime(n) {
     if (isprime(i)) console.log(i)
   }
 }
+
+function adstr(n1, n2) {
+  let i = n1.length - 1, j = n2.length - 1
+  let carry = 0, res = ''
+  while (i >= 0 || j >= 0) {
+    let sum = carry
+    if (i>=0) sum+= n1.charAt(i--) - '0'
+    if(j >= 0) sum+= n2.charAt(j--) - '0'
+    res += sum % 10
+    carry = Math.floor(sum/10)
+  }
+  if (carry !== 0) res += carry
+  return res.split('').reverse().join('')
+}
