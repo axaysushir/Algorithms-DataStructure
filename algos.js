@@ -6468,3 +6468,18 @@ function adstr(n1, n2) {
   if (carry !== 0) res += carry
   return res.split('').reverse().join('')
 }
+
+const assigncook = (g, s) => {
+  g.sort((a, b) => a -b)
+  s.sort((a, b) => a-b)
+  let content = 0
+  let i= g.length-1, j = s.length-1;
+  while ( i>= 0 && j >= 0) {
+    if (s[j] >= g[i]) {
+      content++
+      i--
+      j--
+    } else i--
+  }
+  return content
+}
