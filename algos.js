@@ -6483,3 +6483,17 @@ const assigncook = (g, s) => {
   }
   return content
 }
+
+const topkfreqele = (word, k) => {
+  let hash = {}
+  for (let i=0; i<words.length; i++) {
+    let temp = (hash[words[i]] ? hash(words[i]) : 0) +1
+    hash[words[i]] = temp
+  }
+  let res = Object.keys(hash).sort((next, prev) => {
+    if (hash[pre] - hash[next] == 0) {
+      return next.localeCompare(pre)
+    } else return hash[pre] - hash[next]
+  })
+  return res.slice(0, k)
+}
