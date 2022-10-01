@@ -6491,9 +6491,9 @@ const topkfreqele = (word, k) => {
     hash[words[i]] = temp
   }
   let res = Object.keys(hash).sort((next, prev) => {
-    if (hash[pre] - hash[next] == 0) {
-      return next.localeCompare(pre)
-    } else return hash[pre] - hash[next]
+    if (hash[prev] - hash[next] == 0) {
+      return next.localeCompare(prev)
+    } else return hash[prev] - hash[next]
   })
   return res.slice(0, k)
 }
