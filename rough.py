@@ -3134,3 +3134,23 @@ def overlaprect(rec1, rec2):
     return True
 
 overlaprect([0,0,1,1], [1,0,2,1])
+
+
+class Solution:
+    def genSky(self, build):
+        pos = set()
+        for l, r, h in build:
+            pos.add((l, -h, r))
+            pos.add((r,0,0))
+        build = []
+        sky = []
+
+        for x, h, r in sorted(pos):
+            while build and build[0][1] <= x: heappop(build)
+            if h: heappush(build, (h,r))
+
+            curmax = -build[0][0]
+            if not sky or sky[-1][1] != curmax:
+                sky.append([x, curmax])
+        
+        return sky
