@@ -6497,3 +6497,9 @@ const topkfreqele = (word, k) => {
   })
   return res.slice(0, k)
 }
+
+const getClonedCopy = (ori, clo, target) => {
+  if (!cloned || !ori) return null
+  if (ori.val == target.val) return cloned
+  else return getClonedCopy(ori.left, clo.left, target) || getClonedCopy(ori.right, clo.right, target)
+}
