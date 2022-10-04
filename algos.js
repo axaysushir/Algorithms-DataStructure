@@ -6503,3 +6503,12 @@ const getClonedCopy = (ori, clo, target) => {
   if (ori.val == target.val) return cloned
   else return getClonedCopy(ori.left, clo.left, target) || getClonedCopy(ori.right, clo.right, target)
 }
+
+const consec = num => {
+  let count = 0
+  while (n != 0) {
+    n = (n & n << 1)
+    count++
+  }
+  return count
+}
