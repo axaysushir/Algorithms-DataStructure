@@ -6512,3 +6512,18 @@ const consec = num => {
   }
   return count
 }
+
+const countsay = n => {
+  let str = '1'
+  if (n == 1) return str
+  let newstr = '', count = 0, say = str[0]
+  for (let i=0; i<str.length; i++) {
+    if (str[i] == say) count++
+    else {
+      newstr += count + say
+      count = 1
+      say = str[i]
+    }
+  }
+  return countsay(n-1, newstr + count + say)
+}
