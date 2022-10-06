@@ -6504,7 +6504,7 @@ const getClonedCopy = (ori, clo, target) => {
   else return getClonedCopy(ori.left, clo.left, target) || getClonedCopy(ori.right, clo.right, target)
 }
 
-const consec = num => {
+const consective = num => {
   let count = 0
   while (n != 0) {
     n = (n & n << 1)
