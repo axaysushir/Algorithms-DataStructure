@@ -6527,3 +6527,15 @@ const countsay = n => {
   }
   return countsay(n-1, newstr + count + say)
 }
+
+const compareVer = (v1, v2) => {
+  let a = v1.split('.'), b = v2.split('.')
+
+  for (let i=0; i<a.length || i < b.length; i++) {
+    let first = i < a.length ? parseInt(a[i], 10) : 0;
+    let second = i < b.length ? parseInt(b[i], 10) : 0;
+    if (first < second) return -1
+    if (first > second) return 1
+  }
+  return 0
+}
