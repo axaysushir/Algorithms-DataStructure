@@ -6539,3 +6539,20 @@ const compareVer = (v1, v2) => {
   }
   return 0
 }
+
+const asteroidcol = ast => {
+  let stack = []
+  function top(stack) {
+    return stack[stack.length-1]
+  }
+  for (let i of ast) {
+    if (i>0) {
+      stack.push(i)
+      continue
+    }
+    while (top(stack) > 0 && top(stack) < Math.abs(i)) stack.pop()
+    if (top(stack) === Math.abs(i)) stack.pop()
+    else if(!stack.length || top(stack) < 0) stack.push(i)
+  }
+  return stack
+}
