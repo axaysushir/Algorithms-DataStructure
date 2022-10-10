@@ -6556,3 +6556,27 @@ const asteroidcol = ast => {
   }
   return stack
 }
+
+const decodestr = s => {
+  const stack = []
+  for (let ch of s) {
+    if (ch !== ']') {
+      stack.push(ch)
+      continue
+    }
+    let cur = stack.pop(), str = ''
+    while (cur !== '[') {
+      str = str + cur
+      cur = stack.pop()
+    }
+    let num = ''
+    cur = stack.pop()
+    while (!Number.isNaN(Number(cur))) {
+      num = cur + num
+      cur = stack.pop()
+    }
+    stack.push(cur)
+    stack.push(str.repeat(Number(num)))
+  }
+  return stack.join('')
+}
