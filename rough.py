@@ -3154,3 +3154,18 @@ class Solution:
                 sky.append([x, curmax])
         
         return sky
+
+def tohex(n):
+    x = []
+    while n != 0:
+        i = n% 16
+        if i <=9:
+            x.append(i)
+        if i >9 and i < 15:
+            hexa = chr(55 + i)
+            x.append(hexa)
+        n= n // 16
+        x.reverse()
+        l= len(x)
+        for i in range(0, l):
+            print(x[i], end=' ')
