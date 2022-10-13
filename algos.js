@@ -6580,3 +6580,11 @@ const decodestr = s => {
   }
   return stack.join('')
 }
+
+const singlenum = num => {
+  nums.sort()
+  for (let i=num.length-1; i>=0; i--) {
+    if (nums[i] === nums[i-1]) nums.splice(i-1,2)
+  }
+  return num[0]
+}
