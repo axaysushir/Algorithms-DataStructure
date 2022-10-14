@@ -6588,3 +6588,11 @@ const singlenum = num => {
   }
   return num[0]
 }
+
+const singledig = n => {
+  let ans = nums[0]
+  for (let i=1; i<nums.length; i++) {
+    ans ^= nums[i]
+  }
+  return ans
+}
