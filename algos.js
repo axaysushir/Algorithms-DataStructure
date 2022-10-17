@@ -6596,3 +6596,4 @@ const singledig = n => {
   }
   return ans
 }
+console.log(singledig([1,22,3,1,3]))
