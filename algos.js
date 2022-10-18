@@ -6597,3 +6597,14 @@ const singledig = n => {
   return ans
 }
 console.log(singledig([1,22,3,1,3]))
+
+const balancestr = s => {
+  let count = 0, bal = 0
+  for (let i=0; i<s.length; i++) {
+    let ch = s.charAt(i)
+    if (ch == 'L') count++
+    else if (ch == 'R') count--
+    if (count == 0) bal++
+  }
+  return bal
+}
