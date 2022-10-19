@@ -6608,3 +6608,24 @@ const balancestr = s => {
   }
   return bal
 }
+
+
+var buddystr = (a,b) => {
+  if (a =='') return false
+  if (a.length !== b.length) return false;
+  if (a === b) return a.length !== new Set(a).size;
+
+  let charA, charB, count = 0;
+  for (let i=0; i<a.length; i++) {
+    if (a[i] != b[i]) {
+      count++
+      if (!charA) {
+        charA = a[i]
+        charB = b[i]
+      } else {
+        if (charA != b[i] || charB != a[i]) return false
+      }
+    }
+  }
+  return count == 2 ? true : false
+}
