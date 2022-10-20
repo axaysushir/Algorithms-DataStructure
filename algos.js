@@ -6629,3 +6629,4 @@ var buddystr = (a,b) => {
   }
   return count == 2 ? true : false
 }
+console.log(buddtstr('ab', 'ba'));
