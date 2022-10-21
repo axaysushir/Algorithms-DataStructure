@@ -6630,3 +6630,19 @@ var buddystr = (a,b) => {
   return count == 2 ? true : false
 }
 console.log(buddtstr('ab', 'ba'));
+
+const roottoleaf = (root, target) => {
+  if (!root) return target = 0
+  else {
+    ans = 0
+    subsum = target - root.val
+    if (subsum ==0 && root.left == null && root.right == null) return true
+    if (root.left != null) {
+      ans = ans || roottoleaf(root.left, subsum)
+    }
+    if (root.right != null) {
+      ans = ans || roottoleaf(root.right, subsum)
+    }
+    return ans
+  }
+}
