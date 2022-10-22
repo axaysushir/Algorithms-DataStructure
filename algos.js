@@ -6646,3 +6646,9 @@ const roottoleaf = (root, target) => {
     return ans
   }
 }
+
+function rotateArr(nums, k) {
+  let a = k > nums.length ? k % nums.length : k;
+  let shifted = nums.splice(nums.length - k)
+  nums.unshift(...shifted)
+}
