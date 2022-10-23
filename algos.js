@@ -6652,3 +6652,15 @@ function rotateArr(nums, k) {
   let shifted = nums.splice(nums.length - k)
   nums.unshift(...shifted)
 }
+
+function sortedarrTobst(nums) {
+  const buildtree = (left,right) => {
+    if (left > right) return null
+    let mid = Math.floor((left+right) /2)
+    let newnode = TreeNode(nums[mid])
+    newNode.left = buildTree(left, mid-1)
+    newNode.right = buildTree(mid+1, right)
+    return newNode
+  }
+  return buildTree(0, nums.length-1)
+}
