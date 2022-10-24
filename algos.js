@@ -6664,3 +6664,8 @@ function sortedarrTobst(nums) {
   }
   return buildTree(0, nums.length-1)
 }
+
+function angleofClock(hour, min) {
+  let ang = Math.abs((hour*30) + (minute*0.5) - minute *6)
+  return ang > 180 ? 360 - ang : ang
+}
