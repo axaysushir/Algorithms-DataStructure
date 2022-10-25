@@ -6669,3 +6669,24 @@ function angleofClock(hour, min) {
   let ang = Math.abs((hour*30) + (minute*0.5) - minute *6)
   return ang > 180 ? 360 - ang : ang
 }
+
+const findconcat = words => {
+  const set = new Set(words)
+  const helper = (word, nums=0) => {
+    if (!word) return num > 1
+    let temp = ''
+    for (let i=0; i<word.length; i++) {
+      temp += word[i]
+      if (set.has(temp)) {
+        let sub = word.substr(i+1)
+        if (helper(sub, num+1)) return true
+      }
+    }
+    return false
+  }
+  const ans = []
+  words.forEach(w => {
+    if (helper(w)) ans.push(w)
+  })
+  return ans
+}
