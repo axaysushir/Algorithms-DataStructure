@@ -6690,3 +6690,4 @@ const findconcat = words => {
   })
   return ans
 }
+console.log(findconcat())
