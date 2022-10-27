@@ -6691,3 +6691,14 @@ const findconcat = words => {
   return ans
 }
 console.log(findconcat())
+
+function convertToTitle(n) {
+  var alphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  var m, result = []
+  while (n > 0) {
+    m = (n-1) % 26
+    n = (n-1-m) / 26
+    res.unshift(alphabets[m])
+  }
+  return res.join('')
+}
