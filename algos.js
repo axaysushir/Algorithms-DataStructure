@@ -6703,7 +6703,7 @@ function convertToTitle(n) {
   return res.join('')
 }
 
-let count = n => {
+let countPrimes = n => {
   let prime = new Array(n+1).fill(1)
   for (let i=2; i<=n; i++) {
     if (prime[i] == 1) count++
