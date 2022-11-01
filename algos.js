@@ -6732,7 +6732,7 @@ function deldupli(head) {
   pre.next = head;
   let node = pre
 
-  while (node.mext && node.next.next) {
+  while (node.next && node.next.next) {
     if (node.next.val == node.next.next.val) {
       let val = node.next.val
       while (node.next && node.next.val == val) {

@@ -3170,3 +3170,33 @@ def tohex(n):
         for i in range(0, l):
             print(x[i], end=' ')
 print(tohex(1234))
+
+class Solution:
+    def __init__(self):
+        self.trie = None
+    
+    def build(self, words):
+        self.trie = Node({}, False)
+        for word in words:
+            cur = self.trie
+            for char in word:
+                if not char in cur.children:
+                    cur.children[char] = Node({}, False)
+                cur = cur.children[char]
+            cur.isWord = True
+    
+    def autocomplete(self. pre) :
+        cur = self.trie
+        for char in pre:
+            if not char in cur.children:
+                return []
+            cur = cur.children[char]
+        return self.findword(cur, pre)
+    
+    def findword(self, node, pre):
+        words = []
+        if node.isword:
+            words += [pre]
+        for char in node.children:
+            words += self.findword(node.children[char], pre+char)
+        return words
