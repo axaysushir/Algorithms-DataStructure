@@ -3200,3 +3200,5 @@ class Solution:
         for char in node.children:
             words += self.findword(node.children[char], pre+char)
         return words
+Slolution().build(['do', 'cat', 'dog'])
+print(s.autocomplete('c'))
