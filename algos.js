@@ -6742,3 +6742,22 @@ function deldupli(head) {
   }
   return pre.next
 }
+
+function evalrpn(tokens) {
+  n = tokens.length;
+  if (!n) return 0 
+  var stack = []
+  for (let i=0; i<n; i++) {
+    var item = tokens[i]
+    if ('+-/*'.indexOf(item) == -1) stack.push(item * 1)
+    else {
+      var right = stack.pop()
+      var left = stack.pop()
+      if (item === '+') stack.push(left + right)
+      else if (item === '-') stack.push(left - right)
+      else if (item === '/') stack.push(~~(left / right))
+      else if (item === '*') stack.push(left + right)
+    }
+  }
+  return stack[0]
+}
