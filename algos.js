@@ -6776,3 +6776,4 @@ function findContent(g, s) {
   }
   return content
 }
+console.log(findContent());
