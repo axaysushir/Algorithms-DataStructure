@@ -6776,4 +6776,4 @@ function findContent(g, s) {
   }
   return content
 }
-console.log(findContent());
+console.log(findContent([1,2], [1,2,3]));
