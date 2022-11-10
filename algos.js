@@ -6777,3 +6777,24 @@ function findContent(g, s) {
   return content
 }
 console.log(findContent([1,2], [1,2,3]));
+
+function exist(board, word) {
+  let m = board.length, n = board[0].length;
+  if (!m || !n) return false;
+  const dfs = (i, j, idx) => {
+    if (i <0 || i>=m || j<0 || j>=n || board[i][j] !== word[idx]) return false
+    if (idx === word.length - 1) return true
+    let tmp = board[i][j]
+    board[i][j] = '#'
+    if (dfs(i, i+1, idx+1) || dfs(i, j-1, idx+1) || dfs(i+1, j, idx+1) || dfs(i-1, j, idx+1))
+      return true
+    board[i][j] = tmp
+    return false
+  }
+  for (let i=0; i<m; i++) {
+    for (let j=0; j<n; j++) {
+      if (dfs(i,j,0)) return true
+    }
+  }
+  return false
+}
