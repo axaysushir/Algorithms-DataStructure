@@ -6786,7 +6786,7 @@ function exist(board, word) {
     if (idx === word.length - 1) return true
     let tmp = board[i][j]
     board[i][j] = '#'
-    if (dfs(i, i+1, idx+1) || dfs(i, j-1, idx+1) || dfs(i+1, j, idx+1) || dfs(i-1, j, idx+1))
+    if (dfs(i,j+1, idx+1) || dfs(i, j-1, idx+1) || dfs(i+1, j, idx+1) || dfs(i-1, j, idx+1))
       return true
     board[i][j] = tmp
     return false
