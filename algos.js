@@ -6798,3 +6798,4 @@ function exist(board, word) {
   }
   return false
 }
+console.log(exist(board, 'FALL'));
