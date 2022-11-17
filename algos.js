@@ -6798,7 +6798,7 @@ function exist(board, word) {
   }
   return false
 }
-console.log(exist(board, 'FALL'));
+
 
 function addBinary(a,b) {
   let i = a.length - 1
@@ -6816,3 +6816,4 @@ function addBinary(a,b) {
   if (carry != 0) res+= 1
   return res
 }
+cons
