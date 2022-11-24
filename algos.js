@@ -6816,4 +6816,4 @@ function addBinary(a,b) {
   if (carry != 0) res+= 1
   return res
 }
-cons
+console.log(addBinary('101', '11011'))
