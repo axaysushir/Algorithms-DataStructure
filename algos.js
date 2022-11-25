@@ -6817,3 +6817,12 @@ function addBinary(a,b) {
   return res
 }
 console.log(addBinary('101', '11011'))
+
+function invbst(root) {
+  if (!root) return null
+  let left = invbst(root.left)
+  let right = invbst(root.right)
+  root.left = right
+  root.right = left
+  return root
+}
