@@ -6826,3 +6826,14 @@ function invbst(root) {
   root.right = left
   return root
 }
+
+function ivtree(root) {
+  let stack = [root]
+  while (stack.length) {
+    let n = stack.pop()
+    if (!n) continue
+    [n.left, n.right] = [n.right, n.left]
+    stack.push(n.left, n.right)
+  }
+  return root
+}
