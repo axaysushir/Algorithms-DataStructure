@@ -6837,3 +6837,15 @@ function ivtree(root) {
   }
   return root
 }
+
+function invtree(root) {
+  const que = [root]
+  while (que.length) {
+    let n = que.shift()
+    if (n != null) {
+      [n.left, n.right] = [n.left, n.right]
+      que.push(n.left, n.right)
+    }
+  }
+  return root
+}
