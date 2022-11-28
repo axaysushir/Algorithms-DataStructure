@@ -6849,3 +6849,17 @@ function invtree(root) {
   }
   return root
 }
+
+function validpar(s) {
+  if (s == null || s.length == 0) return true
+  let char = s.split('')
+  let stack = []
+  for (let c of char) {
+    if (c == '[') stack.push()
+    else if (c == '{') stack.push('}')
+    else if (c == '(') stack.push(')')
+    else if (s.length == 0 || c !== stack.pop()) return false
+  }
+  if (stack.length == 0) return true
+  return false
+}
