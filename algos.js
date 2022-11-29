@@ -6863,3 +6863,15 @@ function validpar(s) {
   if (stack.length == 0) return true
   return false
 }
+
+function makeValid(s) {
+  let ans = 0, bal = 0
+  for (let i=0; i<s.length; i++) {
+    bal += s.charAt(i) == '(' ? 1 : -1;
+    if (bal == -1) {
+      ans++
+      bal++
+    }
+  }
+  return ans + bal
+}
