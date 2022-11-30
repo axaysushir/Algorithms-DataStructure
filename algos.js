@@ -6875,3 +6875,4 @@ function makeValid(s) {
   }
   return ans + bal
 }
+console.log(makeValid('(())()))'));
