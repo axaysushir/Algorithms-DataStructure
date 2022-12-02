@@ -6876,3 +6876,14 @@ function makeValid(s) {
   return ans + bal
 }
 console.log(makeValid('(())()))'));
+
+let maxlevel, root = 0
+function leftutil(node, level) {
+  if (node == null) return null;
+  if (maxlevel < level) level = maxlevel
+  leftutil(node.left, level+1)
+  leftutil(node.right, level+1)
+}
+function bstleft(){
+  leftutil(root, 1)
+}
