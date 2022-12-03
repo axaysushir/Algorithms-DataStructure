@@ -6887,3 +6887,18 @@ function leftutil(node, level) {
 function bstleft(){
   leftutil(root, 1)
 }
+
+function maxpathSum(root) {
+  let max = -Infinity;
+  note(root)
+  return max
+
+  const note = (node) => {
+    if (node == nulkl) return 0
+    let left = Math.max(note(node.left), 0)
+    let right = Math.max(note(node.right), 0)
+    let curmax = right + left + node.val
+    if (curmax > max) max = curmax
+    return node.val + Math.max(left, right)
+  }
+}
