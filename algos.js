@@ -6894,11 +6894,44 @@ function maxpathSum(root) {
   return max
 
   const note = (node) => {
-    if (node == nulkl) return 0
+    if (node == null) return 0
     let left = Math.max(note(node.left), 0)
     let right = Math.max(note(node.right), 0)
     let curmax = right + left + node.val
     if (curmax > max) max = curmax
     return node.val + Math.max(left, right)
   }
+}
+
+function order(words) {
+  let map = {}
+  for (let i=1; i<words.length; i++) {
+    let pre = words[i-1], cur = words[i], shortest = Math.min(pre.length, cur.length)
+    for (let j=0; j<shortest; j++) {
+      if (pre[j] !== cur[j]) {
+        if (map[pre[j]]) {
+          map[pre[j]].push(cur[j])
+        } else {
+          map[pre[j]] = [cur[j]]
+        }
+        break
+      }
+    }
+  }
+
+  const visited = new Set()
+  const sorted= []
+  for (vertex in map) {
+    if (visited.has(vertex)) continue
+    topo(vertex)
+  }
+  function topo(vertex) {
+    visited.add(vertex)
+    for (let adj of map[vertex] || []) {
+      if (visited.has(adj)) continue
+      topo(adj)
+    }
+    sorted.unshift(vertex)
+  }
+  return sorted
 }
