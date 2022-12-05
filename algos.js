@@ -6923,9 +6923,9 @@ function order(words) {
   const sorted= []
   for (vertex in map) {
     if (visited.has(vertex)) continue
-    topo(vertex)
+    topological(vertex)
   }
-  function topo(vertex) {
+  function topological(vertex) {
     visited.add(vertex)
     for (let adj of map[vertex] || []) {
       if (visited.has(adj)) continue
