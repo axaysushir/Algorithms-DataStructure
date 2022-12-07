@@ -6935,4 +6935,4 @@ function order(words) {
   }
   return sorted
 }
-console.log(order(['wrt', 'wrf']));
+console.log(order(['wrt', 'wrf', 'er', 'att', 'rtff']));
