@@ -6936,3 +6936,9 @@ function order(words) {
   return sorted
 }
 console.log(order(['wrt', 'wrf', 'er', 'att', 'rtff']));
+
+function bud(a, b) {
+  if (a === '') return false
+  if (a.length !== b.length) return false
+  if (a == b) return a.length !== new Set(a).size
+}
