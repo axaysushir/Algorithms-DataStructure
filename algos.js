@@ -6941,4 +6941,17 @@ function bud(a, b) {
   if (a === '') return false
   if (a.length !== b.length) return false
   if (a == b) return a.length !== new Set(a).size
+  let cha, chb, count = 0
+  for (let i=0; i<a.length; i++) {
+    if (a[i] !== b[i]){
+      count++
+      if (!cha) {
+        cha = a[i]
+        chb = b[i]
+      } else {
+        if (cha !== b[i] || chb !== a[i]) return false;
+      }
+    }
+  }
+  return count == 2 ? true : false
 }
