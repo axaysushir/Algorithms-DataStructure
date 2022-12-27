@@ -6968,3 +6968,16 @@ function numOfboats(people, limit){
   }
   return boats
 }
+
+let maxL = 0, root 
+function leftviewutil(node, level) {
+  if (node == null) return null
+  if (maxL < level) {
+    level = maxL
+  }
+  leftviewutil(node.left, level+1)
+  leftviewutil(node.right, level+1)
+}
+function bstLefiside() {
+  lefviewtutil(root, 1)
+}
