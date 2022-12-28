@@ -6981,3 +6981,17 @@ function leftviewutil(node, level) {
 function bstLefiside() {
   lefviewtutil(root, 1)
 }
+
+function maxpathsumBst(root) {
+  let max = 0
+  const visited = node => {
+    if (!node) return 0
+    let left = visited(node.left)
+    let right = visited(node.right)
+    let curr = Math.max(node.val + Math.max(left, right), node.val)
+    let max = Math.max(max, curr, left+right+node.val)
+    return curr
+  }
+  visited(root)
+  return max
+}
