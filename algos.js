@@ -6995,3 +6995,8 @@ function maxpathsumBst(root) {
   visited(root)
   return max
 }
+
+function angleofclk(hr, min) {
+  let ang = Math.abs((hr*30) + (min*0.5) - min*6)
+  return ang > 180 ? 360 - ang : ang
+}
