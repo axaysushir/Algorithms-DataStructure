@@ -7000,3 +7000,16 @@ function angleofclk(hr, min) {
   let ang = Math.abs((hr*30) + (min*0.5) - min*6)
   return ang > 180 ? 360 - ang : ang
 }
+
+function TitletoNum(cols) {
+  const alphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  let res = 0
+  const getNumeric = str => {
+    if (str.length > 1) {
+      getNumeric(str.slice(1))
+    }
+    res += (alphabets.indexOf(str[0]+1)) * (Math.power(26, str.length-1))
+  }
+  getNumeric(cols)
+  return res
+}
