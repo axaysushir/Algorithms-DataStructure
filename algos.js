@@ -7001,8 +7001,8 @@ function angleofclk(hr, min) {
   return ang > 180 ? 360 - ang : ang
 }
 
+const alphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 function TitletoNum(cols) {
-  const alphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
   let res = 0
   const getNumeric = str => {
     if (str.length > 1) {
@@ -7012,4 +7012,14 @@ function TitletoNum(cols) {
   }
   getNumeric(cols)
   return res
+}
+
+function getTitle(n) {
+  var m , res = []
+  while (n > 0) {
+    m = (n-1) % 26
+    n = (n-1-m) / 26
+    res.unshift(alphabets[m])
+  }
+  return res.join('')
 }
