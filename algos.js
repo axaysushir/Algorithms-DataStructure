@@ -7023,3 +7023,29 @@ function getTitle(n) {
   }
   return res.join('')
 }
+
+function concatwords(words) {
+  var dict = new Set(words)
+  const res = []
+
+  const isCocat = (word) => {
+    if (dict.has(word)) return true
+    for (let i=0; i<word.length; i++) {
+      let pre = word.slice(0, i+1)
+      if (dict.has(pre)) {
+        let suf = word.slice(0, i+1)
+        let res = isCocat(suf)
+        if (res) {
+          dict.add(word)
+          return true
+        }
+      }
+    }
+    return false
+  }
+  for (var word of words) {
+    dict.delete(word)
+    if (isConcat(word)) res.push(word)
+    dict.add(word)
+  }
+}
