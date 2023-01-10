@@ -7048,4 +7048,5 @@ function concatwords(words) {
     if (isConcat(word)) res.push(word)
     dict.add(word)
   }
+  return res
 }
