@@ -7059,3 +7059,12 @@ function consecutive(n) {
   }
   return count
 }
+
+function maxSubarr(nums) {
+  let maxcur = nums[0], maxglo = nums[0]
+  for (let i=1; i<nums.length; i++) {
+    maxcur = Math.max(nums[i], maxcur + nums[i])
+    if (maxcur > maxglo) maxglo = maxcur
+  }
+  return maxglo
+}
