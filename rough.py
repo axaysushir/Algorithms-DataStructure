@@ -3202,3 +3202,11 @@ class Solution:
         return words
 Slolution().build(['do', 'cat', 'dog'])
 print(s.autocomplete('c'))
+
+def rotate(nums, k):
+    k %= len(nums)
+    for _  in range(k):
+        prev = nums[-1]
+        for j in range(len(nums)):
+            nums[j], prev = prev, nums[j]
+    return nums
