@@ -7069,7 +7069,7 @@ function maxSubarr(nums) {
   return maxglo
 }
 
-function subarr(nums, k) {
+function subarrsum(nums, k) {
   let count = 0, sum = 0, map = new Map()
   map.set(0, 1)
   for (let i=0; i<nums.length; i++) {
