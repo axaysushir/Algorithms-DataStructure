@@ -7081,3 +7081,9 @@ function subarrsum(nums, k) {
   }
   return count
 }
+
+function rotatearr(nums, k) {
+  let a = k > nums.length ? k % nums.length : k
+  let shifted = nums.splice(nums.length - a)
+  nums.unshift(...shifted)
+}
