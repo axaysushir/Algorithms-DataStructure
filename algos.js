@@ -7087,3 +7087,7 @@ function rotatearr(nums, k) {
   let shifted = nums.splice(nums.length - a)
   nums.unshift(...shifted)
 }
+
+function rotateStr(a,b) {
+  return a.legnth === b.length && (a+a).includes(b)
+}
