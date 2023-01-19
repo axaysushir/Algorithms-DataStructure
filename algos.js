@@ -7091,3 +7091,14 @@ function rotatearr(nums, k) {
 function rotateStr(a,b) {
   return a.legnth === b.length && (a+a).includes(b)
 }
+
+const rotateString = (a,b) => {
+  if (a.length == 0 && b.length == 0) return true
+  let n = a.length, tmp = a.split('')
+  for (let i=1; i<=n; i++) {
+    tmp.push(tmp[0])
+    tmp.shift()
+    if(tmp.join('') == b) return true
+  }
+  return false
+} 
