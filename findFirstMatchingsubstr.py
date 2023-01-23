@@ -6,3 +6,10 @@ for i in arr:
     if i.find('no baseline found') != -1:
         print(i)
         break
+
+# get date from string
+for line in f:
+    datetime_str_list = line.split(" - ")
+    if len(datetime_str_list) >= 1:
+        try:
+            actual_date = datetime.strptime(datetime_str_list[0].strip(), "%Y-%b-%d %H:%M:%S")
