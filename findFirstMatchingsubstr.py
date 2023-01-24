@@ -13,3 +13,7 @@ for line in f:
     if len(datetime_str_list) >= 1:
         try:
             actual_date = datetime.strptime(datetime_str_list[0].strip(), "%Y-%b-%d %H:%M:%S")
+
+# how to color text in python
+print("Red: \033[91m Hello World\033[0m")
+print("Green: \033[92m Hello World\033[0m")
