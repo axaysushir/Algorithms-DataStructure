@@ -7102,3 +7102,14 @@ const rotateString = (a,b) => {
   }
   return false
 } 
+
+function shiftedstr(a,b) {
+  if (a.length !== b.length) return false
+  if (!a && !b) return true
+  for (let i=0; i<a.length; i++) {
+    if (a.charAt(i) === b.charAt(0)) {
+      if (a.slice(i) + a.slice(0, i) === b) return true
+    }
+  }
+  return false
+}
