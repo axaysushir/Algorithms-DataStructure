@@ -3210,3 +3210,30 @@ def rotate(nums, k):
         for j in range(len(nums)):
             nums[j], prev = prev, nums[j]
     return nums
+
+def rotLL(head:None, K):
+    if not head or not head.next or k = 0:
+        return head
+
+    tail = head
+    count = 1
+    while tail.next:
+        tail = tail.next
+        count += 1
+    
+    k = k%count
+    if k == 0:
+        return head
+    
+    tail.next = head
+    breakAt = 1
+    pointer = head
+    while breakAt != count -k:
+        pointer = pointer.next
+        breakAt += 1
+    
+    head = pointer.next
+    pointer.next = None
+    return head
+
+llist = [Node(1, Node(2, Node(3, Node(4))))]
