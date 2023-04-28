@@ -7114,5 +7114,19 @@ function shiftedstr(a,b) {
   return false
 }
 
-
+let s = "()[{]}";
+function isValidParenthesis(s) {
+  if (s == null || s.length == 0) return false
+  let arr = s.split('')
+  let stack = []
+  for (let c of arr) {
+    if (c === '[') stack.push(']')
+    else if (c === '{') stack.push('}')
+    else if (c === '(') stack.push(')')
+    else if (s.lenght == 0 || c !== stack.pop()) return false
+  }
+  if (stack.length == 0) return true
+  return false
+}
+console.log(isValid(s));
 
