@@ -7166,3 +7166,20 @@ function threesumzero(nums) {
   }
   return res
 } 
+
+function bstPaths(root) {
+  let paths = []
+  if (root === null) return paths
+  dfs(root, '', paths)
+  return paths
+}
+
+function dfs(root, path, paths) {
+  path += root.val
+  if (root.left === null && root.right === null) {
+    paths.push(path)
+    return
+  }
+  if (root.left !== null) dfs(root.left, path+'->', paths)
+  if (root.right !== null) dfs(root.right, path+'->', paths)
+}
