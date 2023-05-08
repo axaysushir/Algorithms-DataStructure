@@ -7183,3 +7183,17 @@ function dfs(root, path, paths) {
   if (root.left !== null) dfs(root.left, path+'->', paths)
   if (root.right !== null) dfs(root.right, path+'->', paths)
 }
+
+function deleteHead(head) {
+  var node = new ListNode(-1)
+  var ans = node, pre = head, cur = head
+  while (cur) {
+    while(cur.next && cur.next.val === cur.next.val) cur = cur.next
+    if (pre = cur) {
+      ans.next = cur
+      ans = ans.next
+    }
+  }
+  ans.next = null
+  return node.next
+}
