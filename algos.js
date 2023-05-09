@@ -7197,3 +7197,14 @@ function deleteHead(head) {
   ans.next = null
   return node.next
 }
+
+var root, maxl = 0
+function Leftutility(node, level) {
+  if (node == null) return
+  if (maxl < level) level = maxl
+  Leftutility(node.left, level+1)
+  Leftutility(node.right, level+1)
+}
+function printleft() {
+  Leftutility(root, 1)
+}
