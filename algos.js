@@ -7208,3 +7208,27 @@ function Leftutility(node, level) {
 function printleft() {
   Leftutility(root, 1)
 }
+
+function searchRangearr(nums, target) {
+  let low = 0, hight = nums.length-1, mid, left =-1, right = -1
+  while (low <= high) {
+    mid = Math.floor((low+high)/2)
+    if (nums[mid] === target) {
+      left = mid 
+      high = mid - 1
+    } else if(nums[mid] > target) hight = mid -1
+    else low = mid + 1
+  }
+  low = 0
+  high = nums.length - 1
+  while (low <= high) {
+    mid = Math.floor((low + high)/2)
+    if (nums[mid] === target) {
+      right = mid
+      low = mid + 1
+    } else if(nums[mid] > target) {
+      high = mid-1
+    } else low = mid + 1
+  }
+  return [left, right]
+}
