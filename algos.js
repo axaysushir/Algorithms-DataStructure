@@ -7232,3 +7232,9 @@ function searchRangearr(nums, target) {
   }
   return [left, right]
 }
+
+function rotateArrk(nums, k) {
+  let a = k > nums.length ? k % nums.length: k;
+  let shifted = nums.splice(nums.length - a)
+  nums.unshift(...shifted)
+}
