@@ -7238,3 +7238,17 @@ function rotateArrk(nums, k) {
   let shifted = nums.splice(nums.length - a)
   nums.unshift(...shifted)
 }
+
+function sortUniq(arr) {
+  var mid = 2, i=0, j=0, n=arr.length-1
+  while (j <= n) {
+    if (arr[j] < mid) {
+      [arr[i], arr[j]] = [arr[j], arr[i]]
+      i++
+      j++
+    } else if (arr[j] > mid) {
+      [arr[n], arr[j]] = [arr[j], arr[n]]
+      n--
+    } else j++
+  }
+}
