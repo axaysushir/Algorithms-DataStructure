@@ -7252,3 +7252,8 @@ function sortUniq(arr) {
     } else j++
   }
 }
+
+function clockangle(hr, min) {
+  let angle = Math.abs((hr *30) + (min*05) - min * 6)
+  return angle > 180 ? 360 - angle : angle
+}
