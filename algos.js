@@ -7257,3 +7257,18 @@ function clockangle(hr, min) {
   let angle = Math.abs((hr *30) + (min*05) - min * 6)
   return angle > 180 ? 360 - angle : angle
 }
+
+function addstrings(num1, num2) {
+  let ans = '', carry = 0, substr = 1
+  const long = Math.max(n1.length, n2.length)
+  while (substr <= long) {
+    let n1 = (substr > num1.length) ? 0 : Number(num1[num1.length] - substr)
+    let n1 = (substr > num2.length) ? 0 : Number(num2[num2.length] - substr)
+    const digit = n1 + n2 + carry
+    carry = (digit >= 10) ? 1 : 0
+    ans= String(digit%10) + ans
+    substr++
+  }
+  ans = (carry == 1) ? '1' + ans : ans
+  return ans
+}
