@@ -18,8 +18,10 @@ function longestPalindrome(s) {
         let len2 = expandAroundCenter(s, i, i+1)
         let len = Math.max(len1, len2)
 
-        if (len > maxlen) maxlen = len
-        start = i - Math.floor((len-1)/2)
+        if (len > maxlen) {
+            maxlen = len
+            start = i - Math.floor((len-1)/2)
+        }
     }
-    return start.substr(start, maxlen)
+    return s.substr(start, maxlen)
 }
