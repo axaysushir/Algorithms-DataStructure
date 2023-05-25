@@ -7272,3 +7272,16 @@ function addstrings(num1, num2) {
   ans = (carry == 1) ? '1' + ans : ans
   return ans
 }
+
+function longestCommon(s) {
+  let prrfix = ''
+  if (str.length == 0) return prefix
+  for (let i=0; i<str[0].length; i++) {
+    let char = str[0][i]
+    for (let j=0; j<str.length; j++) {
+      if (str[j][i] !== char) return prefix
+    }
+    prefix = prefix + char
+  }
+  return prefix
+}
