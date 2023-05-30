@@ -7300,3 +7300,8 @@ function lis(nums) {
   }
   return max
 }
+
+function lengthoflw(str) {
+  let arr = s.split(' ')
+  return arr.filter(x => x != '').pop().length
+}
