@@ -7309,9 +7309,9 @@ function lengthoflw(str) {
 function lenofLstr(s) {
   let res = 0, tmp = []
   for (let c of s) {
-    let idx = tmp.indexOf(c)
-    if (idx > -1) {
-      tmp = tmp.slice(idx + 1)
+    let index = tmp.indexOf(c)
+    if (index > -1) {
+      tmp = tmp.slice(index + 1)
     }
     tmp.push(c)
     if (tmp.length > res) res = tmp.length
