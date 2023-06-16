@@ -7318,3 +7318,13 @@ function lenofLstr(s) {
   }
   return res
 }
+
+function hasllcycle(head) {
+  let seen = new Set()
+  while (head !== null) {
+    if (seen.has(head)) return true
+    else seen.add(head)
+    head = head.next
+  }
+  return false
+}
