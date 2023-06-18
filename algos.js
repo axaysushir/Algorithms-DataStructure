@@ -7341,5 +7341,5 @@ function zigzag(s, numrows) {
     else if(row == 0) down = true
     down ? row++ : row--
   }
-  return [].concat.apply([], arr).join('')
+  return  [].concat.apply([], arr).join('')
 }
