@@ -1,0 +1,20 @@
+How to test?
+using axe-core or axe-pupeteer
+import axe-pupeteer
+import pupeteer
+
+await page.goto(url, { waitUntil: waitUntilType, timeout: 0 });
+const accessibilityResults = await new AxePuppeteer(page).analyze();
+console.log(accessibilityResults?.violations);
+
+// Save the results to a file
+const pathname = new URL(url).pathname;
+const fileName = pathname.split('/').pop();
+const resultFileName = `${fileName}-accessibility-results.json`;
+const directoryPath = '../results';
+if (!fs.existsSync(directoryPath)) {
+    fs.mkdirSync(directoryPath);
+}
+const filePath = path.join(directoryPath, resultFileName);
+fs.writeFileSync(filePath, JSON.stringify(accessibilityResults, null, 2));
+console.log(`Accessibility results for ${url} saved to ${fileName}`);
