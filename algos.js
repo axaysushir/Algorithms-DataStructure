@@ -7329,17 +7329,17 @@ function hasllcycle(head) {
   return false
 }
 
-function zigzag(s, numrows) {
-  if (s.length == 0 || numsrows < 1) return s
+function zigzags(s, numrows) {
+  if (s.length == 0 || numrows < 1) return s
   let arr = new Array(numrows)
   for (let i=0; i<numrows; i++) arr[i] = []
   let row = 0, skip = row, down
   for (let i=0; i<s.length; i++) {
-    let currchar = s[i]
-    if (currchar !== '') arr[row].push(s[i])
+    let curr = s[i]
+    if (curr !== '') arr[row].push(s[i])
     if (row == numrows - 1) down = false
-    else if(row == 0) down = true
+    else if (row == 0) down = true
     down ? row++ : row--
   }
-  return  [].concat.apply([], arr).join('')
+  return [].concat.apply([], arr).join('')
 }
