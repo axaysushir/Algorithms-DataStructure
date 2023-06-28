@@ -7343,3 +7343,13 @@ function zigzags(s, numrows) {
   }
   return [].concat.apply([], arr).join('')
 }
+
+function simplify(path) {
+  var start = []
+  path = path.split('/').filter(file => file.length && file != '.')
+  for (let file of path) {
+    if (file == '..') start.pop()
+    else start.push(file)
+  }
+  return '/' + start.join('/')
+}
