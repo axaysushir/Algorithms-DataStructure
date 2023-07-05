@@ -7364,3 +7364,20 @@ function hasll(head) {
   }
   return true
 }
+
+function rpn(tokens) {
+  let n = tokens.length, stack = []
+  if (!n) return 0
+  for (let i=0; i<n; i++) {
+    let item = tokens[i]
+    if ('+-/*'.indexOf(item) === -1) stack.push(item*1)
+    else {
+      let right = stack.pop(), left = stack.pop()
+      if (item === '+') stack.push(left+right)
+      else if (item === '-') stack.push(left-right)
+      else if (item === '/') stack.push(~~(left/right))
+      else if (item === '*') stack.push(left *right)
+    }
+  }
+  return stack[0]
+}
