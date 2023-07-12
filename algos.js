@@ -7381,3 +7381,7 @@ function rpn(tokens) {
   }
   return stack[0]
 }
+
+function camelCase(s) {
+  return s.split(/(?A-Z))
+}
